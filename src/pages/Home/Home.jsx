@@ -11,6 +11,7 @@ export function Home() {
     return (
         <section className="home">
             <h1>welcome user</h1>
+            {/* <img src="../../assets/1.jpeg"/> */}
         </section>
     );
 }

@@ -7,6 +7,10 @@ header {
             list-style: none;
             a{
                 color: whitesmoke;
+               text-transform: capitalize;
+            }
+            a:hover{
+                color: goldenrod;
             }
         }
     }

@@ -1,5 +1,6 @@
 export const itemService = {
     getItems,
+    removeItem
 }
 
 
@@ -51,6 +52,17 @@ function getItems(filterBy = null) {
     })
 }
 
+
+function removeItem(id) {
+    return new Promise((resolve, reject) => {
+        const index = items.findIndex(item => item._id === id)
+        if (index !== -1) {
+            items.splice(index, 1)
+        }
+
+        resolve(items)
+    })
+}
 
 
 

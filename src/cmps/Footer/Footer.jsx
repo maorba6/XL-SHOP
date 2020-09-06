@@ -10,7 +10,7 @@ export function Footer() {
 
     return (
         <footer>
-            <h1>foot</h1>
+            <h1>footer</h1>
         </footer>
     );
 }

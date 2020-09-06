@@ -3,7 +3,7 @@ import { itemService } from "../services/itemService"
 // Action Creator
 // const _setItem = (item) => ({ type: 'SET_ITEM', item })
 const _setItems = (items) => ({ type: 'SET_ITEMS', items })
-// const _removeItem = (id) => ({ type: 'REMOVE_ITEM', id })
+const _removeItem = (id) => ({ type: 'REMOVE_ITEM', id })
 // const _addItem = (item) => ({ type: 'ADD_ITEM', item })
 // const _updateItem = (item) => ({ type: 'UPDATE_ITEM', item })
 
@@ -15,11 +15,11 @@ export function loadItems() {
     }
 }
 
-// export function removeItem(id) {
-//     return dispatch => {
-//         return itemService.deleteItem(id).then(() => dispatch(_removeItem(id)))
-//     }
-// }
+export function removeItem(id) {
+    return dispatch => {
+        return itemService.removeItem(id).then(() => dispatch(_removeItem(id)))
+    }
+}
 
 // export function loadItem(id) {
 //     return async dispatch => {

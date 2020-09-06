@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+
 }
 
 a {
@@ -8,11 +10,20 @@ a {
 
 body {
   font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
-  margin: 0;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
 }
 
 .app-container{
   width: 1200px;
+  align-self: center;
+  border-right:1px solid black;
+  border-left:1px solid black;
+  // display: flex;
+  // justify-content: center;
 }
 
 button {

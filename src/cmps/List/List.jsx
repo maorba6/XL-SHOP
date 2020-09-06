@@ -1,18 +1,24 @@
 import React, { useEffect } from 'react';
 import { Preview } from '../Preview/Preview'
 import './List.scss'
-export function List() {
+export function List(props) {
     useEffect(() => {
-        console.log('created');
+        console.log(props.items);
         return () => {
             console.log('dead');
         }
     }, [])
+    const { items } = props
 
     return (
         <section>
-            <h1>list</h1>
-            <Preview></Preview>
+            < div className="item-list">
+                {
+                    items.map(item =>
+                        < Preview key={item._id} item={item} />
+                    )
+                }
+            </div >
         </section>
     );
 }

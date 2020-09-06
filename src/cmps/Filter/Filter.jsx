@@ -11,7 +11,6 @@ export function Filter() {
 
     return (
         <div className="filter">
-
             <span>search</span>
             <input type="text" placeholder="search" />
 

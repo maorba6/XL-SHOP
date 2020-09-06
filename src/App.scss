@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+  margin: 0;
+}
+
+
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+// setup
+@import './scss/setup/_variables.scss';
+@import './scss/setup/_functions.scss';
+@import './scss/setup/_mixin.scss';
+@import './scss/setup/_typography.scss';
+
+
+// basics
+@import './scss/basics/_helpers.scss';
+@import './scss/basics/_layout.scss';
+@import './scss/basics/_buttons.scss';
+@import './scss/basics/_links.scss';
+@import './scss/basics/_base.scss';

@@ -1,0 +1,109 @@
+.grid {
+    display: grid;
+}
+
+//flex-helper
+.flex {
+    display: flex;
+}
+
+.white {
+    color: white
+}
+
+
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.lightblue {
+    color: #255872;
+}
+
+.coins {
+    color: #35ca35;
+}
+
+
+.align-center {
+    align-items: center;
+}
+
+.title {
+    color: #E57A44;
+    text-transform: capitalize;
+    font-size: 40px;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.center {
+    text-align: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.capi {
+    text-transform: capitalize;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.right {
+    text-align: right !important;
+}
+
+.align-self {
+    align-self: center;
+}
+
+
+
+.btn-bitcoin {
+    color: white;
+    font-size: 22px;
+    border: solid 1px #E57A44;
+    padding: 3px 5px;
+    margin-top: 5px;
+    text-align: center;
+    display: inline-block;
+    width: 270px;
+    background-color: #4C86A8;
+
+    &:hover {
+        background-color: #E57A44;
+    }
+}
+
+// media-helpers
+.square-ratio {
+    @include aspect-ratio(1, 1);
+}
+
+.video-ratio {
+    @include aspect-ratio(16, 9);
+}
+
+.poster-ratio {
+    @include aspect-ratio(1, 1.5);
+}

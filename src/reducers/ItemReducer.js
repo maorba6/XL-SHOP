@@ -26,11 +26,11 @@ export function ItemReducer(state = INITIAL_STATE, action) {
         //         ...state,
         //         items: [...state.items, action.item]
         //     }
-        // case 'REMOVE_ITEM':
-        //     return {
-        //         ...state,
-        //         items: state.items.filter(item => item._id !== action.id)
-        //     }
+        case 'REMOVE_ITEM':
+            return {
+                ...state,
+                items: state.items.filter(item => item._id !== action.id)
+            }
         // case 'UPDATE_ITEM':
         //     return {
         //         ...state,

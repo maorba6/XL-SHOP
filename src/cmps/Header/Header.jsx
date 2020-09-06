@@ -10,7 +10,8 @@ export function Header() {
     }, [])
 
     return (
-        <header>
+        <header className="header">
+            <p className="header-logo">LOGO</p>
             <ul className="flex">
                 <li><NavLink activeClassName='active-path' to="/" exact >Home</NavLink></li>
                 <li><NavLink to="/login" exact >login</NavLink></li>

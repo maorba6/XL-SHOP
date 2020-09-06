@@ -1,0 +1,23 @@
+header {
+    ul{
+        width: 25%;
+        justify-content: space-between;
+        margin-right: 30px;
+        li{
+            list-style: none;
+            a{
+                color: whitesmoke;
+            }
+        }
+    }
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(2, 3, 58);
+    color: whitesmoke;
+}
+
+.header-logo{
+    margin-left: 30px;
+}

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/XL-SHOP/static/css/main.5f361e03.chunk.css",
+    "main.js": "/XL-SHOP/static/js/main.729f9713.chunk.js",
+    "main.js.map": "/XL-SHOP/static/js/main.729f9713.chunk.js.map",
+    "runtime-main.js": "/XL-SHOP/static/js/runtime-main.62f6dc30.js",
+    "runtime-main.js.map": "/XL-SHOP/static/js/runtime-main.62f6dc30.js.map",
+    "static/js/2.c24a221a.chunk.js": "/XL-SHOP/static/js/2.c24a221a.chunk.js",
+    "static/js/2.c24a221a.chunk.js.map": "/XL-SHOP/static/js/2.c24a221a.chunk.js.map",
+    "index.html": "/XL-SHOP/index.html",
+    "precache-manifest.ffd863ba8c56aedefbc8f4d9086964a8.js": "/XL-SHOP/precache-manifest.ffd863ba8c56aedefbc8f4d9086964a8.js",
+    "service-worker.js": "/XL-SHOP/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/XL-SHOP/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.c24a221a.chunk.js.LICENSE.txt": "/XL-SHOP/static/js/2.c24a221a.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/XL-SHOP/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.62f6dc30.js",
+    "static/js/2.c24a221a.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.729f9713.chunk.js"
+  ]
+}

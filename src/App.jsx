@@ -5,7 +5,7 @@ import { Footer } from './cmps/Footer/Footer'
 import { Home } from './pages/Home/Home'
 import { Login } from './pages/Login/Login'
 import { Main } from './pages/Main/Main'
-
+import { ItemEdit } from './pages/itemEdit/itemEdit'
 import './App.scss';
 
 function App() {
@@ -18,6 +18,8 @@ function App() {
           <Switch>
             <Route component={Login} path="/login" />
             <Route component={Main} exact path="/main" />
+            <Route component={ItemEdit} path="/item/edit/:id" />
+            <Route component={ItemEdit} path="/item/edit" />
             {/* Best way to send props to a route: */}
             {/* <Route render={ (props) => <About { ...props } someProp="popo" /> } path="/about" /> */}
             <Route component={Home} exact path="/" />

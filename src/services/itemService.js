@@ -2,7 +2,8 @@ export const itemService = {
     getItems,
     getEmptyItem,
     removeItem,
-    saveItem
+    saveItem,
+    getItemById
 }
 
 
@@ -86,6 +87,7 @@ function _addItem(item) {
     return new Promise((resolve, reject) => {
         item._id = _makeId()
         items.push(item)
+        console.log('item:', item);
         resolve(item)
     })
 }
@@ -102,6 +104,14 @@ function getEmptyItem() {
         brand: '',
         size: ''
     }
+}
+
+
+function getItemById(id) {
+    return new Promise((resolve, reject) => {
+        const item = items.find(item => item._id === id)
+        item ? resolve(item) : reject(`item id ${id} not found!`)
+    })
 }
 
 

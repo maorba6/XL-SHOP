@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
+import trash from '../../assets/trash.png';
 import './Preview.scss'
-import trash from '../../assets/trash.png'
+
 export function Preview({ item, removeItem }) {
 
 
@@ -11,18 +13,21 @@ export function Preview({ item, removeItem }) {
     }, [])
     return (
         <div className="preview">
-            <h1>{item.type}</h1>
-            <div className="price">
-                <span>price:</span>
-                <span>${item.price}</span>
-            </div>
-            <div className="size">
-                <span>size:</span>
-                <span>{item.size}</span>
-            </div>
-            <div className="img">
-                <img src={item.imgUrl} />
-            </div>
+            <Link to={`item/${item._id}`} >
+
+                <h1>{item.type}</h1>
+                <div className="price">
+                    <span>price:</span>
+                    <span>${item.price}</span>
+                </div>
+                <div className="size">
+                    <span>size:</span>
+                    <span>{item.size}</span>
+                </div>
+                <div className="img">
+                    <img src={item.imgUrl} />
+                </div>
+            </Link>
             <img className="img-trash" onClick={() => removeItem(item._id)} src={trash} />
         </div>
     );

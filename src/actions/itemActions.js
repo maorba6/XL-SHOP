@@ -37,7 +37,7 @@ export function loadItem(id) {
 
 export function saveItem(item) {
     return async dispatch => {
-        const type = (item._id) ? '_updateItem' : 'addItem'
+        const type = (item._id) ? '_updateItem' : '_addItem'
         const savedItem = itemService.saveItem(item)
         if (type === '_updateItem') {
             dispatch(_updateItem(savedItem))

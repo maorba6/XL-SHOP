@@ -37,6 +37,8 @@ export function ItemReducer(state = INITIAL_STATE, action) {
                 items: state.items.map(item => item._id === action.item._id ? action.item : item)
             }
         default:
+            console.log(' reducer', state.items)
+
             return state
     }
 

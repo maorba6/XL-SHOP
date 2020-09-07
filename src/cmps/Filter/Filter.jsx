@@ -3,9 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './Filter.scss'
 export function Filter() {
     useEffect(() => {
-        console.log('created');
         return () => {
-            console.log('dead');
         }
     }, [])
 

@@ -1,13 +1,16 @@
 header {
     ul{
-        width: 25%;
+        width: 20%;
+        height: 100%;
         justify-content: space-between;
         margin-right: 30px;
+        align-items: center;
         li{
             list-style: none;
             a{
-                color: whitesmoke;
-               text-transform: capitalize;
+            height: 100%;
+            color: whitesmoke;
+            text-transform: capitalize;
             }
             a:hover{
                 color: goldenrod;
@@ -16,7 +19,9 @@ header {
     }
 }
 .header{
+    height: 50px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     background-color: rgb(2, 3, 58);
     color: whitesmoke;

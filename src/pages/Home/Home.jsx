@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './Home.scss'
+import img1 from '../../assets/1.jpeg'
 export function Home() {
     useEffect(() => {
         console.log('created');
@@ -11,7 +12,7 @@ export function Home() {
     return (
         <section className="home">
             <h1>welcome user</h1>
-            {/* <img src="../../assets/1.jpeg"/> */}
+            <img className="front-img" src={img1}/>
         </section>
     );
 }

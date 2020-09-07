@@ -3,9 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './Header.scss'
 export function Header() {
     useEffect(() => {
-        console.log('created');
         return () => {
-            console.log('dead');
         }
     }, [])
 

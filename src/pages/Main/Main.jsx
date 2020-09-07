@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import { List } from '../../cmps/List/List'
 import { Filter } from '../../cmps/Filter/Filter'
 import { loadItems, removeItem } from '../../actions/itemActions'
-
 import './Main.scss'
 
 class _Main extends Component {
@@ -14,16 +13,14 @@ class _Main extends Component {
     }
 
     removeItem = async (id) => {
-        console.log(id);
-
         await this.props.removeItem(id)
     }
-
 
     render() {
         const { items } = this.props
         return (
             <main >
+                <Link className="btn" to="item/edit" >   Add Item  </Link>
                 <Filter></Filter>
                 {items && <List items={items} removeItem={this.removeItem} ></List>}
             </main>

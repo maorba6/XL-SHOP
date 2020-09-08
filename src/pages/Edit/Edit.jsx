@@ -10,7 +10,6 @@ class _Edit extends Component {
         item: null
     }
     async componentDidMount() {
-        console.log('edit create');
         const { id } = this.props.match.params
         await this.props.loadItem(id)
         await this.props.loadItems()
@@ -21,7 +20,6 @@ class _Edit extends Component {
         const value = target.type === 'number' ? +target.value : target.value
         this.setState(({ item }) => ({ item: { ...item, [field]: value } }))
     }
-
 
     saveItem = async (ev) => {
         ev.preventDefault()
@@ -54,6 +52,7 @@ class _Edit extends Component {
                     <span >brand:</span>
                     <input type="text" name="brand" value={item.brand} onChange={this.handleChange} />
                 </div>
+                
                 <button>save item</button>
             </form>
         )

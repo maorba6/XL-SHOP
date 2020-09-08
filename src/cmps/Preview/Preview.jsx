@@ -12,7 +12,7 @@ export function Preview({ item, removeItem }) {
         }
     }, [])
     return (
-        <div className="preview">
+        <div className="preview flex">
             <Link to={`item/${item._id}`} >
 
                 <h1>{item.type}</h1>

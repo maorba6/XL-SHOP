@@ -11,13 +11,37 @@ const items = [
     {
         _id: "101",
         type: "shirt",
-        color: "red" | "black",
+        color: "black",
         size: "XXL",
         imgUrl: "*****",
         category: "sport",
         brand: "adidas",
         price: 22,
         discount: 12,
+        onStock: true
+    },
+    {
+        _id: "105",
+        type: "shirt",
+        color: "red",
+        size: "XL",
+        imgUrl: "*****",
+        category: "sport",
+        brand: "adidas",
+        price: 5,
+        discount: 16,
+        onStock: true
+    },
+    {
+        _id: "107",
+        type: "shirt",
+        color: "red" | "black",
+        size: "L",
+        imgUrl: "*****",
+        category: "sport",
+        brand: "nike",
+        price: 55,
+        discount: 14,
         onStock: true / false
     },
     {
@@ -30,7 +54,7 @@ const items = [
         brand: "nike",
         price: 17,
         discount: 12,
-        onStock: true / false
+        onStock: true
     },
     {
         _id: "103",
@@ -40,9 +64,33 @@ const items = [
         imgUrl: "*****",
         category: "sport",
         brand: "nike",
-        price: 76,
-        discount: 12,
-        onStock: true / false
+        price: 87,
+        discount: 17,
+        onStock: true
+    },
+    {
+        _id: "111",
+        type: "shoes",
+        color: "yellow",
+        size: "40",
+        imgUrl: "*****",
+        category: "sport",
+        brand: "nike",
+        price: 52,
+        discount: 3,
+        onStock: true
+    },
+    {
+        _id: "123",
+        type: "shoes",
+        color: "green",
+        size: "42",
+        imgUrl: "*****",
+        category: "casual",
+        brand: "adidas",
+        price: 24,
+        discount: 11,
+        onStock: false
     }
 
 ]
@@ -87,7 +135,6 @@ function _addItem(item) {
     return new Promise((resolve, reject) => {
         item._id = _makeId()
         items.push(item)
-        console.log('item:', item);
         resolve(item)
     })
 }

@@ -1,16 +1,23 @@
 import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
+import img1 from '../../assets/1.jpeg';
+import pants from '../../assets/pants.jpg';
+import shirt from '../../assets/shirt.png';
+import shoes from '../../assets/shoes.jpeg'
 import './Home.scss'
-import img1 from '../../assets/1.jpeg'
 export function Home() {
+
+    const types = [shirt, pants, shoes]
+
     useEffect(() => {
         console.log('created');
         return () => {
             console.log('dead');
         }
     }, [])
-
     return (
         <section className="home">
+<<<<<<< HEAD
             {/* <h1>welcome user</h1> */}
             {/* <img className="front-img" src={img1}/> */}
             <h2>Catagories</h2>
@@ -18,6 +25,20 @@ export function Home() {
                 Categories list (['Shirts','Pants','Big','Small']+imgs) 
                 <p>Best Sellers</p>
             </section>
+=======
+            <h1>welcome user</h1>
+            <img className="front-img" src={img1} />
+            <div className="types flex">
+                {types.map(type => {
+
+                    return <Link to={type}> <img key={type} src={type} />  </Link>
+                })}
+            </div>
+            <h3>Top Rated</h3>
+            <div className="top-items">
+             
+            </div>
+>>>>>>> a538d575e07418ea7a8edfd62d4f32b03020de64
         </section>
     );
 }

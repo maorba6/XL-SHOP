@@ -17,15 +17,6 @@ export function Home() {
     }, [])
     return (
         <section className="home">
-<<<<<<< HEAD
-            {/* <h1>welcome user</h1> */}
-            {/* <img className="front-img" src={img1}/> */}
-            <h2>Catagories</h2>
-            <section>
-                Categories list (['Shirts','Pants','Big','Small']+imgs) 
-                <p>Best Sellers</p>
-            </section>
-=======
             <h1>welcome user</h1>
             <img className="front-img" src={img1} />
             <div className="types flex">
@@ -38,7 +29,6 @@ export function Home() {
             <div className="top-items">
              
             </div>
->>>>>>> a538d575e07418ea7a8edfd62d4f32b03020de64
         </section>
     );
 }

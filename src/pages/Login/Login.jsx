@@ -9,19 +9,19 @@ export function Login() {
     }, [])
 
     return (
-        <section className="login">
-            <form action="">
+        <section className="flex signup-section">
+            <form action="" className="flex signup-form">
                 <div className="name">
-                    <span>name:</span>
-                    <input type="text" placeholder="enter name" />
+                <label>Email</label>
+                    <input type="text" placeholder="Enter eMail" />
                 </div>
                 <div className="password">
-                    <span>password:</span>
-                    <input type="text" placeholder=" enter password" />
+                <label>Password</label>
+                    <input type="text" placeholder=" Enter password" />
                 </div>
                 <div className="btns">
-                    <button>login</button>
-                    <button>signup</button>
+                    <button className="signin-button">Login</button>
+                    <button className="signin-button">Sign Up</button>
                 </div>
             </form>
 

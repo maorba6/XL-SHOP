@@ -7,13 +7,14 @@ export const itemService = {
 }
 
 
+
 const items = [
     {
         _id: "101",
         type: "shirt",
         color: "black",
         size: "XXL",
-        imgUrl: "*****",
+        imgUrl: 'https://rohan.imgix.net/product/05325N68.jpg?w=2500&auto=format&q=77',
         category: "sport",
         brand: "adidas",
         price: 22,
@@ -25,7 +26,7 @@ const items = [
         type: "shirt",
         color: "red",
         size: "XL",
-        imgUrl: "*****",
+        imgUrl: "https://rohan.imgix.net/product/05325N68.jpg?w=2500&auto=format&q=77",
         category: "sport",
         brand: "adidas",
         price: 5,
@@ -35,9 +36,9 @@ const items = [
     {
         _id: "107",
         type: "shirt",
-        color: "red" | "black",
+        color: "red",
         size: "L",
-        imgUrl: "*****",
+        imgUrl: "https://rohan.imgix.net/product/05325N68.jpg?w=2500&auto=format&q=77",
         category: "sport",
         brand: "nike",
         price: 55,
@@ -49,7 +50,7 @@ const items = [
         type: "pants",
         color: "red" | "black",
         size: "XXL",
-        imgUrl: "*****",
+        imgUrl: "https://cdn11.bigcommerce.com/s-qb5zncdqc6/images/stencil/2048x2048/products/5840/11417/womenssimplepantsblack__49371.1578586139.jpg?c=2",
         category: "casual",
         brand: "nike",
         price: 17,
@@ -61,7 +62,7 @@ const items = [
         type: "shoes",
         color: "red",
         size: "44",
-        imgUrl: "*****",
+        imgUrl: "https://images-na.ssl-images-amazon.com/images/I/61Ez19M9BZL._AC_UY1000_.jpg",
         category: "sport",
         brand: "nike",
         price: 87,
@@ -73,7 +74,7 @@ const items = [
         type: "shoes",
         color: "yellow",
         size: "40",
-        imgUrl: "*****",
+        imgUrl: "https://images-na.ssl-images-amazon.com/images/I/61Ez19M9BZL._AC_UY1000_.jpg",
         category: "sport",
         brand: "nike",
         price: 52,
@@ -85,7 +86,7 @@ const items = [
         type: "shoes",
         color: "green",
         size: "42",
-        imgUrl: "*****",
+        imgUrl: "https://images-na.ssl-images-amazon.com/images/I/61Ez19M9BZL._AC_UY1000_.jpg",
         category: "casual",
         brand: "adidas",
         price: 24,

@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
+
 import './Login.scss'
 export function Login() {
     useEffect(() => {
@@ -21,8 +23,11 @@ export function Login() {
                 </div>
                 <div className="btns">
                     <button className="signin-button">Login</button>
-                    <button className="signin-button">Sign Up</button>
                 </div>
+                <div class="no-account">
+                <p>Don’t have an account?</p>
+                <Link to="/signup">Sign Up </Link>
+                 </div>
             </form>
 
 

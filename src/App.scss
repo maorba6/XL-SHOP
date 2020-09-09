@@ -26,6 +26,17 @@ body {
   // justify-content: center;
 }
 
+
+@media (max-width:1200px) {
+.app-container{
+  width: 100%;
+}
+}
+@media (max-width:900px) {
+.app-container{
+  width: 100%;
+}
+}
 button {
   font-family: inherit;
   cursor: pointer;

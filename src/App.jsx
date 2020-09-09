@@ -4,6 +4,7 @@ import { Header } from './cmps/Header/Header'
 import { Footer } from './cmps/Footer/Footer'
 import { Home } from './pages/Home/Home'
 import { Login } from './pages/Login/Login'
+import { SignUp } from './pages/SignUp/SignUp'
 import { Main } from './pages/Main/Main'
 import { Edit } from './pages/Edit/Edit'
 import { Details } from './pages/Details/Details'
@@ -18,6 +19,7 @@ function App() {
         <div className="app-container">
           <Switch>
             <Route component={Login} path="/login" />
+            <Route component={SignUp} path="/SignUp" />
             <Route component={Main} exact path="/main" />
             <Route component={Edit} path="/item/edit/:id" />
             <Route component={Edit} path="/item/edit" />

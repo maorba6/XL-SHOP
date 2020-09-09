@@ -12,16 +12,16 @@ body {
   font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
 }
 
-.App{
+.App {
   display: flex;
   flex-direction: column;
 }
 
-.app-container{
-  width: 1200px;
+.app-container {
+  max-width: 1200px;
   align-self: center;
-  border-right:1px solid black;
-  border-left:1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
   // display: flex;
   // justify-content: center;
 }

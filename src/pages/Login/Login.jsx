@@ -24,7 +24,7 @@ export function Login() {
                 <div className="btns">
                     <button className="signin-button">Login</button>
                 </div>
-                <div class="no-account">
+                <div className="no-account">
                 <p>Don’t have an account?</p>
                 <Link to="/signup">Sign Up </Link>
                  </div>

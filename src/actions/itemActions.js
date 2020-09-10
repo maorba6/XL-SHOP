@@ -33,8 +33,6 @@ export function loadItem(id) {
     }
 }
 
-
-
 export function saveItem(item) {
     return async dispatch => {
         const type = (item._id) ? '_updateItem' : '_addItem'

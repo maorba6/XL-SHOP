@@ -14,18 +14,14 @@ export function Preview({ item, removeItem }) {
     return (
         <div className="preview flex">
             <Link to={`item/${item._id}`} >
-
-                    <img src={item.imgUrl} />    
+                    <img className="img-item" src={item.imgUrl} />    
                 <div className="price">
                     <span>price:</span>
                     <span>${item.price}</span>
                 </div>
-                <div className="size">
-                    <span>size:</span>
-                    <span>{item.size}</span>
-                </div>
+        
             </Link>
-            {/* <img className="img-trash" onClick={() => removeItem(item._id)} src={trash} /> */}
+            <img className="img-trash" onClick={() => removeItem(item._id)} src={trash} />
         </div>
     );
 }

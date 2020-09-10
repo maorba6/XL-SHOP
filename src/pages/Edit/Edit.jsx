@@ -24,36 +24,51 @@ class _Edit extends Component {
     saveItem = async (ev) => {
         ev.preventDefault()
         this.props.saveItem(this.state.item)
-        this.props.history.push('/main')
-        
+        this.props.history.push('/shop')
+
     }
     render() {
         const { item } = this.state
         if (!item) return <div>Loading...</div>
         return (
-            <form className="edit" onSubmit={this.saveItem} >
-                <h3 className="title">Edit item</h3>
-                <div className="type">
-                    <span >type:</span>
-                    <input type="text" name="type" value={item.type} onChange={this.handleChange} />
+            <form className="edit flex" onSubmit={this.saveItem} >
+                <img src={item.imgUrl} />
+                <div className="details">
+                    <div className="type">
+                        <span >category:</span>
+                        <select name="type" value={item.type} onChange={this.handleChange} >
+                            <option value="shirt">shirt</option>
+                            <option value="pants">pants</option>
+                            <option value="shoes">shoes</option>
+                        </select>
+                    </div>
+                    <div className="price">
+                        <span >price:</span>
+                        <input type="text" name="price" value={item.price} onChange={this.handleChange} />
+                    </div>
+                    <div className="category">
+                        <span >category:</span>
+                        <select name="category" value={item.category} onChange={this.handleChange} >
+                            <option value="sport">sport</option>
+                            <option value="casual">casual</option>
+                        </select>
+                    </div>
+                    <div className="brand">
+                        <span >brand:</span>
+                        <input type="text" name="brand" value={item.brand} onChange={this.handleChange} />
+                    </div>
+                    <div className="colors">
+                        <span>colors:</span>
+                        {item.colors.map(color => {
+                            return <div key={color}> <input type="text" value={color} onChange={this.handleChange} /></div>
+                        })}
+                    </div>
+                    <div className="sizes">
+                        <span>sizes:</span>
+
+                    </div>
+                    <button>save item</button>
                 </div>
-                <div className="price">
-                    <span >price:</span>
-                    <input type="text" name="price" value={item.price} onChange={this.handleChange} />
-                </div>
-                <div className="category">
-                    <span >category:</span>
-                    <select name="category" value={item.category} onChange={this.handleChange} >
-                        <option value="sport">sport</option>
-                        <option value="casual">casual</option>
-                    </select>
-                </div>
-                <div className="brand">
-                    <span >brand:</span>
-                    <input type="text" name="brand" value={item.brand} onChange={this.handleChange} />
-                </div>
-                
-                <button>save item</button>
             </form>
         )
     }

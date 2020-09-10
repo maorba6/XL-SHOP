@@ -8,7 +8,8 @@ import './Details.scss'
 class _Details extends Component {
 
     state = {
-        item: null
+        item: null,
+        
     }
     async componentDidMount() {
         const { id } = this.props.match.params
@@ -21,24 +22,40 @@ class _Details extends Component {
         const { item } = this.state
         if (!item) return <div>Loading...</div>
         return (
-            <section className="item-details">
-                <div className="type">
-                    <span >type:</span>
-                    <span >      {item.type}</span>
+            <section className="item-details flex">
+                <img src={item.imgUrl} />
+                <div className="details">
+                    <div className="price">
+                        <span >price:</span>
+                        <span>  {item.price}</span>
+                    </div>
+                    <div className="category">
+                        <span >category:</span>
+                        <span>  {item.category}</span>
+                    </div>
+                    <div className="brand">
+                        <span >brand:</span>
+                        <span>  {item.brand}</span>
+                    </div>
+                    <div className="size">
+                        <span >size:</span>
+                        <select name="">
+                            {item.sizes.map(size => {
+                                return <option key={size} value={size}>{size}</option>
+                            })}
+                        </select>
+                    </div>
+                    <div className="color">
+                        <span >color:</span>
+                        <select name="">
+                            {item.colors.map(color => {
+                                return <option key={color} value={color}>{color}</option>
+                            })}
+                        </select>
+                    </div>
+                    <Link to={`/item/edit/${item._id}`} >Edit </Link>
+                    <button>buy</button>
                 </div>
-                <div className="price">
-                    <span >price:</span>
-                    <span>  {item.price}</span>
-                </div>
-                <div className="category">
-                    <span >category:</span>
-                    <span>  {item.category}</span>
-                </div>
-                <div className="brand">
-                    <span >brand:</span>
-                    <span>  {item.brand}</span>
-                </div>
-                <Link  to={`/item/edit/${item._id}`} >Edit </Link>
             </section>
         )
     }

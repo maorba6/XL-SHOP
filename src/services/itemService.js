@@ -12,8 +12,8 @@ const items = [
     {
         _id: "101",
         type: "shirt",
-        color: "black",
-        size: "XXL",
+        colors: ["black"],
+        sizes: ["XXL", 'XL', 'S'],
         imgUrl: 'https://rohan.imgix.net/product/05325N68.jpg?w=2500&auto=format&q=77',
         category: "sport",
         brand: "adidas",
@@ -24,8 +24,8 @@ const items = [
     {
         _id: "105",
         type: "shirt",
-        color: "red",
-        size: "XL",
+        colors: ["black", 'red'],
+        sizes: ["XXL", 'XL', 'S'],
         imgUrl: "https://rohan.imgix.net/product/05325N68.jpg?w=2500&auto=format&q=77",
         category: "sport",
         brand: "adidas",
@@ -36,8 +36,8 @@ const items = [
     {
         _id: "107",
         type: "shirt",
-        color: "red",
-        size: "L",
+        colors: ["green", 'red'],
+        sizes: ["L", 'XL'],
         imgUrl: "https://rohan.imgix.net/product/05325N68.jpg?w=2500&auto=format&q=77",
         category: "sport",
         brand: "nike",
@@ -48,8 +48,8 @@ const items = [
     {
         _id: "102",
         type: "pants",
-        color: "red" | "black",
-        size: "XXL",
+        colors: ["black", 'red'],
+        sizes: ["XXL", 'XL', 'S'],
         imgUrl: "https://cdn11.bigcommerce.com/s-qb5zncdqc6/images/stencil/2048x2048/products/5840/11417/womenssimplepantsblack__49371.1578586139.jpg?c=2",
         category: "casual",
         brand: "nike",
@@ -60,8 +60,8 @@ const items = [
     {
         _id: "103",
         type: "shoes",
-        color: "red",
-        size: "44",
+        colors: ["black", 'yellow'],
+        sizes: ["XXL", 'XL', 'S'],
         imgUrl: "https://images-na.ssl-images-amazon.com/images/I/61Ez19M9BZL._AC_UY1000_.jpg",
         category: "sport",
         brand: "nike",
@@ -72,8 +72,8 @@ const items = [
     {
         _id: "111",
         type: "shoes",
-        color: "yellow",
-        size: "40",
+        colors: ["black", 'red', 'green'],
+        sizes: [44, 42, 40],
         imgUrl: "https://images-na.ssl-images-amazon.com/images/I/61Ez19M9BZL._AC_UY1000_.jpg",
         category: "sport",
         brand: "nike",
@@ -84,8 +84,8 @@ const items = [
     {
         _id: "123",
         type: "shoes",
-        color: "green",
-        size: "42",
+        colors: ["black", 'white'],
+        sizes: [44, 42, 40],
         imgUrl: "https://images-na.ssl-images-amazon.com/images/I/61Ez19M9BZL._AC_UY1000_.jpg",
         category: "casual",
         brand: "adidas",
@@ -150,7 +150,8 @@ function getEmptyItem() {
         price: '',
         category: '',
         brand: '',
-        size: ''
+        sizes: [],
+        colors: []
     }
 }
 

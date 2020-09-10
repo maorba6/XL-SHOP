@@ -13,7 +13,7 @@ export function Header() {
             <ul className="flex">
                 <li><NavLink activeClassName='active-path' to="/" exact >Home</NavLink></li>
                 <li><NavLink to="/login" exact >login</NavLink></li>
-                <li><NavLink to="/main" exact >main</NavLink></li>
+                <li><NavLink to="/shop" exact >shop</NavLink></li>
             </ul>
         </header>
     );

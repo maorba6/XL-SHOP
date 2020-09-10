@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
-
 import './Login.scss'
 export function Login() {
     useEffect(() => {
@@ -13,6 +12,7 @@ export function Login() {
     return (
         <section className="flex signup-section">
             <form action="" className="flex signup-form">
+            <h2>Welcome Back</h2>
                 <div className="name">
                 <label>Email</label>
                     <input type="text" placeholder="Enter eMail" />

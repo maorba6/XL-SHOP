@@ -3,13 +3,9 @@ import { Preview } from '../Preview/Preview'
 import './List.scss'
 export function List({ items, removeItem }) {
     useEffect(() => {
-
         return () => {
-
-            console.log('dead');
         }
     }, [])
-    console.log(items)
 
     return (
         < section >

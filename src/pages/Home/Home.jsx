@@ -45,7 +45,9 @@ class _Home extends Component {
                 </div>
                 <h3>Top Rated</h3>
                 <div className="top-items flex">
-                    {items && items.slice(5).map(item => <Preview key={item.id} item={item}></Preview>)}
+                    {items && items.slice(2).map(item =>
+                        <Preview key={item._id} item={item} />)
+                    }
                 </div>
             </section>
         );

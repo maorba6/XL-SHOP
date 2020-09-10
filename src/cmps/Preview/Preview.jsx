@@ -8,7 +8,6 @@ export function Preview({ item, removeItem }) {
 
     useEffect(() => {
         return () => {
-            console.log('dead');
         }
     }, [])
     return (

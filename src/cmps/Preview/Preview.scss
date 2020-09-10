@@ -1,12 +1,27 @@
 .preview {
+    border : 1px solid rgb(238, 237, 237);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    p{
+        color: black;
+        text-transform: capitalize;
+    }
     .img-item {
         width: 150px;
-        height: 150px;
     }
+}
+    .delete-item{
+        font-weight: bolder;
+        font-size: large;
+}
 
-    .img-trash {
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-    }
+    .item-price{
+        font-size: large;
+}
+    .img-container{
+        height: 95%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
 }

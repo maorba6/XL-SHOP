@@ -35,37 +35,38 @@ class _Edit extends Component {
                 <img src={item.imgUrl} />
                 <div className="details">
                     <div className="type">
-                        <span >category:</span>
+                        <span >Type: </span>
                         <select name="type" value={item.type} onChange={this.handleChange} >
-                            <option value="shirt">shirt</option>
-                            <option value="pants">pants</option>
-                            <option value="shoes">shoes</option>
+                            <option value="shirt">Shirt</option>
+                            <option value="pants">Pants</option>
+                            <option value="shoes">Shoes</option>
                         </select>
                     </div>
-                    <div className="price">
-                        <span >price:</span>
-                        <input type="text" name="price" value={item.price} onChange={this.handleChange} />
-                    </div>
+                   
                     <div className="category">
-                        <span >category:</span>
+                        <span >category: </span> 
                         <select name="category" value={item.category} onChange={this.handleChange} >
-                            <option value="sport">sport</option>
-                            <option value="casual">casual</option>
+                            <option value="sport">Sport</option>
+                            <option value="casual">Casual</option>
                         </select>
                     </div>
                     <div className="brand">
-                        <span >brand:</span>
+                        <span >brand: </span>
                         <input type="text" name="brand" value={item.brand} onChange={this.handleChange} />
                     </div>
                     <div className="colors">
-                        <span>colors:</span>
+                        <span>colors: </span>
                         {item.colors.map(color => {
                             return <div key={color}> <input type="text" value={color} onChange={this.handleChange} /></div>
                         })}
                     </div>
                     <div className="sizes">
-                        <span>sizes:</span>
+                        <span>sizes: </span>
 
+                    </div>
+                    <div className="price">
+                        <span >price: </span>
+                        <input type="text" name="price" value={item.price} onChange={this.handleChange} />
                     </div>
                     <button>save item</button>
                 </div>

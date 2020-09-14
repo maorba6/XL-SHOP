@@ -1,6 +1,10 @@
 .item-details {
+    flex-direction: column;
+    text-transform: capitalize;
+    .details{
+     align-self: center;
+    }
     img {
         width: 150px;
-        height: 150px;
     }
 }

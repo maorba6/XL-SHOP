@@ -26,19 +26,19 @@ class _Details extends Component {
                 <img src={item.imgUrl} />
                 <div className="details">
                     <div className="price">
-                        <span >price:</span>
+                        <span >price: </span>
                         <span>  {item.price}</span>
                     </div>
                     <div className="category">
-                        <span >category:</span>
+                        <span >category: </span>
                         <span>  {item.category}</span>
                     </div>
                     <div className="brand">
-                        <span >brand:</span>
+                        <span >brand: </span>
                         <span>  {item.brand}</span>
                     </div>
                     <div className="size">
-                        <span >size:</span>
+                        <span >size: </span>
                         <select name="">
                             {item.sizes.map(size => {
                                 return <option key={size} value={size}>{size}</option>
@@ -46,7 +46,7 @@ class _Details extends Component {
                         </select>
                     </div>
                     <div className="color">
-                        <span >color:</span>
+                        <span >color: </span>
                         <select name="">
                             {item.colors.map(color => {
                                 return <option key={color} value={color}>{color}</option>

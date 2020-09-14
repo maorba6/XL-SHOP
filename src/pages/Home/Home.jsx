@@ -36,7 +36,6 @@ class _Home extends Component {
         const { items } = this.props
         return (
             <section className="home">
-                <h1>welcome user</h1>
                 <img className="front-img" src={img1} />
                 <div className="types flex">
                     {this.state.types.map(type => {

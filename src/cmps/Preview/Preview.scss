@@ -1,6 +1,6 @@
 .preview {
     border : 1px solid rgb(238, 237, 237);
-    height: 200px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     p{
@@ -20,7 +20,7 @@
         font-size: large;
 }
     .img-container{
-        height: 95%;
+        // height: 95%;
         margin: 0 auto;
         display: flex;
         align-items: center;

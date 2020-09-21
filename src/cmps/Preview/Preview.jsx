@@ -18,7 +18,12 @@ export function Preview({ item, removeItem }) {
                     <img className="img-item" src={item.imgUrl} />    
                 </Link>
             </div>
+            <div>
+                <label>{item.name}</label>
                 <p className="item-price">price: ${item.price}</p>
+               <p>love</p>
+
+            </div>
         </div>
     );
 }

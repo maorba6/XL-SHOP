@@ -9,11 +9,11 @@ import './Preview.scss'
 function _Preview(props) {
     const { item, removeItem } = props
     const user = JSON.parse(props.user)
-  
-    
+
+
     return (
         <div className="preview flex">
-            {user.isAdmin && <p className="delete-item" onClick={() => removeItem(item._id)} src={trash}>X</p>}
+            {user && user.isAdmin && <p className="delete-item" onClick={() => removeItem(item._id)} src={trash}>X</p>}
             <div className="flex img-container">
                 <Link to={`item/${item._id}`} >
                     <img className="img-item" src={item.imgUrl} />

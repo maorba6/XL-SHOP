@@ -29,7 +29,7 @@ let loggedinUser = null
 
 
 function getUser() {
-    return utilService.loadFromStorage('user')
+    return sessionStorage.getItem('user')
 }
 
 async function signup(userCred) {

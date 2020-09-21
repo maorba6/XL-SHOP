@@ -9,7 +9,7 @@ class _Details extends Component {
 
     state = {
         item: null,
-        
+
     }
     async componentDidMount() {
         const { id } = this.props.match.params
@@ -19,7 +19,9 @@ class _Details extends Component {
     }
 
     render() {
+
         const { item } = this.state
+        const user = JSON.parse(this.props.user)
         if (!item) return <div>Loading...</div>
         return (
             <section className="item-details flex">
@@ -53,7 +55,7 @@ class _Details extends Component {
                             })}
                         </select>
                     </div>
-                    <Link to={`/item/edit/${item._id}`} >Edit </Link>
+                    {user.isAdmin && <Link to={`/item/edit/${item._id}`} >Edit </Link>}
                     <button>buy</button>
                 </div>
             </section>
@@ -64,14 +66,17 @@ class _Details extends Component {
 
 function mapStateProps(state) {
     return {
-        item: state.itemReducer.currItem
+        item: state.itemReducer.currItem,
+        user: state.userReducer.user,
+
     }
 }
 // Takes the action dispatchers from the actions file and puts them inside the component's props
 const mapDispatchToProps = {
     loadItem,
     loadItems,
-    saveItem
+    saveItem,
+
 }
 // Connect is used to tap into the store, without it we have no access to the store from the component
 export const Details = connect(mapStateProps, mapDispatchToProps)(_Details)

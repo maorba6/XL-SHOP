@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import userService from '../../services/userService'
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/userActions'
+
+
 import './Login.scss'
-export class Login extends Component {
+class _Login extends Component {
 
     state = {
         user: {
@@ -10,7 +14,6 @@ export class Login extends Component {
             email: ''
         }
     }
-
 
     handleChange = ({ target }) => {
         const field = target.name
@@ -20,9 +23,11 @@ export class Login extends Component {
 
     login = async (ev) => {
         ev.preventDefault()
-        console.log('login');
         const user = await userService.login(this.state.user)
-        if (user) this.props.history.push('/')
+        if (user) {
+            this.props.history.push('/')
+            this.props.setUser()
+        }
         else console.log('email or password wrong');
     }
     render() {
@@ -50,3 +55,15 @@ export class Login extends Component {
         );
     }
 }
+
+
+
+function mapStateProps(state) {
+    return {
+        user: state.userReducer.user,
+    }
+}
+const mapDispatchToProps = {
+    setUser
+}
+export const Login = connect(mapStateProps, mapDispatchToProps)(_Login)

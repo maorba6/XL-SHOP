@@ -9,6 +9,7 @@ export function UserReducer(state = INITIAL_STATE, action) {
                 ...state,
                 user: action.user
             }
+        default:
             return state
     }
 }

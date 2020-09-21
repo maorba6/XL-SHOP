@@ -21,6 +21,12 @@ class _Edit extends Component {
         this.setState(({ item }) => ({ item: { ...item, [field]: value } }))
     }
 
+    componentDidUpdate() {
+        const user = JSON.parse(this.props.user)
+        if (!user.isAdmin) {
+            this.props.history.push('/')
+        }
+    }
     saveItem = async (ev) => {
         ev.preventDefault()
         this.props.saveItem(this.state.item)
@@ -79,7 +85,9 @@ class _Edit extends Component {
 
 function mapStateProps(state) {
     return {
-        item: state.itemReducer.currItem
+        item: state.itemReducer.currItem,
+        user: state.userReducer.user,
+
     }
 }
 // Takes the action dispatchers from the actions file and puts them inside the component's props

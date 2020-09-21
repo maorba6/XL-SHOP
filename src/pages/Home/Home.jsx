@@ -29,7 +29,6 @@ class _Home extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
         this.props.loadItems()
     }
     render() {

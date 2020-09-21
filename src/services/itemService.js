@@ -1,3 +1,5 @@
+import httpService from './httpService'
+
 export const itemService = {
     getItems,
     getEmptyItem,
@@ -10,7 +12,6 @@ export const itemService = {
 
 const items = [
     {
-        _id: "101",
         type: "shirt",
         colors: ["black"],
         sizes: ["XXL", 'XL', 'S'],
@@ -22,7 +23,6 @@ const items = [
         onStock: true
     },
     {
-        _id: "105",
         type: "shirt",
         colors: ["black", 'red'],
         sizes: ["XXL", 'XL', 'S'],
@@ -34,7 +34,6 @@ const items = [
         onStock: true
     },
     {
-        _id: "107",
         type: "shirt",
         colors: ["green", 'red'],
         sizes: ["L", 'XL'],
@@ -46,7 +45,6 @@ const items = [
         onStock: true / false
     },
     {
-        _id: "102",
         type: "pants",
         colors: ["black", 'red'],
         sizes: ["XXL", 'XL', 'S'],
@@ -58,7 +56,6 @@ const items = [
         onStock: true
     },
     {
-        _id: "103",
         type: "shoes",
         colors: ["black", 'yellow'],
         sizes: ["XXL", 'XL', 'S'],
@@ -70,7 +67,6 @@ const items = [
         onStock: true
     },
     {
-        _id: "111",
         type: "shoes",
         colors: ["black", 'red', 'green'],
         sizes: [44, 42, 40],
@@ -82,7 +78,6 @@ const items = [
         onStock: true
     },
     {
-        _id: "123",
         type: "shoes",
         colors: ["black", 'white'],
         sizes: [44, 42, 40],
@@ -96,24 +91,19 @@ const items = [
 
 ]
 
-function getItems(filterBy = null) {
-    return new Promise((resolve, reject) => {
-        var itemsToReturn = items;
+async function getItems(filterBy = null) {
+    return await httpService.get(`item`)
 
-        resolve(sort(itemsToReturn))
-    })
 }
 
 
-function removeItem(id) {
-    return new Promise((resolve, reject) => {
-        const index = items.findIndex(item => item._id === id)
-        if (index !== -1) {
-            items.splice(index, 1)
-        }
+async function removeItem(id) {
+    const index = items.findIndex(item => item._id === id)
+    if (index !== -1) {
+        items.splice(index, 1)
+    }
+    return await httpService.delete(`item/${id}`)
 
-        resolve(items)
-    })
 }
 
 
@@ -122,22 +112,19 @@ function sort(arr) {
     return arr
 }
 
-function _updateItem(item) {
-    return new Promise((resolve, reject) => {
-        const index = items.findIndex(c => item._id === c._id)
-        if (index !== -1) {
-            items[index] = item
-        }
-        resolve(item)
-    })
+async function _updateItem(item) {
+    const index = items.findIndex(c => item._id === c._id)
+    if (index !== -1) {
+        items[index] = item
+    }
+    return await httpService.put(`item/${item._id}`, item)
 }
 
-function _addItem(item) {
-    return new Promise((resolve, reject) => {
-        item._id = _makeId()
-        items.push(item)
-        resolve(item)
-    })
+
+async function _addItem(item) {
+    items.push(item)
+    return await httpService.post(`item/`, item)
+
 }
 
 function saveItem(item) {
@@ -156,19 +143,10 @@ function getEmptyItem() {
 }
 
 
-function getItemById(id) {
-    return new Promise((resolve, reject) => {
-        const item = items.find(item => item._id === id)
-        item ? resolve(item) : reject(`item id ${id} not found!`)
-    })
+async function getItemById(id) {
+
+    // const item = items.find(item => item._id === id)
+    // item ? resolve(item) : reject(`item id ${id} not found!`)
+    return await httpService.get(`item/${id}`)
 }
 
-
-function _makeId(length = 10) {
-    var txt = ''
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length))
-    }
-    return txt
-}

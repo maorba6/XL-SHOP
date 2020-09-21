@@ -21,8 +21,9 @@ export class Login extends Component {
     login = async (ev) => {
         ev.preventDefault()
         console.log('login');
-        await userService.login(this.state.user)
-        this.props.history.push('/')
+        const user = await userService.login(this.state.user)
+        if (user) this.props.history.push('/')
+        else console.log('email or password wrong');
     }
     render() {
         const { user } = this.state

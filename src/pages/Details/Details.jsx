@@ -55,7 +55,7 @@ class _Details extends Component {
                             })}
                         </select>
                     </div>
-                    {user.isAdmin && <Link to={`/item/edit/${item._id}`} >Edit </Link>}
+                    {user && user.isAdmin && <Link to={`/item/edit/${item._id}`} >Edit </Link>}
                     <button>buy</button>
                 </div>
             </section>

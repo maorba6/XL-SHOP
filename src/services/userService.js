@@ -1,5 +1,5 @@
 import utilService from './utilService'
-
+import httpService from './httpService'
 
 export default {
     getUser,
@@ -8,64 +8,50 @@ export default {
     logout,
 }
 
-const users = [
-    {
-        fname: 'adi',
-        lname: 'peled',
-        email: "adi@gmail.com",
-        password: '123',
-        isAdmin: true
-    },
-    {
-        fname: 'maor',
-        lname: 'lozoher',
-        email: "maor@gmail.com",
-        password: '345',
-        isAdmin: false
-    },
-]
+// const users = [
+//     {
+//         fname: 'adi',
+//         lname: 'peled',
+//         email: "adi@gmail.com",
+//         password: '123',
+//         isAdmin: true
+//     },
+//     {
+//         fname: 'maor',
+//         lname: 'lozoher',
+//         email: "maor@gmail.com",
+//         password: '345',
+//         isAdmin: false
+//     },
+// ]
+
+let loggedinUser = null
+
 
 function getUser() {
     return utilService.loadFromStorage('user')
 }
 
-function signup(user) {
-    return new Promise((resolve, reject) => {
-        user._id = _makeId()
-        users.push(user)
-        resolve(user)
-        utilService.storeToStorage('user', user)
-    })
+async function signup(userCred) {
+    const user = await httpService.post('auth/signup', userCred)
+    return _handleLogin(user)
 }
 
-function logout() {
-    utilService.storeToStorage('user', null)
+async function logout() {
+    await httpService.post('auth/logout');
+    sessionStorage.clear();
+    loggedinUser = null
 }
 
-function login(user) {
-    return new Promise((resolve, reject) => {
-        const u = users.find(u => user.email === u.email)
-        if (!u) {
-            console.log('wrong mail or password');
-            return
-        }
-        if (u.password === user.password) {
-            resolve(u)
-            utilService.storeToStorage('user', u)
-        }
-        else {
-            reject('wrong name or password')
-        }
-    })
-
+async function login(userCred) {
+    const user = await httpService.post('auth/login', userCred)
+    return _handleLogin(user)
 }
 
-function _makeId(length = 10) {
-    var txt = ''
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length))
-    }
-    return txt
+function _handleLogin(user) {
+    sessionStorage.setItem('user', JSON.stringify(user))
+    loggedinUser = user
+    return user;
 }
+
 

@@ -32,8 +32,8 @@ function getUser() {
     return sessionStorage.getItem('user')
 }
 
-async function signup(userCred) {
-    const user = await httpService.post('auth/signup', userCred)
+async function signup(userCreds) {
+    const user = await httpService.post('auth/signup', userCreds)
     return _handleLogin(user)
 }
 

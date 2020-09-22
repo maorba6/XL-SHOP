@@ -21,9 +21,8 @@ function _Header(props) {
 
     return (
         <header className="header">
-            <p className="header-logo">LOGO</p>
+            <div><NavLink className="logo" activeClassName='active-path' to="/" exact >Logo</NavLink></div>
             <ul className="flex">
-                <li><NavLink activeClassName='active-path' to="/" exact >Home</NavLink></li>
                 {!props.user && <li><NavLink to="/login" exact >login</NavLink></li>}
                 {props.user && <button onClick={() => logout()}>logout</button>}
                 <li><NavLink to="/shop" exact >shop</NavLink></li>

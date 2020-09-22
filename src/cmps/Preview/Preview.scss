@@ -3,6 +3,7 @@
     height: 350px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     p{
         color: black;
         text-transform: capitalize;
@@ -19,9 +20,21 @@
     .item-price{
         font-size: large;
 }
+.item-name{
+    color: rgb(184, 180, 180);
+    
+}
     .img-container{
         // height: 95%;
         margin: 0 auto;
         display: flex;
         align-items: center;
+}
+
+.heart-img{
+    width: 30px;
+    cursor: pointer;
+}
+.img-price{
+    align-items: center;
 }

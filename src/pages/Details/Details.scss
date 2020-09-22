@@ -1,10 +1,30 @@
 .item-details {
-    flex-direction: column;
     text-transform: capitalize;
     .details{
-     align-self: center;
+     width: 100%;
     }
-    img {
-        width: 150px;
+    
+}
+
+.details-img{
+    width: 350px;
+}
+
+.product-intro{
+    margin-top: 25px ;
+    .price{
+        color: #d53333;
+        font-size: 24px;
+        font-family: 'Arial Black';
+        margin-bottom: 25px ;
     }
+    .details-item-id{
+        font-size: smaller;
+        color: rgb(158, 157, 157);
+    }
+}
+
+.product-size{
+    border-top: 1px dashed #e5e5e5;
+    padding-top: 10px;
 }

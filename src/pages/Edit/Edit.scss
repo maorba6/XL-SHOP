@@ -1,36 +1,47 @@
 .edit {
     text-transform: capitalize;
-    button{
+
+    button {
         text-transform: capitalize;
     }
+
     img {
         height: 150px;
         width: 150px;
     }
+
     height: 70vh;
-   .details{
-       height: 80%;
-       display: flex;
-       flex-direction: column;
-    justify-content: space-around;
-    div{
+
+    .details {
         display: flex;
-        justify-content: space-between;
-        select{
-            width: 50%;
+        flex-direction: column;
+        justify-content: space-around;
+
+        div {
+            display: flex;
+            justify-content: space-between;
+
+            select {
+                width: 50%;
+            }
+
+            input {
+                width: 70%;
+            }
+
         }
-        input{
-            width: 70%;
+
+        button {
+            background-color: rgb(2, 3, 58);
+            color: whitesmoke;
+            height: 40px;
+            border: none;
+            font-weight: 500;
+            font-size: large;
         }
-       
     }
-    button{
-        background-color: rgb(2, 3, 58);
-        color: whitesmoke;
-        height: 40px;
-        border: none;
-        font-weight: 500;
-        font-size: large;
-    }
-   }
+
+   
+
+ 
 }

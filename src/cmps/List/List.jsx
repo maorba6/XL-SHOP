@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import { Preview } from '../Preview/Preview'
 import './List.scss'
 export function List({ items, removeItem }) {
-    useEffect(() => {
-        return () => {
-        }
-    }, [])
+   
+    
 
     return (
         < section >

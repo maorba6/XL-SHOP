@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem } from '../../actions/itemActions'
-
+import MultiOptions from '../../cmps/MultiOptions/MultiOptions'
 import './Edit.scss'
 
 class _Edit extends Component {
 
     state = {
-        item: null
+        item: null,
+        isClrsSaved: false,
+        isSizesSaved: false
     }
+
     async componentDidMount() {
         const { id } = this.props.match.params
         await this.props.loadItem(id)
@@ -30,12 +33,43 @@ class _Edit extends Component {
     saveItem = async (ev) => {
         ev.preventDefault()
         this.props.saveItem(this.state.item)
+        this.props.loadItems()
         this.props.history.push('/shop')
+    }
+
+
+    saveColors = (ev, colors) => {
+        ev.preventDefault()
+        this.setState({ isClrsSaved: true })
+        colors = colors.map(color => color.label)
+        this.setState(({ item }) => ({ item: { ...item, colors } }))
 
     }
+
+    saveSizes = (ev, sizes) => {
+        ev.preventDefault()
+        this.setState({ isSizesSaved: true })
+        sizes = sizes.map(size => size.label)
+        this.setState(({ item }) => ({ item: { ...item, sizes } }))
+    }
+
+    restartSavedClrs = () => {
+        this.setState({ isClrsSaved: false })
+    }
+
+    restartSavedSizes = () => {
+        this.setState({ isSizesSaved: false })
+    }
+
     render() {
-        const { item } = this.state
-        if (!item) return <div>Loading...</div>
+        const { item, isSizesSaved, isClrsSaved } = this.state
+        let options = null
+        if (item) {
+            options = item.colors.map(color => {
+                return { label: color, value: color }
+            })
+        } else return <div>Loading...</div>
+
         return (
             <form className="edit flex" onSubmit={this.saveItem} >
                 <img src={item.imgUrl} />
@@ -48,9 +82,9 @@ class _Edit extends Component {
                             <option value="shoes">Shoes</option>
                         </select>
                     </div>
-                   
+
                     <div className="category">
-                        <span >category: </span> 
+                        <span >category: </span>
                         <select name="category" value={item.category} onChange={this.handleChange} >
                             <option value="sport">Sport</option>
                             <option value="casual">Casual</option>
@@ -60,16 +94,17 @@ class _Edit extends Component {
                         <span >brand: </span>
                         <input type="text" name="brand" value={item.brand} onChange={this.handleChange} />
                     </div>
-                    <div className="colors">
-                        <span>colors: </span>
-                        {item.colors.map(color => {
-                            return <div key={color}> <input type="text" value={color} onChange={this.handleChange} /></div>
-                        })}
-                    </div>
-                    <div className="sizes">
-                        <span>sizes: </span>
 
-                    </div>
+                    <MultiOptions
+                        clickedClrs={this.restartSavedClrs}
+                        clickedSizes={this.restartSavedSizes}
+                        isClrsSaved={isClrsSaved}
+                        isSizesSaved={isSizesSaved}
+                        saveColors={this.saveColors}
+                        saveSizes={this.saveSizes}
+                        item={item}
+                    />
+
                     <div className="price">
                         <span >price: </span>
                         <input type="text" name="price" value={item.price} onChange={this.handleChange} />

@@ -1,34 +1,59 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import userService from '../../services/userService'
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/userActions'
 import './SignUp.scss'
 
-export class SignUp extends Component {
-
+class _SignUp extends Component {
 
   state = {
     user: {
       password: '',
       email: '',
       fname: '',
-      lname: ''
+      lname: '',
+      emailSends: false
     },
-
+    elIsAgreeTerms: false
   }
 
-  signup = (ev) => {
+  signup = async (ev) => {
     ev.preventDefault()
-    userService.signup(this.state.user)
+    //add validation to email check if exist
+    const { password, email, fname, lname } = this.state.user
+    const isPasswordValid = this.validatePassword(password)
+    if (!isPasswordValid) return //add msg that password too weak
+    if (!email || !fname || !lname || this.state.elIsAgreeTerms) {
+      console.log('fill all and agree to terms');
+      return
+    }
+    await userService.signup(this.state.user)
+    this.props.setUser()
     this.props.history.push('/')
   }
 
   handleChange = ({ target }) => {
     const field = target.name
-    const value = target.type === 'number' ? +target.value : target.value
-    this.setState(({ user }) => ({ user: { ...user, [field]: value } }))
+    if (field === "elIsAgreeTerms") {
+      this.setState({ [field]: target.checked }, console.log(this.state))
+    } else if (field === "emailSends") {
+      this.setState(({ user }) => ({ user: { ...user, [field]: target.checked } }))
+    } else {
+      const value = target.type === 'number' ? +target.value : target.value
+      this.setState(({ user }) => ({ user: { ...user, [field]: value } }))
+    }
   }
 
+  validatePassword(password) {
+    var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
+    console.log('Test:', strongRegex.test(password));
+    return strongRegex.test(password)
+  }
+
+
+
   render() {
-    const { user } = this.state
+    const { user, elIsAgreeTerms } = this.state
     return (
       <section className="flex signup-section" >
         <form className="flex signup-form" onSubmit={(ev) => this.signup(ev)}>
@@ -54,16 +79,28 @@ export class SignUp extends Component {
             <input className="signup-form-group" name="password" value={user.password} onChange={this.handleChange} type="text" />
           </div>
           <label>
-            <input className="form-checkbox" type="checkbox" /> I agree to the
+            <input name="elIsAgreeTerms" value={elIsAgreeTerms} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> I agree to the
             <button className="button-link">terms of service</button> and
             <button className="button-link">privacy policy.</button>
           </label>
           <label>
           </label>
-          <input className="form-checkbox" type="checkbox" /> Yes, send me deals, discounts and updates!
+          <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> Yes, send me deals, discounts and updates!
           <button className="signup-button">Sign Up</button>
         </form>
       </section>
     )
   }
 }
+
+
+
+function mapStateProps(state) {
+  return {
+    user: state.userReducer.user,
+  }
+}
+const mapDispatchToProps = {
+  setUser
+}
+export const SignUp = connect(mapStateProps, mapDispatchToProps)(_SignUp)

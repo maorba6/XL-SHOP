@@ -1,0 +1,11 @@
+.multi-select {
+    width: 200px;
+    .dropdown-container {
+        width: 100%;
+        .dropdown-content>* {
+            width: 100%;
+        }
+
+    }
+
+}

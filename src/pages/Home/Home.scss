@@ -3,9 +3,37 @@
 }
 
 
+.hero-background{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 100%;
+    background-image: url('../../assets/1.jpeg');
+}
+
+.browse-type{
+position: relative;
+}
+.tag{
+    font-size: 40px;
+    position: absolute;
+    bottom: 100px;
+    right: 100px;
+    text-transform: capitalize;
+    color: blue;
+    margin: 5px;
+    background-color: transparent;
+    border:none;
+    // padding: 10px 70px;
+}
+
 .types {
+    display: flex;
+    justify-content: space-evenly;
     img {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
     }
 }

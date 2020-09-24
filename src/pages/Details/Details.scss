@@ -7,7 +7,7 @@
 }
 
 .details-img{
-    width: 350px;
+    width: 500px;
 }
 
 .product-intro{
@@ -27,4 +27,7 @@
 .product-size{
     border-top: 1px dashed #e5e5e5;
     padding-top: 10px;
+    button{
+        width: 70%;
+    }
 }

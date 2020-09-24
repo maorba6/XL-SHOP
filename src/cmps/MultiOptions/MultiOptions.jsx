@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import MultiSelect from "react-multi-select-component";
 import './MultiOptions.scss'
 export default function MultiOptions(props) {
 
-    const [selectedClr, setSelectedClr] = useState([]);
-    const [selectedSize, setSelectedSize] = useState([]);
+    let [selectedClr, setSelectedClr] = useState([]);
+    let [selectedSize, setSelectedSize] = useState([]);
 
     const optionsColors = [
         { label: "white ", value: "white" },
@@ -17,8 +17,8 @@ export default function MultiOptions(props) {
         { label: "black ", value: "black" },
         { label: "gray ", value: "gray" },
         { label: "purple ", value: "purple" },
-
     ]
+    
     const optionsSizes = [
         { label: "XXL ", value: "XXL" },
         { label: "XL ", value: "XL" },
@@ -30,10 +30,11 @@ export default function MultiOptions(props) {
     ]
 
 
-
-
     return (
+
         <div>
+
+            {console.log('render', selectedSize, selectedClr)}
             <div className="colors flex column">
                 colors:
                 <div onClick={props.clickedClrs}>

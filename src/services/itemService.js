@@ -10,23 +10,24 @@ export const itemService = {
 
 
 
-const items = [
+// const items = [
 
-]
+// ]
 
 async function getItems(filterBy = null) {
-
-    return await httpService.get(`item`)
+    if (!filterBy) {
+        return await httpService.get(`item`)
+    } else {
+        const { type, category, name } = filterBy
+        return await httpService.get('item' + `?type=${type}&category=${category}&name=${name}`)
+    }
 
 }
 
-async function removeItem(id) {
-    const index = items.findIndex(item => item._id === id)
-    if (index !== -1) {
-        items.splice(index, 1)
-    }
-    return await httpService.delete(`item/${id}`)
 
+
+async function removeItem(id) {
+    return await httpService.delete(`item/${id}`)
 }
 
 function sort(arr) {
@@ -34,19 +35,12 @@ function sort(arr) {
 }
 
 async function _updateItem(item) {
-    const index = items.findIndex(c => item._id === c._id)
-    if (index !== -1) {
-        items[index] = item
-    }
-    console.log('colors:', item);
     return await httpService.put(`item/${item._id}`, item)
 }
 
 
 async function _addItem(item) {
-    // items.push(item)
     return await httpService.post(`item/`, item)
-
 }
 
 function saveItem(item) {
@@ -66,9 +60,6 @@ function getEmptyItem() {
 
 
 async function getItemById(id) {
-
-    // const item = items.find(item => item._id === id)
-    // item ? resolve(item) : reject(`item id ${id} not found!`)
     return await httpService.get(`item/${id}`)
 }
 

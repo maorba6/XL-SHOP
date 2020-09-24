@@ -4,10 +4,7 @@ import facebook from '../../assets/social-icons/facebook-color.png'
 import instagram from '../../assets/social-icons/instagram-color.png'
 import './Footer.scss'
 export function Footer() {
-    useEffect(() => {
-        return () => {
-        }
-    }, [])
+    
 
     return (
         <footer>

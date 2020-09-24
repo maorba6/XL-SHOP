@@ -5,6 +5,7 @@ const INITIAL_STATE = {
 }
 
 export function ItemReducer(state = INITIAL_STATE, action) {
+    console.log({ action });
     switch (action.type) {
         case 'SET_ITEMS':
             return {
@@ -16,11 +17,13 @@ export function ItemReducer(state = INITIAL_STATE, action) {
                 ...state,
                 currItem: action.item
             }
-        // case 'SET_FILTER':
-        //     return {
-        //         ...state,
-        //         filterBy: action.filterBy
-        //     }
+        case 'SET_FILTER':
+            console.log('actions:', action.filterBy);
+            return {
+                ...state,
+                filterBy: action.filterBy
+            }
+
         case 'ADD_ITEM':
             return {
                 ...state,

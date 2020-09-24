@@ -12,8 +12,6 @@ class _Edit extends Component {
         isSizesSaved: false
     }
 
-
-
     async componentDidMount() {
         const { id } = this.props.match.params
         await this.props.loadItem(id)
@@ -34,8 +32,8 @@ class _Edit extends Component {
     }
     saveItem = async (ev) => {
         ev.preventDefault()
-        console.log(this.state.item);
         this.props.saveItem(this.state.item)
+        this.props.loadItems()
         this.props.history.push('/shop')
     }
 
@@ -48,13 +46,11 @@ class _Edit extends Component {
 
     }
 
-
     saveSizes = (ev, sizes) => {
         ev.preventDefault()
         this.setState({ isSizesSaved: true })
         sizes = sizes.map(size => size.label)
         this.setState(({ item }) => ({ item: { ...item, sizes } }))
-
     }
 
     restartSavedClrs = () => {
@@ -73,7 +69,6 @@ class _Edit extends Component {
                 return { label: color, value: color }
             })
         } else return <div>Loading...</div>
-
 
         return (
             <form className="edit flex" onSubmit={this.saveItem} >
@@ -100,7 +95,6 @@ class _Edit extends Component {
                         <input type="text" name="brand" value={item.brand} onChange={this.handleChange} />
                     </div>
 
-
                     <MultiOptions
                         clickedClrs={this.restartSavedClrs}
                         clickedSizes={this.restartSavedSizes}
@@ -108,9 +102,8 @@ class _Edit extends Component {
                         isSizesSaved={isSizesSaved}
                         saveColors={this.saveColors}
                         saveSizes={this.saveSizes}
+                        item={item}
                     />
-
-
 
                     <div className="price">
                         <span >price: </span>

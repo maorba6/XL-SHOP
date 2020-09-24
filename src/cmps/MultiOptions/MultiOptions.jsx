@@ -34,7 +34,6 @@ export default function MultiOptions(props) {
 
         <div>
 
-            {console.log('render', selectedSize, selectedClr)}
             <div className="colors flex column">
                 colors:
                 <div onClick={props.clickedClrs}>

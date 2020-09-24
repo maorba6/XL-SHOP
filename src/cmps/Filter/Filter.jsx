@@ -12,7 +12,6 @@ export function Filter(props) {
         const field = target.name
         const value = target.type === 'number' ? +target.value : target.value
         filterBy[field] = value
-        console.log({ filterBy });
         props.setFilter(filterBy)
     }
     return (

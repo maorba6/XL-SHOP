@@ -14,22 +14,40 @@ class _SignUp extends Component {
       lname: '',
       emailSends: false
     },
-    elIsAgreeTerms: false
+    elIsAgreeTerms: false,
+    inputType: 'password'
+  }
+
+
+
+  toggleShowPassword = () => {
+    console.log('g');
+    if (this.state.inputType === 'password')
+      this.setState({ inputType: 'text' })
+    else {
+      this.setState({ inputType: 'password' })
+    }
   }
 
   signup = async (ev) => {
     ev.preventDefault()
+    console.log('terms', this.state.elIsAgreeTerms, 'mail', this.state.user.emailSends);
+
     //add validation to email check if exist
     const { password, email, fname, lname } = this.state.user
     const isPasswordValid = this.validatePassword(password)
-    if (!isPasswordValid) return //add msg that password too weak
-    if (!email || !fname || !lname || this.state.elIsAgreeTerms) {
+    if (!isPasswordValid) {
+      console.log('password is too weak'); // add msg in website
+      return
+    }
+    if (!email || !fname || !lname || !this.state.elIsAgreeTerms) {
       console.log('fill all and agree to terms');
       return
     }
     await userService.signup(this.state.user)
     this.props.setUser()
     this.props.history.push('/')
+
   }
 
   handleChange = ({ target }) => {
@@ -46,14 +64,13 @@ class _SignUp extends Component {
 
   validatePassword(password) {
     var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
-    console.log('Test:', strongRegex.test(password));
     return strongRegex.test(password)
   }
 
 
 
   render() {
-    const { user, elIsAgreeTerms } = this.state
+    const { user, elIsAgreeTerms, inputType } = this.state
     return (
       <section className="flex signup-section" >
         <form className="flex signup-form" onSubmit={(ev) => this.signup(ev)}>
@@ -76,8 +93,10 @@ class _SignUp extends Component {
           </div>
           <div>
             <label>Password</label>
-            <input className="signup-form-group" name="password" value={user.password} onChange={this.handleChange} type="text" />
+            <input className="signup-form-group" name="password" value={user.password} onChange={this.handleChange} type={inputType} />
           </div>
+          <button onClick={this.toggleShowPassword}>toggle password</button>
+
           <label>
             <input name="elIsAgreeTerms" value={elIsAgreeTerms} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> I agree to the
             <button className="button-link">terms of service</button> and

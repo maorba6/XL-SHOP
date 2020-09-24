@@ -12,7 +12,8 @@ class _Login extends Component {
         user: {
             password: '',
             email: ''
-        }
+        },
+        inputType: 'password'
     }
 
     handleChange = ({ target }) => {
@@ -30,8 +31,16 @@ class _Login extends Component {
         }
         else console.log('email or password wrong');
     }
+
+    toggleShowPassword = () => {
+        if (this.state.inputType === 'password')
+            this.setState({ inputType: 'text' })
+        else {
+            this.setState({ inputType: 'password' })
+        }
+    }
     render() {
-        const { user } = this.state
+        const { user, inputType } = this.state
         return (
             <section className="flex signup-section">
                 <form className="flex signup-form" onSubmit={(ev) => this.login(ev)}>
@@ -41,7 +50,8 @@ class _Login extends Component {
                     </div>
                     <div className="password">
                         <label>Password</label>
-                        <input className="signup-form-group" name="password" value={user.password} onChange={this.handleChange} type="text" />
+                        <input className="signup-form-group" name="password" value={user.password} onChange={this.handleChange} type={inputType} />
+                        <button onClick={this.toggleShowPassword}>toggle password</button>
                     </div>
                     <div className="btns">
                         <button className="signin-button">Login</button>

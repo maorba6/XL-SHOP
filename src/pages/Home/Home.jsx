@@ -4,17 +4,18 @@ import { Link } from "react-router-dom";
 import { loadItems } from '../../actions/itemActions'
 //imgs
 import img1 from '../../assets/1.jpeg';
-import pants from '../../assets/pants.jpg';
-import shirt from '../../assets/shirt.png';
+import pants from '../../assets/samples/pants-test.jpeg';
+import shirt from '../../assets/samples/shirt-test.jpeg';
 import shoes from '../../assets/shoes.jpeg';
 //
 import { Preview } from '../../cmps/Preview/Preview'
+import { List } from '../../cmps/List/List'
 import './Home.scss'
 class _Home extends Component {
     state = {
         types: [
             {
-                str: "shirt",
+                str: "shirts",
                 img: shirt
             },
             {
@@ -33,21 +34,25 @@ class _Home extends Component {
     }
     render() {
         const { items } = this.props
+        console.log(items);
         return (
             <section className="home">
-                <h1>welcome maor</h1>
-                <img className="front-img" src={img1} />
+                <div className="hero-background">
+                    {/* <h1>Welcome User</h1> */}
+                </div>
+                <div>
+                    {/* banner maybe 5% discount for buy in website somethin like that */}
+                </div>
                 <div className="types flex">
-                    {this.state.types.map(type => {
-                        return <Link key={type.str} to={type.str}> <img src={type.img} />  </Link>
-                    })}
+                    {this.state.types.map(type => {return <div>
+                        
+                        <Link key={type.str} to={type.str} className="browse-type"> <img src={type.img} /> <div className="tag">{type.str}</div></Link>
+                    </div> })}
                 </div>
                 <h3>Top Rated</h3>
-                <div className="top-items flex">
-                    {items && items.slice(2).map(item =>
-                        <Preview key={item._id} item={item} />)
-                    }
-                </div>
+                {items&&<List items={items.slice( items.length-3)} ></List>}
+                <h2>BROWSE BY CATEGORY</h2>
+                {/* MAKE IT WORK BY CATEGORY */}
             </section>
         );
     }

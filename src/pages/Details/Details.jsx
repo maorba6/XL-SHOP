@@ -62,9 +62,9 @@ class _Details extends Component {
                             </select> 
                         </div>
                         </div>
+                        <button className="signin-button">Add To Cart</button>
                     </div>
                     {user && user.isAdmin && <Link to={`/item/edit/${item._id}`} >Edit </Link>}
-                    <button>Add To Cart</button>
                 </div>
             </section>
         )

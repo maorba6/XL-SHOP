@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem } from '../../actions/itemActions'
-
 import './Details.scss'
 
 class _Details extends Component {

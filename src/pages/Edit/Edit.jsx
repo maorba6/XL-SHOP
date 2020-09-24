@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem } from '../../actions/itemActions'
 import MultiOptions from '../../cmps/MultiOptions/MultiOptions'
+import UploadImg from '../../cmps/UploadImg/UploadImg'
 import './Edit.scss'
 
 class _Edit extends Component {
@@ -111,6 +112,7 @@ class _Edit extends Component {
                     </div>
                     <button>save item</button>
                 </div>
+                <UploadImg></UploadImg>
             </form>
         )
     }

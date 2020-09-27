@@ -1,11 +1,15 @@
 import React from 'react'
+import { uploadImg } from '../../services/uploadImg.js'
 export default function UploadImg() {
-    function fileSelectedHandler(event){
-        console.log(event.target.files);
+   
+    async function showImgUrl(event){
+        const file = event.target.files[0]
+        await uploadImg(file)
+        .then(res=>console.log(res))
     }
     return (
         <div>
-            <input type="file" onChange={(event)=>fileSelectedHandler(event)} />
+            <input type="file" onChange={(event)=>showImgUrl(event)} />
         </div>
     )
 }

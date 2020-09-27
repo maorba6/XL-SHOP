@@ -14,6 +14,15 @@ class _Edit extends Component {
     }
 
     async componentDidMount() {
+        if (!this.props.user) {
+            console.log('here', this.props.user);
+            this.props.history.push('/shop')
+            return
+        }
+        const user = JSON.parse(this.props.user)
+        if (!user.isAdmin) {
+            this.props.history.push('/shop')
+        }
         const { id } = this.props.match.params
         await this.props.loadItem(id)
         await this.props.loadItems()

@@ -18,7 +18,7 @@ export default function MultiOptions(props) {
         { label: "gray ", value: "gray" },
         { label: "purple ", value: "purple" },
     ]
-    
+
     const optionsSizes = [
         { label: "XXL ", value: "XXL" },
         { label: "XL ", value: "XL" },
@@ -46,8 +46,8 @@ export default function MultiOptions(props) {
                         hasSelectAll={false}
                     />
                 </div>
-                {!props.isClrsSaved && <div>press save to confirm changes</div>}
-                {props.isClrsSaved && <div>changes saved</div>}
+                {!props.isClrsSaved && <div className="unsaved-changes">press save to confirm changes</div>}
+                {props.isClrsSaved && <div className="saved-changes" >changes saved</div>}
 
                 <button onClick={(ev) => props.saveColors(ev, selectedClr)}>save colors</button>
             </div>
@@ -63,8 +63,8 @@ export default function MultiOptions(props) {
                         hasSelectAll={false}
                     />
                 </div>
-                {!props.isSizesSaved && <div>press save to confirm changes</div>}
-                {props.isSizesSaved && <div>changes saved</div>}
+                {!props.isSizesSaved && <div className="unsaved-changes">press save to confirm changes</div>}
+                {props.isSizesSaved && <div className="saved-changes">changes saved</div>}
                 <button onClick={(ev) => props.saveSizes(ev, selectedSize)}>save sizes</button>
             </div>
         </div>

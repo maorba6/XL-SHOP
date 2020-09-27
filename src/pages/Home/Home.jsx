@@ -34,7 +34,6 @@ class _Home extends Component {
     }
     render() {
         const { items } = this.props
-        console.log(items);
         return (
             <section className="home">
                 <div className="hero-background">

@@ -3,7 +3,8 @@ import userService from '../../services/userService'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/userActions'
-
+import hidePassword from '../../assets/img/hide-password.png'
+import showPassword from '../../assets/img/show-password.png'
 
 import './Login.scss'
 class _Login extends Component {
@@ -13,7 +14,8 @@ class _Login extends Component {
             password: '',
             email: ''
         },
-        inputType: 'password'
+        inputType: 'password',
+        togglePassword: showPassword
     }
 
     handleChange = ({ target }) => {
@@ -33,14 +35,15 @@ class _Login extends Component {
     }
 
     toggleShowPassword = () => {
-        if (this.state.inputType === 'password')
-            this.setState({ inputType: 'text' })
+        if (this.state.inputType === 'password') {
+            this.setState({ inputType: 'text', togglePassword: hidePassword })
+        }
         else {
-            this.setState({ inputType: 'password' })
+            this.setState({ inputType: 'password', togglePassword: showPassword })
         }
     }
     render() {
-        const { user, inputType } = this.state
+        const { user, inputType, togglePassword } = this.state
         return (
             <section className="flex signup-section">
                 <form className="flex signup-form" onSubmit={(ev) => this.login(ev)}>
@@ -51,7 +54,8 @@ class _Login extends Component {
                     <div className="password">
                         <label>Password</label>
                         <input className="signup-form-group" name="password" value={user.password} onChange={this.handleChange} type={inputType} />
-                        <button onClick={this.toggleShowPassword}>toggle password</button>
+
+                        <img className="img-togglePassword" onClick={this.toggleShowPassword} src={togglePassword} />
                     </div>
                     <div className="btns">
                         <button className="signin-button">Login</button>

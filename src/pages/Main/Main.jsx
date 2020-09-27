@@ -20,7 +20,7 @@ class _Main extends Component {
 
     setFilter = (filterBy) => {
         this.props.setFilter(filterBy)
-        this.props.loadItems(filterBy)
+        this.props.loadItems()
     }
 
     render() {

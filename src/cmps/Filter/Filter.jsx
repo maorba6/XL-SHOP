@@ -36,7 +36,9 @@ export function Filter(props) {
                     <option value="pants">pants</option>
                     <option value="shoes">shoes</option>
                     <option value="accessories">accessories</option>
-                </select></div>
+                </select>
+            </div>
+
         </div>
     );
 }

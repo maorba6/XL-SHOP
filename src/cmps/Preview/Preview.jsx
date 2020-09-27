@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
-import trash from '../../assets/trash.png';
 import emptyHeart from '../../assets/cart-icons/empty-heart.png';
 import blackHeart from '../../assets/cart-icons/black-heart.png';
 
@@ -16,19 +15,19 @@ function _Preview(props) {
 
     return (
         <div className="preview flex">
-            {user && user.isAdmin && <p className="delete-item" onClick={() => removeItem(item._id)} src={trash}>X</p>}
+            {user && user.isAdmin && <p className="delete-item" onClick={() => removeItem(item._id)} >X</p>}
             <div className="flex img-container">
                 <Link to={`item/${item._id}`} >
                     <img className="img-item" src={item.imgUrl} />
                 </Link>
             </div>
-            
-            
+
+
             <div className="flex column">
                 <label className="item-name">{item.name}</label>
                 <div className="flex space-between img-price">
                     <p className="item-price">price: ${item.price}</p>
-                    <img className="heart-img" src={emptyHeart} alt="LOVE"/>
+                    <img className="heart-img" src={emptyHeart} alt="LOVE" />
                     {/* <img className="heart-img" src={blackHeart} alt="LOVE"/> */}
                     {/* TODO! if in wishlist show colored else show empty */}
                 </div>

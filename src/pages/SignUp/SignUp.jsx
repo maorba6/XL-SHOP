@@ -2,7 +2,10 @@ import React, { Component, createRef } from 'react'
 import userService from '../../services/userService'
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/userActions'
+import hidePassword from '../../assets/img/hide-password.png'
+import showPassword from '../../assets/img/show-password.png'
 import './SignUp.scss'
+
 
 class _SignUp extends Component {
 
@@ -15,17 +18,19 @@ class _SignUp extends Component {
       emailSends: false
     },
     elIsAgreeTerms: false,
-    inputType: 'password'
+    inputType: 'password',
+    togglePassword: showPassword
+
   }
 
 
 
   toggleShowPassword = () => {
-    console.log('g');
-    if (this.state.inputType === 'password')
-      this.setState({ inputType: 'text' })
+    if (this.state.inputType === 'password') {
+      this.setState({ inputType: 'text', togglePassword: hidePassword })
+    }
     else {
-      this.setState({ inputType: 'password' })
+      this.setState({ inputType: 'password', togglePassword: showPassword })
     }
   }
 
@@ -70,7 +75,7 @@ class _SignUp extends Component {
 
 
   render() {
-    const { user, elIsAgreeTerms, inputType } = this.state
+    const { user, elIsAgreeTerms, inputType, togglePassword } = this.state
     return (
       <section className="flex signup-section" >
         <form className="flex signup-form" onSubmit={(ev) => this.signup(ev)}>
@@ -95,7 +100,7 @@ class _SignUp extends Component {
             <label>Password</label>
             <input className="signup-form-group" name="password" value={user.password} onChange={this.handleChange} type={inputType} />
           </div>
-          <button onClick={this.toggleShowPassword}>toggle password</button>
+          <img className="img-togglePassword" onClick={this.toggleShowPassword} src={togglePassword} />
 
           <label>
             <input name="elIsAgreeTerms" value={elIsAgreeTerms} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> I agree to the

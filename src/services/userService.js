@@ -9,21 +9,7 @@ export default {
 }
 
 // const users = [
-//     {
-//         fname: 'adi',
-//         lname: 'peled',
-//         email: "adi@gmail.com",
-//         password: '123',
-//         isAdmin: true
-//     },
-//     {
-//         fname: 'maor',
-//         lname: 'lozoher',
-//         email: "maor@gmail.com",
-//         password: '345',
-//         isAdmin: false
-//     },
-// ]
+//  ]
 
 let loggedinUser = null
 

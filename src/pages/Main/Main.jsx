@@ -19,11 +19,8 @@ class _Main extends Component {
     }
 
     setFilter = (filterBy) => {
-        console.log('state, props :', this.props.filterBy);
-
         this.props.setFilter(filterBy)
-        console.log('live', { filterBy });
-        this.props.loadItems()
+        this.props.loadItems(filterBy)
     }
 
     render() {

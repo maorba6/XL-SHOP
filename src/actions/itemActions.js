@@ -24,6 +24,7 @@ export function removeItem(id) {
 }
 
 export function loadItem(id) {
+
     return async dispatch => {
         if (id) {
             const item = await itemService.getItemById(id)
@@ -51,6 +52,7 @@ export function saveItem(item) {
 
 
 export function setFilter(filterBy) {
+    console.log(filterBy);
     return dispatch => {
         // dispatch({ type: 'SET_FILTER', filterBy })
         dispatch(_setFilter(filterBy))

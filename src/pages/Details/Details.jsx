@@ -24,7 +24,7 @@ class _Details extends Component {
         if (!item) return <div>Loading...</div>
         return (
             <section className="item-details flex ">
-                {item.imgUrls.map(imgUrl => <img className="details-img"  src={imgUrl} key={imgUrl} />)}
+                {item.imgUrls.map(imgUrl => <img className="details-img" src={imgUrl} key={imgUrl} />)}
                 <div className="details">
                     <div className="product-intro">
                         <div className="details-item-name">
@@ -46,24 +46,36 @@ class _Details extends Component {
                             <span >category: </span>
                             <span>  {item.category}</span>
                         </div>
-                        <div className="size">
+                        <div className="size flex">
+                            <span className="pick">pick size</span>
+                            {item.sizes.map(size => {
+                                return <button key={size} className="option option-size">{size}</button>
+                            })}
+                        </div>
+                        {/* <div className="size">
                             <span >size: </span>
                             <select name="">
                                 {item.sizes.map(size => {
                                     return <option key={size} value={size}>{size}</option>
                                 })}
                             </select>
-                            <div className="color">
-                                <span >color: </span>
-                                <select name="">
-                                    {item.colors.map(color => {
-                                        return <option key={color} value={color}>{color}</option>
-                                    })}
-                                </select>
-                            </div>
+                        </div> */}
+                        <div className="color">
+                            <span className="pick">pick color</span>
+                            {item.colors.map(color => {
+                                return <button key={color} className={' option option-' + color}>{color}</button>
+                            })}
                         </div>
+                        {/* <div className="color">
+                            <span >color: </span>
+                            <select name="">
+                                {item.colors.map(color => {
+                                    return <option key={color} value={color}>{color}</option>
+                                })}
+                            </select>
+                        </div> */}
                     </div>
-                        <button className="signin-button">Add To Cart</button>
+                    <button className="signin-button">Add To Cart</button>
                     {user && user.isAdmin && <Link to={`/item/edit/${item._id}`} >Edit </Link>}
                 </div>
             </section>

@@ -42,9 +42,9 @@ class _Edit extends Component {
     saveItem = async (ev) => {
         ev.preventDefault()
         console.log(this.state.item);
-        // this.props.saveItem(this.state.item)
-        // this.props.loadItems()
-        // this.props.history.push('/shop')
+        this.props.saveItem(this.state.item)
+        this.props.loadItems()
+        this.props.history.push('/shop')
     }
 
 

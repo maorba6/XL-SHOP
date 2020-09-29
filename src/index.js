@@ -5,29 +5,15 @@ import App from './App.jsx';
 import { store } from './store'
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker';
-// import { IntlProvider } from 'react-intl';
-// import English from './lang/en.json';
-// import Arabic from './lang/ar.json';
-// import French from './lang/fr.json';
+
 
 const locale = navigator.language;
-// let lang;
-// if (locale === "en") {
-//   lang = English;
-// } else {
-//   if (locale === "fr") {
-//     lang = French;
-//   } else {
-//     lang = Arabic;
-//   }
-// }
+
 ReactDOM.render(
   <React.StrictMode>
-    {/* <IntlProvider locale={locale} messages={English}> */}
-      <Provider store={store}>
-        <App />
-      </Provider>
-    {/* </IntlProvider>, */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

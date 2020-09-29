@@ -15,7 +15,7 @@ class _Home extends Component {
     state = {
         types: [
             {
-                str: "shirts",
+                str: "shirt",
                 img: shirt
             },
             {

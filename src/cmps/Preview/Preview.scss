@@ -1,39 +1,45 @@
 .preview {
-    border : 1px solid rgb(238, 237, 237);
+    border: 1px solid rgb(238, 237, 237);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    p{
+
+    p {
         color: black;
         text-transform: capitalize;
     }
+
     .img-item {
-        width: 150px;
+        width: 100%;
     }
 }
-    .delete-item{
-        font-weight: bolder;
-        font-size: large;
+
+.delete-item {
+    font-weight: bolder;
+    font-size: large;
 }
 
-    .item-price{
-        font-size: large;
+.item-price {
+    font-size: large;
 }
-.item-name{
+
+.item-name {
     color: rgb(184, 180, 180);
-    
-}
-    .img-container{
-        // height: 95%;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
+
 }
 
-.heart-img{
+.img-container {
+    // height: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.heart-img {
     width: 30px;
     cursor: pointer;
 }
-.img-price{
+
+.img-price {
     align-items: center;
 }

@@ -10,11 +10,24 @@ import './Main.scss'
 class _Main extends Component {
 
     componentDidMount() {
+        const { type } = this.props.match.params
+        let filterBy = null
+        if (type) {
+            console.log('inside');
+
+            filterBy = {
+                type,
+                category: '',
+                name: ''
+            }
+        }
+
+        this.setFilter(filterBy)
         this.props.loadItems()
         this.props.setUser()
     }
 
-    removeItem = async (id) => {
+    removeItem = async ( id) => {
         await this.props.removeItem(id)
     }
 
@@ -28,7 +41,7 @@ class _Main extends Component {
         user = JSON.parse(user)
         return (
             <main >
-                { user && user.isAdmin && < Link className="btn" to="item/edit" >   Add Item</Link>}
+                { user && user.isAdmin && < Link className="btn" to="/item/edit" replace={true}  >   Add Item</Link>}
                 <Filter setFilter={this.setFilter}></Filter>
                 { items && <List items={items} removeItem={this.removeItem} ></List>}
             </main >

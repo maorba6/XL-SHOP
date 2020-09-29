@@ -32,7 +32,7 @@ export function Filter(props) {
                 <span> type </span>
                 <select name="type" onChange={handleChange}>
                     <option value="">all</option>
-                    <option value="shirts">shirts</option>
+                    <option value="shirt">shirts</option>
                     <option value="pants">pants</option>
                     <option value="shoes">shoes</option>
                     <option value="accessories">accessories</option>

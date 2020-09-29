@@ -50,9 +50,10 @@ function saveItem(item) {
 function getEmptyItem() {
     console.log('empty');
     return {
-        type: '',
+        name: '',
+        type: 'shirt',
         price: '',
-        category: '',
+        category: 'sport',
         brand: '',
         sizes: [],
         colors: [],

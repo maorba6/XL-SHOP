@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem } from '../../actions/itemActions'
 import MultiOptions from '../../cmps/MultiOptions/MultiOptions'
 import UploadImg from '../../cmps/UploadImg/UploadImg'
-import { uploadImg } from '../../services/uploadImg';
 import './Edit.scss'
 
 class _Edit extends Component {
@@ -12,12 +11,10 @@ class _Edit extends Component {
         item: null,
         isClrsSaved: false,
         isSizesSaved: false,
-        // imgUrls: []
     }
 
     async componentDidMount() {
         if (!this.props.user) {
-            console.log('here', this.props.user);
             this.props.history.push('/shop')
             return
         }
@@ -44,9 +41,10 @@ class _Edit extends Component {
     }
     saveItem = async (ev) => {
         ev.preventDefault()
-        this.props.saveItem(this.state.item)
-        this.props.loadItems()
-        this.props.history.push('/shop')
+        console.log(this.state.item);
+        // this.props.saveItem(this.state.item)
+        // this.props.loadItems()
+        // this.props.history.push('/shop')
     }
 
 
@@ -80,7 +78,6 @@ class _Edit extends Component {
 
     }
 
-
     removeImg = (ev, imgUrl) => {
         ev.preventDefault()
         let imgUrls = this.state.item.imgUrls
@@ -88,7 +85,6 @@ class _Edit extends Component {
         imgUrls.splice(idx, 1)
         this.setState(({ item }) => ({ item: { ...item, imgUrls } }))
     }
-
 
     render() {
         const { item, isSizesSaved, isClrsSaved } = this.state
@@ -108,6 +104,10 @@ class _Edit extends Component {
                     </div>
                 })}
                 <div className="details">
+                    <div className="name">
+                        <span> name:</span>
+                        <input type="text" name="name" value={item.name} onChange={this.handleChange} />
+                    </div>
                     <div className="type">
                         <span >Type: </span>
                         <select name="type" value={item.type} onChange={this.handleChange} >
@@ -116,7 +116,6 @@ class _Edit extends Component {
                             <option value="shoes">Shoes</option>
                         </select>
                     </div>
-
                     <div className="category">
                         <span >category: </span>
                         <select name="category" value={item.category} onChange={this.handleChange} >

@@ -16,14 +16,12 @@ function _Preview(props) {
     return (
         <div className="preview flex">
             {user && user.isAdmin && <p className="delete-item" onClick={() => removeItem(item._id)} >X</p>}
-            <Link to={`item/${item._id}`} >
-                <div className="flex img-container">
-                    <img className="img-item" src={item.imgUrls[0]} />
-                </div>
+            <Link to={`/item/${item._id}`} >
+                <img className="img-item" src={item.imgUrls[0]} />
                 <div className="flex column">
                     <label className="item-name">{item.name}</label>
                     <div className="flex space-between img-price">
-                        <p className="item-price">price: ${item.price}</p>
+                        <p className="item-price"> ${item.price}</p>
                         <img className="heart-img" src={emptyHeart} alt="LOVE" />
                         {/* <img className="heart-img" src={blackHeart} alt="LOVE"/> */}
                         {/* TODO! if in wishlist show colored else show empty */}

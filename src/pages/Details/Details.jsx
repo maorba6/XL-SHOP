@@ -24,7 +24,7 @@ class _Details extends Component {
         if (!item) return <div>Loading...</div>
         return (
             <section className="item-details flex">
-                <img className="details-img" src={item.imgUrl} />
+                {item.imgUrls.map(imgUrl => <img className="details-img" src={imgUrl} key={imgUrl} />)}
                 <div className="details">
                     <div className="product-intro">
                         <div className="details-item-name">
@@ -53,13 +53,14 @@ class _Details extends Component {
                                     return <option key={size} value={size}>{size}</option>
                                 })}
                             </select>
-                        <div className="color">
-                            <span >color: </span>
-                            <select name="">
-                            {item.colors.map(color => {
-                            return <option key={color} value={color}>{color}</option>})}
-                            </select> 
-                        </div>
+                            <div className="color">
+                                <span >color: </span>
+                                <select name="">
+                                    {item.colors.map(color => {
+                                        return <option key={color} value={color}>{color}</option>
+                                    })}
+                                </select>
+                            </div>
                         </div>
                         <button className="signin-button">Add To Cart</button>
                     </div>

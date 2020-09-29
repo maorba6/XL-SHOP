@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem } from '../../actions/itemActions'
 import MultiOptions from '../../cmps/MultiOptions/MultiOptions'
 import UploadImg from '../../cmps/UploadImg/UploadImg'
+import { uploadImg } from '../../services/uploadImg';
 import './Edit.scss'
 
 class _Edit extends Component {
@@ -10,7 +11,8 @@ class _Edit extends Component {
     state = {
         item: null,
         isClrsSaved: false,
-        isSizesSaved: false
+        isSizesSaved: false,
+        // imgUrls: []
     }
 
     async componentDidMount() {
@@ -26,7 +28,7 @@ class _Edit extends Component {
         const { id } = this.props.match.params
         await this.props.loadItem(id)
         await this.props.loadItems()
-        this.setState({ item: this.props.item })
+        this.setState({ item: this.props.item, imgUrls: this.props.item.imgUrls })
     }
     handleChange = ({ target }) => {
         const field = target.name
@@ -71,6 +73,23 @@ class _Edit extends Component {
         this.setState({ isSizesSaved: false })
     }
 
+    onUploadImg = (imgUrl) => {
+        let { imgUrls } = this.state.item
+        imgUrls.push(imgUrl)
+        this.setState(({ item }) => ({ item: { ...item, imgUrls } }))
+
+    }
+
+
+    removeImg = (ev, imgUrl) => {
+        ev.preventDefault()
+        let imgUrls = this.state.item.imgUrls
+        const idx = imgUrls.findIndex(currImg => imgUrl === currImg)
+        imgUrls.splice(idx, 1)
+        this.setState(({ item }) => ({ item: { ...item, imgUrls } }))
+    }
+
+
     render() {
         const { item, isSizesSaved, isClrsSaved } = this.state
         let options = null
@@ -82,7 +101,12 @@ class _Edit extends Component {
 
         return (
             <form className="edit flex" onSubmit={this.saveItem} >
-                <img src={item.imgUrl} />
+                {item.imgUrls.map(imgUrl => {
+                    return <div key={imgUrl}>
+                        <img src={imgUrl} />
+                        <button onClick={(ev) => this.removeImg(ev, imgUrl)}>X</button>
+                    </div>
+                })}
                 <div className="details">
                     <div className="type">
                         <span >Type: </span>
@@ -121,7 +145,7 @@ class _Edit extends Component {
                     </div>
                     <button>save item</button>
                 </div>
-                <UploadImg></UploadImg>
+                <UploadImg uploadImg={this.onUploadImg} ></UploadImg>
             </form>
         )
     }

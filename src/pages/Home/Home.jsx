@@ -43,16 +43,20 @@ class _Home extends Component {
                     {/* banner maybe 5% discount for buy in website somethin like that */}
                 </div>
                 <div className="types flex">
-                    {this.state.types.map(type => {return <div>
-                        
-                        <Link key={type.str} to={type.str} className="browse-type"> <img src={type.img} /> <div className="tag">{type.str}</div></Link>
-                    </div> })}
+                    {this.state.types.map(type => {
+                        return <div key={type.str}>
+                            <Link to={'shop/' + type.str} className="browse-type">
+                                <img src={type.img} />
+                                <div className="tag">{type.str}</div>
+                            </Link>
+                        </div>
+                    })}
                 </div>
                 <h3>Top Rated</h3>
-                {items&&<List items={items.slice( items.length-3)} ></List>}
+                { items && <List items={items.slice(items.length - 3)} ></List>}
                 <h2>BROWSE BY CATEGORY</h2>
                 {/* MAKE IT WORK BY CATEGORY */}
-            </section>
+            </section >
         );
     }
 }

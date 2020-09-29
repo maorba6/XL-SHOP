@@ -18,6 +18,12 @@ class _Login extends Component {
         togglePassword: showPassword
     }
 
+
+    componentDidMount() {
+        if (this.props.user) {
+            this.props.history.push('/')
+        }
+    }
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.type === 'number' ? +target.value : target.value

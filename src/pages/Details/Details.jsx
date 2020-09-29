@@ -23,8 +23,8 @@ class _Details extends Component {
         const user = JSON.parse(this.props.user)
         if (!item) return <div>Loading...</div>
         return (
-            <section className="item-details flex">
-                {item.imgUrls.map(imgUrl => <img className="details-img" src={imgUrl} key={imgUrl} />)}
+            <section className="item-details flex ">
+                {item.imgUrls.map(imgUrl => <img className="details-img"  src={imgUrl} key={imgUrl} />)}
                 <div className="details">
                     <div className="product-intro">
                         <div className="details-item-name">
@@ -62,8 +62,8 @@ class _Details extends Component {
                                 </select>
                             </div>
                         </div>
-                        <button className="signin-button">Add To Cart</button>
                     </div>
+                        <button className="signin-button">Add To Cart</button>
                     {user && user.isAdmin && <Link to={`/item/edit/${item._id}`} >Edit </Link>}
                 </div>
             </section>

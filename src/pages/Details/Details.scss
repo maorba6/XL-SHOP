@@ -1,17 +1,35 @@
 .item-details {
     text-transform: capitalize;
-    align-items: center;
+    margin-top: 30px;
 
     img {
-        margin-top: 30px;
         width: 600px;
-        align-self: center;
     }
 
     .details {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        width: 100%;
+
+        h1 {
+            font-size: 35px;
+        }
+
+        .detail {
+            font-size: 30px;
+        }
+
+        .price {
+            color: lighten(red, 15%);
+        }
+
+        .size,
+        .color {
+            .true {
+                background-color: lightsalmon;
+            }
+        }
     }
 
 }
@@ -22,19 +40,12 @@
 }
 
 .product-intro {
-    margin-top: 25px;
 
     .price {
-        // color: #d53333;
         color: black;
         font-size: 24px;
         font-family: 'Arial Black';
         margin-bottom: 25px;
-    }
-
-    .details-item-id {
-        font-size: smaller;
-        color: rgb(158, 157, 157);
     }
 }
 
@@ -44,57 +55,115 @@
 
 }
 
-
-.pick{
-    width: 80px;
-    display: inline-block;
+.pick {
+    margin-bottom: 5px;
 }
 
 .option {
+    margin-bottom: 3px;
     margin-left: 3px;
     width: 50px;
     height: 50px;
+    border: 1px solid black;
+
 }
 
 .option-size {
     background-color: black;
     color: white;
+
+    &:hover {
+        background-color: lighten(black, 15%);
+    }
 }
 
 .option-red {
     background-color: red;
+
+    &:hover {
+        background-color: lighten(red, 15%);
+    }
 }
 
 .option-blue {
     background-color: blue;
+
+    &:hover {
+        background-color: lighten(blue, 15%);
+    }
 }
 
 .option-green {
     background-color: green;
+
+    &:hover {
+        background-color: lighten(green, 15%);
+    }
 }
 
 .option-yellow {
     background-color: yellow;
+
+    &:hover {
+        background-color: lighten(yellow, 15%);
+    }
 }
 
 .option-pink {
     background-color: pink;
+
+    &:hover {
+        background-color: lighten(pink, 5%);
+    }
 }
 
 .option-purple {
     background-color: purple;
+
+    &:hover {
+        background-color: lighten(purple, 15%);
+    }
 }
 
 .option-lightblue {
     background-color: lightblue;
+
+    &:hover {
+        background-color: lighten(lightblue, 15%);
+    }
 }
+
 
 .option-white {
     background-color: white;
     color: black;
+
+    &:hover {
+        background-color: lighten(white, 15%);
+    }
 }
 
 .option-orange {
     background-color: orange;
+
+    &:hover {
+        background-color: lighten(orange, 15%);
+    }
 }
 
+.option-black {
+    background-color: black;
+    color: white;
+
+    &:hover {
+        background-color: lighten(black, 15%);
+    }
+}
+
+.option-gray {
+    background-color: gray;
+
+    &:hover {
+        background-color: lighten(gray, 15%);
+    }
+}

@@ -10,7 +10,6 @@ const _setFilter = (filterBy) => ({ type: 'SET_FILTER', filterBy })
 
 // Action Dispatcher 
 export function loadItems() {
-
     return async (dispatch, getState) => {
         const items = await itemService.getItems(getState().itemReducer.filterBy)
         dispatch(_setItems(items))
@@ -24,7 +23,6 @@ export function removeItem(id) {
 }
 
 export function loadItem(id) {
-
     return async dispatch => {
         if (id) {
             const item = await itemService.getItemById(id)
@@ -46,7 +44,6 @@ export function saveItem(item) {
             dispatch(_addItem(savedItem))
         }
     }
-    //   return  item._id ? updateItem(item) : addItem(item)
 }
 
 

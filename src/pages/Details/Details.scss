@@ -23,13 +23,6 @@
         .price {
             color: lighten(red, 15%);
         }
-
-        .size,
-        .color {
-            .true {
-                background-color: lightsalmon;
-            }
-        }
     }
 
 }
@@ -60,12 +53,12 @@
 }
 
 .option {
+    padding: 0;
     margin-bottom: 3px;
     margin-left: 3px;
     width: 50px;
     height: 50px;
     border: 1px solid black;
-
 }
 
 .option-size {

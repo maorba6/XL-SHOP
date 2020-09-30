@@ -61,13 +61,13 @@ class _Details extends Component {
                         <span>  {item.category}</span>
                     </div>
                     <div className="size ">
-                        <div className=" detail pick">pick size</div>
+                        <div className=" detail pick">pick size: {chosenSize}</div>
                         {item.sizes.map(size => {
                             return <button onClick={() => this.setSize(size)} key={size} className={"option option-size " + (size === chosenSize)}>{size}</button>
                         })}
                     </div>
                     <div className="color ">
-                        <div className="detail pick">pick color</div>
+                        <div className="detail pick">pick color :{chosenColor}</div>
                         {item.colors.map(color => {
                             return <button onClick={() => this.setColor(color)} key={color} className={'option option-' + color + (color === chosenColor)}>{color}</button>
                         })}

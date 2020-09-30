@@ -8,6 +8,7 @@ import { SignUp } from './pages/SignUp/SignUp'
 import { Main } from './pages/Main/Main'
 import { Edit } from './pages/Edit/Edit'
 import { Details } from './pages/Details/Details'
+import { Profile } from './pages/Profile/Profile'
 import './App.scss';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route component={Edit} path="/item/edit/:id" />
             <Route component={Edit} path="/item/edit" />
             <Route component={Details} path="/item/:id" />
+            <Route component={Profile} path="/profile" />
 
             {/* Best way to send props to a route: */}
             {/* <Route render={ (props) => <About { ...props } someProp="popo" /> } path="/about" /> */}

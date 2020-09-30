@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem } from '../../actions/itemActions'
 import MultiOptions from '../../cmps/MultiOptions/MultiOptions'
 import UploadImg from '../../cmps/UploadImg/UploadImg'
+import Swal from 'sweetalert2'
+
 import './Edit.scss'
 
 class _Edit extends Component {
@@ -42,6 +44,17 @@ class _Edit extends Component {
     saveItem = async (ev) => {
         ev.preventDefault()
         console.log(this.state.item);
+        const Toast = Swal.mixin({
+            toast: true,
+        position: 'center',
+        showConfirmButton: false,
+        timer:2500,
+        timerProgressBar: true,
+    })
+    Toast.fire({
+      icon: 'success',
+      title: ' ציון אין לי מה להגיד ואין לי מה לאמר אתה תותח נ'
+    })
         this.props.saveItem(this.state.item)
         this.props.loadItems()
         this.props.history.push('/shop')

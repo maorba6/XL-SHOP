@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem } from '../../actions/itemActions'
+import ImgCarousel from '../../cmps/ImgCarousel/ImgCarousel'
 import './Details.scss'
 
 class _Details extends Component {
@@ -50,7 +51,8 @@ class _Details extends Component {
         if (!item) return <div>Loading...</div>
         return (
             <section className="item-details flex ">
-                {item.imgUrls.map(imgUrl => <img className="details-img" src={imgUrl} key={imgUrl} />)}
+                {/* {item.imgUrls.map(imgUrl => <img className="details-img" src={imgUrl} key={imgUrl} />)} */}
+                <ImgCarousel imgs={item.imgUrls}></ImgCarousel>
                 <div className="details">
                     <h1 className="details-item-name">
                         {item.name}

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { setUser } from '../../actions/userActions'
 import hidePassword from '../../assets/img/hide-password.png'
 import showPassword from '../../assets/img/show-password.png'
+import Swal from 'sweetalert2'
 
 import './Login.scss'
 class _Login extends Component {
@@ -36,8 +37,37 @@ class _Login extends Component {
         if (user) {
             this.props.history.push('/')
             this.props.setUser()
+            const Toast = Swal.mixin({
+                toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer:1500,
+            timerProgressBar: true,
+            // onOpen: (toast) => {
+            // toast.addEventListener('mouseenter', Swal.stopTimer)
+            // toast.addEventListener('mouseleave', Swal.resumeTimer)
+        //   },
+        
+        })
+        Toast.fire({
+          icon: 'success',
+          title: 'Logged In'
+        })
         }
-        else console.log('email or password wrong');
+        
+        else{
+            const Toast = Swal.mixin({
+                toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer:2500,
+            timerProgressBar: true,
+        })
+        Toast.fire({
+          icon: 'error',
+          title: 'Fail to log in Email or Password are wrong'
+        })
+        }
     }
 
     toggleShowPassword = () => {

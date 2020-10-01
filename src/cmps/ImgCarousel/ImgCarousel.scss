@@ -1,3 +1,22 @@
-.caro{
-    width: 600px !important;
+
+
+.hidden{
+    display: none;
 }
+.carousel-container {
+    width: 500px;
+}
+
+.carousel-img{
+    width: 500px !important;
+    object-fit: cover;
+}
+.react-multi-carousel-dot-list{
+    bottom: 10px;
+}
+.react-multi-carousel-list {
+    li {
+        width: unset !important;
+    }
+}
+

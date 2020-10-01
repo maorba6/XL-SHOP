@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem } from '../../actions/itemActions'
+//components
+import { List }from '../../cmps/List/List'
 import ImgCarousel from '../../cmps/ImgCarousel/ImgCarousel'
 import './Details.scss'
 
@@ -51,7 +53,6 @@ class _Details extends Component {
         if (!item) return <div>Loading...</div>
         return (
             <section className="item-details flex ">
-                {/* {item.imgUrls.map(imgUrl => <img className="details-img" src={imgUrl} key={imgUrl} />)} */}
                 <ImgCarousel imgs={item.imgUrls}></ImgCarousel>
                 <div className="details">
                     <h1 className="details-item-name">
@@ -77,6 +78,7 @@ class _Details extends Component {
                     <button onClick={() => this.addToCart()} className="signin-button">Add To Cart</button>
                     {user && user.isAdmin && <Link to={`/item/edit/${item._id}`} >Edit </Link>}
                 </div>
+                {/* <List></List> */}
             </section>
         )
     }

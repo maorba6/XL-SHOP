@@ -7,7 +7,7 @@ import img1 from '../../assets/1.jpeg';
 import pants from '../../assets/samples/pants-test.jpeg';
 import shirt from '../../assets/samples/shirt-test.jpeg';
 import shoes from '../../assets/shoes.jpeg';
-//
+//components
 import { Preview } from '../../cmps/Preview/Preview'
 import { List } from '../../cmps/List/List'
 import './Home.scss'
@@ -37,8 +37,10 @@ class _Home extends Component {
         return (
             <section className="home">
                 <div className="hero-background">
-                    {/* <h1>Welcome User</h1> */}
+
                 </div>
+
+             
                 <div>
                     {/* banner maybe 5% discount for buy in website somethin like that */}
                 </div>

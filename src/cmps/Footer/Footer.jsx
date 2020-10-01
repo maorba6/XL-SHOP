@@ -8,30 +8,25 @@ export function Footer() {
 
     return (
         <footer>
-            <h1>footer</h1>
-            <div className="social">
-                <img src={whatsapp} />
-                <img src={facebook} />
-                <img src={instagram} />
-            </div>
-            {/* <div className="colors">
-                        <span>colors: </span>
-                        <ul >
-                            {item.colors.map(color => {
-                                return <li key={color} value={color}>{color}<button onClick={(ev) => this.removeColor(ev, color)}>x</button></li>
-                            })}
-                            <button>+</button>
-                        </ul>
-                    </div>
-                    <div className="sizes">
-                        <span>sizes: </span>
-                        <ul >
-                            {item.sizes.map(size => {
-                                return <li key={size} value={size}>{size}<button onClick={(ev) => this.removeSize(ev, size)}>x</button></li>
-                            })}
-                            <button>+</button>
-                        </ul>
-                    </div> */}
+         
+            <div className="contact">
+                    <h2>Find Us</h2>
+                    <ul>
+                        <li>
+                            <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=zion71il@gmail.com&su=&body=נא להשאיר פרטי קשר שנוכל לחזור אליכם ">Email Us</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://wa.link/s69g6e">Send Whatsapp</a>
+                        </li>
+                        <li>
+                            Business Phone: 089461751
+                        </li>
+                        <li>
+                            Address :  רחוב בילו 23 מול הקניון (רחובות)
+                        </li>
+                    </ul>
+                    
+                </div>
         </footer>
 
 

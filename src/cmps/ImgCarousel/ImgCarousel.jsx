@@ -29,22 +29,23 @@ export default function ImgCarousel(props) {
         showDots={true}
         responsive={responsive}
         ssr={false} // means to render carousel on server-side.
-        infinite={false}
+        infinite={true}
         // autoPlay={this.props.deviceType !== "mobile" ? true : false}
         autoPlaySpeed={1000}
-        keyBoardControl={true}
+        keyBoardControl={false}
         customTransition="all .5"
         transitionDuration={500}
         containerClass="carousel-container"
         // deviceType={this.props.deviceType}
         dotListClass="custom-dot-list-style"
         itemClass=""
+        // renderDotsOutside={true}
       >
       
         {props.imgs.map(imgUrl => {
-          return <img src={imgUrl} />
+          return <img className="carousel-img" key={imgUrl} src={imgUrl} />
         })}
-      </Carousel><span>;</span>
+      </Carousel><span className="hidden">;</span>
     </div>
   )
 }

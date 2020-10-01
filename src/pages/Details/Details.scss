@@ -1,16 +1,17 @@
 .item-details {
     text-transform: capitalize;
     margin-top: 30px;
-
+    justify-content: space-around;
     img {
         width: 300px;
+        height: 100%;
     }
 
     .details {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 100%;
+        width: 45%;
 
         h1 {
             font-size: 35px;
@@ -27,14 +28,7 @@
 
 }
 
-.react-multi-carousel-list {
-    li {
-        width: unset !important;
-    }
-}
-
-.carousel-container {
-    width: 300px;
+.item-details >*{
 }
 
 .details-img {

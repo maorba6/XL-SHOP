@@ -1,0 +1,18 @@
+.filter {
+    .pants-types {
+        &:hover {
+            display: block;
+        }
+    }
+
+    .list {
+        justify-content: space-around;
+        list-style-type: none;
+
+        li {
+            &:hover {
+                border-bottom: 1px black solid;
+            }
+        }
+    }
+}

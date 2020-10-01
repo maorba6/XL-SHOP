@@ -1,4 +1,3 @@
-import utilService from './utilService'
 import httpService from './httpService'
 
 export default {
@@ -6,10 +5,9 @@ export default {
     signup,
     login,
     logout,
+    updateUser
 }
 
-// const users = [
-//  ]
 
 let loggedinUser = null
 
@@ -40,4 +38,10 @@ function _handleLogin(user) {
     return user;
 }
 
+
+
+async function updateUser(user) {
+    return await httpService.put(`user/${user._id}`, user)
+
+}
 

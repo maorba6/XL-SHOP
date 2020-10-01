@@ -46,15 +46,15 @@ class _Edit extends Component {
         console.log(this.state.item);
         const Toast = Swal.mixin({
             toast: true,
-        position: 'center',
-        showConfirmButton: false,
-        timer:2500,
-        timerProgressBar: true,
-    })
-    Toast.fire({
-      icon: 'success',
-      title: ' ציון אין לי מה להגיד ואין לי מה לאמר אתה תותח נ'
-    })
+            position: 'center',
+            showConfirmButton: false,
+            timer: 2500,
+            timerProgressBar: true,
+        })
+        Toast.fire({
+            icon: 'success',
+            title: ' ציון אין לי מה להגיד ואין לי מה לאמר אתה תותח נ'
+        })
         this.props.saveItem(this.state.item)
         this.props.loadItems()
         this.props.history.push('/shop')
@@ -66,7 +66,6 @@ class _Edit extends Component {
         this.setState({ isClrsSaved: true })
         colors = colors.map(color => color.label)
         this.setState(({ item }) => ({ item: { ...item, colors } }))
-
     }
 
     saveSizes = (ev, sizes) => {
@@ -110,12 +109,15 @@ class _Edit extends Component {
 
         return (
             <form className="edit flex" onSubmit={this.saveItem} >
-                {item.imgUrls.map(imgUrl => {
-                    return <div key={imgUrl}>
-                        <img src={imgUrl} />
-                        <button onClick={(ev) => this.removeImg(ev, imgUrl)}>X</button>
-                    </div>
-                })}
+                <div>
+                    <UploadImg uploadImg={this.onUploadImg} ></UploadImg>
+                    {item.imgUrls.map(imgUrl => {
+                        return <div key={imgUrl}>
+                            <img src={imgUrl} />
+                            <button onClick={(ev) => this.removeImg(ev, imgUrl)}>X</button>
+                        </div>
+                    })}
+                </div>
                 <div className="details">
                     <div className="name">
                         <span> name:</span>
@@ -157,7 +159,7 @@ class _Edit extends Component {
                     </div>
                     <button>save item</button>
                 </div>
-                <UploadImg uploadImg={this.onUploadImg} ></UploadImg>
+
             </form>
         )
     }

@@ -19,8 +19,8 @@ async function getItems(filterBy = null) {
     if (!filterBy) {
         return await httpService.get(`item`)
     } else {
-        const { type, category, name } = filterBy
-        return await httpService.get('item' + `?type=${type}&category=${category}&name=${name}`)
+        const { category, name } = filterBy
+        return await httpService.get('item' + `?category=${category}&name=${name}`)
     }
 
 }

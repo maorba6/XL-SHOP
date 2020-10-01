@@ -1,4 +1,5 @@
 .filter {
+
     .pants-types {
         &:hover {
             display: block;
@@ -7,9 +8,17 @@
 
     .list {
         justify-content: space-around;
+
         list-style-type: none;
 
+        .sublist {
+            position: absolute;
+            list-style-type: none;
+            padding: 0px;
+        }
+
         li {
+
             &:hover {
                 border-bottom: 1px black solid;
             }

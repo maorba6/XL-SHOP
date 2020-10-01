@@ -3,7 +3,6 @@
     margin-top: 30px;
     justify-content: space-around;
     img {
-        width: 300px;
         height: 100%;
     }
 
@@ -11,7 +10,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 45%;
+        margin-left: 20px;;
 
         h1 {
             font-size: 35px;
@@ -24,16 +23,13 @@
         .price {
             color: lighten(red, 15%);
         }
+        .signin-button{
+            margin-top:0;
+        }
     }
 
 }
 
-.item-details >*{
-}
-
-.details-img {
-    width: 250px;
-}
 
 .product-intro {
 

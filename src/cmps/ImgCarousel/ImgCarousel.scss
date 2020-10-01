@@ -5,14 +5,17 @@
 }
 .carousel-container {
     width: 500px;
+    // height: 100%;
 }
-
+.test{
+    height: 100%;
+}
 .carousel-img{
     width: 500px !important;
     object-fit: cover;
 }
 .react-multi-carousel-dot-list{
-    bottom: 10px;
+    bottom: 10px !important;
 }
 .react-multi-carousel-list {
     li {

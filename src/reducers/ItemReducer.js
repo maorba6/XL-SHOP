@@ -1,7 +1,8 @@
 const INITIAL_STATE = {
     items: null,
     filterBy: null,
-    currItem: null
+    currItem: null,
+    sameCategoryItems:[]
 }
 
 export function ItemReducer(state = INITIAL_STATE, action) {
@@ -19,6 +20,12 @@ export function ItemReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 currItem: action.item
+            }
+        case 'SET_SAME_CATEGORY_ITEMS':
+            console.log(action);
+            return {
+                ...state,
+                sameCategoryItems: action.items
             }
         case 'SET_FILTER':
             // state.filterBy = action.filterBy

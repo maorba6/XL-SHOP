@@ -22,7 +22,7 @@ export default function ImgCarousel(props) {
     }
   };
   return (
-    <div>
+    <div className="test">
       <Carousel
         swipeable={false}
         draggable={false}

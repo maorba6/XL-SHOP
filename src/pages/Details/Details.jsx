@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import { loadItem, loadItems, saveItem } from '../../actions/itemActions'
+import { loadItem, loadItems, saveItem ,setSameCategoryItems } from '../../actions/itemActions'
 //components
 import { List }from '../../cmps/List/List'
 import ImgCarousel from '../../cmps/ImgCarousel/ImgCarousel'
@@ -13,7 +13,8 @@ class _Details extends Component {
         item: null,
         itemToBuy: null,
         chosenSize: null,
-        chosenColor: null
+        chosenColor: null,
+        sameCategoryItems:[]
     }
     async componentDidMount() {
         const { id } = this.props.match.params
@@ -21,11 +22,13 @@ class _Details extends Component {
         // await this.props.loadItems()
         this.setState({ item: this.props.item })
         this.setState({ itemToBuy: this.props.item })
+        await this.props.setSameCategoryItems(this.state.item.category,this.state.item._id)
+        this.setState({sameCategoryItems : this.props.sameCategoryItems})
     }
 
     componentDidUpdate() {
+        console.log(this.state.sameCategoryItems);
     }
-
 
     setColor(color) {
         this.setState(({ itemToBuy }) => ({ itemToBuy: { ...itemToBuy, color } }))
@@ -48,12 +51,13 @@ class _Details extends Component {
 
 
     render() {
-        const { item, chosenSize, chosenColor } = this.state
+        const { item, chosenSize, chosenColor,sameCategoryItems  } = this.state
         const user = JSON.parse(this.props.user)
         if (!item) return <div>Loading...</div>
         return (
-            <section className="item-details flex ">
-                <ImgCarousel imgs={item.imgUrls}></ImgCarousel>
+            <section className="item-details flex column ">
+                <div className="flex">
+                <ImgCarousel  imgs={item.imgUrls}></ImgCarousel>
                 <div className="details">
                     <h1 className="details-item-name">
                         {item.name}
@@ -78,7 +82,11 @@ class _Details extends Component {
                     <button onClick={() => this.addToCart()} className="signin-button">Add To Cart</button>
                     {user && user.isAdmin && <Link to={`/item/edit/${item._id}`} >Edit </Link>}
                 </div>
-                {/* <List></List> */}
+                </div>
+                        <div>
+                        <h2>You might like</h2>
+                        <List className="flex" items={sameCategoryItems}></List>
+                        </div>
             </section>
         )
     }
@@ -89,7 +97,7 @@ function mapStateProps(state) {
     return {
         item: state.itemReducer.currItem,
         user: state.userReducer.user,
-
+        sameCategoryItems : state.itemReducer.sameCategoryItems
     }
 }
 // Takes the action dispatchers from the actions file and puts them inside the component's props
@@ -97,6 +105,7 @@ const mapDispatchToProps = {
     loadItem,
     loadItems,
     saveItem,
+    setSameCategoryItems
 
 }
 // Connect is used to tap into the store, without it we have no access to the store from the component

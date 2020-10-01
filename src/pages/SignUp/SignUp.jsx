@@ -58,7 +58,7 @@ class _SignUp extends Component {
   handleChange = ({ target }) => {
     const field = target.name
     if (field === "elIsAgreeTerms") {
-      this.setState({ [field]: target.checked }, console.log(this.state))
+      this.setState({ [field]: target.checked })
     } else if (field === "emailSends") {
       this.setState(({ user }) => ({ user: { ...user, [field]: target.checked } }))
     } else {

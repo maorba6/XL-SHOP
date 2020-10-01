@@ -7,12 +7,19 @@ const _removeItem = (id) => ({ type: 'REMOVE_ITEM', id })
 const _addItem = (item) => ({ type: 'ADD_ITEM', item })
 const _updateItem = (item) => ({ type: 'UPDATE_ITEM', item })
 const _setFilter = (filterBy) => ({ type: 'SET_FILTER', filterBy })
+const _setSameCategoryItems = (items) => ({ type: 'SET_SAME_CATEGORY_ITEMS', items })
 
 // Action Dispatcher 
 export function loadItems() {
     return async (dispatch, getState) => {
         const items = await itemService.getItems(getState().itemReducer.filterBy)
         dispatch(_setItems(items))
+    }
+}
+export function setSameCategoryItems(category,id) {
+    return async (dispatch, getState) => {
+        const items = await itemService.getItemsByCategory(category,id)
+        dispatch(_setSameCategoryItems(items))
     }
 }
 

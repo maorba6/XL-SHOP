@@ -5,7 +5,8 @@ export const itemService = {
     getEmptyItem,
     removeItem,
     saveItem,
-    getItemById
+    getItemById,
+    getItemsByCategory
 }
 
 
@@ -24,6 +25,11 @@ async function getItems(filterBy = null) {
 
 }
 
+async function getItemsByCategory(category,id){
+    let items = await httpService.get('item' + `?category=${category}`)
+    items = items.filter(item=>item._id!==id)
+    return items
+}
 
 
 async function removeItem(id) {

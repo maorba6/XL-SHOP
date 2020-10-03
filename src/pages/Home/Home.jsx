@@ -8,7 +8,6 @@ import pants from '../../assets/samples/pants-test.jpeg';
 import shirt from '../../assets/samples/shirt-test.jpeg';
 import shoes from '../../assets/shoes.jpeg';
 //components
-import { Preview } from '../../cmps/Preview/Preview'
 import { List } from '../../cmps/List/List'
 import './Home.scss'
 class _Home extends Component {
@@ -40,9 +39,8 @@ class _Home extends Component {
 
                 </div>
 
-             
+
                 <div>
-                    {/* banner maybe 5% discount for buy in website somethin like that */}
                 </div>
                 <div className="types flex">
                     {this.state.types.map(type => {
@@ -57,7 +55,6 @@ class _Home extends Component {
                 <h3>Top Rated</h3>
                 { items && <List items={items.slice(items.length - 3)} ></List>}
                 <h2>BROWSE BY CATEGORY</h2>
-                {/* MAKE IT WORK BY CATEGORY */}
             </section >
         );
     }

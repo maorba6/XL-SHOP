@@ -2,9 +2,8 @@ import React, { Component, createRef } from 'react'
 import userService from '../../services/userService'
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/userActions'
-import hidePassword from '../../assets/img/hide-password.png'
-import showPassword from '../../assets/img/show-password.png'
 import './SignUp.scss'
+import InputPassword from '../../cmps/InputPassword/InputPassword';
 
 
 class _SignUp extends Component {
@@ -18,27 +17,11 @@ class _SignUp extends Component {
       emailSends: false
     },
     elIsAgreeTerms: false,
-    inputType: 'password',
-    togglePassword: showPassword
-
   }
 
-
-
-  toggleShowPassword = () => {
-    if (this.state.inputType === 'password') {
-      this.setState({ inputType: 'text', togglePassword: hidePassword })
-    }
-    else {
-      this.setState({ inputType: 'password', togglePassword: showPassword })
-    }
-  }
 
   signup = async (ev) => {
     ev.preventDefault()
-    console.log('terms', this.state.elIsAgreeTerms, 'mail', this.state.user.emailSends);
-
-    //add validation to email check if exist
     const { password, email, fname, lname } = this.state.user
     const isPasswordValid = this.validatePassword(password)
     if (!isPasswordValid) {
@@ -94,13 +77,10 @@ class _SignUp extends Component {
           <p className="signup-form-caption">Enter your name as it appears on your drivers license</p>
           <div>
             <label>Email</label>
-            <input className="signup-form-group" name="email" value={user.email} onChange={this.handleChange} type="text" />
+            <input className="signup-form-group" name="email" value={user.email} onChange={this.handleChange} type="email" />
           </div>
-          <div>
-            <label>Password</label>
-            <input className="signup-form-group" name="password" value={user.password} onChange={this.handleChange} type={inputType} />
-          </div>
-          <img className="img-togglePassword" onClick={this.toggleShowPassword} src={togglePassword} />
+          <InputPassword handleChange={this.handleChange} user={user} />
+
 
           <label>
             <input name="elIsAgreeTerms" value={elIsAgreeTerms} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> I agree to the

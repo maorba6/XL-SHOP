@@ -11,7 +11,7 @@ function _Header(props) {
         props.setUser()
         return () => {
         }
-    })
+    }, [])
 
     async function logout() {
         await userService.logout()

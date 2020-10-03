@@ -10,9 +10,7 @@ import './Preview.scss'
 
 function _Preview(props) {
     const { item, removeItem } = props
-    const user = JSON.parse(props.user)
-
-
+    const user = props.user
     return (
         <div className="preview flex">
             {user && user.isAdmin && <p className="delete-item" onClick={() => removeItem(item._id)} >X</p>}

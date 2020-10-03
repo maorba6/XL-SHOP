@@ -22,7 +22,7 @@ class _Main extends Component {
 
         this.setFilter(filterBy)
         this.props.loadItems()
-        this.props.setUser()
+        // this.props.setUser()
     }
 
     removeItem = async (id) => {
@@ -30,14 +30,15 @@ class _Main extends Component {
     }
 
     setFilter = (filterBy) => {
-        console.log(filterBy);
         this.props.setFilter(filterBy)
         this.props.loadItems()
     }
 
+    componentDidUpdate() {
+    }
+
     render() {
         let { items, user } = this.props
-        user = JSON.parse(user)
         return (
             <main >
                 { user && user.isAdmin && < Link className="btn" to="/item/edit" replace={true}  >   Add Item</Link>}

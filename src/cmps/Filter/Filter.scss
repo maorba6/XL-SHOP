@@ -8,20 +8,22 @@
 
     .list {
         justify-content: space-around;
-
         list-style-type: none;
 
         .sublist {
+            background-color: white;
             position: absolute;
             list-style-type: none;
             padding: 0px;
-        }
 
-        li {
+            li {
 
-            &:hover {
-                border-bottom: 1px black solid;
+                &:hover {
+                    border-bottom: 1px black solid;
+                }
             }
         }
+
+
     }
 }

@@ -8,7 +8,7 @@ import { SignUp } from './pages/SignUp/SignUp'
 import { Main } from './pages/Main/Main'
 import { Edit } from './pages/Edit/Edit'
 import { Details } from './pages/Details/Details'
-import  Cart  from './pages/Cart/Cart'
+import { Cart } from './pages/Cart/Cart'
 import { Profile } from './pages/Profile/Profile'
 import './App.scss';
 

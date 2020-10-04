@@ -1,4 +1,29 @@
+.user-account {
+    label {
+        text-transform: capitalize;
+    }
+}
+
+
 .img-togglePassword {
     width: 40px;
     height: 40px;
+}
+
+.change-account {
+    justify-content: space-around;
+
+    .change-email,
+    .change-password {
+        width: 30%;
+        min-width: 140px;
+        height: 300px;
+        justify-content: space-between;
+    }
+
+}
+
+.btn-save-account {
+    align-self: center;
+    text-transform: capitalize;
 }

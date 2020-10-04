@@ -35,8 +35,6 @@ export function loadItem(id) {
             dispatch(_setItem(item))
         } else {
             const item = await itemService.getEmptyItem()
-            console.log(item);
-
             dispatch(_setItem(item))
         }
     }

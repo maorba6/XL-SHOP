@@ -121,11 +121,11 @@ class _Edit extends Component {
                 <div className="details">
                     <div className="name">
                         <span> name:</span>
-                        <input type="text" name="name" value={item.name} onChange={this.handleChange} />
+                        <input className="app-input" type="text" name="name" value={item.name} onChange={this.handleChange} />
                     </div>
                     <div className="type">
                         <span >Type: </span>
-                        <select name="type" value={item.type} onChange={this.handleChange} >
+                        <select className="app-input" name="type" value={item.type} onChange={this.handleChange} >
                             <option value="shirt">Shirt</option>
                             <option value="pants">Pants</option>
                             <option value="shoes">Shoes</option>
@@ -133,14 +133,14 @@ class _Edit extends Component {
                     </div>
                     <div className="category">
                         <span >category: </span>
-                        <select name="category" value={item.category} onChange={this.handleChange} >
+                        <select className="app-input" name="category" value={item.category} onChange={this.handleChange} >
                             <option value="sport">Sport</option>
                             <option value="casual">Casual</option>
                         </select>
                     </div>
                     <div className="brand">
                         <span >brand: </span>
-                        <input type="text" name="brand" value={item.brand} onChange={this.handleChange} />
+                        <input className="app-input" type="text" name="brand" value={item.brand} onChange={this.handleChange} />
                     </div>
 
                     <MultiOptions
@@ -155,9 +155,9 @@ class _Edit extends Component {
 
                     <div className="price">
                         <span >price: </span>
-                        <input type="text" name="price" value={item.price} onChange={this.handleChange} />
+                        <input className="app-input" type="text" name="price" value={item.price} onChange={this.handleChange} />
                     </div>
-                    <button>save item</button>
+                    <button className="app-btn">save item</button>
                 </div>
 
             </form>

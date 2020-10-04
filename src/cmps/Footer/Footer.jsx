@@ -9,7 +9,7 @@ export function Footer() {
     return (
         <footer>
          
-            <div className="contact">
+            <div className="contact-footer">
                     <h2>Find Us</h2>
                     <ul>
                         <li>

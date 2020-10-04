@@ -65,7 +65,7 @@ class _Details extends Component {
                     <div className="detail price"> ${item.price} </div>
                     <div className="detail">  {item.brand}</div>
                     <div className="category">
-                        <span>  {item.category}</span>
+                        {/* <span>  {item.category}</span> */}
                     </div>
                     <div className="size ">
                         <div className=" detail pick">pick size: {chosenSize}</div>
@@ -74,9 +74,9 @@ class _Details extends Component {
                         })}
                     </div>
                     <div className="color ">
-                        <div className="detail pick">pick color :{chosenColor}</div>
+                        <div className="detail pick">pick color:{chosenColor}</div>
                         {item.colors.map(color => {
-                            return <button onClick={() => this.setColor(color)} key={color} className={'option option-' + color + (color === chosenColor)}>{color}</button>
+                            return <button onClick={() => this.setColor(color)} key={color} className={'option option-' + color + (color === chosenColor)}></button>
                         })}
                     </div>
                     <button onClick={() => this.addToCart()} className="signin-button">Add To Cart</button>

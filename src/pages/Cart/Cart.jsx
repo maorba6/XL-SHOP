@@ -1,13 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import '../Cart/Cart.scss'
+
  function _Cart(props) {
     const user = props.user
-    console.log(user);
     return (
         <div>
-           {props.user && <div>{user.cart}</div>} 
+           {props.user && <div>
+            {user.cart.map(item => {
+            return <div>
+                <img className="test-img" key={item._id} src={item.imgUrls[0]} />
+                <p>
+                    price:{item.price}
+                </p>
+            </div>})}
+        </div>} 
+
+
+        
         </div>
+
+        
     )
 }
 

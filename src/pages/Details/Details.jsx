@@ -48,6 +48,7 @@ class _Details extends Component {
     }
     async addToCart() {
         const itemToCart = this.state.itemToBuy
+        if (!itemToCart.size || !itemToCart.color) return
         delete itemToCart.colors
         delete itemToCart.sizes
         this.props.user.cart.push(itemToCart)

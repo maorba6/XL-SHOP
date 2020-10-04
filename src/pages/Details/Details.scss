@@ -13,11 +13,11 @@
         margin-left: 20px;;
 
         h1 {
-            font-size: 35px;
+            // font-size: 35px;
         }
 
         .detail {
-            font-size: 30px;
+            font-size: 20px;
         }
 
         .price {
@@ -55,9 +55,12 @@
     padding: 0;
     margin-bottom: 3px;
     margin-left: 3px;
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    outline: none;
+    margin: .3rem;
+    border: 2px solid black;
 }
 
 .option-size {
@@ -70,23 +73,23 @@
 }
 
 .option-red {
-    background-color: red;
+    background-color: rgb(158, 37, 37);
 
     &:hover {
-        background-color: lighten(red, 15%);
+        background-color: lighten(rgb(158, 37, 37), 15%);
     }
 }
 
 .option-blue {
-    background-color: blue;
+    background-color: rgb(47, 47, 138);
 
     &:hover {
-        background-color: lighten(blue, 15%);
+        background-color: lighten(rgb(47, 47, 138), 15%);
     }
 }
 
 .option-green {
-    background-color: green;
+    background-color: rgb(96, 129, 96);
 
     &:hover {
         background-color: lighten(green, 15%);
@@ -94,7 +97,7 @@
 }
 
 .option-yellow {
-    background-color: yellow;
+    background-color: rgb(255, 255, 163);
 
     &:hover {
         background-color: lighten(yellow, 15%);

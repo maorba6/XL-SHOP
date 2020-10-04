@@ -78,7 +78,7 @@ class _Details extends Component {
                         <div className="color ">
                             <div className="detail pick">pick color :{chosenColor}</div>
                             {item.colors.map(color => {
-                                return <button onClick={() => this.setColor(color)} key={color} className={'option option-' + color + (color === chosenColor)}>{color}</button>
+                                return <button onClick={() => this.setColor(color)} key={color} className={'option option-' + color + (color === chosenColor)}></button>
                             })}
                         </div>
                         <button onClick={() => this.addToCart()} className="signin-button">Add To Cart</button>

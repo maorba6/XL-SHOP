@@ -15,7 +15,6 @@ function _Profile(props) {
     const history = useHistory()
 
     useEffect(() => {
-        console.log(user);
         if (!user) history.push('/')
         return () => {
         }
@@ -64,11 +63,11 @@ function _Profile(props) {
     return (
         <div>
             {user && <h1>welcome {user.fname + ' ' + user.lname}</h1>}
-            <nav>
-                <button onClick={() => setCurrent('account')}>My Account</button>
-                <button onClick={() => setCurrent('edit')}>Edit User</button>
-                <button onClick={() => setCurrent('orders')}>My Orders</button>
-                <button onClick={() => setCurrent('favs')}>My Favorites</button>
+            <nav className="nav-profile flex">
+                <button className="app-btn" onClick={() => setCurrent('account')}>My Account</button>
+                <button className="app-btn" onClick={() => setCurrent('edit')}>Edit User</button>
+                <button className="app-btn" onClick={() => setCurrent('orders')}>My Orders</button>
+                <button className="app-btn" onClick={() => setCurrent('favs')}>My Favorites</button>
             </nav>
             {user && current === 'account' && <UserAccount user={user} saveUser={saveUser} />}
             {user && current === 'edit' && <UserEdit user={user} saveUser={saveUser} />}

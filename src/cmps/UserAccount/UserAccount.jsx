@@ -19,7 +19,6 @@ export default function UserAccount(props) {
     }
 
     function toggleShowPassword() {
-        console.log('toggle start', state);
         if (state.inputType === 'password') {
             setState(state => ({ ...state, inputType: 'text', togglePassword: hidePassword }))
         }
@@ -38,34 +37,36 @@ export default function UserAccount(props) {
 
     }, [])
     return (
-        <div>
-            <form onSubmit={(ev) => props.saveUser(ev, state.editedUser, 'account')}>
-                <div className="change-account flex">
-                    <div className="change-email">
-                        <div className="email">
-                            <label> email:</label>
-                            <input type="email" name="email" value={state.editedUser.email} onChange={(ev) => handleChange(ev)} />
-                        </div>
-                    </div>
-                    <div className="change-password">
-                        <div className="curr-pass">
-                            <label>   current password:</label>
-                            <input type={state.inputType} name="currPass" value={state.editedUser.currPass || ''} onChange={(ev) => handleChange(ev)} />
-                        </div>
-                        <div className="new-pass">
-                            <label>  new password:</label>
-                            <input type={state.inputType} name="newPass" value={state.editedUser.newPass || ''} onChange={(ev) => handleChange(ev)} />
-                        </div>
-                        <div className="confirm">
-                            <label> confirm new pasword:</label>
-                            <input type={state.inputType} name="newPassConfirm" value={state.editedUser.newPassConfirm || ''} onChange={(ev) => handleChange(ev)} />
-                        </div>
-                        <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />
+        <form className="user-account flex column" onSubmit={(ev) => props.saveUser(ev, state.editedUser, 'account')}>
+            <div className="change-account flex">
+                <div className="change-email">
+                    {/* <div className="curr-email">
+                        <label> email:</label>
+                        <input className="app-input" type="email" name="curr-email" value={state.editedUser.email} onChange={(ev) => handleChange(ev)} />
+                    </div> */}
+                    <div className="email">
+                        <label> email:</label>
+                        <input className="app-input" type="email" name="email" value={state.editedUser.email} onChange={(ev) => handleChange(ev)} />
                     </div>
                 </div>
-                <button>save password/email</button>
-            </form>
+                <div className="change-password flex column">
+                    <div className="curr-pass">
+                        <label>   current password:</label>
+                        <input className="app-input" type={state.inputType} name="currPass" value={state.editedUser.currPass || ''} onChange={(ev) => handleChange(ev)} />
+                    </div>
+                    <div className="new-pass">
+                        <label>  new password:</label>
+                        <input className="app-input" type={state.inputType} name="newPass" value={state.editedUser.newPass || ''} onChange={(ev) => handleChange(ev)} />
+                    </div>
+                    <div className="confirm">
+                        <label> confirm new pasword:</label>
+                        <input className="app-input" type={state.inputType} name="newPassConfirm" value={state.editedUser.newPassConfirm || ''} onChange={(ev) => handleChange(ev)} />
+                    </div>
+                    <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />
+                </div>
+            </div>
+            <button className="app-btn btn-save-account">save password/email</button>
+        </form>
 
-        </div>
     )
 }

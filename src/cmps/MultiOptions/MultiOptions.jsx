@@ -49,7 +49,7 @@ export default function MultiOptions(props) {
                 {!props.isClrsSaved && <div className="unsaved-changes">press save to confirm changes</div>}
                 {props.isClrsSaved && <div className="saved-changes" >changes saved</div>}
 
-                <button onClick={(ev) => props.saveColors(ev, selectedClr)}>save colors</button>
+                <button className="app-btn" onClick={(ev) => props.saveColors(ev, selectedClr)}>save colors</button>
             </div>
             <div className="sizes flex column">
                 sizes:
@@ -65,7 +65,7 @@ export default function MultiOptions(props) {
                 </div>
                 {!props.isSizesSaved && <div className="unsaved-changes">press save to confirm changes</div>}
                 {props.isSizesSaved && <div className="saved-changes">changes saved</div>}
-                <button onClick={(ev) => props.saveSizes(ev, selectedSize)}>save sizes</button>
+                <button className="app-btn" onClick={(ev) => props.saveSizes(ev, selectedSize)}>save sizes</button>
             </div>
         </div>
     )

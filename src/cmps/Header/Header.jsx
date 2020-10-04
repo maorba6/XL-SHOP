@@ -26,7 +26,8 @@ function _Header(props) {
                 {!props.user && <li><NavLink to="/login" exact >Login</NavLink></li>}
                 {props.user && <button onClick={() => logout()}>Logout</button>}
                 <li><NavLink to="/shop" exact >Shop</NavLink></li>
-                {props.user && <li><NavLink to="/profile"  >Profile</NavLink></li>}
+                {props.user && <li><NavLink to="/profile">Profile</NavLink></li>}
+                {props.user && <li><NavLink to="/cart">Cart</NavLink></li>}
             </ul>
         </header>
     );

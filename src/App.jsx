@@ -8,6 +8,7 @@ import { SignUp } from './pages/SignUp/SignUp'
 import { Main } from './pages/Main/Main'
 import { Edit } from './pages/Edit/Edit'
 import { Details } from './pages/Details/Details'
+import  Cart  from './pages/Cart/Cart'
 import { Profile } from './pages/Profile/Profile'
 import './App.scss';
 
@@ -27,6 +28,7 @@ function App() {
             <Route component={Edit} path="/item/edit" />
             <Route component={Details} path="/item/:id" />
             <Route component={Profile} path="/profile" />
+            <Route component={Cart} path="/Cart" />
 
             {/* Best way to send props to a route: */}
             {/* <Route render={ (props) => <About { ...props } someProp="popo" /> } path="/about" /> */}

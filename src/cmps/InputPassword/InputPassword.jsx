@@ -25,8 +25,10 @@ export default function InputPassword(props) {
     return (
         <div className="password">
             <label className="label-password">Password</label>
-            <input className="input-password" name="password" value={props.user.password} onChange={(ev) => props.handleChange(ev)} type={state.inputType} />
-            <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />
+            <div className="password-container flex">
+                <input className="input-password" name="password" value={props.user.password} onChange={(ev) => props.handleChange(ev)} type={state.inputType} />
+                <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />
+            </div>
         </div>
     )
 }

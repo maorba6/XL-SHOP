@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import shop from '../../assets/img/shop.svg'
 import cart from '../../assets/img/cart.svg'
+import profile from '../../assets/img/profile.svg'
 import { setUser } from '../../actions/userActions'
 import userService from '../../services/userService'
 import { NavLink, useHistory } from 'react-router-dom'
@@ -28,7 +29,7 @@ function _Header(props) {
                 {!props.user && <li><NavLink to="/login" exact >Login</NavLink></li>}
                 {props.user && <button onClick={() => logout()}>Logout</button>}
                 <li><NavLink to="/shop" exact ><img src={shop} /></NavLink></li>
-                {props.user && <li><NavLink to="/profile">profile</NavLink></li>}
+                {props.user && <li><NavLink to="/profile"><img src={profile} /></NavLink></li>}
                 {props.user && <li><NavLink to="/cart"><img src={cart} /></NavLink></li>}
             </ul>
         </header>

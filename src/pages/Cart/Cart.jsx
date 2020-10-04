@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
     console.log(user);
     return (
         <div>
-           {props.user && <div>{user.email}</div>} 
+           {props.user && <div>{user.cart}</div>} 
         </div>
     )
 }

@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 import './Preview.scss'
 
 function _Preview(props) {
-    console.log({ props });
     const { item, removeItem } = props
     const user = props.user
     return (

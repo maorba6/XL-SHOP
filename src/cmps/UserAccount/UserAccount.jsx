@@ -19,7 +19,6 @@ export default function UserAccount(props) {
     }
 
     function toggleShowPassword() {
-        console.log('toggle start', state);
         if (state.inputType === 'password') {
             setState(state => ({ ...state, inputType: 'text', togglePassword: hidePassword }))
         }
@@ -44,21 +43,21 @@ export default function UserAccount(props) {
                     <div className="change-email">
                         <div className="email">
                             <label> email:</label>
-                            <input type="email" name="email" value={state.editedUser.email} onChange={(ev) => handleChange(ev)} />
+                            <input className="app-input" type="email" name="email" value={state.editedUser.email} onChange={(ev) => handleChange(ev)} />
                         </div>
                     </div>
                     <div className="change-password">
                         <div className="curr-pass">
                             <label>   current password:</label>
-                            <input type={state.inputType} name="currPass" value={state.editedUser.currPass || ''} onChange={(ev) => handleChange(ev)} />
+                            <input className="app-input" type={state.inputType} name="currPass" value={state.editedUser.currPass || ''} onChange={(ev) => handleChange(ev)} />
                         </div>
                         <div className="new-pass">
                             <label>  new password:</label>
-                            <input type={state.inputType} name="newPass" value={state.editedUser.newPass || ''} onChange={(ev) => handleChange(ev)} />
+                            <input className="app-input" type={state.inputType} name="newPass" value={state.editedUser.newPass || ''} onChange={(ev) => handleChange(ev)} />
                         </div>
                         <div className="confirm">
                             <label> confirm new pasword:</label>
-                            <input type={state.inputType} name="newPassConfirm" value={state.editedUser.newPassConfirm || ''} onChange={(ev) => handleChange(ev)} />
+                            <input className="app-input" type={state.inputType} name="newPassConfirm" value={state.editedUser.newPassConfirm || ''} onChange={(ev) => handleChange(ev)} />
                         </div>
                         <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />
                     </div>

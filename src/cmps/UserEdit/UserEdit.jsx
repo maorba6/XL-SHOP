@@ -19,11 +19,11 @@ export default function UserEdit(props) {
             <form className="flex column" onSubmit={(ev) => props.saveUser(ev, state.editedUser,'details')}>
                 <div className="fname">
                     first name:
-                     <input type="text" name="fname" value={state.editedUser.fname} onChange={(ev) => handleChange(ev)} />
+                     <input className="app-input" type="text" name="fname" value={state.editedUser.fname} onChange={(ev) => handleChange(ev)} />
                 </div>
                 <div className="lname">
                     last name:
-                     <input type="text" name="lname" value={state.editedUser.lname} onChange={(ev) => handleChange(ev)} />
+                     <input className="app-input" type="text" name="lname" value={state.editedUser.lname} onChange={(ev) => handleChange(ev)} />
                 </div>
                 <button >save </button>
             </form>

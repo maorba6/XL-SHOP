@@ -20,7 +20,7 @@ class _Edit extends Component {
             this.props.history.push('/shop')
             return
         }
-        const user = JSON.parse(this.props.user)
+        const user = this.props.user
         if (!user.isAdmin) {
             this.props.history.push('/shop')
         }
@@ -36,7 +36,7 @@ class _Edit extends Component {
     }
 
     componentDidUpdate() {
-        const user = JSON.parse(this.props.user)
+        const user = this.props.user
         if (!user.isAdmin) {
             this.props.history.push('/')
         }

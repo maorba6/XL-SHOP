@@ -23,8 +23,6 @@ function _Profile(props) {
 
     function saveUser(ev, editedUser, type) {
         ev.preventDefault()
-
-        console.log({ editedUser, user, type });
         if (type === 'details') {
             props.saveUser(editedUser)
             history.push('/')

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import { loadItem, saveItem, setSameCategoryItems, removeItem } from '../../actions/itemActions'
+import { loadItem, loadItems, saveItem, setSameCategoryItems, removeItem } from '../../actions/itemActions'
+import { saveUser } from '../../actions/userActions'
 //components
 import { List } from '../../cmps/List/List'
 import ImgCarousel from '../../cmps/ImgCarousel/ImgCarousel'
@@ -17,20 +18,17 @@ class _Details extends Component {
         sameCategoryItems: []
     }
     async componentDidMount() {
+        console.log(this.props.user);
         const { id } = this.props.match.params
         await this.props.loadItem(id)
-        this.setState({ item: this.props.item })
-
+        // await this.props.loadItems()
         this.setState({ item: this.props.item })
         this.setState({ itemToBuy: this.props.item })
         await this.props.setSameCategoryItems(this.state.item.category, this.state.item._id)
         this.setState({ sameCategoryItems: this.props.sameCategoryItems })
     }
 
-    async componentDidUpdate() {
-        const { id } = this.props.match.params
-        // await this.props.loadItem(id)
-        console.log(id);
+    componentDidUpdate() {
     }
 
     setColor(color) {
@@ -48,11 +46,12 @@ class _Details extends Component {
 
 
     }
-    addToCart() {
+    async addToCart() {
         const itemToCart = this.state.itemToBuy
         delete itemToCart.colors
         delete itemToCart.sizes
-        //need to call addtocard from action etc...
+        this.props.user.cart.push(itemToCart)
+        await this.props.saveUser(this.props.user)
     }
 
 
@@ -109,9 +108,11 @@ function mapStateProps(state) {
 // Takes the action dispatchers from the actions file and puts them inside the component's props
 const mapDispatchToProps = {
     loadItem,
+    loadItems,
     saveItem,
     removeItem,
-    setSameCategoryItems
+    setSameCategoryItems,
+    saveUser
 
 }
 // Connect is used to tap into the store, without it we have no access to the store from the component

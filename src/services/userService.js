@@ -6,7 +6,8 @@ export default {
     login,
     logout,
     updateUser,
-  
+    addTocart
+
 }
 
 
@@ -14,9 +15,7 @@ let loggedinUser = null
 
 
 async function getUser() {
-    // return sessionStorage.getItem('user')
     return await httpService.get('user/logged')
-
 }
 
 async function signup(userCreds) {
@@ -48,5 +47,10 @@ async function updateUser(user) {
     await httpService.put(`user/${user._id}`, user)
     return _handleLogin(user)
 
+}
+
+
+async function addTocart(item) {
+    return await httpService.post(`user/cart/`, item)
 }
 

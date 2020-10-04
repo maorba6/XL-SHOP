@@ -14,7 +14,7 @@ class _SignUp extends Component {
       email: '',
       fname: '',
       lname: '',
-      emailSends: false
+      emailSends: false,
     },
     elIsAgreeTerms: false,
   }

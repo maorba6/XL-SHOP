@@ -30,9 +30,9 @@ export default function UserAccount(props) {
 
     useEffect(() => {
         return () => {
-            setState(state => ({ ...state, editedUser: { ...state.editedUser, currPass: 'hhh' } }))
-            setState(state => ({ ...state, editedUser: { ...state.editedUser, newPass: '' } }))
-            setState(state => ({ ...state, editedUser: { ...state.editedUser, newPassConfirm: '' } }))
+            // setState(state => ({ ...state, editedUser: { ...state.editedUser, currPass: 'hhh' } }))
+            // setState(state => ({ ...state, editedUser: { ...state.editedUser, newPass: '' } }))
+            // setState(state => ({ ...state, editedUser: { ...state.editedUser, newPassConfirm: '' } }))
         }
 
     }, [])

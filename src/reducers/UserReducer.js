@@ -9,6 +9,10 @@ export function UserReducer(state = INITIAL_STATE, action) {
                 ...state,
                 user: action.user
             }
+        case 'ADD_ITEM_TO_CART':
+            return {
+                ...state, user: { ...state.user, cart: [...state.user.cart, action.item] }
+            }
         default:
             return state
     }

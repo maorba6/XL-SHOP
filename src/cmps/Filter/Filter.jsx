@@ -5,12 +5,12 @@ export function Filter(props) {
 
     const [state, setState] = useState({
         pants:
-            { display: 'none', position: 'absolute', 'list-style-type': 'none' },
+            { display: 'none', },
         shirts:
-            { display: 'none', position: 'absolute', 'list-style-type': 'none' },
+            { display: 'none' },
         filterBy: {
             name: '',
-            category: ''
+            category: '',
         }
     })
 
@@ -38,9 +38,9 @@ export function Filter(props) {
     return (
         <div className="filter">
             <ul className="list flex">
-                <li onMouseEnter={() => toggleTypes('block', 'pants')} onMouseLeave={() => toggleTypes('none', 'pants')}>
+                <li className="list-title" onMouseEnter={() => toggleTypes('block', 'pants')} onMouseLeave={() => toggleTypes('none', 'pants')}>
                     <span >pants</span>
-                    <ul style={state.pants}>
+                    <ul style={state.pants} className="sublist">
                         <li onClick={() => setFilter('short-pants')}>short pants</li>
                         <li onClick={() => setFilter('polo-pants')}>polo pants</li>
                         <li onClick={() => setFilter('black-pants')}>black pants</li>
@@ -52,7 +52,7 @@ export function Filter(props) {
 
                 <li onMouseEnter={() => toggleTypes('block', 'shirts')} onMouseLeave={() => toggleTypes('none', 'shirts')}>
                     <span>shirts</span>
-                    <ul style={state.shirts} >
+                    <ul style={state.shirts} className="sublist" >
                         <li onClick={() => setFilter('short-pants')}>short shirts</li>
                         <li onClick={() => setFilter('long-pants')}>long shirts</li>
                         <li onClick={() => setFilter('black-pants')}>black shirts</li>

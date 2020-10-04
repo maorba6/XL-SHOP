@@ -27,7 +27,6 @@ class _Details extends Component {
     }
 
     componentDidUpdate() {
-        console.log(this.state.sameCategoryItems);
     }
 
     setColor(color) {
@@ -52,7 +51,7 @@ class _Details extends Component {
 
     render() {
         const { item, chosenSize, chosenColor,sameCategoryItems  } = this.state
-        const user = JSON.parse(this.props.user)
+        const {user} = this.props
         if (!item) return <div>Loading...</div>
         return (
             <section className="item-details flex column ">
@@ -63,7 +62,7 @@ class _Details extends Component {
                         {item.name}
                     </h1>
                     <div className="detail price"> ${item.price} </div>
-                    <div className="detail">  {item.brand}</div>
+                    {/* <div className="detail">  {item.brand}</div> */}
                     <div className="category">
                         {/* <span>  {item.category}</span> */}
                     </div>

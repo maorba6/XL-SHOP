@@ -9,27 +9,21 @@ export function ItemReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
 
         case 'SET_ITEMS':
-            // state.items = action.items
-            // console.log({ state });
-            // return { ...state }
             return {
                 ...state,
                 items: action.items
             }
         case 'SET_ITEM':
-            return {
+            return { 
                 ...state,
                 currItem: action.item
             }
         case 'SET_SAME_CATEGORY_ITEMS':
-            console.log(action);
             return {
                 ...state,
                 sameCategoryItems: action.items
             }
         case 'SET_FILTER':
-            // state.filterBy = action.filterBy
-            // return { ...state }
             return {
                 ...state,
                 filterBy: action.filterBy

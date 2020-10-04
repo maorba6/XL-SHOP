@@ -3,8 +3,7 @@ import userService from '../../services/userService'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/userActions'
-import hidePassword from '../../assets/img/hide-password.png'
-import showPassword from '../../assets/img/show-password.png'
+import InputPassword from '../../cmps/InputPassword/InputPassword'
 import Swal from 'sweetalert2'
 
 import './Login.scss'
@@ -15,8 +14,6 @@ class _Login extends Component {
             password: '',
             email: ''
         },
-        inputType: 'password',
-        togglePassword: showPassword
     }
 
 
@@ -26,6 +23,7 @@ class _Login extends Component {
         }
     }
     handleChange = ({ target }) => {
+        console.log(target);
         const field = target.name
         const value = target.type === 'number' ? +target.value : target.value
         this.setState(({ user }) => ({ user: { ...user, [field]: value } }))
@@ -39,45 +37,32 @@ class _Login extends Component {
             this.props.setUser()
             const Toast = Swal.mixin({
                 toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer:1500,
-            timerProgressBar: true,
-            // onOpen: (toast) => {
-            // toast.addEventListener('mouseenter', Swal.stopTimer)
-            // toast.addEventListener('mouseleave', Swal.resumeTimer)
-        //   },
-        
-        })
-        Toast.fire({
-          icon: 'success',
-          title: 'Logged In'
-        })
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true,
+            })
+            Toast.fire({
+                icon: 'success',
+                title: 'Logged In'
+            })
         }
-        
-        else{
+        else {
             const Toast = Swal.mixin({
                 toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer:2500,
-            timerProgressBar: true,
-        })
-        Toast.fire({
-          icon: 'error',
-          title: 'Fail to log in Email or Password are wrong'
-        })
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+            })
+            Toast.fire({
+                icon: 'error',
+                title: 'Fail to log in Email or Password are wrong'
+            })
         }
     }
 
-    toggleShowPassword = () => {
-        if (this.state.inputType === 'password') {
-            this.setState({ inputType: 'text', togglePassword: hidePassword })
-        }
-        else {
-            this.setState({ inputType: 'password', togglePassword: showPassword })
-        }
-    }
+
     render() {
         const { user, inputType, togglePassword } = this.state
         return (
@@ -85,14 +70,9 @@ class _Login extends Component {
                 <form className="flex signup-form" onSubmit={(ev) => this.login(ev)}>
                     <div className="name">
                         <label>Email</label>
-                        <input className="signup-form-group" name="email" value={user.email} onChange={this.handleChange} type="text" />
+                        <input className="signup-form-group" name="email" value={user.email} onChange={this.handleChange} type="email" />
                     </div>
-                    <div className="password">
-                        <label>Password</label>
-                        <input className="signup-form-group" name="password" value={user.password} onChange={this.handleChange} type={inputType} />
-
-                        <img className="img-togglePassword" onClick={this.toggleShowPassword} src={togglePassword} />
-                    </div>
+                    <InputPassword handleChange={this.handleChange} user={user} />
                     <div className="btns">
                         <button className="signin-button">Login</button>
                     </div>

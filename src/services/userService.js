@@ -5,15 +5,18 @@ export default {
     signup,
     login,
     logout,
-    updateUser
+    updateUser,
+  
 }
 
 
 let loggedinUser = null
 
 
-function getUser() {
-    return sessionStorage.getItem('user')
+async function getUser() {
+    // return sessionStorage.getItem('user')
+    return await httpService.get('user/logged')
+
 }
 
 async function signup(userCreds) {
@@ -33,6 +36,7 @@ async function login(userCred) {
 }
 
 function _handleLogin(user) {
+    console.log('hundlr', user);
     sessionStorage.setItem('user', JSON.stringify(user))
     loggedinUser = user
     return user;
@@ -41,7 +45,8 @@ function _handleLogin(user) {
 
 
 async function updateUser(user) {
-    return await httpService.put(`user/${user._id}`, user)
+    await httpService.put(`user/${user._id}`, user)
+    return _handleLogin(user)
 
 }
 

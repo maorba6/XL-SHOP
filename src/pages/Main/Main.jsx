@@ -13,8 +13,6 @@ class _Main extends Component {
         const { type } = this.props.match.params
         let filterBy = null
         if (type) {
-            console.log('inside');
-
             filterBy = {
                 type,
                 category: '',
@@ -24,10 +22,10 @@ class _Main extends Component {
 
         this.setFilter(filterBy)
         this.props.loadItems()
-        this.props.setUser()
+        // this.props.setUser()
     }
 
-    removeItem = async ( id) => {
+    removeItem = async (id) => {
         await this.props.removeItem(id)
     }
 
@@ -36,9 +34,11 @@ class _Main extends Component {
         this.props.loadItems()
     }
 
+    componentDidUpdate() {
+    }
+
     render() {
         let { items, user } = this.props
-        user = JSON.parse(user)
         return (
             <main >
                 { user && user.isAdmin && < Link className="btn" to="/item/edit" replace={true}  >   Add Item</Link>}

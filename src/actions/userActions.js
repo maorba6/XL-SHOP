@@ -13,12 +13,8 @@ export function setUser() {
 
 
 export function saveUser(user) {
-    console.log(user);
     return async dispatch => {
-        console.log('before service');
         await userService.updateUser(user)
-        console.log('after service');
-
-        dispatch(_setUser(JSON.stringify(user)))
+        dispatch(_setUser(user))
     }
 }

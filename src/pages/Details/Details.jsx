@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem, setSameCategoryItems, removeItem } from '../../actions/itemActions'
@@ -15,13 +16,13 @@ class _Details extends Component {
         itemToBuy: null,
         chosenSize: null,
         chosenColor: null,
-        sameCategoryItems: []
+        sameCategoryItems: [],
+        location: this.props.history.location
     }
     async componentDidMount() {
         console.log(this.props.user);
         const { id } = this.props.match.params
         await this.props.loadItem(id)
-        // await this.props.loadItems()
         this.setState({ item: this.props.item })
         this.setState({ itemToBuy: this.props.item })
         await this.props.setSameCategoryItems(this.state.item.category, this.state.item._id)
@@ -54,6 +55,14 @@ class _Details extends Component {
         this.props.user.cart.push(itemToCart)
         await this.props.saveUser(this.props.user)
     }
+
+    switchItem = async () => {
+        console.log('clicked');
+        const { id } = this.props.match.params
+        await this.props.loadItem(id)
+        this.setState({ item: this.props.item })
+    }
+
 
 
     render() {
@@ -91,12 +100,18 @@ class _Details extends Component {
                 </div>
                 <div>
                     <h2>You might like</h2>
-                    <List className="flex" items={sameCategoryItems} removeItem={this.removeItem}></List>
+                    <List className="flex" items={sameCategoryItems} removeItem={this.removeItem} clicked={this.switchItem}  ></List>
                 </div>
             </section>
         )
     }
 }
+
+
+_Details.propTypes = {
+    user: PropTypes.object
+};
+
 
 
 function mapStateProps(state) {

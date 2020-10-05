@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import whatsapp from '../../assets/social-icons/whatsapp.png'
-import phone from '../../assets/img/telephone.png'
+import whatsapp from '../../assets/img/whatsapp.png'
+import phone from '../../assets/img/phone.png'
 import address from '../../assets/img/address.png'
-import email from '../../assets/img/gmail.png'
+import email from '../../assets/img/email.png'
 import facebook from '../../assets/social-icons/facebook-color.png'
 import instagram from '../../assets/social-icons/instagram-color.png'
 import './Footer.scss'
@@ -13,7 +13,7 @@ export function Footer() {
         <footer>
 
             <div className="contact-footer">
-                <h2>Find Us</h2>
+                <h2>contact Us</h2>
                 <ul className="">
                     <li>
                         <img src={email} />
@@ -25,12 +25,11 @@ export function Footer() {
                     </li>
                     <li>
                         <img src={phone} />
-
-                        Business Phone: 089461751
+                      <label> Business Phone: 089461751</label>
                         </li>
                     <li>
-                        <img src={address} alt="" />
-                        Address :  רחוב בילו 23 מול הקניון (רחובות)
+                        <img src={address} />
+                     <label >   Address :  רחוב בילו 23 מול הקניון (רחובות)</label>
                         </li>
                 </ul>
 

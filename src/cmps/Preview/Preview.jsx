@@ -9,10 +9,10 @@ import { connect } from 'react-redux';
 import './Preview.scss'
 
 function _Preview(props) {
-    const { item, removeItem } = props
+    const { item, removeItem, clicked } = props
     const user = props.user
     return (
-        <div className="preview flex">
+        <div onClick={clicked} className="preview flex">
             {user && user.isAdmin && <p className="delete-item" onClick={() => removeItem(item._id)} >X</p>}
             <Link to={`/item/${item._id}`} >
                 <img className="img-item" src={item.imgUrls[0]} />

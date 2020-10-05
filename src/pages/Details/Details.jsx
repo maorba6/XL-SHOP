@@ -20,7 +20,6 @@ class _Details extends Component {
         location: this.props.history.location
     }
     async componentDidMount() {
-        console.log(this.props.user);
         const { id } = this.props.match.params
         await this.props.loadItem(id)
         this.setState({ item: this.props.item })
@@ -29,8 +28,6 @@ class _Details extends Component {
         this.setState({ sameCategoryItems: this.props.sameCategoryItems })
     }
 
-    componentDidUpdate() {
-    }
 
     setColor(color) {
         this.setState(({ itemToBuy }) => ({ itemToBuy: { ...itemToBuy, color } }))
@@ -56,12 +53,6 @@ class _Details extends Component {
         await this.props.saveUser(this.props.user)
     }
 
-    switchItem = async () => {
-        console.log('clicked');
-        const { id } = this.props.match.params
-        await this.props.loadItem(id)
-        this.setState({ item: this.props.item })
-    }
 
 
 
@@ -100,7 +91,7 @@ class _Details extends Component {
                 </div>
                 <div>
                     <h2>You might like</h2>
-                    <List className="flex" items={sameCategoryItems} removeItem={this.removeItem} clicked={this.switchItem}  ></List>
+                    <List className="flex" items={sameCategoryItems} removeItem={this.removeItem}  ></List>
                 </div>
             </section>
         )

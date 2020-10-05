@@ -10,23 +10,27 @@ import './Preview.scss'
 import { useState } from 'react';
 
 function _Preview(props) {
-    const { item, removeItem, user,toggleLike } = props
-    let [liked,setLike]=useState()
+    const { item, removeItem, user, toggleLike } = props
+    let [liked, setLike] = useState(false)
+
 
     useEffect(() => {
-        console.log('d');
-        if(user){
-            user.favs.forEach(i=>{
-                if(i._id===item._id){
-                    liked=true
-                    setLike(liked)
+        if (user) {
+            setLike(false)
+            user.favs.forEach(i => {
+                if (i._id === item._id) {
+                    setLike(true)
                 }
             })
         }
     }, [user])
+
+
+
+
+
     return (
         <div className="preview flex">
-            {console.log(liked)}
             {user && user.isAdmin && <p className="delete-item" onClick={() => removeItem(item._id)} >X</p>}
             <Link to={`/item/${item._id}`} >
                 <img className="img-item" src={item.imgUrls[0]} />
@@ -34,7 +38,7 @@ function _Preview(props) {
                     <label className="item-name">{item.name}</label>
                     <div className="flex space-between img-price">
                         <p className="item-price"> ${item.price}</p>
-                        <img onClick={(event)=>toggleLike(event,liked,item)} className="heart-img" src={liked?blackHeart:emptyHeart} alt="LOVE" />
+                        <img onClick={(ev) => toggleLike(ev, liked, item)} className="heart-img" src={liked ? blackHeart : emptyHeart} alt="LOVE" />
                     </div>
                 </div>
             </Link>

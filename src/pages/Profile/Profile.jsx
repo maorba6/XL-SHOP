@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { saveUser } from '../../actions/userActions'
+import { saveUser, setUser } from '../../actions/userActions'
 //cmps
 import UserAccount from '../../cmps/UserAccount/UserAccount'
 import UserOrders from '../../cmps/UserOrders/UserOrders'
@@ -11,7 +11,7 @@ import UserEdit from '../../cmps/UserEdit/UserEdit'
 import './Profile.scss'
 function _Profile(props) {
     let [current, setCurrent] = useState('account')
-    const user = props.user
+    const { user } = props
     const history = useHistory()
 
     useEffect(() => {
@@ -56,7 +56,20 @@ function _Profile(props) {
         var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
         return strongRegex.test(password)
     }
-
+    async function toggleLike(ev, liked, item) {
+        ev.preventDefault()
+        console.log({liked, item});
+        if (liked) {
+            const index = user.favs.findIndex(i => i._id === item._id)
+            user.favs.splice(index, 1)
+            console.log('splice');
+        } else {
+            user.favs.push(item)
+            console.log('push');
+        }
+        await props.saveUser(user)
+        await props.setUser()
+    }
 
 
 
@@ -71,8 +84,8 @@ function _Profile(props) {
             </nav>
             {user && current === 'account' && <UserAccount user={user} saveUser={saveUser} />}
             {user && current === 'edit' && <UserEdit user={user} saveUser={saveUser} />}
-            {user && current === 'orders' && <UserOrders user={user} />}
-            {user && current === 'favs' && <UserFavs user={user} />}
+            {user && current === 'orders' && <UserOrders user={user} toggleLike={toggleLike} />}
+            {user && current === 'favs' && <UserFavs user={user} toggleLike={toggleLike} />}
         </div>
     )
 }
@@ -84,6 +97,7 @@ function mapStateProps(state) {
     }
 }
 const mapDispatchToProps = {
-    saveUser
+    saveUser,
+    setUser
 }
 export const Profile = connect(mapStateProps, mapDispatchToProps)(_Profile)

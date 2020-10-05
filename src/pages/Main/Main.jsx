@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { List } from '../../cmps/List/List'
 import { Filter } from '../../cmps/Filter/Filter'
-import { loadItems, removeItem, setFilter  } from '../../actions/itemActions'
-import { setUser,saveUser } from '../../actions/userActions'
+import { loadItems, removeItem, setFilter } from '../../actions/itemActions'
+import { setUser, saveUser } from '../../actions/userActions'
 import './Main.scss'
 
 class _Main extends Component {
@@ -19,22 +19,23 @@ class _Main extends Component {
                 name: ''
             }
         }
-
         this.setFilter(filterBy)
         this.props.loadItems()
         // this.props.setUser()
     }
-    toggleLike= async (event,liked,item)=>{
-        event.preventDefault()
-        if(liked){
-            const index = this.props.user.favs.findIndex(i=>i._id===item._id)
-            console.log(index);
-            this.props.user.favs.splice(index,1)
-        }else{
+    toggleLike = async (ev, liked, item) => {
+        ev.preventDefault()
+        if (liked) {
+            const index = this.props.user.favs.findIndex(i => i._id === item._id)
+            this.props.user.favs.splice(index, 1)
+            console.log(this.props.user.favs);
+        } else {
             this.props.user.favs.push(item)
         }
-        this.props.saveUser(this.props.user)
+        await this.props.saveUser(this.props.user)
+        await this.props.setUser()
     }
+
     removeItem = async (id) => {
         await this.props.removeItem(id)
     }

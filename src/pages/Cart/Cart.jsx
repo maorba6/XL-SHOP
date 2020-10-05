@@ -1,77 +1,102 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
-
+import { setUser, saveUser } from '../../actions/userActions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import '../Cart/Cart.scss'
 
- function _Cart(props) {
-    const user = props.user
-    let [totalPrice,updatePrice] = useState(0)
+function _Cart(props) {
+    const { user } = props
+    let [totalPrice, setPrice] = useState(0)
+
     useEffect(() => {
-        if(user){
-            user.cart.forEach(item=>totalPrice+= +item.price)
-            updatePrice(totalPrice)
+        if (user) {
+            totalPrice = 0
+            user.cart.forEach(item => {
+                totalPrice += Number(item.price)
+                setPrice(totalPrice)
+            })
         }
     }, [user])
+
+
+    async function removeFromCart(itemId) {
+        const idx = user.cart.findIndex(item => item._id === itemId)
+        user.cart.splice(idx, 1)
+        await props.saveUser(user)
+        await props.setUser()
+    }
+
+    async function buyCart() {
+        const order = {
+            id: makeId(),
+            createdAt: Date.now(),
+            items: JSON.parse(JSON.stringify(user.cart)),
+            status: 'pending',
+            totalPrice
+        }
+        user.cart = []
+        user.orders.push(order)
+        await props.saveUser(user)
+        await props.setUser()
+    }
+
+    function makeId() {
+        return (Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase();
+    }
+
     return (
         <div className="flex cart-container">
-           {props.user && 
-           <div className="items-list-cart flex column">
-                {user.cart.map(item => {
-                return <div className="cart-preview-container flex" key={item._id}> 
-                    <Link  to={`/item/${item._id}`} >
-                        <img className="test-img"  src={item.imgUrls[0]} />
-                    </Link>
-                    <div className="item-details-cart flex column">
-                        <p>
-                            {item.name}
-                        </p>
-                        <p>
-                            {item.color}
-                        </p>
-                        <p>
-                            {item.size}
-                        </p>
-                        <p>
-                            ${item.price}
-                         </p>
-                    </div>
-                    <div className="cancel-edit-cart-item">
-                        <p>
-                            X
-                        </p>
-                        <p>
-                            EDIT
-                        </p>
-                    </div>
-                </div>})}
-                <button>BUY NOW</button>
-        </div>} 
+            {props.user &&
+                <div className="items-list-cart flex column">
+                    {user.cart.map(item => {
+                        return <div className="cart-preview-container flex" key={item._id}>
+                            <Link to={`/item/${item._id}`} >
+                                <img className="test-img" src={item.imgUrls[0]} />
+                            </Link>
+                            <div className="item-details-cart flex column">
+                                <p>
+                                    {item.name}
+                                </p>
+                                <p>
+                                    {item.color}
+                                </p>
+                                <p>
+                                    {item.size}
+                                </p>
+                                <p>
+                                    ${item.price}
+                                </p>
+                            </div>
+                            <div className="cancel-edit-cart-item">
+                                <button onClick={() => removeFromCart(item._id)}>X</button>
+                                <Link to={`/item/${item._id}`}>edit</Link>
+                            </div>
+                        </div>
+                    })}
+                </div>}
 
-        
-        {props.user &&  <div className="buy-now">
-                    <h2>
-                        Summary
+
+            {props.user && <div className="buy-now">
+                <h2>
+                    Summary
                     </h2>
-                    <p>
-                        {user.cart.length} items
+                <p>
+                    {user.cart.length} items
                     </p>
-                    <p>
-                        shipping : 
+                <p>
+                    shipping :
                     </p>
-                    <p>
-                        Total : {totalPrice}
-                    </p>
-                    <button>
-                        Buy Now
-                    </button>
-                    </div>} 
-        
+                <p>
+                    Total : ${totalPrice}
+                </p>
+                <button onClick={buyCart}>  Buy Now </button>
+            </div>}
+
         </div>
 
-        
+
     )
 }
 
@@ -81,6 +106,8 @@ function mapStateProps(state) {
     }
 }
 const mapDispatchToProps = {
+    saveUser,
+    setUser
 }
 
 export const Cart = connect(mapStateProps, mapDispatchToProps)(_Cart)

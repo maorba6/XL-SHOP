@@ -7,12 +7,26 @@ import { connect } from 'react-redux';
 
 
 import './Preview.scss'
+import { useState } from 'react';
 
 function _Preview(props) {
-    const { item, removeItem } = props
-    const user = props.user
+    const { item, removeItem, user,toggleLike } = props
+    let [liked,setLike]=useState()
+
+    useEffect(() => {
+        console.log('d');
+        if(user){
+            user.favs.forEach(i=>{
+                if(i._id===item._id){
+                    liked=true
+                    setLike(liked)
+                }
+            })
+        }
+    }, [user])
     return (
         <div className="preview flex">
+            {console.log(liked)}
             {user && user.isAdmin && <p className="delete-item" onClick={() => removeItem(item._id)} >X</p>}
             <Link to={`/item/${item._id}`} >
                 <img className="img-item" src={item.imgUrls[0]} />
@@ -20,9 +34,7 @@ function _Preview(props) {
                     <label className="item-name">{item.name}</label>
                     <div className="flex space-between img-price">
                         <p className="item-price"> ${item.price}</p>
-                        <img className="heart-img" src={emptyHeart} alt="LOVE" />
-                        {/* <img className="heart-img" src={blackHeart} alt="LOVE"/> */}
-                        {/* TODO! if in wishlist show colored else show empty */}
+                        <img onClick={(event)=>toggleLike(event,liked,item)} className="heart-img" src={liked?blackHeart:emptyHeart} alt="LOVE" />
                     </div>
                 </div>
             </Link>

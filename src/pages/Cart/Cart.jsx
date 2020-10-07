@@ -2,12 +2,13 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { setUser, saveUser } from '../../actions/userActions'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import '../Cart/Cart.scss'
 
 function _Cart(props) {
     const { user } = props
+    const history = useHistory();
     let [totalPrice, setPrice] = useState(0)
 
     useEffect(() => {
@@ -19,7 +20,6 @@ function _Cart(props) {
             })
         }
     }, [user])
-
 
     async function removeFromCart(itemId) {
         const idx = user.cart.findIndex(item => item._id === itemId)
@@ -46,9 +46,21 @@ function _Cart(props) {
         return (Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase();
     }
 
+    function goShop() {
+        history.push('/shop')
+    }
+
     return (
         <div className="flex cart-container">
-            {props.user &&
+
+            {user && !user.cart.length &&
+                <div>
+                    <h1>your cart is empty</h1>
+                    <h3> when you add item to your cart he will show up here</h3>
+                    <button className="app-btn" onClick={() => goShop()}>lets start</button>
+                </div>}
+
+            {user &&
                 <div className="items-list-cart flex column">
                     {user.cart.map(item => {
                         return <div className="cart-preview-container flex" key={item._id}>

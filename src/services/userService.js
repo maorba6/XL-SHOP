@@ -6,7 +6,8 @@ export default {
     login,
     logout,
     updateUser,
-    addTocart
+    addTocart,
+    confirmEmail
 
 }
 
@@ -16,6 +17,13 @@ let loggedinUser = null
 
 async function getUser() {
     return await httpService.get('user/logged')
+}
+
+
+
+async function confirmEmail(token) {
+    console.log({token});
+    return await httpService.put(`user/confirmation/${token}`,)
 }
 
 async function signup(userCreds) {
@@ -33,6 +41,8 @@ async function login(userCred) {
     const user = await httpService.post('auth/login', userCred)
     return _handleLogin(user)
 }
+
+
 
 function _handleLogin(user) {
     console.log('hundlr', user);
@@ -53,4 +63,3 @@ async function updateUser(user) {
 async function addTocart(item) {
     return await httpService.post(`user/cart/`, item)
 }
-

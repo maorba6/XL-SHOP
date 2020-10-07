@@ -7,6 +7,7 @@ import { saveUser } from '../../actions/userActions'
 //components
 import { List } from '../../cmps/List/List'
 import ImgCarousel from '../../cmps/ImgCarousel/ImgCarousel'
+import ReactLoading from 'react-loading';
 import './Details.scss'
 
 class _Details extends Component {
@@ -19,9 +20,11 @@ class _Details extends Component {
         sameCategoryItems: [],
         location: this.props.history.location
     }
+    
     async componentDidMount() {
         const { id } = this.props.match.params
         await this.props.loadItem(id)
+        
         this.setState({ item: this.props.item })
         this.setState({ itemToBuy: this.props.item })
         await this.props.setSameCategoryItems(this.state.item.category, this.state.item._id)
@@ -38,12 +41,16 @@ class _Details extends Component {
         await this.props.removeItem(id)
     }
 
+
+    componentDidUpdate(){
+
+    }
+
     setSize(size) {
         this.setState(({ itemToBuy }) => ({ itemToBuy: { ...itemToBuy, size } }))
         this.setState({ chosenSize: size })
-
-
     }
+
     async addToCart() {
         const itemToCart = this.state.itemToBuy
         if (!itemToCart.size || !itemToCart.color) return
@@ -54,12 +61,10 @@ class _Details extends Component {
     }
 
 
-
-
     render() {
         const { item, chosenSize, chosenColor, sameCategoryItems } = this.state
         const { user } = this.props
-        if (!item) return <div>Loading...</div>
+        if (!item) return <ReactLoading type={'cubes'} color={'#C2F970'} height={300} width={450} />
         return (
             <section className="item-details flex column ">
                 <div className="flex">

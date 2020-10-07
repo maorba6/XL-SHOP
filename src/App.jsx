@@ -10,6 +10,8 @@ import { Edit } from './pages/Edit/Edit'
 import { Details } from './pages/Details/Details'
 import { Cart } from './pages/Cart/Cart'
 import { Profile } from './pages/Profile/Profile'
+import { NotFound } from './pages/NotFound/NotFound'
+import { ConfirmEmail } from './pages/ConfirmEmail/ConfirmEmail';
 import './App.scss';
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
         <Header></Header>
         <div className="app-container">
           <Switch>
+            <Route component={Home} exact path="/" />
             <Route component={Login} path="/login" />
             <Route component={SignUp} path="/SignUp" />
             <Route component={Main} path="/shop/:type" />
@@ -29,6 +32,8 @@ function App() {
             <Route component={Details} path="/item/:id" />
             <Route component={Profile} path="/profile" />
             <Route component={Cart} path="/Cart" />
+            <Route component={ConfirmEmail} path="/confirmation/:token" />
+            <Route component={NotFound} />
 
             {/* Best way to send props to a route: */}
             {/* <Route render={ (props) => <About { ...props } someProp="popo" /> } path="/about" /> */}

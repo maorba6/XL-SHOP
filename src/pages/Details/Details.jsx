@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem, setSameCategoryItems, removeItem } from '../../actions/itemActions'
 import { saveUser } from '../../actions/userActions'
+import Swal from 'sweetalert2'
+
 //components
 import { List } from '../../cmps/List/List'
 import ImgCarousel from '../../cmps/ImgCarousel/ImgCarousel'
@@ -53,11 +55,35 @@ class _Details extends Component {
 
     async addToCart() {
         const itemToCart = this.state.itemToBuy
-        if (!itemToCart.size || !itemToCart.color) return
+        if (!itemToCart.size || !itemToCart.color){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'center',
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+            })
+            Toast.fire({
+                icon: 'error',
+                title: 'Please choose size and color '
+            })
+            return
+        } 
         delete itemToCart.colors
         delete itemToCart.sizes
         this.props.user.cart.push(itemToCart)
         await this.props.saveUser(this.props.user)
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            showConfirmButton: false,
+            timer: 2500,
+            timerProgressBar: true,
+        })
+        Toast.fire({
+            icon: 'success',
+            title: 'Item added to cart '
+        })
     }
 
 

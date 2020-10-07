@@ -5,7 +5,7 @@ import App from './App.jsx';
 import { store } from './store'
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker';
-
+import './i18n';
 
 const locale = navigator.language;
 

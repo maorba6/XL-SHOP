@@ -7,8 +7,8 @@ export default {
     logout,
     updateUser,
     addTocart,
-    confirmEmail
-
+    confirmEmail,
+    sendMailToOwner
 }
 
 
@@ -19,11 +19,12 @@ async function getUser() {
     return await httpService.get('user/logged')
 }
 
-
-
 async function confirmEmail(token) {
-    console.log({token});
-    return await httpService.put(`user/confirmation/${token}`,)
+    return await httpService.put(`user/confirmation/${token}`)
+}
+
+async function sendMailToOwner(userId, orderId) {
+    return await httpService.get('user/sendMail' + `?userId=${userId}&orderId=${orderId}`)
 }
 
 async function signup(userCreds) {
@@ -45,7 +46,6 @@ async function login(userCred) {
 
 
 function _handleLogin(user) {
-    console.log('hundlr', user);
     sessionStorage.setItem('user', JSON.stringify(user))
     loggedinUser = user
     return user;

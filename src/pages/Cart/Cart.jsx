@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { setUser, saveUser } from '../../actions/userActions'
 import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
-
+import userService from '../../services/userService'
 import '../Cart/Cart.scss'
 
 function _Cart(props) {
@@ -33,13 +33,15 @@ function _Cart(props) {
             id: makeId(),
             createdAt: Date.now(),
             items: JSON.parse(JSON.stringify(user.cart)),
-            status: 'pending',
             totalPrice
         }
+        //     address,
+        //     phoneNumber,
         user.cart = []
         user.orders.push(order)
         await props.saveUser(user)
         await props.setUser()
+        userService.sendMailToOwner(user._id, order.id)
     }
 
     function makeId() {
@@ -119,7 +121,7 @@ function mapStateProps(state) {
 }
 const mapDispatchToProps = {
     saveUser,
-    setUser
+    setUser,
 }
 
 export const Cart = connect(mapStateProps, mapDispatchToProps)(_Cart)

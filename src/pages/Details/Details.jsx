@@ -18,20 +18,40 @@ class _Details extends Component {
         chosenSize: null,
         chosenColor: null,
         sameCategoryItems: [],
-        location: this.props.history.location
+        location: this.props.history.location.pathname
     }
-    
-    async componentDidMount() {
+
+    setItem = async () => {
         const { id } = this.props.match.params
         await this.props.loadItem(id)
-        
         this.setState({ item: this.props.item })
         this.setState({ itemToBuy: this.props.item })
         await this.props.setSameCategoryItems(this.state.item.category, this.state.item._id)
         this.setState({ sameCategoryItems: this.props.sameCategoryItems })
     }
 
+    async componentDidMount() {
+        console.log('created');
+        this.setItem()
+        // const unlisten = this.props.history.listen((location, action) => {
+        //     console.log('listen');
+        //     this.setState({ location: location.pathname }, async () => {
+        //         this.setItem()
+        //     })
+        //     unlisten()
+        // });
 
+    }
+
+    componentDidUpdate() {
+        const unlisten = this.props.history.listen((location, action) => {
+            console.log('listen');
+            this.setState({ location: location.pathname }, async () => {
+                this.setItem()
+            })
+            unlisten()
+        });
+    }
     setColor(color) {
         this.setState(({ itemToBuy }) => ({ itemToBuy: { ...itemToBuy, color } }))
         this.setState({ chosenColor: color })
@@ -42,9 +62,7 @@ class _Details extends Component {
     }
 
 
-    componentDidUpdate(){
 
-    }
 
     setSize(size) {
         this.setState(({ itemToBuy }) => ({ itemToBuy: { ...itemToBuy, size } }))

@@ -28,9 +28,9 @@ function _Header(props) {
             <ul className="flex">
                 {!props.user && <li><NavLink to="/login" exact >Login</NavLink></li>}
                 {props.user && <button onClick={() => logout()}>Logout</button>}
-                <li><NavLink to="/shop" exact ><img src={shop} /></NavLink></li>
-                {props.user && <li><NavLink to="/profile"><img src={profile} /></NavLink></li>}
-                {props.user && <li><NavLink to="/cart"><img src={cart} /></NavLink></li>}
+                <li><NavLink to="/shop" exact ><img title="shop" src={shop} /></NavLink></li>
+                {props.user && <li><NavLink to="/profile"><img title="profile" src={profile} /></NavLink></li>}
+                {props.user && <li><NavLink to="/cart"><img title="cart" src={cart} /></NavLink></li>}
             </ul>
         </header>
     );

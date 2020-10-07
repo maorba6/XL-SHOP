@@ -15,7 +15,7 @@ function _Profile(props) {
     const history = useHistory()
 
     useEffect(() => {
-        if (!user) history.push('/')
+
         return () => {
         }
     })
@@ -58,20 +58,23 @@ function _Profile(props) {
     }
     async function toggleLike(ev, liked, item) {
         ev.preventDefault()
-        console.log({liked, item});
+        if (!user) return
         if (liked) {
             const index = user.favs.findIndex(i => i._id === item._id)
             user.favs.splice(index, 1)
-            console.log('splice');
         } else {
             user.favs.push(item)
-            console.log('push');
         }
         await props.saveUser(user)
         await props.setUser()
     }
 
 
+ async   function clearOrders() {
+        user.orders = []
+        await props.saveUser(user)
+        await props.setUser()
+    }
 
     return (
         <div>
@@ -84,7 +87,7 @@ function _Profile(props) {
             </nav>
             {user && current === 'account' && <UserAccount user={user} saveUser={saveUser} />}
             {user && current === 'edit' && <UserEdit user={user} saveUser={saveUser} />}
-            {user && current === 'orders' && <UserOrders user={user} toggleLike={toggleLike} />}
+            {user && current === 'orders' && <UserOrders user={user} toggleLike={toggleLike} clearOrders={clearOrders} />}
             {user && current === 'favs' && <UserFavs user={user} toggleLike={toggleLike} />}
         </div>
     )

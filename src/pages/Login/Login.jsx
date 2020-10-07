@@ -23,7 +23,6 @@ class _Login extends Component {
         }
     }
     handleChange = ({ target }) => {
-        console.log(target);
         const field = target.name
         const value = target.type === 'number' ? +target.value : target.value
         this.setState(({ user }) => ({ user: { ...user, [field]: value } }))

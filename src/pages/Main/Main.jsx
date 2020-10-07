@@ -25,6 +25,7 @@ class _Main extends Component {
     }
     toggleLike = async (ev, liked, item) => {
         ev.preventDefault()
+        if (!this.props.user) return
         if (liked) {
             const index = this.props.user.favs.findIndex(i => i._id === item._id)
             this.props.user.favs.splice(index, 1)

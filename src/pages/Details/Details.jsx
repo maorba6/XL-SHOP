@@ -44,13 +44,13 @@ class _Details extends Component {
     }
 
     componentDidUpdate() {
-        const unlisten = this.props.history.listen((location, action) => {
-            console.log('listen');
-            this.setState({ location: location.pathname }, async () => {
-                this.setItem()
-            })
-            unlisten()
-        });
+        // const unlisten = this.props.history.listen((location, action) => {
+        //     console.log('listen');
+        //     this.setState({ location: location.pathname }, async () => {
+        //         this.setItem()
+        //     })
+        //     unlisten()
+        // });
     }
     setColor(color) {
         this.setState(({ itemToBuy }) => ({ itemToBuy: { ...itemToBuy, color } }))

@@ -2,7 +2,7 @@ const INITIAL_STATE = {
     items: null,
     filterBy: null,
     currItem: null,
-    sameCategoryItems:[]
+    sameCategoryItems: []
 }
 
 export function ItemReducer(state = INITIAL_STATE, action) {
@@ -14,7 +14,7 @@ export function ItemReducer(state = INITIAL_STATE, action) {
                 items: action.items
             }
         case 'SET_ITEM':
-            return { 
+            return {
                 ...state,
                 currItem: action.item
             }

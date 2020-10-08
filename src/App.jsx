@@ -12,6 +12,7 @@ import { Cart } from './pages/Cart/Cart'
 import { Profile } from './pages/Profile/Profile'
 import { NotFound } from './pages/NotFound/NotFound'
 import { ConfirmEmail } from './pages/ConfirmEmail/ConfirmEmail';
+import {ForgotPassword} from './pages/ForgotPassword/ForgotPassword';
 import './App.scss';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route component={Edit} path="/item/edit" />
             <Route component={Details} path="/item/:id" />
             <Route component={Profile} path="/profile" />
+            <Route component={ForgotPassword} path="/forgotPassword" />
             <Route component={Cart} path="/Cart" />
             <Route component={ConfirmEmail} path="/confirmation/:token" />
             <Route component={NotFound} />

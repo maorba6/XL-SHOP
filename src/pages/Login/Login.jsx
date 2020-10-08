@@ -49,7 +49,7 @@ class _Login extends Component {
         else {
             const Toast = Swal.mixin({
                 toast: true,
-                position: 'top-end',
+                position: 'center',
                 showConfirmButton: false,
                 timer: 2500,
                 timerProgressBar: true,

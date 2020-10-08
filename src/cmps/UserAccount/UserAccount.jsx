@@ -38,15 +38,11 @@ export default function UserAccount(props) {
     }, [])
     return (
         <form className="user-account flex column" onSubmit={(ev) => props.saveUser(ev, state.editedUser, 'account')}>
-            <div className="change-account flex">
+            <div className="change-account flex column">
                 <div className="change-email">
-                    {/* <div className="curr-email">
-                        <label> email:</label>
-                        <input className="app-input" type="email" name="curr-email" value={state.editedUser.email} onChange={(ev) => handleChange(ev)} />
-                    </div> */}
                     <div className="email">
                         <label> email:</label>
-                        <input className="app-input" type="email" name="email" value={state.editedUser.email} onChange={(ev) => handleChange(ev)} />
+                        <p className="app-input" >{state.editedUser.email} </p>
                     </div>
                 </div>
                 <div className="change-password flex column">
@@ -63,9 +59,9 @@ export default function UserAccount(props) {
                         <input className="app-input" type={state.inputType} name="newPassConfirm" value={state.editedUser.newPassConfirm || ''} onChange={(ev) => handleChange(ev)} />
                     </div>
                     <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />
+            <button className="app-btn btn-save-account">save password/email</button>
                 </div>
             </div>
-            <button className="app-btn btn-save-account">save password/email</button>
         </form>
 
     )

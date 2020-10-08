@@ -13,9 +13,10 @@ import { Profile } from './pages/Profile/Profile'
 import { NotFound } from './pages/NotFound/NotFound'
 import { ConfirmEmail } from './pages/ConfirmEmail/ConfirmEmail';
 import {ForgotPassword} from './pages/ForgotPassword/ForgotPassword';
+import { withNamespaces } from 'react-i18next';
 import './App.scss';
 
-function App() {
+function App({ t }) {
   return (
     <div className="App">
 
@@ -42,10 +43,13 @@ function App() {
             <Route component={Home} exact path="/" />
           </Switch>
         </div>
+        
+
       </Router>
       <Footer></Footer>
     </div>
   );
 }
 
-export default App;
+
+export default withNamespaces()(App);

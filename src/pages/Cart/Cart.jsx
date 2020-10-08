@@ -3,6 +3,8 @@ import { setUser, saveUser } from '../../actions/userActions'
 import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import userService from '../../services/userService'
+import Swal from 'sweetalert2'
+
 import '../Cart/Cart.scss'
 
 function _Cart(props) {
@@ -55,6 +57,17 @@ function _Cart(props) {
         await props.saveUser(user)
         await props.setUser()
         userService.sendMailToOwner(user._id, order.id)
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+        })
+        Toast.fire({
+            icon: 'success',
+            title: 'Order has been set, soon we will call you in order to finish the Purchase '
+        })
     }
 
 

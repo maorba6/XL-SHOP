@@ -1,16 +1,24 @@
 import React from 'react'
 import { useEffect } from 'react'
 import userService from '../../services/userService'
+import { useHistory } from 'react-router-dom'
 import './ConfirmEmail.scss'
 
 export function ConfirmEmail(props) {
 
+    const history = useHistory();
 
     useEffect(() => {
-
         (async () => {
-            const { token } = props.match.params
-            userService.confirmEmail(token)
+            const { token, type } = props.match.params
+
+            const id = await userService.confirmEmail(token, type)
+            console.log({ id });
+            if (type === 'reset') {
+                history.push(`/forgotPassword/${id}`)
+            } else {
+                history.push('/login')
+            }
         })()
 
     }, [])

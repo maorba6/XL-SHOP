@@ -2,19 +2,18 @@ const INITIAL_STATE = {
     items: null,
     filterBy: null,
     currItem: null,
-    sameCategoryItems:[]
+    sameCategoryItems: []
 }
 
 export function ItemReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
-
         case 'SET_ITEMS':
             return {
                 ...state,
                 items: action.items
             }
         case 'SET_ITEM':
-            return { 
+            return {
                 ...state,
                 currItem: action.item
             }
@@ -34,6 +33,7 @@ export function ItemReducer(state = INITIAL_STATE, action) {
                 items: [...state.items, action.item]
             }
         case 'REMOVE_ITEM':
+            console.log('remove', state.items);
             return {
                 ...state,
                 items: state.items.filter(item => item._id !== action.id)

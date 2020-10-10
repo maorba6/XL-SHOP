@@ -32,7 +32,13 @@ class _SignUp extends Component {
       console.log('fill all and agree to terms');
       return
     }
-    await userService.signup(this.state.user)
+    const user = await userService.signup(this.state.user)
+    console.log({ user });
+    if (!user) {
+      console.log('mail alreadt exist');
+      return
+      //maor add here msg that email exist
+    }
     this.props.setUser()
     this.props.history.push('/')
 

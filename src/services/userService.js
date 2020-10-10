@@ -8,7 +8,8 @@ export default {
     updateUser,
     addTocart,
     confirmEmail,
-    sendMailToOwner
+    sendMailToOwner,
+    sendMails
 }
 
 
@@ -26,6 +27,11 @@ async function confirmEmail(token) {
 async function sendMailToOwner(userId, orderId) {
     return await httpService.get('user/sendMail' + `?userId=${userId}&orderId=${orderId}`)
 }
+
+async function sendMails(msg) {
+    return await httpService.get('user/sendMails' + `?text=${msg.text}&title=${msg.title}`)
+}
+
 
 async function signup(userCreds) {
     const user = await httpService.post('auth/signup', userCreds)

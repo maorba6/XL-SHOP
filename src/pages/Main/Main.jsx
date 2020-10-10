@@ -16,7 +16,8 @@ class _Main extends Component {
             filterBy = {
                 type,
                 category: '',
-                name: ''
+                name: '',
+                price: { min: 0, max: 300 }
             }
         }
         this.setFilter(filterBy)
@@ -42,7 +43,7 @@ class _Main extends Component {
     }
 
     setFilter = (filterBy) => {
-        this.props.setFilter(filterBy)
+      this.props.setFilter(filterBy)
         this.props.loadItems()
     }
 

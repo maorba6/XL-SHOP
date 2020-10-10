@@ -72,7 +72,7 @@ class _Login extends Component {
                         <input className="signup-form-group" name="email" value={user.email} onChange={this.handleChange} type="email" />
                     </div>
                     <InputPassword handleChange={this.handleChange} user={user} />
-                    <a href="/#/forgotpassword">forgot password</a>
+                    <a href="/#/forgotPassword">forgot password</a>
                     <div className="btns">
                         <button className="signin-button">Login</button>
                     </div>

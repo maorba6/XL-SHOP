@@ -43,7 +43,6 @@ class _Edit extends Component {
     }
     saveItem = async (ev) => {
         ev.preventDefault()
-        console.log(this.state.item);
         const Toast = Swal.mixin({
             toast: true,
             position: 'center',
@@ -53,7 +52,7 @@ class _Edit extends Component {
         })
         Toast.fire({
             icon: 'success',
-            title: ' ציון אין לי מה להגיד ואין לי מה לאמר אתה תותח נ'
+            title: ' בגד נשמר'
         })
         this.props.saveItem(this.state.item)
         this.props.loadItems()
@@ -123,24 +122,16 @@ class _Edit extends Component {
                         <span> name:</span>
                         <input className="app-input" type="text" name="name" value={item.name} onChange={this.handleChange} />
                     </div>
-                    <div className="type">
-                        <span >Type: </span>
-                        <select className="app-input" name="type" value={item.type} onChange={this.handleChange} >
-                            <option value="shirt">Shirt</option>
-                            <option value="pants">Pants</option>
-                            <option value="shoes">Shoes</option>
-                        </select>
-                    </div>
                     <div className="category">
                         <span >category: </span>
                         <select className="app-input" name="category" value={item.category} onChange={this.handleChange} >
-                            <option value="sport">Sport</option>
-                            <option value="casual">Casual</option>
+                            <option value="coats">coats</option>
+                            <option value="suits">suits</option>
+                            <option value="Socks">Socks</option>
+                            <option value="Belts">Belts</option>
+                            <option value="casual">underpants</option>
+                            <option value="casual">tank tops</option>
                         </select>
-                    </div>
-                    <div className="brand">
-                        <span >brand: </span>
-                        <input className="app-input" type="text" name="brand" value={item.brand} onChange={this.handleChange} />
                     </div>
 
                     <MultiOptions
@@ -155,7 +146,7 @@ class _Edit extends Component {
 
                     <div className="price">
                         <span >price: </span>
-                        <input className="app-input" type="text" name="price" value={item.price} onChange={this.handleChange} />
+                        <input className="app-input" type="number" name="price" value={item.price} onChange={this.handleChange} />
                     </div>
                     <button className="app-btn">save item</button>
                 </div>

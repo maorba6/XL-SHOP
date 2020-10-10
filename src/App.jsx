@@ -12,9 +12,11 @@ import { Cart } from './pages/Cart/Cart'
 import { Profile } from './pages/Profile/Profile'
 import { NotFound } from './pages/NotFound/NotFound'
 import { ConfirmEmail } from './pages/ConfirmEmail/ConfirmEmail';
-import {ForgotPassword} from './pages/ForgotPassword/ForgotPassword';
+import { ForgotPassword } from './pages/ForgotPassword/ForgotPassword';
 import { withNamespaces } from 'react-i18next';
+import { Admin } from './pages/Admin/Admin'
 import './App.scss';
+
 
 function App({ t }) {
   return (
@@ -33,9 +35,11 @@ function App({ t }) {
             <Route component={Edit} path="/item/edit" />
             <Route component={Details} path="/item/:id" />
             <Route component={Profile} path="/profile" />
+            <Route component={Admin} path="/admin" />
+            <Route component={ForgotPassword} path="/forgotPassword/:id" />
             <Route component={ForgotPassword} path="/forgotPassword" />
             <Route component={Cart} path="/Cart" />
-            <Route component={ConfirmEmail} path="/confirmation/:token" />
+            <Route component={ConfirmEmail} path="/confirmation/:token/:type" />
             <Route component={NotFound} />
 
             {/* Best way to send props to a route: */}
@@ -43,7 +47,7 @@ function App({ t }) {
             <Route component={Home} exact path="/" />
           </Switch>
         </div>
-        
+
 
       </Router>
       <Footer></Footer>

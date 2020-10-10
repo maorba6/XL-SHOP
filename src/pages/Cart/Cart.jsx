@@ -46,16 +46,18 @@ function _Cart(props) {
     }
 
     async function buyCart() {
+       
         if (!order.address || !order.phoneNumber) {
             console.log('need fill phone and address');  // maor add msg here for user
             return
         }
-
-        console.log({ order });
         user.cart = []
         user.orders.push(order)
+        console.log('after push');
         await props.saveUser(user)
+        console.log('after save user');
         await props.setUser()
+        console.log('after set user');
         userService.sendMailToOwner(user._id, order.id)
         const Toast = Swal.mixin({
             toast: true,

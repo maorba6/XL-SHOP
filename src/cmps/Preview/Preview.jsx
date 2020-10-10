@@ -13,7 +13,6 @@ function _Preview(props) {
     const { item, removeItem, user, toggleLike } = props
     let [liked, setLike] = useState(false)
 
-
     useEffect(() => {
         if (user) {
             setLike(false)
@@ -24,10 +23,6 @@ function _Preview(props) {
             })
         }
     }, [user])
-
-
-
-
 
     return (
         <div className="preview flex">

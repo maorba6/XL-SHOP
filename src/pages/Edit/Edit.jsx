@@ -53,7 +53,7 @@ class _Edit extends Component {
         })
         Toast.fire({
             icon: 'success',
-            title: ' ציון אין לי מה להגיד ואין לי מה לאמר אתה תותח נ'
+            title: ' ציון אין לי מה להגיד ואין לי מה לאמר אתה תותח '
         })
         this.props.saveItem(this.state.item)
         this.props.loadItems()

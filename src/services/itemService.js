@@ -19,15 +19,15 @@ async function getItems(filterBy = null) {
     if (!filterBy) {
         return await httpService.get(`item`)
     } else {
-        const { category, name } = filterBy
-        return await httpService.get('item' + `?category=${category}&name=${name}`)
+        const { category, name, price } = filterBy
+        return await httpService.get('item' + `?category=${category}&name=${name}&minPrice=${price.min}&maxPrice=${price.max}`)
     }
 
 }
 
-async function getItemsByCategory(category,id){
+async function getItemsByCategory(category, id) {
     let items = await httpService.get('item' + `?category=${category}`)
-    items = items.filter(item=>item._id!==id)
+    items = items.filter(item => item._id !== id)
     return items
 }
 

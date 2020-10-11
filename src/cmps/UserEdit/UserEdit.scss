@@ -1,7 +1,11 @@
 .user-edit{
-    width: 25%;
     height: 300px;
+    width: 100%;
+    min-width: 200px;
     justify-content: space-between;
+    div{
+        height: 100%;
+    }
     label{
         text-transform: capitalize;
     }

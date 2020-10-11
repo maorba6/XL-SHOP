@@ -10,7 +10,8 @@
     flex-direction: column;
     justify-content: space-between;
     width: 40%;
-    // align-items: flex-end;
+    max-height: 220px;
+    min-height: 220px;
 }
 
 .profile-section{

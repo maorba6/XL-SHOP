@@ -30,7 +30,6 @@ class _Main extends Component {
         if (liked) {
             const index = this.props.user.favs.findIndex(i => i._id === item._id)
             this.props.user.favs.splice(index, 1)
-            console.log(this.props.user.favs);
         } else {
             this.props.user.favs.push(item)
         }
@@ -43,7 +42,7 @@ class _Main extends Component {
     }
 
     setFilter = (filterBy) => {
-      this.props.setFilter(filterBy)
+        this.props.setFilter(filterBy)
         this.props.loadItems()
     }
 

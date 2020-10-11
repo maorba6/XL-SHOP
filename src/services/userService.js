@@ -60,7 +60,8 @@ function _handleLogin(user) {
 
 
 async function updateUser(user) {
-    await httpService.put(`user/${user._id}`, user)
+
+    await httpService.put(`user/update/${user._id}`, user)
     return _handleLogin(user)
 
 }

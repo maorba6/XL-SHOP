@@ -51,7 +51,7 @@ function _Cart(props) {
             console.log('need fill phone and address');  // maor add msg here for user
             return
         }
-        user.cart = []
+        // user.cart = []
         user.orders.push(order)
         console.log('after push');
         await props.saveUser(user)

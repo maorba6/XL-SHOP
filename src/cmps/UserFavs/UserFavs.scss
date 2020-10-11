@@ -1,0 +1,9 @@
+.user-favs{
+    .item-list{
+        display: flex;
+        flex-wrap: wrap;
+        .img-item{
+            width: 200px;
+        }
+    }
+}

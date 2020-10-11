@@ -122,7 +122,9 @@ function _Details(props) {
 
     const { item, chosenSize, chosenColor, sameCategoryItems } = state
     const { user } = props
-    if (!item) return <ReactLoading type={'cubes'} color={'#C2F970'} height={300} width={450} />
+ 
+        if (!item) 
+        return  <ReactLoading className="loading" type={'spokes'} color={'#aaa'} height={50} width={50} />
     return (
         <section className="item-details flex column ">
             <div className="flex">

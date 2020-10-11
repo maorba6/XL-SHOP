@@ -11,7 +11,7 @@ export default function UserFavs(props) {
         history.push('/shop')
     }
     return (
-        <div>
+        <div className="user-favs">
             {!user.favs.length && <div>
                 <h1>  your wishlist still empty</h1>
                 <h2>when you press like on item he will be saved here </h2>

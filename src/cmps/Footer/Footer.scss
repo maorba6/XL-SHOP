@@ -1,24 +1,44 @@
 footer {
-    color: black;
+    padding: 15px 30px;
+
+    * {
+
+        color: white;
+    }
+
+    background-color: #2d383a;
     margin-left: 10px;
 
-    a {
-        color: black;
+    .content {
+        justify-content: space-between;
+    }
+
+    .svg {
+        width: 25px;
+        height: 25px;
+        margin: 0px 5px;
+        fill: white;
+
+        &:hover {
+            fill: red
+        }
     }
 
     ul {
         list-style-type: none;
         padding: 0;
 
-        img {
-            margin-right: 5px;
+        li {
+            a {
+                &:hover {
+                    color: red;
+                }
+
+            }
         }
-
     }
 
-    img {
-        width: 30px;
-        height: 30px;
-    }
+
+
 
 }

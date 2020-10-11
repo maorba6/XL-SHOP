@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './UserAccount.scss'
+
 //imgs
 import hidePassword from '../../assets/img/hide-password2.png'
 import showPassword from '../../assets/img/show-password.png'
@@ -55,11 +56,13 @@ export default function UserAccount(props) {
                         <input className="app-input" type={state.inputType} name="newPass" value={state.editedUser.newPass || ''} onChange={(ev) => handleChange(ev)} />
                     </div>
                     <div className="confirm">
-                        <label> confirm new pasword:</label>
-                        <input className="app-input" type={state.inputType} name="newPassConfirm" value={state.editedUser.newPassConfirm || ''} onChange={(ev) => handleChange(ev)} />
+                        <label className="label-password">Confirm</label>
+                        <div className="password-container flex">
+                            <input className="input-password"  type={state.inputType} name="newPassConfirm" value={state.editedUser.newPassConfirm || ''} onChange={(ev) => handleChange(ev)} />
+                        <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />
+                        </div>
                     </div>
-                    <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />
-            <button className="app-btn btn-save-account">save password/email</button>
+                <button className="app-btn btn-save-account">save password/email</button>
                 </div>
             </div>
         </form>

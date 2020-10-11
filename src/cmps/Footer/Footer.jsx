@@ -38,21 +38,23 @@ export function Footer() {
                 <div className="categories">
                     <h3>Top Categories</h3>
                     <ul>
-                        <li> <Link to="/shop/polo-shirts">Polo Shirts </Link>  </li>
-                        <li> <Link to="/shop/t-shirts">T-Shirts </Link>  </li>
-                        <li> <Link to="/shop/elegeant-pants">Elegenat Pants </Link>  </li>
-                        <li> <Link to="/shop/coats">Coats </Link>  </li>
-                        <li> <Link to="/shop/belts">Belts </Link>  </li>
+                        <li> <Link to="/shop/Polo-Shirts">Polo Shirts </Link>  </li>
+                        <li> <Link to="/shop/T-Shirts">T-Shirts </Link>  </li>
+                        <li> <Link to="/shop/Elegeant-Pants">Elegenat Pants </Link>  </li>
+                        <li> <Link to="/shop/Coats">Coats </Link>  </li>
+                        <li> <Link to="/shop/Belts">Belts </Link>  </li>
+                        <li> <Link to="/shop/Ties">Ties </Link>  </li>
+                        <li> <Link to="/shop/Jeans">Jeans </Link>  </li>
                     </ul>
                 </div>
                 <div className="pages">
                     <h3>Main Pages</h3>
                     <ul>
-                        <li> <Link to="/">home </Link>  </li>
-                        <li> <Link to="/profile">profile </Link>  </li>
-                        <li> <Link to="/shop">shop</Link>  </li>
-                        <li> <Link to="/cart">cart</Link>  </li>
-                        <li> <Link to="/login">login </Link>  </li>
+                        <li> <Link to="/">Home </Link>  </li>
+                        <li> <Link to="/profile">Profile </Link>  </li>
+                        <li> <Link to="/shop">Shop</Link>  </li>
+                        <li> <Link to="/cart">Cart</Link>  </li>
+                        <li> <Link to="/login">Login </Link>  </li>
                     </ul>
                 </div>
             </div>

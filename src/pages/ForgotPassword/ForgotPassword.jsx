@@ -39,7 +39,6 @@ export function _ForgotPassword(props) {
 
 
     useEffect(() => {
-        console.log(state.user.id);
         const { id } = props.match.params
         if (typeof (id) === 'string') {
             setState(({ user }) => ({ user: { ...user, id } }))

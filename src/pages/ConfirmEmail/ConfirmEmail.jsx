@@ -11,7 +11,7 @@ export function ConfirmEmail(props) {
     useEffect(() => {
         (async () => {
             const { token, type } = props.match.params
-
+            console.log(props.match);
             const id = await userService.confirmEmail(token, type)
             console.log({ id });
             if (type === 'reset') {

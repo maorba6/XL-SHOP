@@ -9,18 +9,13 @@ import './Main.scss'
 
 class _Main extends Component {
 
+
+    state = {
+        category: ''
+    }
     componentDidMount() {
-        const { type } = this.props.match.params
-        let filterBy = null
-        if (type) {
-            filterBy = {
-                type,
-                category: '',
-                name: '',
-                price: { min: 0, max: 300 }
-            }
-        }
-        this.setFilter(filterBy)
+        const { category } = this.props.match.params
+        this.setState({ category })
         this.props.loadItems()
         // this.props.setUser()
     }
@@ -42,6 +37,7 @@ class _Main extends Component {
     }
 
     setFilter = (filterBy) => {
+        console.log({ filterBy });
         this.props.setFilter(filterBy)
         this.props.loadItems()
     }
@@ -51,10 +47,11 @@ class _Main extends Component {
 
     render() {
         let { items, user } = this.props
+        const { category } = this.state
         return (
             <main>
                 { user && user.isAdmin && < Link className="btn" to="/item/edit" replace={true}  >   Add Item</Link>}
-                <Filter setFilter={this.setFilter}></Filter>
+                <Filter category={category} setFilter={this.setFilter}></Filter>
                 { items && <List items={items} toggleLike={this.toggleLike} removeItem={this.removeItem} ></List>}
             </main>
         )

@@ -14,17 +14,37 @@ class _Home extends Component {
     state = {
         types: [
             {
-                str: "shirt",
+                str: "Polo-Shirts",
                 img: shirt
             },
             {
-                str: "pants",
-                img: pants
+                str: "T-Shirts",
+                img: shirt
             },
             {
-                str: "shoes",
-                img: shoes
-            }
+                str: "Elegant-Pants",
+                img: shirt
+            },
+            {
+                str: "Coats",
+                img: shirt
+            },
+            {
+                str: "Belts",
+                img: shirt
+            },
+            {
+                str: "Bermuda",
+                img: shirt
+            },
+            {
+                str: "Ties",
+                img: shirt
+            },
+            {
+                str: "Jeans",
+                img: shirt
+            },
         ]
     }
 
@@ -39,14 +59,14 @@ class _Home extends Component {
                 <div className="types flex">
                     {this.state.types.map(type => {
                         return <Link key={type.str} to={'shop/' + type.str} className="browse-type">
-                                <img src={type.img} />
-                                <div className="tag">{type.str}</div>
-                              </Link>
-                      
+                            <img src={type.img} />
+                            <div className="tag">{type.str}</div>
+                        </Link>
+
                     })}
                 </div>
-                <h3>Top Rated</h3> 
-                { items && <List items={items.slice(items.length - 3)} ></List>}
+                <h3>Top Rated</h3>
+                { items && <List items={items.slice(items.length - 12)} ></List>}
                 <h2>BROWSE BY CATEGORY</h2>
             </section >
         );

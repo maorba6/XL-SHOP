@@ -36,6 +36,7 @@ class _Edit extends Component {
     }
 
     componentDidUpdate() {
+        console.log(this.state.item);
         const user = this.props.user
         if (!user.isAdmin) {
             this.props.history.push('/')
@@ -125,12 +126,12 @@ class _Edit extends Component {
                     <div className="category">
                         <span >category: </span>
                         <select className="app-input" name="category" value={item.category} onChange={this.handleChange} >
-                            <option value="coats">coats</option>
-                            <option value="suits">suits</option>
+                            <option value="Coats">Coats</option>
+                            <option value="Suits">Suits</option>
                             <option value="Socks">Socks</option>
                             <option value="Belts">Belts</option>
-                            <option value="casual">underpants</option>
-                            <option value="casual">tank tops</option>
+                            <option value="Casual">Underpants</option>
+                            <option value="Casual">Tank tops</option>
                         </select>
                     </div>
 

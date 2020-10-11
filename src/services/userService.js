@@ -55,7 +55,7 @@ function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
     loggedinUser = user
     return user;
-}
+} 
 
 
 

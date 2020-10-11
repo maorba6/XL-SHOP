@@ -9,21 +9,16 @@ import './Main.scss'
 
 class _Main extends Component {
 
-    componentDidMount() {
-        const { type } = this.props.match.params
-        let filterBy = null
-        if (type) {
-            filterBy = {
-                type,
-                category: '',
-                name: '',
-                price: { min: 0, max: 300 }
-            }
-        }
-        this.setFilter(filterBy)
-        this.props.loadItems()
-        // this.props.setUser()
+    state = {
+        category: ''
     }
+
+    componentDidMount() {
+        const { category } = this.props.match.params
+        this.setState({ category })
+        this.props.loadItems()
+    }
+
     toggleLike = async (ev, liked, item) => {
         ev.preventDefault()
         if (!this.props.user) return
@@ -42,6 +37,7 @@ class _Main extends Component {
     }
 
     setFilter = (filterBy) => {
+        console.log({ filterBy });
         this.props.setFilter(filterBy)
         this.props.loadItems()
     }
@@ -51,10 +47,11 @@ class _Main extends Component {
 
     render() {
         let { items, user } = this.props
+        const { category } = this.state
         return (
             <main>
                 { user && user.isAdmin && < Link className="btn" to="/item/edit" replace={true}  >   Add Item</Link>}
-                <Filter setFilter={this.setFilter}></Filter>
+                <Filter category={category} setFilter={this.setFilter}></Filter>
                 { items && <List items={items} toggleLike={this.toggleLike} removeItem={this.removeItem} ></List>}
             </main>
         )

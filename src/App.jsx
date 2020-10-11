@@ -29,7 +29,7 @@ function App({ t }) {
             <Route component={Home} exact path="/" />
             <Route component={Login} path="/login" />
             <Route component={SignUp} path="/SignUp" />
-            <Route component={Main} path="/shop/:type" />
+            <Route component={Main} path="/shop/:category" />
             <Route component={Main} path="/shop" />
             <Route component={Edit} path="/item/edit/:id" />
             <Route component={Edit} path="/item/edit" />
@@ -41,16 +41,13 @@ function App({ t }) {
             <Route component={Cart} path="/Cart" />
             <Route component={ConfirmEmail} path="/confirmation/:token/:type" />
             <Route component={NotFound} />
-
             {/* Best way to send props to a route: */}
             {/* <Route render={ (props) => <About { ...props } someProp="popo" /> } path="/about" /> */}
             <Route component={Home} exact path="/" />
           </Switch>
         </div>
-
-
+        <Footer></Footer>
       </Router>
-      <Footer></Footer>
     </div>
   );
 }

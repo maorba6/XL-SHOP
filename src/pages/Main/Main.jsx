@@ -9,16 +9,16 @@ import './Main.scss'
 
 class _Main extends Component {
 
-
     state = {
         category: ''
     }
+
     componentDidMount() {
         const { category } = this.props.match.params
         this.setState({ category })
         this.props.loadItems()
-        // this.props.setUser()
     }
+
     toggleLike = async (ev, liked, item) => {
         ev.preventDefault()
         if (!this.props.user) return

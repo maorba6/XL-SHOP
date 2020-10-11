@@ -3,12 +3,11 @@ import { connect } from 'react-redux'
 import { Link } from "react-router-dom";
 import { loadItems } from '../../actions/itemActions'
 //imgs
-import img1 from '../../assets/1.jpeg';
-import pants from '../../assets/samples/pants-test.jpeg';
 import shirt from '../../assets/samples/shirt-test.jpeg';
-import shoes from '../../assets/shoes.jpeg';
 //components
 import { List } from '../../cmps/List/List'
+import { setUser, saveUser } from '../../actions/userActions'
+
 import './Home.scss'
 class _Home extends Component {
     state = {
@@ -51,6 +50,21 @@ class _Home extends Component {
     componentDidMount() {
         this.props.loadItems()
     }
+
+
+    toggleLike = async (ev, liked, item) => {
+        ev.preventDefault()
+        if (!this.props.user) return
+        if (liked) {
+            const index = this.props.user.favs.findIndex(i => i._id === item._id)
+            this.props.user.favs.splice(index, 1)
+        } else {
+            this.props.user.favs.push(item)
+        }
+        await this.props.saveUser(this.props.user)
+        await this.props.setUser()
+    }
+
     render() {
         const { items } = this.props
         return (
@@ -66,7 +80,7 @@ class _Home extends Component {
                     })}
                 </div>
                 <h3>Top Rated</h3>
-                { items && <List items={items.slice(items.length - 12)} ></List>}
+                { items && <List toggleLike={this.toggleLike} items={items.slice(items.length - 12)} ></List>}
                 <h2>BROWSE BY CATEGORY</h2>
             </section >
         );
@@ -77,11 +91,14 @@ class _Home extends Component {
 function mapStateProps(state) {
     return {
         items: state.itemReducer.items,
+        user: state.userReducer.user
     }
 }
 // Takes the action dispatchers from the actions file and puts them inside the component's props
 const mapDispatchToProps = {
     loadItems,
+    setUser,
+    saveUser
 }
 // Connect is used to tap into the store, without it we have no access to the store from the component
 export const Home = connect(mapStateProps, mapDispatchToProps)(_Home)

@@ -6,7 +6,7 @@ import './Filter.scss'
 export function Filter(props) {
 
     const [state, setState] = useState({
-        categoriesStyle: { display: 'none' },
+        categoriesStyle: { display: 'flex' },
         colorsStyle: { display: 'none' },
         priceStyle: { display: 'none' },
         filterBy: {
@@ -101,7 +101,7 @@ export function Filter(props) {
                     <li onClick={() => setCategory('t-shirts')}>t-shirts</li>
                     <li onClick={() => setCategory('button-down shirts')}>Button down shirts</li>
                 </ul>
-                <ul className="sublist" >
+                <ul className="sublist flex column" >
                     <li onClick={() => setCategory('Coats')}>coats</li>
                     <li onClick={() => setCategory('Suits')}>suits</li>
                     <li onClick={() => setCategory('Socks')}>Socks</li>
@@ -144,8 +144,8 @@ export function Filter(props) {
             <div className="sort-select flex">
                 <button onClick={() => togglePrice()} className="app-btn">Price</button>
                 <ul style={state.priceStyle} className=" flex column" >
-                    <li onClick={() => setPrice('esc')} >low to high</li>
-                    <li onClick={() => setPrice('desc')} >high to low</li>
+                    <li onClick={() => setPrice('esc')} >Low To High</li>
+                    <li onClick={() => setPrice('desc')} >High To Low</li>
                 </ul>
             </div>
             {/* <InputRange

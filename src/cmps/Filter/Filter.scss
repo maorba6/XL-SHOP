@@ -15,10 +15,17 @@
     }
 
     .all-categories {
+        height: 150px;
         background-color: white;
         position: absolute;
         width: 100%;
         justify-content: space-around;
+
+        :nth-child(3) {
+
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
     }
 
     .app-input {
@@ -26,7 +33,7 @@
     }
 
     .sublist {
-
+        width: 15%;
         padding: 0px;
 
         li {

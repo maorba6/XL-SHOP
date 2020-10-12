@@ -133,6 +133,8 @@ export function Filter(props) {
                     <li onClick={() => setColor('blue')} className="opt option-blue"></li>
                     <li onClick={() => setColor('white')} className="opt option-white" ></li>
                     <li onClick={() => setColor('pink')} className="opt option-pink"></li>
+                    <li onClick={() => setColor('pink')} className="opt option-red"></li>
+                    <li onClick={() => setColor('pink')} className="opt option-purple"></li>
 
                 </ul>
             </div>

@@ -5,6 +5,12 @@ import { Link, useHistory } from 'react-router-dom'
 import userService from '../../services/userService'
 import Swal from 'sweetalert2'
 
+//svgs
+import { ReactComponent as DeleteSvg } from '../../assets/img/delete.svg';
+import { ReactComponent as EditSvg } from '../../assets/img/edit.svg';
+
+
+//cmps
 import '../Cart/Cart.scss'
 
 function _Cart(props) {
@@ -115,8 +121,8 @@ function _Cart(props) {
                                 </p>
                             </div>
                             <div className="cancel-edit-cart-item">
-                                <button onClick={() => removeFromCart(item._id)}>X</button>
-                                <Link to={`/item/${item._id}`}>edit</Link>
+                                 <DeleteSvg className="delete-svg" onClick={() => removeFromCart(item._id)}></DeleteSvg> 
+                                <Link to={`/item/${item._id}`}> <EditSvg></EditSvg></Link>
                             </div>
                         </div>
                     })}

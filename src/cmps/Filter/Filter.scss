@@ -6,7 +6,6 @@
 
         li {
             font-size: 20px;
-
         }
     }
 
@@ -20,12 +19,22 @@
         position: absolute;
         width: 100%;
         justify-content: space-around;
+        margin-left: 70px;
 
-        :nth-child(3) {
-
-            justify-content: space-between;
+        .acessories {
+            align-content: space-between;
             flex-wrap: wrap;
+            width: 320px;
         }
+    }
+
+
+    .sort{
+        height: 100px;
+    }
+
+    .btn-sort {
+        width: 150px;
     }
 
     .app-input {
@@ -33,7 +42,6 @@
     }
 
     .sublist {
-        width: 15%;
         padding: 0px;
 
         li {
@@ -60,6 +68,8 @@
 
     .color-select {
         height: 50px;
+    width: 150px;
+
     }
 
 
@@ -73,7 +83,6 @@
 .colors-container {
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 300px;
 }
 
 

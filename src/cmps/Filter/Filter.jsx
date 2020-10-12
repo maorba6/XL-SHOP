@@ -6,7 +6,7 @@ import './Filter.scss'
 export function Filter(props) {
 
     const [state, setState] = useState({
-        categoriesStyle: { display: 'flex' },
+        categoriesStyle: { display: 'none' },
         colorsStyle: { display: 'none' },
         priceStyle: { display: 'none' },
         filterBy: {
@@ -91,17 +91,17 @@ export function Filter(props) {
                 <li>Acessories</li>
             </ul>
             <div style={state.categoriesStyle} className="all-categories flex" >
-                <ul className="sublist">
+                <ul className="sublist pants">
                     <li onClick={() => setCategory('elegant-pants')}>Elegant pants</li>
                     <li onClick={() => setCategory('jeans')}>jeans</li>
                     <li onClick={() => setCategory('Cotton-pants')}>Cotton pants</li>
                 </ul>
-                <ul className="sublist" >
+                <ul className="sublist shirts" >
                     <li onClick={() => setCategory('polo-shirts')}>polo shirts</li>
                     <li onClick={() => setCategory('t-shirts')}>t-shirts</li>
                     <li onClick={() => setCategory('button-down shirts')}>Button down shirts</li>
                 </ul>
-                <ul className="sublist flex column" >
+                <ul className="sublist flex column acessories" >
                     <li onClick={() => setCategory('Coats')}>coats</li>
                     <li onClick={() => setCategory('Suits')}>suits</li>
                     <li onClick={() => setCategory('Socks')}>Socks</li>
@@ -123,31 +123,36 @@ export function Filter(props) {
                 <span>name</span>
                 <input className="app-input" name="name" type="text" placeholder="search" onChange={handleChange} />
             </div> */}
+            <div className="sort flex ">
+               
 
-            <div className="color-select flex">
-                <button onClick={() => toggleColors()} className="app-btn">Color</button>
-                <ul style={state.colorsStyle} className="colors-container flex">
-                    <li onClick={() => setColor('green')} className="opt option-green" ></li>
-                    <li onClick={() => setColor('yellow')} className="opt option-yellow" ></li>
-                    <li onClick={() => setColor('black')} className="opt option-black" ></li>
-                    <li onClick={() => setColor('blue')} className="opt option-blue"></li>
-                    <li onClick={() => setColor('white')} className="opt option-white" ></li>
-                    <li onClick={() => setColor('pink')} className="opt option-pink"></li>
-                    <li onClick={() => setColor('pink')} className="opt option-red"></li>
-                    <li onClick={() => setColor('pink')} className="opt option-purple"></li>
+                <div className="color-select flex column">
+                    <button onClick={() => toggleColors()} className="btn-sort" >Color</button>
+                    <ul style={state.colorsStyle} className="colors-container flex ">
+                        <li onClick={() => setColor('green')} className="opt option-green" ></li>
+                        <li onClick={() => setColor('yellow')} className="opt option-yellow" ></li>
+                        <li onClick={() => setColor('black')} className="opt option-black" ></li>
+                        <li onClick={() => setColor('blue')} className="opt option-blue"></li>
+                        <li onClick={() => setColor('white')} className="opt option-white" ></li>
+                        <li onClick={() => setColor('pink')} className="opt option-pink"></li>
+                        <li onClick={() => setColor('pink')} className="opt option-red"></li>
+                        <li onClick={() => setColor('pink')} className="opt option-purple"></li>
 
-                </ul>
+                    </ul>
+                </div>
+
+                <div className="sort-select flex column">
+                    <button onClick={() => togglePrice()} className="btn-sort" >Price</button>
+                    <ul style={state.priceStyle} className=" flex column" >
+                        <li onClick={() => setPrice('esc')} >Low To High</li>
+                        <li onClick={() => setPrice('desc')} >High To Low</li>
+                    </ul>
+                </div>
             </div>
 
 
 
-            <div className="sort-select flex">
-                <button onClick={() => togglePrice()} className="app-btn">Price</button>
-                <ul style={state.priceStyle} className=" flex column" >
-                    <li onClick={() => setPrice('esc')} >Low To High</li>
-                    <li onClick={() => setPrice('desc')} >High To Low</li>
-                </ul>
-            </div>
+
             {/* <InputRange
                 maxValue={800}
                 minValue={0}

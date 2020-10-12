@@ -1,18 +1,18 @@
-.items-list-cart{
+.items-list-cart {}
 
-}
-
-.cart-container{
+.cart-container {
     justify-content: space-between;
 }
 
-.cart-preview-container{
+.cart-preview-container {
     justify-content: space-between;
     border: 1px solid black;
     width: 100%;
     margin-top: 30px;
-    a{
-        img{
+    height: 150px;
+
+    a {
+        img {
             width: 200px;
             object-fit: cover;
             height: 100%;
@@ -21,7 +21,7 @@
 
 }
 
-.buy-now{
+.buy-now {
     width: 40%;
     height: 400px;
     padding: 20px;
@@ -32,16 +32,16 @@
     justify-content: space-between;
 }
 
-.item-price-cart{
-    margin-top:27px;
+.item-price-cart {
+    margin-top: 27px;
     width: 7%;
 }
 
-.item-details-cart{
+.item-details-cart {
     justify-content: space-evenly;
     width: 40%;
 }
 
-.cancel-edit-cart-item{
+.cancel-edit-cart-item {
     width: 7%
 }

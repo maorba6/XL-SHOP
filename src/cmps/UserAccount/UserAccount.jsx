@@ -40,12 +40,6 @@ export default function UserAccount(props) {
     return (
         <form className="user-account flex column" onSubmit={(ev) => props.saveUser(ev, state.editedUser, 'account')}>
             <div className="change-account flex column">
-                <div className="change-email">
-                    <div className="email">
-                        <label> email:</label>
-                        <p className="app-input" >{state.editedUser.email} </p>
-                    </div>
-                </div>
                 <div className="change-password flex column">
                     <div className="curr-pass">
                         <label>   current password:</label>

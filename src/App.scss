@@ -12,6 +12,11 @@ body {
   font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
 }
 
+ul {
+  list-style-type: none;
+
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -26,19 +31,22 @@ body {
 
 
 @media (max-width:1200px) {
-.app-container{
-  width: 100%;
+  .app-container {
+    width: 100%;
+  }
 }
-}
+
 @media (max-width:900px) {
-.app-container{
-  width: 100%;
+  .app-container {
+    width: 100%;
+  }
 }
-}
+
 button {
   font-family: inherit;
   cursor: pointer;
   border: none;
+  outline: none;
 }
 
 // setup

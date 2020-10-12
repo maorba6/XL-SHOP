@@ -69,7 +69,7 @@ class _Home extends Component {
         const { items } = this.props
         return (
             <section className="home">
-                <div className="hero-background"></div>
+                {/* <div className="hero-background"></div> */}
                 <div className="types flex">
                     {this.state.types.map(type => {
                         return <Link key={type.str} to={'shop/' + type.str} className="browse-type">

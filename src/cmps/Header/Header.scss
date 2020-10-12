@@ -1,5 +1,5 @@
 header {
-    height: 50px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,14 +17,21 @@ header {
             list-style: none;
 
             a {
+                font-size:20px;
                 height: 100%;
                 color: whitesmoke;
                 text-transform: capitalize;
+
+                &:hover {
+                    color: red;
+                }
             }
         }
 
         .svg {
             fill: white;
+            height: 30px;
+            width: 30px;
 
             &:hover {
                 fill: red
@@ -43,15 +50,15 @@ header {
     }
 
     .btn-menu {
-        height: 45px;
-        width: 35px;
+        height: 45px !important;
+        width: 35px !important;
         cursor: pointer;
 
     }
 
     .btn-logout {
         background-color: inherit;
-        font-size: 18px;
+        font-size: 20px;
         color: white;
 
         &:hover {

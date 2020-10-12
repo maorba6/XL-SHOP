@@ -130,8 +130,8 @@ class _Edit extends Component {
                             <option value="Suits">Suits</option>
                             <option value="Socks">Socks</option>
                             <option value="Belts">Belts</option>
-                            <option value="Casual">Underpants</option>
-                            <option value="Casual">Tank tops</option>
+                            <option value="Underpants">Underpants</option>
+                            <option value="Tank tops">Tank tops</option>
                         </select>
                     </div>
 

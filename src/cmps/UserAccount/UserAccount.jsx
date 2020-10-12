@@ -62,7 +62,7 @@ export default function UserAccount(props) {
                         <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />
                         </div>
                     </div>
-                <button className="app-btn btn-save-account">save password/email</button>
+                <button className="app-btn btn-save-account">save password</button>
                 </div>
             </div>
         </form>

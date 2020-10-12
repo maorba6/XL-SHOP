@@ -16,15 +16,12 @@ export function Filter(props) {
             name: '',
             category: '',
             price: { min: 0, max: 800 }
-        }
+        },
     })
 
-    useEffect(() => {
-
-    }, [])
+  
 
     useEffect(() => {
-        console.log('category changed', props.category);
         if (props.category) {
             setState(state => ({ ...state, filterBy: { ...state.filterBy, category: props.category } }))
         }

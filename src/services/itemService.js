@@ -57,10 +57,8 @@ function getEmptyItem() {
     console.log('empty');
     return {
         name: '',
-        type: 'shirt',
         price: '',
-        category: 'sport',
-        brand: '',
+        category: 'Coat',
         sizes: [],
         colors: [],
         imgUrls: []

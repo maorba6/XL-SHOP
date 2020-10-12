@@ -30,13 +30,16 @@ export function _Admin(props) {
 
     return (
         <div>
-            <h1> this is admin page</h1>
             <div className="msg flex column">
-                <input type="text" name="title" value={msg.title} onChange={handleChange} />
-                <textarea value={msg.text} name="text" cols="30" rows="10" onChange={handleChange} ></textarea>
-            </div>
-            <button onClick={() => sendMails()}>send mails</button>
+            <h1> This is Admin page</h1>
+                <p>
+                    ציון הדף הזה הוא בישביל שתוכל לשלוח מייל לכל המשתמשים שנרשמו והסכימו שתשלח להם אימייל אתה צריך לרשום נושא של האימייל תוכן ולשלוח בכפתור 
+                </p>
+                <input type="text" placeholder="נושא לאימייל" name="title" value={msg.title} onChange={handleChange} />
+                <textarea placeholder="תוכן לאימייל" value={msg.text} name="text" cols="30" rows="10" onChange={handleChange} ></textarea>
+            <button className="signin-button" onClick={() => sendMails()}>שלח לכולם</button>
             <h3>you can't write numvers or the mail will sent wrong</h3>
+            </div>
         </div>
     )
 }

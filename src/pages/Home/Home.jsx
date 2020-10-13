@@ -12,18 +12,12 @@ import './Home.scss'
 class _Home extends Component {
     state = {
         types: [
-            {
-                str: "Polo-Shirts",
-                img: shirt
-            },
+           
             {
                 str: "T-Shirts",
                 img: shirt
             },
-            {
-                str: "Elegant-Pants",
-                img: shirt
-            },
+         
             {
                 str: "Coats",
                 img: shirt
@@ -32,14 +26,8 @@ class _Home extends Component {
                 str: "Belts",
                 img: shirt
             },
-            {
-                str: "Bermuda",
-                img: shirt
-            },
-            {
-                str: "Ties",
-                img: shirt
-            },
+            
+            
             {
                 str: "Jeans",
                 img: shirt
@@ -69,17 +57,17 @@ class _Home extends Component {
         const { items } = this.props
         return (
             <section className="home">
-                {/* <div className="hero-background"></div> */}
+                <div className="hero-background"></div>
+                    <h2>Categories</h2>
                 <div className="types flex">
                     {this.state.types.map(type => {
                         return <Link key={type.str} to={'shop/' + type.str} className="browse-type">
                             <img src={type.img} />
-                            <div className="tag">{type.str}</div>
+                            <h3 className="tag">{type.str}</h3>
                         </Link>
-
                     })}
                 </div>
-                <h3>Top Rated</h3>
+                <h3>Top Rated Products</h3>
                 { items && <List toggleLike={this.toggleLike} items={items.slice(items.length - 12)} ></List>}
                 <h2>BROWSE BY CATEGORY</h2>
             </section >

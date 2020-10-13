@@ -35,7 +35,7 @@ function _Header(props) {
     }
 
     return (
-        <header className="header">
+        <header className="header flex">
             <NavLink className="logo" activeClassName='active-path' to="/" exact >Logo</NavLink>
             <div onClick={(ev) => toggleMenu(ev)} className={`screen ${showMenu ? 'menu-open' : ''}`}></div>
 

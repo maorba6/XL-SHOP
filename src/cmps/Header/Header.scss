@@ -1,21 +1,19 @@
 header {
-    height: 55px;
-    display: flex;
+    padding: 15px;
     align-items: center;
     justify-content: space-between;
     background-color: #2d383a;
     color: whitesmoke;
 
     .nav-header {
-        width: 30%;
         height: 100%;
         max-width: 350px;
-        justify-content: space-between;
         margin-right: 30px;
         align-items: center;
 
         li {
             list-style: none;
+            margin-left: 15px;
 
             a {
                 font-size: 20px;

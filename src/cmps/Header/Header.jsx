@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink, useHistory, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import userService from '../../services/userService'
 import { setUser } from '../../actions/userActions'
@@ -40,20 +40,24 @@ function _Header(props) {
             <div onClick={(ev) => toggleMenu(ev)} className={`screen ${showMenu ? 'menu-open' : ''}`}></div>
 
             <ul className="flex nav-header">
-                {props.user && props.user.isAdmin && <li><NavLink to="/admin" exact >admin</NavLink></li>}
-                {!props.user && <li><NavLink to="/login" exact >Login</NavLink></li>}
-                {props.user && <button className="btn-logout" onClick={() => logout()}>Logout</button>}
+                {props.user && props.user.isAdmin && <li><NavLink className="admin" to="/admin" exact >admin</NavLink></li>}
+                {!props.user && <li><NavLink to="/login" className="login" exact >Login</NavLink></li>}
 
                 <li><NavLink to="/shop" exact ><ShopSvg className="svg" title="shop"></ShopSvg></NavLink></li>
-                {props.user && <li><NavLink to="/profile"><ProfileSvg className="svg" title="profile"></ProfileSvg></NavLink></li>}
                 {props.user && <li><NavLink to="/cart"><CartSvg className="svg" title="cart"></CartSvg></NavLink></li>}
-                <li>  <MenuSvg className="btn-menu svg" onClick={() => toggleMenu()}></MenuSvg> </li>
+                {props.user && <li><ProfileSvg className="svg" title="profile" onClick={() => toggleMenu()}></ProfileSvg ></li>}
                 {showMenu && <ul className="menu">
-                    <NavLink to="/shop"> shop</NavLink>
-                    <NavLink to="/cart"> cart</NavLink>
-                    <NavLink to="/profile"> profile</NavLink>
-                    {!props.user && <NavLink to="/login"> login</NavLink>}
+                    <li> <NavLink to="/profile/orders">  My Orders  </NavLink> </li>
+                    <li> <NavLink to="/profile/wishlist">Wishlist </NavLink></li>
+                    <li> <NavLink to="/profile/account">My Account </NavLink></li>
+                    <li> <NavLink to="/profile/edit">Edit Profile </NavLink></li>
+                    <li> <button onClick={() => logout()}>Logout </button></li>
+
                 </ul>}
+
+
+
+
             </ul>
 
         </header>

@@ -51,7 +51,7 @@ export function Footer() {
                     <h3>Main Pages</h3>
                     <ul>
                         <li> <Link to="/">Home </Link>  </li>
-                        <li> <Link to="/profile">Profile </Link>  </li>
+                        <li> <Link to="/profile/wishlist">Profile </Link>  </li>
                         <li> <Link to="/shop">Shop</Link>  </li>
                         <li> <Link to="/cart">Cart</Link>  </li>
                         <li> <Link to="/login">Login </Link>  </li>

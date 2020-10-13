@@ -17,7 +17,7 @@ export default function UserOrders(props) {
 
 
     return (
-        <section>
+        <section className="flex">
             {!user.orders.length &&
                 <div>
                     <h1>you don't have orders yet</h1>
@@ -28,12 +28,12 @@ export default function UserOrders(props) {
                 return <div className="order" key={order.id}>
                     <div >order sent at:{new Date(order.createdAt).toLocaleDateString()}</div>
                     <div >status:{order.status}</div>
-                    {/* <div>items: <List items={order.items} toggleLike={toggleLike}></List></div> */}
+                    <div>items: <List items={order.items} toggleLike={toggleLike}></List></div>
                     <div>total price:{order.totalPrice}</div>
                 </div>
             })}
 
-            { !!user.orders.length && <button className="app-btn" onClick={() => clearOrders()}>clear orders</button>}
+            {/* { !!user.orders.length && <button className="app-btn" onClick={() => clearOrders()}>clear orders</button>} */}
         </section>
     )
 }

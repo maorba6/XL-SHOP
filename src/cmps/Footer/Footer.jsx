@@ -14,14 +14,16 @@ export function Footer() {
             <div className="flex content">
                 <div className="contact-us">
                     <h3>Contact Us</h3>
-                    <ul >
-                        <li>
-                            <EmailSvg className="svg"></EmailSvg>
-                            <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=zion71il@gmail.com&su=&body=נא להשאיר פרטי קשר שנוכל לחזור אליכם ">Email Us</a>
+                    <ul  >
+                        <li className="hover">
+                            <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=zion71il@gmail.com&su=&body=נא להשאיר פרטי קשר שנוכל לחזור אליכם ">
+                                <EmailSvg className="svg"></EmailSvg>
+                           Email Us</a>
                         </li>
-                        <li>
-                            <WhatsappSvg className="svg"></WhatsappSvg>
-                            <a target="_blank" href="https://wa.link/s69g6e">Send Whatsapp</a>
+                        <li className="hover">
+                            <a target="_blank" href="https://wa.link/s69g6e">
+                                <WhatsappSvg className="svg"></WhatsappSvg>
+                           Send Whatsapp</a>
                         </li>
                         <li>
                             <PhoneSvg className="svg"></PhoneSvg>

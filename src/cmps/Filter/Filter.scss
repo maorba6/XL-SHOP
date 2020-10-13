@@ -1,78 +1,28 @@
 .filter {
 
-    .ul-titles {
-        justify-content: space-around;
-        margin-bottom: 30px;
-
-        li {
-            font-size: 20px;
-        }
-    }
-
+ 
     li {
         cursor: pointer;
     }
 
-    .all-categories {
-        height: 150px;
-        background-color: white;
-        position: absolute;
-        width: 100%;
-        justify-content: space-around;
-        margin-left: 70px;
-
-        .acessories {
-            align-content: space-between;
-            flex-wrap: wrap;
-            width: 320px;
-        }
-    }
-
-
-    .sort{
-        height: 100px;
-    }
 
     .btn-sort {
         width: 150px;
+
+        &:hover {
+            color: red;
+        }
+    }
+
+    .active {
+        color: red;
     }
 
     .app-input {
         width: unset;
     }
 
-    .sublist {
-        padding: 0px;
-
-        li {
-            &:hover {
-                border-bottom: 1px black solid;
-            }
-        }
-    }
-
-
-    .sort-select {
-        height: 50px;
-
-        ul {
-            justify-content: space-between;
-
-            li {
-                border: 1px solid black;
-                width: 100px;
-                text-align: center;
-            }
-        }
-    }
-
-    .color-select {
-        height: 50px;
-    width: 150px;
-
-    }
-
-
+   
 
     .input-range {
         width: 50%;

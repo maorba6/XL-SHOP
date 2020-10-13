@@ -1,10 +1,8 @@
-
-.profile-welcome{
+.profile-welcome {
     margin-bottom: 50px;
-    margin-top: 20px;
-}
+    }
 
-.profile{}
+.profile {}
 
 .nav-profile {
     flex-direction: column;
@@ -14,22 +12,19 @@
     min-height: 220px;
 }
 
-.profile-section{
+.profile-section {
     width: 90%;
     margin: auto;
 }
 
-.profile-btn{
-    background-color: transparent;
+.profile-btn {
     text-align: left;
-    font-size: larger;
-    width: 30%;
-    padding-bottom: 3px;
+    font-size: 20px;
     border: 1px transparent solid;
     padding: unset;
-    outline: none;
+    width: fit-content;
 }
 
-.profile-btn:hover{
+.profile-btn:hover {
     border-bottom: 1px black solid;
 }

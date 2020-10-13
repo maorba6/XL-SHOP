@@ -1,5 +1,5 @@
 header {
-    height: 55px;
+    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -7,20 +7,24 @@ header {
     color: whitesmoke;
 
     .nav-header {
+
         width: 30%;
         height: 100%;
         max-width: 350px;
-        justify-content: space-between;
-        margin-right: 30px;
         align-items: center;
+        justify-content: flex-end;
 
         li {
             list-style: none;
+            margin-right: 15px;
+
+            .login {
+                color: whitesmoke;
+            }
 
             a {
                 font-size: 20px;
                 height: 100%;
-                color: whitesmoke;
                 text-transform: capitalize;
 
                 &:hover {
@@ -41,10 +45,13 @@ header {
     }
 
 
+    .admin {
+        color: whitesmoke;
+    }
 
-
-
-
+    .login {
+        color: whitesmoke;
+    }
 
     .logo {
         color: whitesmoke;
@@ -54,7 +61,6 @@ header {
         height: 45px !important;
         width: 35px !important;
         cursor: pointer;
-
     }
 
     .btn-logout {
@@ -77,20 +83,33 @@ header {
         background-color: hsla(0, 0%, 100%, .8);
         z-index: 1;
 
-        a {
+        li {
+            height: 10%;
 
-            color: #fff;
+        }
+
+        button,
+        a {
+            font-size: 20px;
+            height: 100%;
+            text-transform: capitalize;
+            color: black;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #000;
-            height: 10%;
             width: 100%;
             border-bottom: 1px solid grey;
+
+            &:hover {
+                color: red;
+            }
         }
 
     }
 
+
+    .menu-open {}
 
     .screen.menu-open {
         cursor: pointer;

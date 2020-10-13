@@ -1,68 +1,28 @@
 .filter {
 
-    .ul-titles {
-        justify-content: space-around;
-        margin-bottom: 30px;
-
-        li {
-            font-size: 20px;
-
-        }
-    }
-
+ 
     li {
         cursor: pointer;
     }
 
-    .all-categories {
-        height: 150px;
-        background-color: white;
-        position: absolute;
-        width: 100%;
-        justify-content: space-around;
 
-        :nth-child(3) {
+    .btn-sort {
+        width: 150px;
 
-            justify-content: space-between;
-            flex-wrap: wrap;
+        &:hover {
+            color: red;
         }
+    }
+
+    .active {
+        color: red;
     }
 
     .app-input {
         width: unset;
     }
 
-    .sublist {
-        width: 15%;
-        padding: 0px;
-
-        li {
-            &:hover {
-                border-bottom: 1px black solid;
-            }
-        }
-    }
-
-
-    .sort-select {
-        height: 50px;
-
-        ul {
-            justify-content: space-between;
-
-            li {
-                border: 1px solid black;
-                width: 100px;
-                text-align: center;
-            }
-        }
-    }
-
-    .color-select {
-        height: 50px;
-    }
-
-
+   
 
     .input-range {
         width: 50%;
@@ -73,7 +33,6 @@
 .colors-container {
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 300px;
 }
 
 

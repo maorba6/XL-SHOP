@@ -18,7 +18,13 @@ function _Profile(props) {
         if (!props.user) {
             history.push('/')
         }
+
     }, [])
+
+
+    useEffect(() => {
+        setCurrent(props.match.params.current)
+    }, [props.match.params])
 
     function saveUser(ev, editedUser, type) {
         ev.preventDefault()
@@ -84,13 +90,13 @@ function _Profile(props) {
                     <button className="profile-btn" onClick={() => setCurrent('account')}>My Account</button>
                     <button className="profile-btn" onClick={() => setCurrent('edit')}>Edit User</button>
                     <button className="profile-btn" onClick={() => setCurrent('orders')}>My Orders</button>
-                    <button className="profile-btn" onClick={() => setCurrent('favs')}>My Favorites</button>
+                    <button className="profile-btn" onClick={() => setCurrent('wishlist')}>My Favorites</button>
                 </nav>
                 <div className="flex profile-section">
                     {user && current === 'account' && <UserAccount user={user} saveUser={saveUser} />}
                     {user && current === 'edit' && <UserEdit user={user} saveUser={saveUser} />}
                     {user && current === 'orders' && <UserOrders user={user} toggleLike={toggleLike} clearOrders={clearOrders} />}
-                    {user && current === 'favs' && <UserFavs user={user} toggleLike={toggleLike} />}
+                    {user && current === 'wishlist' && <UserFavs user={user} toggleLike={toggleLike} />}
                 </div>
             </div>
         </div>

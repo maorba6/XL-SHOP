@@ -34,6 +34,7 @@ function App({ t }) {
             <Route component={Edit} path="/item/edit/:id" />
             <Route component={Edit} path="/item/edit" />
             <Route component={Details} path="/item/:id" />
+            <Route component={Profile} path="/profile/:current" />
             <Route component={Profile} path="/profile" />
             <Route component={Admin} path="/admin" />
             <Route component={ForgotPassword} path="/forgotPassword/:id" />

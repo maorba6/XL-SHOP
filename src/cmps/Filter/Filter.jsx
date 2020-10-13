@@ -6,9 +6,15 @@ import './Filter.scss'
 export function Filter(props) {
 
     const [state, setState] = useState({
-        categoriesStyle: { display: 'flex' },
+        categoryStyle: { display: 'none' },
+        subCategoryStyle: { display: 'none' },
         colorsStyle: { display: 'none' },
         priceStyle: { display: 'none' },
+        shirtsCategory: ['polo-shirts', 't-shirts', 'button-down-shirts'],
+        pantsCategory: ['Elegant-pants', 'Jeans', 'Cotton-pants'],
+        acessoriesCategory: ['Coats', 'Suits', 'Socks', 'Belts', 'Underpants', 'Tank - Tops', 'Ties',
+            'Tricot', 'Potter - shorts', 'Sweaters', 'Shlikes', 'Bermudas', 'Cardigans', 'Hoddies'],
+        category: null,
         filterBy: {
             name: '',
             category: '',
@@ -35,13 +41,15 @@ export function Filter(props) {
     }
 
     function setCategory(category) {
-        setState(state => ({ ...state, filterBy: { ...state.filterBy, category } }))
+        setState(state => ({ ...state, category }))
     }
 
     function setColor(color) {
         setState(state => ({ ...state, filterBy: { ...state.filterBy, color } }))
     }
-
+    function setSubCategory(category) {
+        setState(state => ({ ...state, filterBy: { ...state.filterBy, category } }))
+    }
     function setPrice(sortByPrice) {
         setState(state => ({ ...state, filterBy: { ...state.filterBy, sortByPrice } }))
     }
@@ -59,9 +67,6 @@ export function Filter(props) {
         }
     }, [state.filterBy])
 
-    function toggleTypes(display) {
-        setState(state => ({ ...state, categoriesStyle: { ...state.categoriesStyle, display } }))
-    }
 
     function toggleColors() {
         if (state.colorsStyle.display === 'flex') {
@@ -80,80 +85,70 @@ export function Filter(props) {
         }
     }
 
+    function toggleCategory() {
+        if (state.categoryStyle.display === 'flex') {
+            setState(state => ({ ...state, categoryStyle: { ...state.categoryStyle, display: 'none' } }))
+        } else {
+            setState(state => ({ ...state, categoryStyle: { ...state.categoryStyle, display: 'flex' } }))
+        }
+    }
+
+    function toggleSubCategory() {
+        if (state.subCategoryStyle.display === 'flex') {
+            setState(state => ({ ...state, subCategoryStyle: { ...state.subCategoryStyle, display: 'none' } }))
+        } else {
+            setState(state => ({ ...state, subCategoryStyle: { ...state.subCategoryStyle, display: 'flex' } }))
+        }
+    }
 
 
+
+    const category = state.category
     return (
-        <div className="filter" onMouseLeave={() => toggleTypes('none')}>
+        <div className="filter" >
 
-            <ul className="ul-titles flex" onMouseEnter={() => toggleTypes('flex')} >
-                <li>Pants</li>
-                <li>Shirts</li>
-                <li>Acessories</li>
-            </ul>
-            <div style={state.categoriesStyle} className="all-categories flex" >
-                <ul className="sublist">
-                    <li onClick={() => setCategory('elegant-pants')}>Elegant pants</li>
-                    <li onClick={() => setCategory('jeans')}>jeans</li>
-                    <li onClick={() => setCategory('Cotton-pants')}>Cotton pants</li>
-                </ul>
-                <ul className="sublist" >
-                    <li onClick={() => setCategory('polo-shirts')}>polo shirts</li>
-                    <li onClick={() => setCategory('t-shirts')}>t-shirts</li>
-                    <li onClick={() => setCategory('button-down shirts')}>Button down shirts</li>
-                </ul>
-                <ul className="sublist flex column" >
-                    <li onClick={() => setCategory('Coats')}>coats</li>
-                    <li onClick={() => setCategory('Suits')}>suits</li>
-                    <li onClick={() => setCategory('Socks')}>Socks</li>
-                    <li onClick={() => setCategory('Belts')}>Belts</li>
-                    <li onClick={() => setCategory('Underpants')}>underpants</li>
-                    <li onClick={() => setCategory('Tank-tops')}>tank tops</li>
-                    <li onClick={() => setCategory('Ties')}>ties</li>
-                    <li onClick={() => setCategory('Tricot')}>tricot</li>
-                    <li onClick={() => setCategory('Potter-shorts')}>Potter shorts</li>
-                    <li onClick={() => setCategory('Sweaters')}>sweaters</li>
-                    <li onClick={() => setCategory('Shlikes')}>Shlikes</li>
-                    <li onClick={() => setCategory('Bermudas')}>Bermudas</li>
-                    <li onClick={() => setCategory('Cardigans')}>Cardigans</li>
-                    <li onClick={() => setCategory('Hoodies')}>hoodies</li>
-                </ul>
+            <div className="flex">
+                <div className="category-select flex column">
+                    <button onClick={() => toggleCategory()} className={state.categoryStyle.display === 'flex' ? 'active btn-sort' : 'btn-sort'} >category</button>
+                    <ul style={state.categoryStyle} className=" flex column" >
+                        <li onClick={() => setCategory('shirtsCategory')} >Shirts</li>
+                        <li onClick={() => setCategory('pantsCategory')} >Pants</li>
+                        <li onClick={() => setCategory('acessoriesCategory')} >Acessories</li>
+                    </ul>
+                </div>
+                <div className="subcategory-select flex column">
+                    <button onClick={() => toggleSubCategory()} className={state.subCategoryStyle.display === 'flex' ? 'active btn-sort' : 'btn-sort'} >Subcategory</button>
+                    <ul style={state.subCategoryStyle} className="flex column">
+                        {category && state[category].map(c => {
+                            return <li key={c} onClick={() => setSubCategory(c)} > {c}    </li>
+                        })}
+                    </ul>
+                </div>
+                <div className="color-select flex column">
+                    <button onClick={() => toggleColors()} className={state.colorsStyle.display === 'flex' ? 'active btn-sort' : 'btn-sort'} >Color</button>
+                    <ul style={state.colorsStyle} className="colors-container flex ">
+                        <li onClick={() => setColor('green')} className="opt option-green" ></li>
+                        <li onClick={() => setColor('yellow')} className="opt option-yellow" ></li>
+                        <li onClick={() => setColor('black')} className="opt option-black" ></li>
+                        <li onClick={() => setColor('blue')} className="opt option-blue"></li>
+                        <li onClick={() => setColor('white')} className="opt option-white" ></li>
+                        <li onClick={() => setColor('pink')} className="opt option-pink"></li>
+                        <li onClick={() => setColor('pink')} className="opt option-red"></li>
+                        <li onClick={() => setColor('pink')} className="opt option-purple"></li>
+                    </ul>
+                </div>
+                <div className="sort-select flex column">
+                    <button onClick={() => togglePrice()} className={state.priceStyle.display === 'flex' ? 'active btn-sort' : 'btn-sort'} >Price</button>
+                    <ul style={state.priceStyle} className=" flex column" >
+                        <li onClick={() => setPrice('esc')} >Low To High</li>
+                        <li onClick={() => setPrice('desc')} >High To Low</li>
+                    </ul>
+                </div>
             </div>
-
             {/* <div className="search">
                 <span>name</span>
                 <input className="app-input" name="name" type="text" placeholder="search" onChange={handleChange} />
             </div> */}
-
-            <div className="color-select flex">
-                <button onClick={() => toggleColors()} className="app-btn">Color</button>
-                <ul style={state.colorsStyle} className="colors-container flex">
-                    <li onClick={() => setColor('green')} className="opt option-green" ></li>
-                    <li onClick={() => setColor('yellow')} className="opt option-yellow" ></li>
-                    <li onClick={() => setColor('black')} className="opt option-black" ></li>
-                    <li onClick={() => setColor('blue')} className="opt option-blue"></li>
-                    <li onClick={() => setColor('white')} className="opt option-white" ></li>
-                    <li onClick={() => setColor('pink')} className="opt option-pink"></li>
-                    <li onClick={() => setColor('pink')} className="opt option-red"></li>
-                    <li onClick={() => setColor('pink')} className="opt option-purple"></li>
-
-                </ul>
-            </div>
-
-
-
-            <div className="sort-select flex">
-                <button onClick={() => togglePrice()} className="app-btn">Price</button>
-                <ul style={state.priceStyle} className=" flex column" >
-                    <li onClick={() => setPrice('esc')} >Low To High</li>
-                    <li onClick={() => setPrice('desc')} >High To Low</li>
-                </ul>
-            </div>
-            {/* <InputRange
-                maxValue={800}
-                minValue={0}
-                value={state.filterBy.price}
-                onChange={value => setPriceRange(value)}
-            /> */}
 
 
 

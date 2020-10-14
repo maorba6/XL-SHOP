@@ -37,7 +37,7 @@ function App({ t }) {
             <Route component={Profile} path="/profile/:current" />
             <Route component={Profile} path="/profile" />
             <Route component={Admin} path="/admin" />
-            <Route component={ForgotPassword} path="/forgotPassword/:id" />
+            <Route component={ForgotPassword} path="/forgotPassword/:token" />
             <Route component={ForgotPassword} path="/forgotPassword" />
             <Route component={Cart} path="/Cart" />
             <Route component={ConfirmEmail} path="/confirmation/:token/:type" />

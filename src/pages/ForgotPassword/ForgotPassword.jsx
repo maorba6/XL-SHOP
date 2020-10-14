@@ -27,6 +27,7 @@ export function _ForgotPassword(props) {
     }
 
     function forgotPassword() {
+        console.log(state.email);
         userService.forgotPassword(state.email)
     }
 
@@ -39,12 +40,18 @@ export function _ForgotPassword(props) {
 
 
     useEffect(() => {
-        const { id } = props.match.params
-        if (typeof (id) === 'string') {
-            setState(({ user }) => ({ user: { ...user, id } }))
+        const { token } = props.match.params
+        if (token) {
+            (async () => {
+                console.log({ token });
+                const id = await userService.getUserIdByToken(token)
+                console.log({ id });
+                setState(({ user }) => ({ user: { ...user, id } }))
+            })()
 
+        } else {
+            console.log('no tokn yet');
         }
-
     }, [])
 
 

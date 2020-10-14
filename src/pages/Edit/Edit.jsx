@@ -40,7 +40,6 @@ class _Edit extends Component {
     }
 
     componentDidUpdate() {
-        console.log(this.state.item);
         const user = this.props.user
         if (!user.isAdmin) {
             this.props.history.push('/')

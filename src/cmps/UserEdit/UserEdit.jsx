@@ -25,7 +25,7 @@ export default function UserEdit(props) {
                     <label > last name:</label>
                     <input className="app-input" type="text" name="lname" value={state.editedUser.lname} onChange={(ev) => handleChange(ev)} />
                 </div>
-                <button className="app-btn" >save </button>
+                <button >Save </button>
             </form>
 
 

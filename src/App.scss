@@ -22,10 +22,14 @@ ul {
   flex-direction: column;
 }
 
+input {
+  outline: none;
+}
+
 .app-container {
   width: 1200px;
   align-self: center;
-  margin-top: 50px;
+  margin-top: 20px;
   // display: flex;
   // justify-content: center;
 }

@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
-import emptyHeart from '../../assets/cart-icons/empty-heart.png';
-import blackHeart from '../../assets/cart-icons/black-heart.png';
+//svg
+import { ReactComponent as HeartColor } from '../../assets/img/heart-color.svg';
+import { ReactComponent as HeartWhite } from '../../assets/img/heart-white.svg';
+
 
 import { connect } from 'react-redux';
 
@@ -33,7 +35,9 @@ function _Preview(props) {
                     <label className="item-name">{item.name}</label>
                     <div className="flex space-between img-price">
                         <p className="item-price"> ${item.price}</p>
-                        <img onClick={(ev) => toggleLike(ev, liked, item)} className="heart-img" src={liked ? blackHeart : emptyHeart} alt="LOVE" />
+                        {liked && <HeartColor className="heart-img red" onClick={(ev) => toggleLike(ev, liked, item)} ></HeartColor>}
+                        {!liked && <HeartWhite className="heart-img" onClick={(ev) => toggleLike(ev, liked, item)} ></HeartWhite>}
+                        {/* <img onClick={(ev) => toggleLike(ev, liked, item)} className="heart-img" src={liked ? blackHeart : emptyHeart} alt="LOVE" /> */}
                     </div>
                 </div>
             </Link>

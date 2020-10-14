@@ -33,7 +33,6 @@ export function ItemReducer(state = INITIAL_STATE, action) {
                 items: [...state.items, action.item]
             }
         case 'REMOVE_ITEM':
-            console.log('remove', state.items);
             return {
                 ...state,
                 items: state.items.filter(item => item._id !== action.id)

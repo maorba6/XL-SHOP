@@ -13,6 +13,10 @@ class _Edit extends Component {
         item: null,
         isClrsSaved: false,
         isSizesSaved: false,
+        shirts: ['Polo-Shirts', 'T-Shirts', 'Button-Down-Shirts'],
+        pants: ['Elegant-Pשnts', 'Jeans', 'Cotton-Pants'],
+        accessories: ['Coats', 'Suits', 'Socks', 'Belts', 'Underpants', 'Tank - Tops', 'Ties',
+            'Tricot', 'Potter - shorts', 'Sweaters', 'Shlikes', 'Bermudas', 'Cardigans', 'Hoddies'],
     }
 
     async componentDidMount() {
@@ -123,15 +127,20 @@ class _Edit extends Component {
                         <span> name:</span>
                         <input className="app-input" type="text" name="name" value={item.name} onChange={this.handleChange} />
                     </div>
-                    <div className="category">
-                        <span >category: </span>
+                    <div className="subCategory">
+                        <span >Category: </span>
                         <select className="app-input" name="category" value={item.category} onChange={this.handleChange} >
-                            <option value="Coats">Coats</option>
-                            <option value="Suits">Suits</option>
-                            <option value="Socks">Socks</option>
-                            <option value="Belts">Belts</option>
-                            <option value="Underpants">Underpants</option>
-                            <option value="Tank tops">Tank tops</option>
+                            <option value="shirts">Shirts</option>
+                            <option value="pants">Pants</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                    <div className="subCategory">
+                        <span >Subcategory: </span>
+                        <select className="app-input" name="subcategory" value={item.subcategory} onChange={this.handleChange} >
+                            {this.state[item.category].map(sub => {
+                                return <option key={sub} value={sub}>{sub}</option>
+                            })}
                         </select>
                     </div>
 

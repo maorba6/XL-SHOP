@@ -19,8 +19,8 @@ async function getItems(filterBy = null) {
     if (!filterBy) {
         return await httpService.get(`item`)
     } else {
-        const { category, name, price } = filterBy
-        return await httpService.get('item' + `?category=${category}&name=${name}&minPrice=${price.min}&maxPrice=${price.max}`)
+        const { category, name, sortByPrice, subcategory, color } = filterBy
+        return await httpService.get('item' + `?category=${category}&name=${name}&sortByPrice=${sortByPrice}&subcategory=${subcategory}&color=${color}`)
     }
 
 }
@@ -58,7 +58,8 @@ function getEmptyItem() {
     return {
         name: '',
         price: '',
-        category: 'Coat',
+        category: 'accessories',
+        subcategory: 'Coat',
         sizes: [],
         colors: [],
         imgUrls: []

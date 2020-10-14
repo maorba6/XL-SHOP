@@ -36,23 +36,23 @@ class _Main extends Component {
         await this.props.removeItem(id)
     }
 
-    setFilter = (filterBy) => {
-        console.log({ filterBy });
+    setFilter = (ev, filterBy) => {
+        if (ev) {
+            ev.preventDefault()
+        }
         this.props.setFilter(filterBy)
         this.props.loadItems()
     }
 
-    componentDidUpdate() {
-    }
 
     render() {
         let { items, user } = this.props
         const { category } = this.state
         return (
             <main>
-                { user && user.isAdmin && < Link className="btn" to="/item/edit" replace={true}  >   Add Item</Link>}
                 <Filter category={category} setFilter={this.setFilter}></Filter>
                 { items && <List items={items} toggleLike={this.toggleLike} removeItem={this.removeItem} ></List>}
+                { user && user.isAdmin && < Link className="app-btn" to="/item/edit" replace={true}  >   Add Item</Link>}
             </main>
         )
     }

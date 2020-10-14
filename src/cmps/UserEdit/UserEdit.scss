@@ -1,5 +1,5 @@
 .user-edit{
-    height: 300px;
+    height: 200px;
     width: 100%;
     min-width: 200px;
     justify-content: space-between;
@@ -9,4 +9,11 @@
     label{
         text-transform: capitalize;
     }
+
+        button{
+            background-color: black;
+            color: whitesmoke;
+            height: 100px;
+            font-size: larger;
+        }
 }

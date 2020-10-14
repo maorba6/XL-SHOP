@@ -24,6 +24,9 @@ export function Filter(props) {
     })
 
 
+    useEffect(() => {
+        props.setFilter('', state.filterBy)
+    }, [state.filterBy])
 
     useEffect(() => {
         if (props.category) {

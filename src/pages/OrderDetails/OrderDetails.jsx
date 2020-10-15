@@ -7,17 +7,28 @@ import './OrderDetails.scss'
 function _OrderDetails(props) {
     const { id } = props.match.params
 
-    // useEffect(() => {
-    // const idx = props.user.orders.findindex(order=>order._id===id)
-    // console.log(idx);
-        
-    // }, [props.user])
-    // const idx = props.user.orders.findindex(order=>order._id===id)
+    const [state, setState] = useState(
+        {
+            order: null
+        })
 
-    // console.log(idx);
+    useEffect(() => {
+        console.log(props.user);
+        if (props.user) {
+            const order = props.user.orders.find(o => o.id === id)
+            console.log({ order });
+            setState(state => ({ ...state, order }))
+
+        }
+
+
+    }, [props.user])
+
+    const { order } = state
     return (
-        (props.user&&<div>
-            {props.user.orders[0].items[0]._id}
+        (props.user && order && <div>
+            order time :{order.createdAt}
+            order id :{order.id}
         </div>)
     )
 }
@@ -32,6 +43,6 @@ function mapStateProps(state) {
 }
 
 const mapDispatchToProps = {
-   
+
 }
 export const OrderDetails = connect(mapStateProps, mapDispatchToProps)(_OrderDetails)

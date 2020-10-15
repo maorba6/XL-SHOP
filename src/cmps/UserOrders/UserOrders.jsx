@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
 
 import './UserOrders.scss'
@@ -34,7 +35,7 @@ export default function UserOrders(props) {
                             <p className="text-he">{order.id} <label htmlFor="">:מספר הזמנה</label></p>
                             <p>Items: {order.items.length}</p>
                             <p>Total: {order.totalPrice}</p>
-                            <a href="orders/details">פירוט הזמנה</a>
+                            <Link to={`/order/${order.id}`}>פירוט הזמנה</Link>
                         </div>
                     </div>
                 </div>

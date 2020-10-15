@@ -7,11 +7,11 @@ import './OrderDetails.scss'
 function _OrderDetails(props) {
     const { id } = props.match.params
 
-    useEffect(() => {
-    const idx = props.user.orders.findindex(order=>order._id===id)
-    console.log(idx);
+    // useEffect(() => {
+    // const idx = props.user.orders.findindex(order=>order._id===id)
+    // console.log(idx);
         
-    }, [props.user])
+    // }, [props.user])
     // const idx = props.user.orders.findindex(order=>order._id===id)
 
     // console.log(idx);

@@ -38,8 +38,7 @@ export default function UserOrders(props) {
                             <Link to={`/order/${order.id}`}>פירוט הזמנה</Link>
                         </div>
                     </div>
-                </div>
-            })}
+                })}
             </div>
 
             {/* { !!user.orders.length && <button className="app-btn" onClick={() => clearOrders()}>clear orders</button>} */}

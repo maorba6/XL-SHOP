@@ -9,7 +9,10 @@ export default {
     addTocart,
     confirmEmail,
     sendMailToOwner,
-    sendMails
+    sendMails,
+    forgotPassword,
+    getUserIdByToken,
+    savePassword
 }
 
 
@@ -20,13 +23,26 @@ async function getUser() {
     return await httpService.get('user/logged')
 }
 
-async function confirmEmail(token) {
-    return await httpService.put(`user/confirmation/${token}`)
+async function getUserIdByToken(token) {
+    return await httpService.get(`user/token` + `?token=${token}`)
+}
+
+async function savePassword(user) {
+    return await httpService.put(`user/savePassword`, user)
+}
+
+async function confirmEmail(token, type) {
+    return await httpService.put(`user/confirmation/${token}/${type}`)
 }
 
 async function sendMailToOwner(userId, orderId) {
     return await httpService.get('user/sendMail' + `?userId=${userId}&orderId=${orderId}`)
 }
+
+async function forgotPassword(email) {
+    return await httpService.get('user/forgotPassword' + `?email=${email}`)
+}
+
 
 async function sendMails(msg) {
     return await httpService.get('user/sendMails' + `?text=${msg.text}&title=${msg.title}`)
@@ -55,7 +71,7 @@ function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
     loggedinUser = user
     return user;
-} 
+}
 
 
 

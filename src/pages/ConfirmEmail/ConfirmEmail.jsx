@@ -11,12 +11,12 @@ export function ConfirmEmail(props) {
     useEffect(() => {
         (async () => {
             const { token, type } = props.match.params
-            console.log(props.match);
-            const id = await userService.confirmEmail(token, type)
-            console.log({ id });
-            if (type === 'reset') {
-                history.push(`/forgotPassword/${id}`)
+            console.log({ token, type });
+            if (type === 'forgot') {
+                history.push(`/forgotPassword/${token}`)
             } else {
+                const id = await userService.confirmEmail(token, type)
+                console.log({ id });
                 history.push('/login')
             }
         })()

@@ -8,6 +8,7 @@ import { SignUp } from './pages/SignUp/SignUp'
 import { Main } from './pages/Main/Main'
 import { Edit } from './pages/Edit/Edit'
 import { Details } from './pages/Details/Details'
+import { OrderDetails } from './pages/OrderDetails/OrderDetails'
 import { Cart } from './pages/Cart/Cart'
 import { Profile } from './pages/Profile/Profile'
 import { NotFound } from './pages/NotFound/NotFound'
@@ -34,6 +35,7 @@ function App({ t }) {
             <Route component={Edit} path="/item/edit/:id" />
             <Route component={Edit} path="/item/edit" />
             <Route component={Details} path="/item/:id" />
+            <Route component={OrderDetails} path="/order/:id" />
             <Route component={Profile} path="/profile/:current" />
             <Route component={Profile} path="/profile" />
             <Route component={Admin} path="/admin" />

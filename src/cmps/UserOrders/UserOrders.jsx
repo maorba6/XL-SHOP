@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
 
 import './UserOrders.scss'
@@ -24,19 +25,17 @@ export default function UserOrders(props) {
                     <h3> when you send order ,it will appear here with all details</h3>
                     <button className="app-btn" onClick={() => goShop()}>go shop</button>
                 </div>}
-            <div className="orders-list">
-                {user.orders.map(order => {
-                    return <div className="order" key={order.id}>
-                        {console.log({ order })}
-                        <img src={order.items[0].imgUrls[0]} alt="" />
-                        <div className="flex column">
-                            <div className="order-details">
-                                <p>create at: {order.createdAt}</p>
-                                <p className="text-he">{order.id} <label htmlFor="">:מספר הזמנה</label></p>
-                                <p>Items: {order.items.length}</p>
-                                <p>Total: {order.totalPrice}</p>
-                                <a href="orders/details">פירוט הזמנה</a>
-                            </div>
+                <div className="orders-list">
+            {user.orders.map(order => {
+                return <div className="order" key={order.id}>
+                    <img src={order.items[0].imgUrls[0]} alt=""/>
+                    <div className="flex column">
+                        <div className="order-details">
+                            <p>create at: {order.createdAt}</p>
+                            <p className="text-he">{order.id} <label htmlFor="">:מספר הזמנה</label></p>
+                            <p>Items: {order.items.length}</p>
+                            <p>Total: {order.totalPrice}</p>
+                            <Link to={`/order/${order.id}`}>פירוט הזמנה</Link>
                         </div>
                     </div>
                 })}

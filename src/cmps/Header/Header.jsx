@@ -51,6 +51,7 @@ function _Header(props) {
                     <li> <NavLink to="/profile/wishlist">Wishlist </NavLink></li>
                     <li> <NavLink to="/profile/account">My Account </NavLink></li>
                     <li> <NavLink to="/profile/edit">Edit Profile </NavLink></li>
+
                     <li> <button onClick={() => logout()}>Logout </button></li>
 
                 </ul>}

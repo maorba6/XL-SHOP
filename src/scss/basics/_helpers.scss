@@ -21,7 +21,7 @@
     color: #35ca35;
 }
 
-.text-he{
+.text-he {
     direction: ltr;
 }
 
@@ -29,11 +29,12 @@
     align-items: center;
 }
 
-.loading{
+.loading {
     width: 100vh;
     margin: 25% 50%;
+
     // background: rgb(244,100,100);
-    svg{
+    svg {
 
         // fill: linear-gradient(90deg, rgba(244,100,100,1) 0%, rgba(255,255,255,1) 58%, rgba(0,0,0,1) 100%) !important;
         // fill:#255872
@@ -55,17 +56,15 @@
 }
 
 .app-btn {
-    background-color:#C2F970;
-
-    color: black;
-    height: 40px;
-    border: none;
-    font-weight: 500;
-    font-size: large;
-
-    &:hover {
-        background-color: lighten(#C2F970, 10%);
-    }
+    // width: 100%;
+    color: white;
+    background-color: black;
+    margin-top: 10px;
+    height: 50px;
+    line-height: 49px;
+    font-size: 18px;
+    padding: 0 19px;
+    cursor: pointer;
 }
 
 

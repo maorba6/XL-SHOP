@@ -17,6 +17,10 @@ export function ConfirmEmail(props) {
             } else {
                 const id = await userService.confirmEmail(token, type)
                 console.log({ id });
+                if (id) {
+                    //maor add msg that email confirmed and now can logged in
+                    console.log('email confirm and u can now login');
+                }
                 history.push('/login')
             }
         })()

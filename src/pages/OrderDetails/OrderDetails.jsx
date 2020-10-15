@@ -25,7 +25,7 @@ function _OrderDetails(props) {
     }, [props.user])
 
     const { order } = state
-    return (
+    return (      
         (props.user && order && <div>
             order time :{order.createdAt}
             order id :{order.id}

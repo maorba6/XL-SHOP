@@ -38,6 +38,8 @@ export function _ForgotPassword(props) {
     function forgotPassword() {
         console.log(state.email);
         userService.forgotPassword(state.email)
+        console.log('email sent '); // add msg maor
+
     }
 
 

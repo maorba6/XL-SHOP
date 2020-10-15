@@ -7,8 +7,8 @@ import shirt from '../../assets/samples/shirt-test.jpeg';
 //components
 import { List } from '../../cmps/List/List'
 import { setUser, saveUser } from '../../actions/userActions'
-
 import './Home.scss'
+
 class _Home extends Component {
     state = {
         types: [
@@ -25,9 +25,7 @@ class _Home extends Component {
             {
                 str: "Belts",
                 img: shirt
-            },
-            
-            
+            }, 
             {
                 str: "Jeans",
                 img: shirt
@@ -36,6 +34,7 @@ class _Home extends Component {
     }
 
     componentDidMount() {
+
         this.props.loadItems()
     }
 

@@ -23,16 +23,15 @@ export function Filter(props) {
 
     })
 
-
     useEffect(() => {
         props.setFilter('', state.filterBy)
     }, [state.filterBy])
 
     useEffect(() => {
-        if (props.category) {
-            setState(state => ({ ...state, filterBy: { ...state.filterBy, category: props.category } }))
+        if (props.subcategory) {
+            setState(state => ({ ...state, filterBy: { ...state.filterBy, subcategory: props.subcategory } }))
         }
-    }, [props.category])
+    }, [props.subcategory])
 
     function handleChange({ target }) {
         const field = target.name
@@ -41,9 +40,7 @@ export function Filter(props) {
     }
 
     function setCategory(category) {
-        setState(state => ({ ...state, category }))
         setState(state => ({ ...state, filterBy: { ...state.filterBy, category } }))
-
     }
 
     function setColor(color) {
@@ -63,11 +60,7 @@ export function Filter(props) {
 
 
 
-    useEffect(() => {
-        props.setFilter('', state.filterBy)
-        return () => {
-        }
-    }, [])
+   
 
 
     function toggleColors() {
@@ -80,7 +73,6 @@ export function Filter(props) {
             setState(state => ({ ...state, colorsStyle: { ...state.colorsStyle, display: 'flex' } }))
         }
     }
-
 
     function togglePrice() {
         if (state.priceStyle.display === 'flex') {
@@ -115,9 +107,6 @@ export function Filter(props) {
         }
     }
 
-
-
-    const category = state.category
     return (
         <form className="filter flex" onSubmit={(ev) => props.setFilter(ev, state.filterBy)} >
             <div className="select flex column">
@@ -164,9 +153,6 @@ export function Filter(props) {
                     <li className={state.filterBy.sortByPrice === 'High-To-Low' ? 'active' : ''} onClick={() => setPrice('High-To-Low')} >High To Low</li>
                 </ul>
             </div>
-
-
-
         </form >
     );
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { List } from '../../cmps/List/List'
@@ -7,55 +7,56 @@ import { loadItems, removeItem, setFilter } from '../../actions/itemActions'
 import { setUser, saveUser } from '../../actions/userActions'
 import './Main.scss'
 
-class _Main extends Component {
+function _Main(props) {
 
-    state = {
-        category: ''
-    }
+    const [state, setState] = useState({ subcategory: '' })
 
-    componentDidMount() {
-        const { category } = this.props.match.params
-        this.setState({ category })
-        this.props.loadItems()
-    }
-
-    toggleLike = async (ev, liked, item) => {
-        ev.preventDefault()
-        if (!this.props.user) return
-        if (liked) {
-            const index = this.props.user.favs.findIndex(i => i._id === item._id)
-            this.props.user.favs.splice(index, 1)
-        } else {
-            this.props.user.favs.push(item)
+    useEffect(() => {
+        const { subcategory } = props.match.params
+        setState({ subcategory })
+        return () => {
+            props.setFilter(null)
         }
-        await this.props.saveUser(this.props.user)
-        await this.props.setUser()
+    }, [props.match.params])
+
+
+
+    async function toggleLike(ev, liked, item) {
+        ev.preventDefault()
+        if (!props.user) return
+        if (liked) {
+            const index = props.user.favs.findIndex(i => i._id === item._id)
+            props.user.favs.splice(index, 1)
+        } else {
+            props.user.favs.push(item)
+        }
+        await props.saveUser(props.user)
+        await props.setUser()
     }
 
-    removeItem = async (id) => {
-        await this.props.removeItem(id)
+    async function removeItem(id) {
+        await props.removeItem(id)
     }
 
-    setFilter = (ev, filterBy) => {
+    function setFilter(ev, filterBy) {
         if (ev) {
             ev.preventDefault()
         }
-        this.props.setFilter(filterBy)
-        this.props.loadItems()
+        props.setFilter(filterBy)
+        props.loadItems()
     }
 
 
-    render() {
-        let { items, user } = this.props
-        const { category } = this.state
-        return (
-            <main>
-                <Filter category={category} setFilter={this.setFilter}></Filter>
-                { items && <List items={items} toggleLike={this.toggleLike} removeItem={this.removeItem} ></List>}
-                { user && user.isAdmin && < Link className="app-btn" to="/item/edit" replace={true}  >   Add Item</Link>}
-            </main>
-        )
-    }
+    let { items, user } = props
+    const { subcategory } = state
+    return (
+        <main>
+            <Filter subcategory={subcategory} setFilter={setFilter}></Filter>
+            { items && <List items={items} toggleLike={toggleLike} removeItem={removeItem} ></List>}
+            { user && user.isAdmin && < Link className="app-btn" to="/item/edit" replace={true}  >   Add Item</Link>}
+        </main>
+
+    )
 }
 
 

@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 //svg
 import { ReactComponent as HeartColor } from '../../assets/img/heart-color2.svg';
 import { ReactComponent as HeartWhite } from '../../assets/img/heart-white2.svg';
-
-
 import { connect } from 'react-redux';
-
-
 import './Preview.scss'
 import { useState } from 'react';
 
@@ -16,6 +12,7 @@ function _Preview(props) {
     let [liked, setLike] = useState(false)
 
     useEffect(() => {
+        console.log({user});
         if (user) {
             setLike(false)
             user.favs.forEach(i => {

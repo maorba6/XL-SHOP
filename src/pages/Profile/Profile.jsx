@@ -26,33 +26,26 @@ function _Profile(props) {
         setCurrent(props.match.params.current)
     }, [props.match.params])
 
-    function saveUser(ev, editedUser, type) {
+    async function saveUser(ev, editedUser, type) {
         ev.preventDefault()
         if (type === 'details') {
             props.saveUser(editedUser)
-            history.push('/')
+
             return
         }
-        // all pass  true and email  stay same so  save user
         if (editedUser.newPass && editedUser.currPass && editedUser.newPassConfirm) {
-            if (editedUser.email !== user.email) {
-                console.log('cannot change email and password at the same time');
-                return
-            }
             const isPasswordValid = validatePassword(editedUser.newPass)
             if (!isPasswordValid) {
-                console.log('password is too weak'); // add msg in pass weak
+                console.log('password is too weak'); // maor  add msg in pass weak
                 return
             }
-            props.saveUser(editedUser)
-            history.push('/')
-            // email diffrent and all password are false then save user
-        } else if ((editedUser.email !== user.email) && (!editedUser.newPass && !editedUser.currPass && !editedUser.newPassConfirm)) {
-            props.saveUser(editedUser)
-            history.push('/')
-            // not all pass fills
-        } else {
-            console.log('not all passwords are filled');
+            if (editedUser.newPass !== editedUser.newPassConfirm) {
+                console.log('passwords doesnt match '); //maor  add msg  that no match
+                return
+            }
+            const kk = await props.saveUser(editedUser)
+            console.log( );
+            // history.push('/')
         }
 
     }

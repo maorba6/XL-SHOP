@@ -12,7 +12,6 @@ function _Preview(props) {
     let [liked, setLike] = useState(false)
 
     useEffect(() => {
-        console.log({user});
         if (user) {
             setLike(false)
             user.favs.forEach(i => {

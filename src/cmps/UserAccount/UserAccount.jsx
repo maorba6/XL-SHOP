@@ -26,17 +26,9 @@ export default function UserAccount(props) {
         else {
             setState(state => ({ ...state, inputType: 'password', togglePassword: showPassword }))
         }
-        console.log('end', state);
     }
 
-    useEffect(() => {
-        return () => {
-            // setState(state => ({ ...state, editedUser: { ...state.editedUser, currPass: 'hhh' } }))
-            // setState(state => ({ ...state, editedUser: { ...state.editedUser, newPass: '' } }))
-            // setState(state => ({ ...state, editedUser: { ...state.editedUser, newPassConfirm: '' } }))
-        }
-
-    }, [])
+  
     return (
         <form className="user-account flex column" onSubmit={(ev) => props.saveUser(ev, state.editedUser, 'account')}>
             <div className="change-account flex column">

@@ -18,9 +18,9 @@ export default function UserOrders(props) {
 
 
     return (
-        <section className="flex">
+        <section className="flex user-orders">
             {!user.orders.length &&
-                <div>
+                <div className="no-orders">
                     <h1>you don't have orders yet</h1>
                     <h3> when you send order ,it will appear here with all details</h3>
                     <button className="app-btn" onClick={() => goShop()}>go shop</button>

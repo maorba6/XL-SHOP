@@ -22,7 +22,7 @@ export default function UserOrders(props) {
             {!user.orders.length &&
                 <div className="no-orders">
                     <h1>you don't have orders yet</h1>
-                    <h3> when you send order ,it will appear here with all details</h3>
+                    <h3> when you buy items the order's deatils will appear here </h3>
                     <button className="app-btn" onClick={() => goShop()}>go shop</button>
                 </div>}
                 <div className="orders-list">

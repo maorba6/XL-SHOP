@@ -68,7 +68,6 @@ class _Home extends Component {
                 </div>
                 <h3>Top Rated Products</h3>
                 { items && <List toggleLike={this.toggleLike} items={items.slice(items.length - 12)} ></List>}
-                <h2>BROWSE BY CATEGORY</h2>
             </section >
         );
     }

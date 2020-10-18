@@ -39,6 +39,7 @@ class _SignUp extends Component {
       return
       //maor add here msg that email exist
     }
+    // maor add msg sign up work and now need confirmm mail
     this.props.setUser()
     this.props.history.push('/')
 

@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 //svg
-import { ReactComponent as HeartColor } from '../../assets/img/heart-color.svg';
-import { ReactComponent as HeartWhite } from '../../assets/img/heart-white.svg';
-
-
+import { ReactComponent as HeartColor } from '../../assets/img/heart-color2.svg';
+import { ReactComponent as HeartWhite } from '../../assets/img/heart-white2.svg';
 import { connect } from 'react-redux';
-
-
 import './Preview.scss'
 import { useState } from 'react';
 
@@ -36,7 +32,7 @@ function _Preview(props) {
                     <div className="flex space-between img-price">
                         <p className="item-price"> ${item.price}</p>
                         {liked && <HeartColor className="heart-img red" onClick={(ev) => toggleLike(ev, liked, item)} ></HeartColor>}
-                        {!liked && <HeartWhite className="heart-img" onClick={(ev) => toggleLike(ev, liked, item)} ></HeartWhite>}
+                        {!liked && <HeartWhite className="heart-img red" onClick={(ev) => toggleLike(ev, liked, item)} ></HeartWhite>}
                         {/* <img onClick={(ev) => toggleLike(ev, liked, item)} className="heart-img" src={liked ? blackHeart : emptyHeart} alt="LOVE" /> */}
                     </div>
                 </div>

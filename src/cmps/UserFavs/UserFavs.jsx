@@ -11,14 +11,14 @@ export default function UserFavs(props) {
         history.push('/shop')
     }
     return (
-        <div className="user-favs">
-            {!user.favs.length && <div>
+        <section className="user-favs">
+            {!user.favs.length && <div className="no-favs">
                 <h1>  your wishlist still empty</h1>
-                <h2>when you press like on item he will be saved here </h2>
+                <h3>when you press like on item he will be saved here </h3>
                 <button className="app-btn" onClick={() => goShop()}>go shop</button>
             </div>}
             <List items={user.favs} toggleLike={toggleLike}  ></List>
 
-        </div>
+        </section>
     )
 }

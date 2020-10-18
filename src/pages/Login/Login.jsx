@@ -31,7 +31,8 @@ class _Login extends Component {
     login = async (ev) => {
         ev.preventDefault()
         const user = await userService.login(this.state.user)
-        if (user) {
+        console.log({ user });
+        if (typeof (user) !== 'string') {
             this.props.history.push('/')
             this.props.setUser()
             const Toast = Swal.mixin({
@@ -46,7 +47,19 @@ class _Login extends Component {
                 title: 'Logged In'
             })
         }
-        else {
+        else if (user === 'need active mail before login') {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'center',
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+            })
+            Toast.fire({
+                icon: 'error',
+                title: 'Fail to log in Email need to be confirmed'
+            })
+        } else {
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'center',
@@ -63,7 +76,7 @@ class _Login extends Component {
 
 
     render() {
-        const { user, inputType, togglePassword } = this.state
+        const { user } = this.state
         return (
             <section className="flex signup-section">
                 <form className="flex signup-form" onSubmit={(ev) => this.login(ev)}>

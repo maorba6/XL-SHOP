@@ -10,7 +10,7 @@ import UserEdit from '../../cmps/UserEdit/UserEdit'
 
 import './Profile.scss'
 function _Profile(props) {
-    let [current, setCurrent] = useState('account')
+    let [state, setState] = useState({ current: 'account', editedUser: null })
     const { user } = props
     const history = useHistory()
 
@@ -18,46 +18,43 @@ function _Profile(props) {
         if (!props.user) {
             history.push('/')
         }
-
     }, [])
 
+    function setCurrent(current) {
+        setState(state => ({ ...state, current }))
 
+    }
+    
     useEffect(() => {
         setCurrent(props.match.params.current)
     }, [props.match.params])
 
-    function saveUser(ev, editedUser, type) {
+    async function saveUser(ev, editedUser, type) {
+        setState(state => ({ ...state, editedUser }))
+
         ev.preventDefault()
         if (type === 'details') {
             props.saveUser(editedUser)
-            history.push('/')
+
             return
         }
-        // all pass  true and email  stay same so  save user
         if (editedUser.newPass && editedUser.currPass && editedUser.newPassConfirm) {
-            if (editedUser.email !== user.email) {
-                console.log('cannot change email and password at the same time');
-                return
-            }
             const isPasswordValid = validatePassword(editedUser.newPass)
             if (!isPasswordValid) {
-                console.log('password is too weak'); // add msg in pass weak
+                console.log('password is too weak'); // maor  add msg in pass weak
                 return
             }
-            props.saveUser(editedUser)
+            if (editedUser.newPass !== editedUser.newPassConfirm) {
+                console.log('passwords doesnt match '); //maor  add msg  that no match
+                return
+            }
+            await props.saveUser(editedUser)
+            await props.setUser()
+            //add here msg that password changed 
             history.push('/')
-            // email diffrent and all password are false then save user
-        } else if ((editedUser.email !== user.email) && (!editedUser.newPass && !editedUser.currPass && !editedUser.newPassConfirm)) {
-            props.saveUser(editedUser)
-            history.push('/')
-            // not all pass fills
-        } else {
-            console.log('not all passwords are filled');
         }
-
     }
 
-    //at least 8 digits , 1 capital letter 1 not 
     function validatePassword(password) {
         var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
         return strongRegex.test(password)
@@ -75,20 +72,20 @@ function _Profile(props) {
         await props.setUser()
     }
 
-
     async function clearOrders() {
         user.orders = []
         await props.saveUser(user)
         await props.setUser()
     }
 
+    const { current } = state
     return (
         <div>
             {user && <h1 className="profile-welcome">welcome {user.fname + ' ' + user.lname}</h1>}
             <div className="flex profile">
                 <nav className="nav-profile flex">
-                    <button className="profile-btn" onClick={() => setCurrent('account')}>My Account</button>
-                    <button className="profile-btn" onClick={() => setCurrent('edit')}>Edit User</button>
+                    <button className="profile-btn up" onClick={() => setCurrent('account')}>My Account</button>
+                    <button className="profile-btn up" onClick={() => setCurrent('edit')}>Edit User</button>
                     <button className="profile-btn" onClick={() => setCurrent('orders')}>My Orders</button>
                     <button className="profile-btn" onClick={() => setCurrent('wishlist')}>My Favorites</button>
                 </nav>

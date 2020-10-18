@@ -127,7 +127,7 @@ function _Details(props) {
         return  <ReactLoading className="loading" type={'spokes'} color={'#aaa'} height={50} width={50} />
     return (
         <section className="item-details flex column ">
-            <div className="flex">
+            <div className="flex item-container">
                 <ImgCarousel imgs={item.imgUrls}></ImgCarousel>
                 <div className="details">
                     <h1 className="details-item-name">

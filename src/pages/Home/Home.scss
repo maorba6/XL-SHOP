@@ -97,3 +97,13 @@
     }
 
 }
+
+
+@media (max-width: 450px){
+
+    .types{
+        flex-wrap: unset;
+        flex-direction: column;
+        align-items: center;
+    }
+}

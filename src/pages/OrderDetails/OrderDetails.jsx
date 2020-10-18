@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
 
 //scss
-import './OrderDetails.scss'
 
+import './OrderDetails.scss'
 function _OrderDetails(props) {
     const { id } = props.match.params
 
@@ -27,8 +27,38 @@ function _OrderDetails(props) {
     const { order } = state
     return (      
         (props.user && order && <div>
-            order time :{order.createdAt}
+            <h2>
+
+            order time :{ Date(order.createdAt)}
+            </h2>
+            <h3>
+                
+            </h3>
             order id :{order.id}
+            {
+             order.items.map(item=> 
+             <div>
+                 <div className="order-preview-container flex">
+                    <img src={item.imgUrls[0]}/>   
+                    <div className="order-details">
+
+                        <p>
+                            {item.name}
+                        </p>
+                        <p>
+                            Color: {item.color}
+                        </p>
+                        <p>
+                           Size: {item.size}
+                         </p>
+                        <p>
+                            Price: ${item.price}
+                        </p>
+                    </div>
+                </div>
+             </div>)
+            }
+            <p className="total-price">Total Price: ${order.totalPrice}</p>
         </div>)
     )
 }

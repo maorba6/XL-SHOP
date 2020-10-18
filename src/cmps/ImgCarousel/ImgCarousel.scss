@@ -34,3 +34,13 @@
     }
 }
 
+@media (max-width: 400px){
+    .carousel-container {
+        width: 350px;
+        // height: 100%;
+    }
+    .carousel-img{
+        width: 350px !important;
+    }
+}
+

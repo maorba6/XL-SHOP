@@ -52,7 +52,7 @@ function _Cart(props) {
     }
 
     async function buyCart() {
-       
+
         if (!order.address || !order.phoneNumber) {
             console.log('need fill phone and address');  // maor add msg here for user
             return
@@ -60,6 +60,7 @@ function _Cart(props) {
         user.cart = []
         user.orders.push(order)
         console.log('after push');
+        console.log('cart', { user });
         await props.saveUser(user)
         console.log('after save user');
         await props.setUser()
@@ -121,7 +122,7 @@ function _Cart(props) {
                                 </p>
                             </div>
                             <div className="cancel-edit-cart-item">
-                                 <DeleteSvg className="delete-svg" onClick={() => removeFromCart(item._id)}></DeleteSvg> 
+                                <DeleteSvg className="delete-svg" onClick={() => removeFromCart(item._id)}></DeleteSvg>
                                 <Link to={`/item/${item._id}`}> <EditSvg></EditSvg></Link>
                             </div>
                         </div>

@@ -1,5 +1,5 @@
 header {
-    padding: 15px;
+    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -55,6 +55,10 @@ header {
 
     .logo {
         color: whitesmoke;
+        img {
+            width: 90px;
+            height: 80px;
+        }
     }
 
     .btn-menu {

@@ -19,7 +19,7 @@ footer {
         fill: white;
 
         &:hover {
-            fill: red
+            fill: lighten(red, 15%)
         }
     }
 

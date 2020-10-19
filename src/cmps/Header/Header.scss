@@ -1,5 +1,5 @@
 header {
-    padding: 5px;
+    padding: 0px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,7 +16,7 @@ header {
 
         li {
             list-style: none;
-            margin-right: 15px;
+            margin-left: 15px;
 
             .login {
                 color: whitesmoke;
@@ -39,7 +39,7 @@ header {
             width: 30px;
 
             &:hover {
-                fill: red
+                fill:  lighten(red, 15%)
             }
         }
     }
@@ -56,8 +56,8 @@ header {
     .logo {
         color: whitesmoke;
         img {
-            width: 90px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
         }
     }
 
@@ -73,7 +73,7 @@ header {
         color: white;
 
         &:hover {
-            color: red;
+            color:  lighten(red, 15%)
         }
     }
 

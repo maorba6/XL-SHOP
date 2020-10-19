@@ -60,7 +60,7 @@ export function Filter(props) {
 
 
 
-   
+
 
 
     function toggleColors() {
@@ -108,52 +108,54 @@ export function Filter(props) {
     }
 
     return (
-        <form className="filter flex" onSubmit={(ev) => props.setFilter(ev, state.filterBy)} >
-            <div className="select flex column">
-                <label >Name</label>
-                <input className="btn-sort" name="name" type="text" placeholder="search" onChange={handleChange} />
-            </div>
-            <div className="select flex column">
-                <label > Category</label>
-                <button onClick={() => toggleCategory()} className='btn-sort'  >{state.category}</button>
-                <ul style={state.categoryStyle} className=" flex column" >
-                    <li className={state.filterBy.category === 'shirts' ? 'active' : ''} onClick={() => setCategory('shirts')} >Shirts</li>
-                    <li className={state.filterBy.category === 'pants' ? 'active' : ''} onClick={() => setCategory('pants')} >Pants</li>
-                    <li className={state.filterBy.category === 'accessories' ? 'active' : ''} onClick={() => setCategory('accessories')} >Accessories</li>
-                </ul>
-            </div>
-            <div className="select flex column">
-                <label > Subcategory</label>
-                <button onClick={() => toggleSubCategory()} className='btn-sort'  >{state.filterBy.subcategory}</button>
-                <ul style={state.subcategoryStyle} className="flex column">
-                    {state.filterBy.category && state[state.filterBy.category].map(c => {
-                        return <li key={c} className={state.filterBy.subcategory === c ? 'active' : ''} onClick={() => setSubCategory(c)} > {c}    </li>
-                    })}
-                </ul>
-            </div>
-            <div className="select flex column">
-                <label > Color</label>
-                <button onClick={() => toggleColors()} className='btn-sort' >{state.filterBy.color}</button>
-                <ul style={state.colorsStyle} className="colors-container flex ">
-                    <li onClick={() => setColor('green')} className="opt option-green" ></li>
-                    <li onClick={() => setColor('yellow')} className="opt option-yellow" ></li>
-                    <li onClick={() => setColor('black')} className="opt option-black" ></li>
-                    <li onClick={() => setColor('blue')} className="opt option-blue"></li>
-                    <li onClick={() => setColor('white')} className="opt option-white" ></li>
-                    <li onClick={() => setColor('pink')} className="opt option-pink"></li>
-                    <li onClick={() => setColor('pink')} className="opt option-red"></li>
-                    <li onClick={() => setColor('pink')} className="opt option-purple"></li>
-                </ul>
-            </div>
-            <div className="select flex column">
-                <label >Price</label>
-                <button onClick={() => togglePrice()} className='btn-sort'  >{state.filterBy.sortByPrice}</button>
-                <ul style={state.priceStyle} className=" flex column" >
-                    <li className={state.filterBy.sortByPrice === 'Low-To-High' ? 'active' : ''} onClick={() => setPrice('Low-To-High')} >Low To High</li>
-                    <li className={state.filterBy.sortByPrice === 'High-To-Low' ? 'active' : ''} onClick={() => setPrice('High-To-Low')} >High To Low</li>
-                </ul>
-            </div>
-        </form >
+        <div className="flex filter-container">
+            <form className="filter flex" onSubmit={(ev) => props.setFilter(ev, state.filterBy)} >
+                <div className="select flex column">
+                    <label >Name</label>
+                    <input className="btn-sort" name="name" type="text" placeholder="search" onChange={handleChange} />
+                </div>
+                <div className="select flex column">
+                    <label > Category</label>
+                    <button onClick={() => toggleCategory()} className='btn-sort'  >{state.category}</button>
+                    <ul style={state.categoryStyle} className=" flex column" >
+                        <li className={state.filterBy.category === 'shirts' ? 'active' : ''} onClick={() => setCategory('shirts')} >Shirts</li>
+                        <li className={state.filterBy.category === 'pants' ? 'active' : ''} onClick={() => setCategory('pants')} >Pants</li>
+                        <li className={state.filterBy.category === 'accessories' ? 'active' : ''} onClick={() => setCategory('accessories')} >Accessories</li>
+                    </ul>
+                </div>
+                <div className="select flex column">
+                    <label > Subcategory</label>
+                    <button onClick={() => toggleSubCategory()} className='btn-sort'  >{state.filterBy.subcategory}</button>
+                    <ul style={state.subcategoryStyle} className="flex column">
+                        {state.filterBy.category && state[state.filterBy.category].map(c => {
+                            return <li key={c} className={state.filterBy.subcategory === c ? 'active' : ''} onClick={() => setSubCategory(c)} > {c}    </li>
+                        })}
+                    </ul>
+                </div>
+                <div className="select flex column">
+                    <label > Color</label>
+                    <button onClick={() => toggleColors()} className='btn-sort' >{state.filterBy.color}</button>
+                    <ul style={state.colorsStyle} className="colors-container flex ">
+                        <li onClick={() => setColor('green')} className="opt option-green" ></li>
+                        <li onClick={() => setColor('yellow')} className="opt option-yellow" ></li>
+                        <li onClick={() => setColor('black')} className="opt option-black" ></li>
+                        <li onClick={() => setColor('blue')} className="opt option-blue"></li>
+                        <li onClick={() => setColor('white')} className="opt option-white" ></li>
+                        <li onClick={() => setColor('pink')} className="opt option-pink"></li>
+                        <li onClick={() => setColor('pink')} className="opt option-red"></li>
+                        <li onClick={() => setColor('pink')} className="opt option-purple"></li>
+                    </ul>
+                </div>
+                <div className="select flex column">
+                    <label >Price</label>
+                    <button onClick={() => togglePrice()} className='btn-sort'  >{state.filterBy.sortByPrice}</button>
+                    <ul style={state.priceStyle} className=" flex column" >
+                        <li className={state.filterBy.sortByPrice === 'Low-To-High' ? 'active' : ''} onClick={() => setPrice('Low-To-High')} >Low To High</li>
+                        <li className={state.filterBy.sortByPrice === 'High-To-Low' ? 'active' : ''} onClick={() => setPrice('High-To-Low')} >High To Low</li>
+                    </ul>
+                </div>
+            </form >
+        </div>
     );
 
 }

@@ -21,9 +21,6 @@ function _Preview(props) {
                     setLike(true)
                 }
             })
-        }else{
-            utilService.swal('center',2500,'error','Please login')
-
         }
     }, [user])
 

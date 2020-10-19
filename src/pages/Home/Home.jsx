@@ -8,7 +8,8 @@ import shirt from '../../assets/samples/shirt-test.jpeg';
 import { List } from '../../cmps/List/List'
 import { setUser, saveUser } from '../../actions/userActions'
 import './Home.scss'
-
+//services
+import utilService from '../../services/utilService'
 class _Home extends Component {
     state = {
         types: [
@@ -41,7 +42,10 @@ class _Home extends Component {
 
     toggleLike = async (ev, liked, item) => {
         ev.preventDefault()
-        if (!this.props.user) return
+        if (!this.props.user){
+                utilService.swal('center',2500,'error','Please login')
+                return
+        } 
         if (liked) {
             const index = this.props.user.favs.findIndex(i => i._id === item._id)
             this.props.user.favs.splice(index, 1)

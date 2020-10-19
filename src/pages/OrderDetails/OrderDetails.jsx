@@ -37,7 +37,7 @@ function _OrderDetails(props) {
             order id :{order.id}
             {
              order.items.map(item=> 
-             <div>
+             <div className="order-list">
                  <div className="order-preview-container flex">
                     <img src={item.imgUrls[0]}/>   
                     <div className="order-details">

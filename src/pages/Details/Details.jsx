@@ -106,6 +106,7 @@ function _Details(props) {
         delete itemToCart.colors
         delete itemToCart.sizes
         props.user.cart.push(itemToCart)
+        console.log(props.user);
         await props.saveUser(props.user)
         const Toast = Swal.mixin({
             toast: true,
@@ -122,9 +123,9 @@ function _Details(props) {
 
     const { item, chosenSize, chosenColor, sameCategoryItems } = state
     const { user } = props
- 
-        if (!item) 
-        return  <ReactLoading className="loading" type={'spokes'} color={'#aaa'} height={50} width={50} />
+
+    if (!item)
+        return <ReactLoading className="loading" type={'spokes'} color={'#aaa'} height={50} width={50} />
     return (
         <section className="item-details flex column ">
             <div className="flex item-container">

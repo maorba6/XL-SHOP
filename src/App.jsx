@@ -18,39 +18,41 @@ import { Admin } from './pages/Admin/Admin'
 import './App.scss';
 
 
-
 function App() {
-  return (
-    <div className="App">
 
-      <Router>
-        <Header></Header>
-        <div className="app-container">
-          <Switch>
-            <Route component={Home} exact path="/" />
-            <Route component={Login} path="/login" />
-            <Route component={SignUp} path="/SignUp" />
-            <Route component={Main} path="/shop/:subcategory" />
-            <Route component={Main} path="/shop" />
-            <Route component={Edit} path="/item/edit/:id" />
-            <Route component={Edit} path="/item/edit" />
-            <Route component={Details} path="/item/:id" />
-            <Route component={OrderDetails} path="/order/:id" />
-            <Route component={Profile} path="/profile/:current" />
-            <Route component={Profile} path="/profile" />
-            <Route component={Admin} path="/admin" />
-            <Route component={ForgotPassword} path="/forgotPassword/:token" />
-            <Route component={ForgotPassword} path="/forgotPassword" />
-            <Route component={Cart} path="/Cart" />
-            <Route component={ConfirmEmail} path="/confirmation/:token/:type" />
-            <Route component={NotFound} />
-            <Route component={Home} exact path="/" />
-          </Switch>
-        </div>
-        <Footer></Footer>
-      </Router>
-    </div>
+  return (
+  
+      <div className="App">
+        <Router>
+          <Header></Header>
+          <div className="app-container">
+            <Switch>
+              <Route component={Home} exact path="/" />
+              <Route component={Login} path="/login" />
+              <Route component={SignUp} path="/SignUp" />
+              <Route component={Main} path="/shop/:subcategory" />
+              <Route component={Main} path="/shop" />
+              <Route component={Edit} path="/item/edit/:id" />
+              <Route component={Edit} path="/item/edit" />
+              <Route component={Details} path="/item/:id" />
+              <Route component={OrderDetails} path="/order/:id" />
+              <Route component={Profile} path="/profile/:current" />
+              <Route component={Profile} path="/profile" />
+              <Route component={Admin} path="/admin" />
+              <Route component={ForgotPassword} path="/forgotPassword/:token" />
+              <Route component={ForgotPassword} path="/forgotPassword" />
+              <Route component={Cart} path="/Cart" />
+              <Route component={ConfirmEmail} path="/confirmation/:token/:type" />
+              <Route component={NotFound} />
+              <Route component={Home} exact path="/" />
+            </Switch>
+          </div>
+          <Footer></Footer>
+        </Router>
+      </div>
   );
+
+
 }
 
 

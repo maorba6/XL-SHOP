@@ -103,7 +103,7 @@ function _Cart(props) {
             {user &&
                 <div className="items-list-cart flex column">
                     {user.cart.map(item => {
-                        return <div className="cart-preview-container flex" key={item._id}>
+                        return <div className="cart-preview-container flex" key={makeId()}>
                             <Link to={`/item/${item._id}`} >
                                 <img className="test-img" src={item.imgUrls[0]} />
                             </Link>

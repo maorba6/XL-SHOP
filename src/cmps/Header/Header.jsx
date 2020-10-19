@@ -32,7 +32,6 @@ function _Header(props) {
 
 
     function toggleMenu() {
-        console.log({ showMenu });
         setToggle(!showMenu)
 
     }

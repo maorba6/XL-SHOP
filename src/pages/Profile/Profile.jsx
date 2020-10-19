@@ -7,6 +7,8 @@ import UserAccount from '../../cmps/UserAccount/UserAccount'
 import UserOrders from '../../cmps/UserOrders/UserOrders'
 import UserFavs from '../../cmps/UserFavs/UserFavs'
 import UserEdit from '../../cmps/UserEdit/UserEdit'
+//services
+import utilService from '../../services/utilService';
 
 import './Profile.scss'
 function _Profile(props) {
@@ -41,15 +43,19 @@ function _Profile(props) {
         if (editedUser.newPass && editedUser.currPass && editedUser.newPassConfirm) {
             const isPasswordValid = validatePassword(editedUser.newPass)
             if (!isPasswordValid) {
-                console.log('password is too weak'); // maor  add msg in pass weak
+            utilService.swal('center',2500,'error','Password too weak')
+
                 return
             }
             if (editedUser.newPass !== editedUser.newPassConfirm) {
-                console.log('passwords doesnt match '); //maor  add msg  that no match
+                utilService.swal('center',2500,'error','Password dont match')
+
                 return
             }
             await props.saveUser(editedUser)
             await props.setUser()
+            utilService.swal('center',2500,'success','Password Changed')
+
             //add here msg that password changed 
             history.push('/')
         }

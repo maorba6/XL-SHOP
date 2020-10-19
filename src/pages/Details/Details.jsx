@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import { loadItem, loadItems, saveItem, setSameCategoryItems, removeItem } from '../../actions/itemActions'
 import { saveUser, setUser } from '../../actions/userActions'
 import Swal from 'sweetalert2'
+//services
+
+import utilService from '../../services/utilService';
 
 //components
 import { List } from '../../cmps/List/List'
@@ -85,28 +88,17 @@ function _Details(props) {
 
     async function addToCart() {
         if (!props.user) {
-            console.log(' must be logged in');  // maor add msg here for user
+            utilService.swal('center',2500,'error','Please login')
             return
         }
         const itemToCart = state.itemToBuy
         if (!itemToCart.size || !itemToCart.color) {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'center',
-                showConfirmButton: false,
-                timer: 2500,
-                timerProgressBar: true,
-            })
-            Toast.fire({
-                icon: 'error',
-                title: 'Please choose size and color '
-            })
+            utilService.swal('center',2500,'error','Please choose size and color')
             return
         }
         delete itemToCart.colors
         delete itemToCart.sizes
         props.user.cart.push(itemToCart)
-        console.log(props.user);
         await props.saveUser(props.user)
         const Toast = Swal.mixin({
             toast: true,

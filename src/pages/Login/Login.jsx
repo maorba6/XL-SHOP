@@ -31,7 +31,6 @@ class _Login extends Component {
     login = async (ev) => {
         ev.preventDefault()
         const user = await userService.login(this.state.user)
-        console.log({ user });
         if (typeof (user) !== 'string') {
             this.props.history.push('/')
             this.props.setUser()

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { setUser } from '../../actions/userActions'
 import './SignUp.scss'
 import InputPassword from '../../cmps/InputPassword/InputPassword';
-
+//services
+import utilService from '../../services/utilService';
 
 class _SignUp extends Component {
 
@@ -25,21 +26,22 @@ class _SignUp extends Component {
     const { password, email, fname, lname } = this.state.user
     const isPasswordValid = this.validatePassword(password)
     if (!isPasswordValid) {
-      console.log('password is too weak'); // add msg in website
+      utilService.swal('center',2500,'error','Password too weak')
+
       return
     }
     if (!email || !fname || !lname || !this.state.elIsAgreeTerms) {
-      console.log('fill all and agree to terms');
+      utilService.swal('center',2500,'error','Please fill all the form and accept terms of use')
       return
     }
     const user = await userService.signup(this.state.user)
-    console.log({ user });
     if (!user) {
-      console.log('mail alreadt exist');
+      utilService.swal('center',2500,'error','eMail already exist')
       return
-      //maor add here msg that email exist
+
     }
-    // maor add msg sign up work and now need confirmm mail
+    utilService.swal('center',2500,'error','Please check your eMail to activate your account')
+
     this.props.setUser()
     this.props.history.push('/')
 

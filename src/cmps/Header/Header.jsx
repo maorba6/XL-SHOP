@@ -25,6 +25,7 @@ function _Header(props) {
     }, [])
 
     async function logout() {
+        toggleMenu()
         await userService.logout()
         props.setUser()
         history.push('/')

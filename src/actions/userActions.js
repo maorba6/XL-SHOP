@@ -15,7 +15,6 @@ export function setUser() {
 export function saveUser(user) {
     return async dispatch => {
         const updatedUser = await userService.updateUser(user)
-        ({ updatedUser });
         dispatch(_setUser(updatedUser))
     }
 }

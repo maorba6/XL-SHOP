@@ -14,12 +14,12 @@ import { Profile } from './pages/Profile/Profile'
 import { NotFound } from './pages/NotFound/NotFound'
 import { ConfirmEmail } from './pages/ConfirmEmail/ConfirmEmail';
 import { ForgotPassword } from './pages/ForgotPassword/ForgotPassword';
-import { withNamespaces } from 'react-i18next';
 import { Admin } from './pages/Admin/Admin'
 import './App.scss';
 
 
-function App({ t }) {
+
+function App() {
   return (
     <div className="App">
 
@@ -54,4 +54,4 @@ function App({ t }) {
 }
 
 
-export default withNamespaces()(App);
+export default App;

@@ -123,7 +123,6 @@ function _Cart(props) {
                             </div>
                             <div className="cancel-edit-cart-item">
                                 <DeleteSvg className="delete-svg" onClick={() => removeFromCart(item._id)}></DeleteSvg>
-                                <Link to={`/item/${item._id}`}> <EditSvg></EditSvg></Link>
                             </div>
                         </div>
                     })}

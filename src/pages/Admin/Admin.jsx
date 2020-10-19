@@ -33,11 +33,11 @@ export function _Admin(props) {
             <div className="msg flex column">
             <h1> This is Admin page</h1>
                 <p>
-                    ציון הדף הזה הוא בישביל שתוכל לשלוח מייל לכל המשתמשים שנרשמו והסכימו שתשלח להם אימייל אתה צריך לרשום נושא של האימייל תוכן ולשלוח בכפתור 
+                    ציון הדף הזה הוא בשביל שתוכל לשלוח מייל לכל המשתמשים שנרשמו והסכימו שתשלח להם אימייל אתה צריך לרשום נושא של האימייל תוכן ולשלוח בכפתור 
                 </p>
                 <input type="text" placeholder="נושא לאימייל" name="title" value={msg.title} onChange={handleChange} />
                 <textarea placeholder="תוכן לאימייל" value={msg.text} name="text" cols="30" rows="10" onChange={handleChange} ></textarea>
-            <button className="signin-button" onClick={() => sendMails()}>שלח לכולם</button>
+            <button className="app-btn" onClick={() => sendMails()}>שלח לכולם</button>
             <h3>you can't write numvers or the mail will sent wrong</h3>
             </div>
         </div>

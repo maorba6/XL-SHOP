@@ -18,12 +18,14 @@ export function Footer() {
                         <li className="hover">
                             <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=zion71il@gmail.com&su=&body=נא להשאיר פרטי קשר שנוכל לחזור אליכם ">
                                 <EmailSvg className="svg"></EmailSvg>
-                           Email Us</a>
+                                <label > Email Us</label>
+                            </a>
                         </li>
                         <li className="hover">
                             <a target="_blank" href="https://wa.link/s69g6e">
                                 <WhatsappSvg className="svg"></WhatsappSvg>
-                           Send Whatsapp</a>
+
+                                <label >  Send Whatsapp</label></a>
                         </li>
                         <li>
                             <PhoneSvg className="svg"></PhoneSvg>
@@ -61,7 +63,7 @@ export function Footer() {
                 </div>
             </div>
             <div className="copyrights">
-                ©  copyrights here
+                ©  copyrights to "מידות גדולות"
                 </div>
 
         </footer>

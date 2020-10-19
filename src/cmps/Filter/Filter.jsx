@@ -108,8 +108,8 @@ export function Filter(props) {
     }
 
     return (
-        <div className="flex filter-container">
-            <form className="filter flex" onSubmit={(ev) => props.setFilter(ev, state.filterBy)} >
+        <form className="filter  flex" onSubmit={(ev) => props.setFilter(ev, state.filterBy)} >
+            <div className="flex  filter-container ">
                 <div className="select flex column">
                     <label >Name</label>
                     <input className="btn-sort" name="name" type="text" placeholder="search" onChange={handleChange} />
@@ -154,8 +154,8 @@ export function Filter(props) {
                         <li className={state.filterBy.sortByPrice === 'High-To-Low' ? 'active' : ''} onClick={() => setPrice('High-To-Low')} >High To Low</li>
                     </ul>
                 </div>
+         </div>
             </form >
-        </div>
     );
 
 }

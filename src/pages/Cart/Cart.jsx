@@ -94,8 +94,8 @@ function _Cart(props) {
         <div className="flex cart-container">
 
             {user && !user.cart.length &&
-                <div>
-                    <h1>your cart is empty</h1>
+                <div className="empty-cart">
+                    <h2>your cart is empty</h2>
                     <h3> when you add item to your cart he will show up here</h3>
                     <button className="app-btn" onClick={() => goShop()}>lets start</button>
                 </div>}

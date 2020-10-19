@@ -1,12 +1,16 @@
-.filter-container{
-    justify-content: center;
+.filter-container {
+    padding: 15px;
+    border: 1px solid black;
+    z-index: 0;
 }
 
+
 .filter {
-    border: 1px solid black;
+    justify-content: center;
     padding: 15px;
     margin-bottom: 15px;
     flex-wrap: wrap;
+    z-index: -2;
 
     li {
         cursor: pointer;
@@ -74,8 +78,8 @@
         border: 1px solid #ccc;
         z-index: 9;
         height: auto;
-        position: fixed;
-        top: 198px;
+        position: absolute;
+        top: 194px;
 
         li {
             padding: 11px 10px;

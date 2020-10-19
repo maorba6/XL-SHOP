@@ -56,15 +56,17 @@
 }
 
 .app-btn {
-    // width: 100%;
     color: white;
-    background-color: black;
+    background-color:#2d383a;
     margin-top: 10px;
     height: 50px;
     line-height: 49px;
     font-size: 18px;
     padding: 0 19px;
     cursor: pointer;
+    &:hover{
+color: #f79898;
+    }
 }
 
 

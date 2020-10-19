@@ -81,7 +81,7 @@ function _Profile(props) {
     const { current } = state
     return (
         <div>
-            {user && <h1 className="profile-welcome">welcome {user.fname + ' ' + user.lname}</h1>}
+            {user && <h2 className="profile-welcome">welcome {user.fname + ' ' + user.lname}</h2>}
             <div className="flex profile">
                 <nav className="nav-profile flex">
                     <button className="profile-btn up" onClick={() => setCurrent('account')}>My Account</button>

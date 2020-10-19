@@ -28,7 +28,7 @@ header {
                 text-transform: capitalize;
 
                 &:hover {
-                    color: red;
+                    color: #f79898;
                 }
             }
         }
@@ -39,7 +39,7 @@ header {
             width: 30px;
 
             &:hover {
-                fill:  lighten(red, 15%)
+                fill: #f79898;
             }
         }
     }
@@ -73,7 +73,7 @@ header {
         color: white;
 
         &:hover {
-            color:  lighten(red, 15%)
+            color:  #f79898;
         }
     }
 
@@ -106,7 +106,7 @@ header {
             border-bottom: 1px solid grey;
 
             &:hover {
-                color: red;
+                color:  #f79898
             }
         }
 
@@ -122,5 +122,6 @@ header {
         width: 100%;
         background-color: rgba(0, 0, 0, 0.25);
         z-index: 1;
+        left: 0;
     }
 }

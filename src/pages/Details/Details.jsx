@@ -154,8 +154,8 @@ function _Details(props) {
                     {user && user.isAdmin && <Link to={`/item/edit/${item._id}`} >Edit </Link>}
                 </div>
             </div>
-            <div>
-                <h2>You might like</h2>
+            <div >
+                <h2 className="title-like">You might like</h2>
                 {<List className="flex" items={sameCategoryItems} removeItem={removeItem} toggleLike={toggleLike}   ></List>}
             </div>
         </section>

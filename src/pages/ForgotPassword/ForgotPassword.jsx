@@ -5,6 +5,9 @@ import userService from '../../services/userService'
 //imgs
 import hidePassword from '../../assets/img/hide-password2.png'
 import showPassword from '../../assets/img/show-password.png'
+//services
+import utilService from '../../services/utilService';
+
 
 import './ForgotPassword.scss'
 export function _ForgotPassword(props) {
@@ -36,28 +39,26 @@ export function _ForgotPassword(props) {
     }
 
     function forgotPassword() {
-        console.log(state.email);
         userService.forgotPassword(state.email)
-        console.log('email sent '); // add msg maor
-
+        utilService.swal('center',2500,'success','Email sent')
     }
 
 
     function savePassword(ev) {
         ev.preventDefault()
-        console.log(state.user);
         const isPasswordValid = validatePassword(state.user.newPass)
         if (!isPasswordValid) {
-            console.log('password is too weak'); // add msg in website - maor
+            utilService.swal('center',2500,'error','Password to weak')
+
             return
         }
         if (state.user.newPass !== state.user.confirmNewPass) {
-            console.log('passwords doesnt match');  // add msg to user -maor
+            utilService.swal('center',2500,'error','Password dont match')
             return
         }
         userService.savePassword(state.user)
-        console.log('password changed');
-        //add msg that password changed -maor
+        utilService.swal('center',2500,'success','Password Changed')
+
         history.push('/login')
 
 
@@ -71,7 +72,6 @@ export function _ForgotPassword(props) {
 
 
     function toggleShowPassword(ev) {
-        console.log({ ev });
         ev.preventDefault()
         if (state.inputType === 'password') {
             setState(state => ({ ...state, inputType: 'text', togglePassword: hidePassword }))
@@ -95,7 +95,6 @@ export function _ForgotPassword(props) {
 
             })()
         } else {
-            console.log('no tokn yet');
         }
     }, [])
 

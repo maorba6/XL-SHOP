@@ -6,34 +6,28 @@ import { connect } from 'react-redux'
 import './OrderDetails.scss'
 function _OrderDetails(props) {
     const { id } = props.match.params
-
     const [state, setState] = useState(
         {
-            order: null
+            order: null,
+            date:null,
         })
 
     useEffect(() => {
-        console.log(props.user);
         if (props.user) {
             const order = props.user.orders.find(o => o.id === id)
-            console.log({ order });
             setState(state => ({ ...state, order }))
-
+            setState(state => ({ ...state, date:new Date(order.createdAt).toLocaleDateString('en-GB')}))
+            
         }
 
 
     }, [props.user])
 
-    const { order } = state
+    const { order , date} = state
     return (      
         (props.user && order && <div>
-            <h2>
-
-            order time :{ Date(order.createdAt)}
-            </h2>
-            <h3>
-                
-            </h3>
+             <h2>order time :{date}</h2>
+            
             order id :{order.id}
             {
              order.items.map(item=> 

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
+//services
+import utilService from '../../services/utilService';
 //svg
 import { ReactComponent as HeartColor } from '../../assets/img/heart-color2.svg';
 import { ReactComponent as HeartWhite } from '../../assets/img/heart-white2.svg';

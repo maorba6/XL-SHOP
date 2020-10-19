@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { setUser, saveUser } from '../../actions/userActions'
 import { connect } from 'react-redux'
-
+import utilService from '../../services/utilService';
 import userService from '../../services/userService'
 import './Admin.scss'
 export function _Admin(props) {
@@ -24,7 +24,8 @@ export function _Admin(props) {
 
 
     function sendMails() {
-        userService.sendMails(msg) // maor add msg to user that mail send
+        userService.sendMails(msg) 
+        utilService.swal('center',2500,'success','Mail sent')
         setMsg({ text: '', title: '' })
     }
 

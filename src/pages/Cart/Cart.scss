@@ -1,5 +1,6 @@
-.items-list-cart {
-    width: 50%;
+.items-list-cart{
+width: 50%;
+
 }
 
 .cart-container {
@@ -34,6 +35,11 @@
     flex-direction: column;
     justify-content: space-between;
     border-radius: 3px;
+    button{
+        background-color: black;
+        color: white;
+        height: 40px;
+    }
 }
 
 .item-price-cart {

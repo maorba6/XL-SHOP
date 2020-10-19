@@ -9,6 +9,9 @@ import Swal from 'sweetalert2'
 import { ReactComponent as DeleteSvg } from '../../assets/img/delete.svg';
 import { ReactComponent as EditSvg } from '../../assets/img/edit.svg';
 
+//services
+import utilService from '../../services/utilService';
+
 
 //cmps
 import '../Cart/Cart.scss'
@@ -54,17 +57,14 @@ function _Cart(props) {
     async function buyCart() {
 
         if (!order.address || !order.phoneNumber) {
-            console.log('need fill phone and address');  // maor add msg here for user
+            utilService.swal('center',2500,'error','Please add Phone number and Address')
+
             return
         }
         user.cart = []
         user.orders.push(order)
-        console.log('after push');
-        console.log('cart', { user });
         await props.saveUser(user)
-        console.log('after save user');
         await props.setUser()
-        console.log('after set user');
         userService.sendMailToOwner(user._id, order.id)
         const Toast = Swal.mixin({
             toast: true,

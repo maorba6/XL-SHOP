@@ -6,7 +6,8 @@ import { Filter } from '../../cmps/Filter/Filter'
 import { loadItems, removeItem, setFilter } from '../../actions/itemActions'
 import { setUser, saveUser } from '../../actions/userActions'
 import './Main.scss'
-
+//services
+import utilService from '../../services/utilService'
 function _Main(props) {
 
     const [state, setState] = useState({ subcategory: '' })
@@ -23,7 +24,10 @@ function _Main(props) {
 
     async function toggleLike(ev, liked, item) {
         ev.preventDefault()
-        if (!props.user) return
+        if (!props.user){
+            utilService.swal('center',2500,'error','Please login')
+            return
+    } 
         if (liked) {
             const index = props.user.favs.findIndex(i => i._id === item._id)
             props.user.favs.splice(index, 1)

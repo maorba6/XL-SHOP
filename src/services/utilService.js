@@ -1,11 +1,25 @@
+import Swal from 'sweetalert2'
 export default {
     storeToStorage,
     loadFromStorage,
-    makeId
+    makeId,
+    swal
 }
 
 
-
+function swal(pos,time,ico,text){
+    const Toast = Swal.mixin({
+        toast: true,
+        position: pos,
+        showConfirmButton: false,
+        timer: time,
+        timerProgressBar: true,
+    })
+    Toast.fire({
+        icon: ico,
+        title: text
+    })
+}
 
 function storeToStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value || null));

@@ -60,15 +60,16 @@
 
 .app-btn {
     color: white;
-    background-color:#2d383a;
+    background-color: #2d383a;
     margin-top: 10px;
     height: 50px;
     line-height: 49px;
     font-size: 18px;
     padding: 0 19px;
     cursor: pointer;
-    &:hover{
-color: #f79898;
+
+    &:hover {
+        color: #f79898;
     }
 }
 
@@ -142,4 +143,28 @@ color: #f79898;
 
 .poster-ratio {
     @include aspect-ratio(1, 1.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.rtl {
+    direction: rtl;
 }

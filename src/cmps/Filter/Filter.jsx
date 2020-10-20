@@ -9,11 +9,22 @@ export function Filter(props) {
         subcategoryStyle: { display: 'none' },
         colorsStyle: { display: 'none' },
         priceStyle: { display: 'none' },
-        shirts: ['Polo-Shirts', 'T-Shirts', 'Button-Down-Shirts'],
-        pants: ['Elegant-Pשnts', 'Jeans', 'Cotton-Pants'],
-        accessories: ['Coats', 'Suits', 'Socks', 'Belts', 'Underpants', 'Tank - Tops', 'Ties',
-            'Tricot', 'Potter - shorts', 'Sweaters', 'Shlikes', 'Bermudas', 'Cardigans', 'Hoddies'],
+        shirts: [{ he: 'חולצות פולו', en: 'Polo-Shirts' }, { he: 'טי שירט', en: 'T-shirts' }, { he: 'מכופתרות', en: 'Button-Down-Shirts' }],
+        pants: [{ he: 'מכנסי כותנה', en: 'Cotton-Pants' }, { he: 'גינסים', en: 'jeans' }, { he: 'מכנסי אלגנט', en: 'Elegant-pants' }],
+        accessories: [
+            { he: 'מעילים', en: 'Coats' }, { he: 'חליפות', en: 'Suits' }, { he: 'גרביים', en: 'Socks' }, { he: 'חגורות', en: 'Belts' },
+            { he: 'תחתונים', en: 'Underpants' }, { he: 'גופיות', en: 'Tank - Tops' }, { he: 'עניבות', en: 'Ties' }, { he: 'מכנס טריקו', en: 'Tricot' },
+            { he: 'מכנסי פוטר', en: 'Potter - shorts', }, { he: 'סוודרים', en: 'Sweaters' }, { he: 'שליקס', en: 'Shlikes' }, { he: 'ברמודות', en: 'Bermudas' },
+            { he: 'קרדיגן', en: 'Cardigans' }, { he: 'קפוצ\'ונים', en: 'Hoddies' }],
+
         filterBy: {
+            name: '',
+            category: '',
+            color: '',
+            subcategory: '',
+            sortByPrice: ''
+        },
+        filterByHe: {
             name: '',
             category: '',
             color: '',
@@ -39,29 +50,24 @@ export function Filter(props) {
         state.filterBy[field] = value
     }
 
-    function setCategory(category) {
-        setState(state => ({ ...state, filterBy: { ...state.filterBy, category } }))
+    function setCategory(categoryEn, categoryHe) {
+        console.log('g');
+        setState(state => ({ ...state, filterBy: { ...state.filterBy, category: categoryEn } }))
+        setState(state => ({ ...state, filterByHe: { ...state.filterByHe, category: categoryHe } }))
     }
 
-    function setColor(color) {
-        setState(state => ({ ...state, filterBy: { ...state.filterBy, color } }))
+    function setColor(colorEn, colorHe) {
+        setState(state => ({ ...state, filterBy: { ...state.filterBy, color: colorEn } }))
+        setState(state => ({ ...state, filterByHe: { ...state.filterByHe, color: colorHe } }))
     }
-    function setSubCategory(subcategory) {
-        setState(state => ({ ...state, filterBy: { ...state.filterBy, subcategory } }))
-
+    function setSubCategory(subcategoryEn, subcategoryHe) {
+        setState(state => ({ ...state, filterBy: { ...state.filterBy, subcategory: subcategoryEn } }))
+        setState(state => ({ ...state, filterByHe: { ...state.filterByHe, subcategory: subcategoryHe } }))
     }
-    function setPrice(sortByPrice) {
-        setState(state => ({ ...state, filterBy: { ...state.filterBy, sortByPrice } }))
+    function setPrice(sortByPriceEn,sortByPriceHe) {
+        setState(state => ({ ...state, filterBy: { ...state.filterBy, sortByPrice: sortByPriceEn } }))
+        setState(state => ({ ...state, filterByHe: { ...state.filterByHe,sortByPrice: sortByPriceHe } }))
     }
-
-    function setPriceRange(value) {
-        setState(state => ({ ...state, filterBy: { ...state.filterBy, price: value } }))
-    }
-
-
-
-
-
 
     function toggleColors() {
         if (state.colorsStyle.display === 'flex') {
@@ -108,54 +114,54 @@ export function Filter(props) {
     }
 
     return (
-        <form className="filter  flex" onSubmit={(ev) => props.setFilter(ev, state.filterBy)} >
+        <form className="filter rtl  flex" onSubmit={(ev) => props.setFilter(ev, state.filterBy)} >
             <div className="flex  filter-container ">
                 <div className="select flex column">
-                    <label >Name</label>
-                    <input className="btn-sort" name="name" type="text" placeholder="search" onChange={handleChange} />
+                    <label >שם מוצר</label>
+                    <input className="btn-sort" name="name" type="text" placeholder="חפש" onChange={handleChange} />
                 </div>
                 <div className="select flex column">
-                    <label > Category</label>
-                    <button onClick={() => toggleCategory()} className='btn-sort'  >{state.category}</button>
+                    <label > קטגוריה</label>
+                    <button onClick={() => toggleCategory()} className='btn-sort'  >{state.filterByHe.category}</button>
                     <ul style={state.categoryStyle} className=" flex column" >
-                        <li className={state.filterBy.category === 'shirts' ? 'active' : ''} onClick={() => setCategory('shirts')} >Shirts</li>
-                        <li className={state.filterBy.category === 'pants' ? 'active' : ''} onClick={() => setCategory('pants')} >Pants</li>
-                        <li className={state.filterBy.category === 'accessories' ? 'active' : ''} onClick={() => setCategory('accessories')} >Accessories</li>
+                        <li className={state.filterBy.category === 'shirts' ? 'active' : ''} onClick={() => setCategory('shirts', 'חולצות')} >חולצות</li>
+                        <li className={state.filterBy.category === 'pants' ? 'active' : ''} onClick={() => setCategory('pants', 'מכנסיים')} >מכנסיים</li>
+                        <li className={state.filterBy.category === 'accessories' ? 'active' : ''} onClick={() => setCategory('accessories', 'אביזרים')} >אביזרים</li>
                     </ul>
                 </div>
                 <div className="select flex column">
-                    <label > Subcategory</label>
-                    <button onClick={() => toggleSubCategory()} className='btn-sort'  >{state.filterBy.subcategory}</button>
+                    <label > תת-קטגוריה</label>
+                    <button onClick={() => toggleSubCategory()} className='btn-sort'  >{state.filterByHe.subcategory}</button>
                     <ul style={state.subcategoryStyle} className="flex column">
                         {state.filterBy.category && state[state.filterBy.category].map(c => {
-                            return <li key={c} className={state.filterBy.subcategory === c ? 'active' : ''} onClick={() => setSubCategory(c)} > {c}    </li>
+                            return <li key={c.en} className={state.filterBy.subcategory === c.en ? 'active' : ''} onClick={() => setSubCategory(c.en, c.he)} > {c.he}    </li>
                         })}
                     </ul>
                 </div>
                 <div className="select flex column">
-                    <label > Color</label>
-                    <button onClick={() => toggleColors()} className='btn-sort' >{state.filterBy.color}</button>
+                    <label > צבע</label>
+                    <button onClick={() => toggleColors()} className='btn-sort' >{state.filterByHe.color}</button>
                     <ul style={state.colorsStyle} className="colors-container flex ">
-                        <li onClick={() => setColor('green')} className="opt option-green" ></li>
-                        <li onClick={() => setColor('yellow')} className="opt option-yellow" ></li>
-                        <li onClick={() => setColor('black')} className="opt option-black" ></li>
-                        <li onClick={() => setColor('blue')} className="opt option-blue"></li>
-                        <li onClick={() => setColor('white')} className="opt option-white" ></li>
-                        <li onClick={() => setColor('pink')} className="opt option-pink"></li>
-                        <li onClick={() => setColor('red')} className="opt option-red"></li>
-                        <li onClick={() => setColor('purple')} className="opt option-purple"></li>
-                        <li onClick={() => setColor('orange')} className="opt option-orange"></li>
-                        <li onClick={() => setColor('gray')} className="opt option-gray"></li>
-                        <li onClick={() => setColor('lightblue')} className="opt option-lightblue"></li>
-                        <li onClick={() => setColor('lightgreen')} className="opt option-lightgreen"></li>
+                        <li title="ירוק" onClick={() => setColor('green', 'ירוק')} className="opt option-green" ></li>
+                        <li title="גינס" onClick={() => setColor('jeans', 'גי\'נס')} className="opt option-jeans" ></li>
+                        <li title="שחור" onClick={() => setColor('black', 'שחור')} className="opt option-black" ></li>
+                        <li title="כחול" onClick={() => setColor('blue', 'כחול')} className="opt option-blue"></li>
+                        <li title="לבן" onClick={() => setColor('white', 'לבן')} className="opt option-white" ></li>
+                        <li title="ורוד" onClick={() => setColor('pink', 'ורוד')} className="opt option-pink"></li>
+                        <li title="חום" onClick={() => setColor('brown', 'חום')} className="opt option-brown"></li>
+                        <li title="בז'" onClick={() => setColor('beige', 'בז\'')} className="opt option-beige"></li>
+                        <li title="בורדו" onClick={() => setColor('maroon', 'בורדו')} className="opt option-maroon"></li>
+                        <li title="אפור" onClick={() => setColor('gray', 'אפור')} className="opt option-gray"></li>
+                        <li title="תכלת" onClick={() => setColor('lightblue', 'תכלת')} className="opt option-lightblue"></li>
+                        <li title="ירוק בהיר" onClick={() => setColor('lightgreen', 'ירוק בהיר')} className="opt option-lightgreen"></li>
                     </ul>
                 </div>
                 <div className="select flex column">
-                    <label >Price</label>
-                    <button onClick={() => togglePrice()} className='btn-sort'  >{state.filterBy.sortByPrice}</button>
+                    <label >מחיר</label>
+                    <button onClick={() => togglePrice()} className='btn-sort'  >{state.filterByHe.sortByPrice}</button>
                     <ul style={state.priceStyle} className=" flex column" >
-                        <li className={state.filterBy.sortByPrice === 'Low-To-High' ? 'active' : ''} onClick={() => setPrice('Low-To-High')} >Low To High</li>
-                        <li className={state.filterBy.sortByPrice === 'High-To-Low' ? 'active' : ''} onClick={() => setPrice('High-To-Low')} >High To Low</li>
+                        <li className={state.filterBy.sortByPrice === 'Low-To-High' ? 'active' : ''} onClick={() => setPrice('Low-To-High', 'נמוך לגבוה')} >נמוך לגבוה</li>
+                        <li className={state.filterBy.sortByPrice === 'High-To-Low' ? 'active' : ''} onClick={() => setPrice('High-To-Low', 'גבוה לנמוך')} >גבוה לנמוך</li>
                     </ul>
                 </div>
             </div>

@@ -27,16 +27,16 @@ export function Footer() {
 
 
     return (
-        <footer className="flex column">
+        <footer className="flex column rtl">
             <div className="flex content">
                 <div className="contact-us">
-                    <h3>Contact Us</h3>
+                    <h3> צור קשר</h3>
                     <ul  >
                         <li  >
                             <a onMouseOver={() => hover('#f79898', 'pointer', '1')} onMouseOut={() => hover('white', 'default', '1')}
                                 target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=zion71il@gmail.com&su=&body=נא להשאיר פרטי קשר שנוכל לחזור אליכם ">
                                 <EmailSvg style={style.svgFirst} className="svg"></EmailSvg>
-                                <label style={style.labelFirst} > Email Us</label>
+                                <label style={style.labelFirst} > לשליחת מייל  </label>
                             </a>
                         </li>
                         <li >
@@ -44,46 +44,47 @@ export function Footer() {
                                 target="_blank" href="https://wa.link/s69g6e">
                                 <WhatsappSvg style={style.svgSecond} className="svg"></WhatsappSvg>
 
-                                <label style={style.labelSecond}  >  Send Whatsapp</label></a>
+                                <label style={style.labelSecond}  >  שלח הודעת וואצפ </label></a>
                         </li>
                         <li>
                             <PhoneSvg className="svg"></PhoneSvg>
-                            <label> Business Phone: 089461751</label>
+                            <label>  טלפון העסק: 089461751 </label>
                         </li>
                         <li>
                             <LocationSvg className="svg"></LocationSvg>
-                            <label >   Address :  רחוב בילו 23 מול הקניון (רחובות)</label>
+                            <label >   כתובת :  רחוב בילו 23 מול הקניון (רחובות)</label>
                         </li>
                     </ul>
                 </div>
 
 
                 <div className="categories">
-                    <h3>Top Categories</h3>
+                    <h3> קטגרויות מובילות</h3>
                     <ul>
-                        <li> <Link to="/shop/Polo-Shirts">Polo Shirts </Link>  </li>
-                        <li> <Link to="/shop/T-Shirts">T-Shirts </Link>  </li>
-                        <li> <Link to="/shop/Elegeant-Pants">Elegenat Pants </Link>  </li>
-                        <li> <Link to="/shop/Coats">Coats </Link>  </li>
-                        <li> <Link to="/shop/Belts">Belts </Link>  </li>
-                        <li> <Link to="/shop/Ties">Ties </Link>  </li>
-                        <li> <Link to="/shop/Jeans">Jeans </Link>  </li>
+                        <li> <Link to="/shop/Polo-Shirts"> חולצות פולו </Link>  </li>
+                        <li> <Link to="/shop/T-Shirts"> טי-שירט </Link>  </li>
+                        <li> <Link to="/shop/Elegeant-Pants">מכנסי אלגנט </Link>  </li>
+                        <li> <Link to="/shop/Coats">מעילים </Link>  </li>
+                        <li> <Link to="/shop/Belts">חגורות </Link>  </li>
+                        <li> <Link to="/shop/Ties">עניבות </Link>  </li>
+                        <li> <Link to="/shop/Jeans">גי'נסים </Link>  </li>
                     </ul>
                 </div>
                 <div className="pages">
-                    <h3>Main Pages</h3>
+                    <h3>עמודים ראשיים </h3>
                     <ul>
-                        <li> <Link to="/">Home </Link>  </li>
-                        <li> <Link to="/profile/wishlist">Profile </Link>  </li>
-                        <li> <Link to="/shop">Shop</Link>  </li>
-                        <li> <Link to="/cart">Cart</Link>  </li>
-                        <li> <Link to="/login">Login </Link>  </li>
+                        <li> <Link to="/">בית </Link>  </li>
+                        <li> <Link to="/profile/wishlist">פרופיל </Link>  </li>
+                        <li> <Link to="/shop">חנות</Link>  </li>
+                        <li> <Link to="/cart">עגלת קניות</Link>  </li>
+                        <li> <Link to="/login">התחברות </Link>  </li>
                     </ul>
                 </div>
             </div>
             <div className="copyrights">
-                ©  copyrights to "מידות גדולות"
+            ©  זכויות יוצרים למידות גדולות 
                 </div>
+
 
         </footer>
 

@@ -27,7 +27,6 @@ class _SignUp extends Component {
     const isPasswordValid = this.validatePassword(password)
     if (!isPasswordValid) {
       utilService.swal('center',2500,'error','Password too weak')
-
       return
     }
     if (!email || !fname || !lname ) {
@@ -38,10 +37,8 @@ class _SignUp extends Component {
     if (!user) {
       utilService.swal('center',2500,'error','eMail already exist')
       return
-
     }
     utilService.swal('center',2500,'success','Please check your eMail to activate your account')
-
     this.props.setUser()
     this.props.history.push('/')
 

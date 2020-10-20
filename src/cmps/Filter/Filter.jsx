@@ -142,8 +142,12 @@ export function Filter(props) {
                         <li onClick={() => setColor('blue')} className="opt option-blue"></li>
                         <li onClick={() => setColor('white')} className="opt option-white" ></li>
                         <li onClick={() => setColor('pink')} className="opt option-pink"></li>
-                        <li onClick={() => setColor('pink')} className="opt option-red"></li>
-                        <li onClick={() => setColor('pink')} className="opt option-purple"></li>
+                        <li onClick={() => setColor('red')} className="opt option-red"></li>
+                        <li onClick={() => setColor('purple')} className="opt option-purple"></li>
+                        <li onClick={() => setColor('orange')} className="opt option-orange"></li>
+                        <li onClick={() => setColor('gray')} className="opt option-gray"></li>
+                        <li onClick={() => setColor('lightblue')} className="opt option-lightblue"></li>
+                        <li onClick={() => setColor('lightgreen')} className="opt option-lightgreen"></li>
                     </ul>
                 </div>
                 <div className="select flex column">
@@ -154,8 +158,8 @@ export function Filter(props) {
                         <li className={state.filterBy.sortByPrice === 'High-To-Low' ? 'active' : ''} onClick={() => setPrice('High-To-Low')} >High To Low</li>
                     </ul>
                 </div>
-         </div>
-            </form >
+            </div>
+        </form >
     );
 
 }

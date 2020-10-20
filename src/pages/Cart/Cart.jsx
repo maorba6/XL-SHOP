@@ -57,12 +57,13 @@ function _Cart(props) {
     async function buyCart() {
 
         if (!order.address || !order.phoneNumber) {
-            utilService.swal('center',2500,'error','Please add Phone number and Address')
+            utilService.swal('center', 2500, 'error', 'Please add Phone number and Address')
 
             return
         }
         user.cart = []
-        user.orders.push(order)
+
+        user.orders.unshift(order)
         await props.saveUser(user)
         await props.setUser()
         userService.sendMailToOwner(user._id, order.id)

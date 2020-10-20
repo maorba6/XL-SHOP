@@ -95,7 +95,7 @@ class _SignUp extends Component {
           <label>
           <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> שלחו לי עדכונים למבצעים למייל
           </label>
-          <button className="signup-button">Sign Up</button>
+          <button className="signup-button">הרשמה</button>
         </form>
       </section>
     )

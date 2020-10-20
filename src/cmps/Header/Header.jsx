@@ -48,8 +48,8 @@ function _Header(props) {
             <ul className="flex nav-header">
                 {props.user && <li><ProfileSvg className="svg" title="profile" onClick={() => toggleMenu()}></ProfileSvg ></li>}
                 {props.user && <li><NavLink to="/cart"><CartSvg className="svg" title="cart"></CartSvg></NavLink></li>}
-                {!props.user && <li><NavLink to="/login" className="login" exact >Login</NavLink></li>}
                 <li><NavLink to="/shop" exact ><ShopSvg className="svg" title="shop"></ShopSvg></NavLink></li>
+                {!props.user && <li><NavLink to="/login" className="login" exact >התחבר</NavLink></li>}
                 {props.user && props.user.isAdmin && <li><NavLink className="admin" to="/admin" exact >אדמין</NavLink></li>}
                 <ul style={style} className="menu">
                     <li> <NavLink onClick={() => toggleMenu()} to="/profile/orders"> ההזמנות שלי  </NavLink> </li>

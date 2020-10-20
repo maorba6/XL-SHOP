@@ -59,12 +59,12 @@ class _Home extends Component {
     render() {
         const { items } = this.props
         return (
-            <section className="home">
+            <section className="home rtl">
                 <div className="hero-background"></div>
                 <h2>קטגוריות</h2>
                 <div className="types flex">
                     {this.state.types.map(type => {
-                        return <Link key={type.str} to={'shop/' + type.str.en} className="browse-type">
+                        return <Link key={type.str.en} to={'shop/' + type.str.en} className="browse-type">
                             <img src={type.img} />
                             <h3 className="tag">{type.str.he}</h3>
                         </Link>

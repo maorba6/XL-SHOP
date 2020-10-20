@@ -23,7 +23,7 @@
         font-size: 16px;
         white-space: nowrap;
         height: 34px;
-        margin-left: 10px;
+        margin-right: 10px;
         background-color: #fff;
         color: #231f20;
         border: 1px solid #231f20;
@@ -77,11 +77,11 @@
 }
 
 .form-halfRow:first-child {
-    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .form-halfRow:last-child {
-    padding-left: 5px;
+    padding-right: 5px;
 }
 
 

@@ -143,7 +143,7 @@ function _Details(props) {
                     <h1 className="details-item-name">
                         {item.name}
                     </h1>
-                    <div className="detail price"> ${item.price} </div>
+                    <div className="detail price"> ₪{item.price} </div>
                     <div className="category">
                         <span> קטגוריה:  {tranlate(item.category)}</span>
                     </div>

@@ -69,23 +69,22 @@ class _SignUp extends Component {
   render() {
     const { user, elIsAgreeTerms, inputType, togglePassword } = this.state
     return (
-      <section className="flex signup-section" >
+      <section className=" rtl flex signup-section" >
         <form className="flex signup-form" onSubmit={(ev) => this.signup(ev)}>
-          <h2>Let’s get started</h2>
+          <h2>  הרשמה</h2>
           <div className="flex">
             <div className="form-halfRow">
-              <label>First Name</label>
+              <label>שם פרטי</label>
               <input type="text" name="fname" value={user.fname} onChange={this.handleChange} />
 
             </div>
             <div className="form-halfRow">
-              <label>Last Name</label>
+              <label>שם משפחה </label>
               <input type="text" name="lname" value={user.lname} onChange={this.handleChange} />
             </div>
           </div>
-          <p className="signup-form-caption">Enter your name as it appears on your drivers license</p>
           <div>
-            <label>Email</label>
+            <label>אימייל</label>
             <input className="signup-form-group" name="email" value={user.email} onChange={this.handleChange} type="email" />
           </div>
           <InputPassword handleChange={this.handleChange} user={user} />
@@ -97,7 +96,7 @@ class _SignUp extends Component {
             <button className="button-link">privacy policy.</button>
           </label> */}
           <label>
-          <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> Send me deals, discounts and updates!
+          <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> שלחו לי עדכונים למבצעים למייל
           </label>
           <button className="signup-button">Sign Up</button>
         </form>

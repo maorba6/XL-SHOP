@@ -77,20 +77,20 @@ class _Login extends Component {
     render() {
         const { user } = this.state
         return (
-            <section className="flex signup-section">
+            <section className="flex rtl signup-section">
                 <form className="flex signup-form" onSubmit={(ev) => this.login(ev)}>
                     <div className="name">
-                        <label>Email</label>
+                        <label>אימייל</label>
                         <input className="signup-form-group" name="email" value={user.email} onChange={this.handleChange} type="email" />
                     </div>
                     <InputPassword handleChange={this.handleChange} user={user} />
-                    <a href="/#/forgotPassword">Forgot password?</a>
+                    <a href="/#/forgotPassword">שכחת סיסמא ?</a>
                     <div className="btns">
-                        <button className="signin-button">Login</button>
+                        <button className="signin-button">התחברות</button>
                     </div>
                     <div className="no-account">
-                        <p>Don’t have an account?</p>
-                        <Link to="/signup">Sign Up </Link>
+                        <p>אין לך חשבון?</p>
+                        <Link to="/signup">הרשמה </Link>
                     </div>
                 </form>
             </section>

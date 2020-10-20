@@ -15,8 +15,7 @@ import logo from '../../assets/logo.png'
 
 function _Header(props) {
     const history = useHistory();
-
-    const [showMenu, setToggle] = useState(false)
+    const [style, setStyle] = useState({ opacity: '0', transform: 'translateX(100%)' })
 
     useEffect(() => {
         props.setUser()
@@ -33,14 +32,19 @@ function _Header(props) {
 
 
     function toggleMenu() {
-        setToggle(!showMenu)
+        console.log('setstyle');
+        if (style.opacity === '0') {
+            setStyle(style => ({ ...style, opacity: '1', transform: 'translateX(0%)' }))
+        } else {
+            setStyle(style => ({ ...style, opacity: '0', transform: 'translateX(100%)' }))
 
+        }
     }
 
     return (
         <header className="header flex">
             <NavLink className="logo" activeClassName='active-path' to="/" exact ><img src={logo} /></NavLink>
-            <div onClick={() => toggleMenu()} className={`screen ${showMenu ? 'menu-open' : ''}`}></div>
+            <div onClick={() => toggleMenu()} className={`screen ${style.opacity === '1' ? 'menu-open' : ''}`}></div>
 
             <ul className="flex nav-header">
                 {props.user && props.user.isAdmin && <li><NavLink className="admin" to="/admin" exact >admin</NavLink></li>}
@@ -49,21 +53,14 @@ function _Header(props) {
                 <li><NavLink to="/shop" exact ><ShopSvg className="svg" title="shop"></ShopSvg></NavLink></li>
                 {props.user && <li><NavLink to="/cart"><CartSvg className="svg" title="cart"></CartSvg></NavLink></li>}
                 {props.user && <li><ProfileSvg className="svg" title="profile" onClick={() => toggleMenu()}></ProfileSvg ></li>}
-                {showMenu && <ul className="menu">
+                <ul style={style} className="menu">
                     <li> <NavLink onClick={() => toggleMenu()} to="/profile/orders">  My Orders  </NavLink> </li>
                     <li> <NavLink onClick={() => toggleMenu()} to="/profile/wishlist">Wishlist </NavLink></li>
                     <li> <NavLink onClick={() => toggleMenu()} to="/profile/account">My Account </NavLink></li>
                     <li> <NavLink onClick={() => toggleMenu()} to="/profile/edit">Edit Profile </NavLink></li>
-
                     <li> <button onClick={() => logout()}>Logout </button></li>
-
-                </ul>}
-
-
-
-
+                </ul>
             </ul>
-
         </header>
     );
 }

@@ -136,18 +136,18 @@ export function Filter(props) {
                     <label > Color</label>
                     <button onClick={() => toggleColors()} className='btn-sort' >{state.filterBy.color}</button>
                     <ul style={state.colorsStyle} className="colors-container flex ">
-                        <li onClick={() => setColor('green')} className="opt option-green" ></li>
-                        <li onClick={() => setColor('yellow')} className="opt option-yellow" ></li>
-                        <li onClick={() => setColor('black')} className="opt option-black" ></li>
-                        <li onClick={() => setColor('blue')} className="opt option-blue"></li>
-                        <li onClick={() => setColor('white')} className="opt option-white" ></li>
-                        <li onClick={() => setColor('pink')} className="opt option-pink"></li>
-                        <li onClick={() => setColor('red')} className="opt option-red"></li>
-                        <li onClick={() => setColor('purple')} className="opt option-purple"></li>
-                        <li onClick={() => setColor('orange')} className="opt option-orange"></li>
-                        <li onClick={() => setColor('gray')} className="opt option-gray"></li>
-                        <li onClick={() => setColor('lightblue')} className="opt option-lightblue"></li>
-                        <li onClick={() => setColor('lightgreen')} className="opt option-lightgreen"></li>
+                        <li title="green" onClick={() => setColor('green')} className="opt option-green" ></li>
+                        <li title="jeans" onClick={() => setColor('jeans')} className="opt option-jeans" ></li>
+                        <li title="black" onClick={() => setColor('black')} className="opt option-black" ></li>
+                        <li title="blue" onClick={() => setColor('blue')} className="opt option-blue"></li>
+                        <li title="white" onClick={() => setColor('white')} className="opt option-white" ></li>
+                        <li title="pink" onClick={() => setColor('pink')} className="opt option-pink"></li>
+                        <li title="brown" onClick={() => setColor('brown')} className="opt option-brown"></li>
+                        <li title="beige" onClick={() => setColor('beige')} className="opt option-beige"></li>
+                        <li title="maroon" onClick={() => setColor('maroon')} className="opt option-maroon"></li>
+                        <li title="gray" onClick={() => setColor('gray')} className="opt option-gray"></li>
+                        <li title="lightblue" onClick={() => setColor('lightblue')} className="opt option-lightblue"></li>
+                        <li title="lightgreen" onClick={() => setColor('lightgreen')} className="opt option-lightgreen"></li>
                     </ul>
                 </div>
                 <div className="select flex column">

@@ -205,3 +205,32 @@
         background-color: lighten(lightgreen, 5%) !important;
     }
 }
+
+
+.option-maroon {
+    background-color: maroon;
+
+    &:hover {
+        background-color: lighten(maroon, 15%) !important;
+    }
+}
+
+.option-brown {
+    background-color:  #86592d;
+    &:hover {
+        background-color: lighten( #86592d, 15%) !important;
+    }
+}
+
+.option-beige {
+    background-color: beige;
+    &:hover {
+        background-color: lighten( beige, 3%) !important;
+    }
+}
+.option-jeans {
+  background-color: #5dadec;
+    &:hover {
+        background-color: lighten( #5dadec, 3%) !important;
+    }
+}

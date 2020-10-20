@@ -57,7 +57,7 @@ function _Main(props) {
         <main>
             <Filter subcategory={subcategory} setFilter={setFilter}></Filter>
             { items && <List items={items} toggleLike={toggleLike} removeItem={removeItem} ></List>}
-            { user && user.isAdmin && < Link className="app-btn" to="/item/edit" replace={true}  >   Add Item</Link>}
+            { user && user.isAdmin && < Link className="app-btn" to="/item/edit" replace={true}  >  הוסף מוצר</Link>}
         </main>
 
     )

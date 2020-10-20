@@ -34,21 +34,21 @@ export default function UserAccount(props) {
             <div className="change-account flex column">
                 <div className="change-password flex column">
                     <div className="curr-pass">
-                        <label>   current password:</label>
+                        <label>   סיסמא נוכחית :</label>
                         <input className="app-input" type={state.inputType} name="currPass" value={state.editedUser.currPass || ''} onChange={(ev) => handleChange(ev)} />
                     </div>
                     <div className="new-pass">
-                        <label>  new password:</label>
+                        <label>  סיסמא חדשה :</label>
                         <input className="app-input" type={state.inputType} name="newPass" value={state.editedUser.newPass || ''} onChange={(ev) => handleChange(ev)} />
                     </div>
                     <div className="confirm">
-                        <label className="label-password">Confirm</label>
+                        <label className="label-password">אימות סיסמא חדשה:</label>
                         <div className="password-container flex">
                             <input className="input-password"  type={state.inputType} name="newPassConfirm" value={state.editedUser.newPassConfirm || ''} onChange={(ev) => handleChange(ev)} />
                         <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />
                         </div>
                     </div>
-                <button className="app-btn">save password</button>
+                <button className="app-btn"> שמור סיסמא</button>
                 </div>
             </div>
         </form>

@@ -86,14 +86,14 @@ function _Profile(props) {
 
     const { current } = state
     return (
-        <div>
-            {user && <h2 className="profile-welcome">welcome {user.fname + ' ' + user.lname}</h2>}
+        <div className="rtl">
+            {user && <h2 className="profile-welcome">ברוך הבא  {user.fname + ' ' + user.lname}</h2>}
             <div className="flex profile">
                 <nav className="nav-profile flex">
-                    <button className="profile-btn up" onClick={() => setCurrent('account')}>My Account</button>
-                    <button className="profile-btn up" onClick={() => setCurrent('edit')}>Edit User</button>
-                    <button className="profile-btn" onClick={() => setCurrent('orders')}>My Orders</button>
-                    <button className="profile-btn" onClick={() => setCurrent('wishlist')}>My Favorites</button>
+                    <button className="profile-btn up" onClick={() => setCurrent('account')}>החשבון שלי </button>
+                    <button className="profile-btn up" onClick={() => setCurrent('edit')}> עריכת פרופיל</button>
+                    <button className="profile-btn" onClick={() => setCurrent('orders')}>ההזמנות שלי </button>
+                    <button className="profile-btn" onClick={() => setCurrent('wishlist')}>המועדפים שלי </button>
                 </nav>
                 <div className="flex profile-section">
                     {user && current === 'account' && <UserAccount user={user} saveUser={saveUser} />}

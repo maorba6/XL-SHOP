@@ -13,22 +13,22 @@ import utilService from '../../services/utilService'
 class _Home extends Component {
     state = {
         types: [
-           
+
             {
-                str: "T-Shirts",
+                str: { he: 'טי שירט', en: "T-Shirts" },
                 img: shirt
             },
-         
+
             {
-                str: "Coats",
+                str: { he: 'מעילים', en: 'Coats' },
                 img: shirt
             },
             {
-                str: "Belts",
+                str: { he: 'עניבות', en: 'Ties' },
                 img: shirt
-            }, 
+            },
             {
-                str: "Jeans",
+                str: { he: 'גינסים', en: 'Jeans' },
                 img: shirt
             },
         ]
@@ -42,10 +42,10 @@ class _Home extends Component {
 
     toggleLike = async (ev, liked, item) => {
         ev.preventDefault()
-        if (!this.props.user){
-                utilService.swal('center',2500,'error','Please login')
-                return
-        } 
+        if (!this.props.user) {
+            utilService.swal('center', 2500, 'error', 'Please login')
+            return
+        }
         if (liked) {
             const index = this.props.user.favs.findIndex(i => i._id === item._id)
             this.props.user.favs.splice(index, 1)
@@ -61,17 +61,17 @@ class _Home extends Component {
         return (
             <section className="home">
                 <div className="hero-background"></div>
-                    <h2>Categories</h2>
+                <h2>קטגוריות</h2>
                 <div className="types flex">
                     {this.state.types.map(type => {
-                        return <Link key={type.str} to={'shop/' + type.str} className="browse-type">
+                        return <Link key={type.str} to={'shop/' + type.str.en} className="browse-type">
                             <img src={type.img} />
-                            <h3 className="tag">{type.str}</h3>
+                            <h3 className="tag">{type.str.he}</h3>
                         </Link>
                     })}
                 </div>
-                <h3>Top Rated Products</h3>
-                { items && <List toggleLike={this.toggleLike} items={items.slice(items.length - 12)} ></List>}
+                <h3>הפרטים הנמכרים ביותר  </h3>
+                { items && <List toggleLike={this.toggleLike} items={items.slice(items.length - 8)} ></List>}
             </section >
         );
     }

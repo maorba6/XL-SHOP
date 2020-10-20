@@ -104,25 +104,25 @@ export function _ForgotPassword(props) {
             {state.user.id &&
                 <form className="flex column after-confirm">
                     <div className="new-pass flex column">
-                        <label >New Password:</label>
+                        <label >חדשה סיסמא:</label>
                         <input className="app-input" type={state.inputType} name="newPass" value={state.user.newPass} onChange={handleChange} />
 
                     </div>
-                    <label >Confirm New Password:</label>
+                    <label > אימות סיסמא חדשה :</label>
                     <div className="confirm-new-pass flex ">
                         <input className="app-input" type={state.inputType} name="confirmNewPass" value={state.user.confirmNewPass} onChange={handleChange} />
                         <img className="img-togglePassword" onClick={(ev) => toggleShowPassword(ev)} src={state.togglePassword} />
 
                     </div>
-                    <button className="app-btn" onClick={(ev) => savePassword(ev)}>save password</button>
+                    <button className="app-btn" onClick={(ev) => savePassword(ev)}> שמור סיסמא</button>
                 </form>}
             {!state.user.id &&
                 <div className="flex column before-confirm">
                     <div className="email flex column">
-                        <label >Email:</label>
+                        <label >מייל:</label>
                         <input className="app-input" type="email" name="email" value={state.email} onChange={handleChange} />
                     </div>
-                    <button className="app-btn" onClick={() => forgotPassword()}>Confirm</button>
+                    <button className="app-btn" onClick={() => forgotPassword()}>אימות</button>
                 </div>
             }
         </div>

@@ -40,6 +40,11 @@
 
 }
 
+.react-multi-carousel-list   {
+    direction: ltr;
+    margin-left: 15px;
+}
+
 
 .product-intro {
 
@@ -216,21 +221,25 @@
 }
 
 .option-brown {
-    background-color:  #86592d;
+    background-color: #86592d;
+
     &:hover {
-        background-color: lighten( #86592d, 15%) !important;
+        background-color: lighten(#86592d, 15%) !important;
     }
 }
 
 .option-beige {
     background-color: beige;
+
     &:hover {
-        background-color: lighten( beige, 3%) !important;
+        background-color: lighten(beige, 3%) !important;
     }
 }
+
 .option-jeans {
-  background-color: #5dadec;
+    background-color: #5dadec;
+
     &:hover {
-        background-color: lighten( #5dadec, 3%) !important;
+        background-color: lighten(#5dadec, 3%) !important;
     }
 }

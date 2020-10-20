@@ -28,7 +28,6 @@ function _Details(props) {
         setItem()
     }, [])
 
-
     async function setItem() {
         const { id } = props.match.params
         await props.loadItem(id)
@@ -49,19 +48,16 @@ function _Details(props) {
         setState(state => ({ ...state, sameCategoryItems: props.sameCategoryItems }))
     }, [props.sameCategoryItems])
 
-
     useEffect(() => {
         setItem()
         props.loadItems()
     }, [props.match.params])
-
 
     function setColor(color) {
         setState(state => ({ ...state, itemToBuy: { ...state.itemToBuy, color } }))
         setState(state => ({ ...state, chosenColor: color }))
 
     }
-
 
     async function toggleLike(ev, liked, item) {
         ev.preventDefault()
@@ -88,12 +84,12 @@ function _Details(props) {
 
     async function addToCart() {
         if (!props.user) {
-            utilService.swal('center',2500,'error','Please login')
+            utilService.swal('center', 2500, 'error', 'Please login')
             return
         }
         const itemToCart = state.itemToBuy
         if (!itemToCart.size || !itemToCart.color) {
-            utilService.swal('center',2500,'error','Please choose size and color')
+            utilService.swal('center', 2500, 'error', 'Please choose size and color')
             return
         }
         delete itemToCart.colors
@@ -113,41 +109,62 @@ function _Details(props) {
         })
     }
 
+    function tranlate(string) {
+        let tranlation = null
+        switch (string) {
+            case 'shirts': tranlation = 'חולצות'
+                break;
+            case 'pants': tranlation = 'מכנסיים'
+                break;
+            case 'accessories': tranlation = 'אביזרים'
+
+        }
+        return tranlation
+    }
+
+    // shirts: [{ he: 'חולצות פולו', en: 'Polo-Shirts' }, { he: 'טי שירט', en: 'T-shirts' }, { he: 'מכופתרות', en: 'Button-Down-Shirts' }],
+    // pants: [{ he: 'מכנסי כותנה', en: 'Cotton-Pants' }, { he: 'גינסים', en: 'jeans' }, { he: 'מכנסי אלגנט', en: 'Elegant-pants' }],
+    // accessories: [
+    //     { he: 'מעילים', en: 'Coats' }, { he: 'חליפות', en: 'Suits' }, { he: 'גרביים', en: 'Socks' }, { he: 'חגורות', en: 'Belts' },
+    //     { he: 'תחתונים', en: 'Underpants' }, { he: 'גופיות', en: 'Tank - Tops' }, { he: 'עניבות', en: 'Ties' }, { he: 'מכנס טריקו', en: 'Tricot' },
+    //     { he: 'מכנסי פוטר', en: 'Potter - shorts', }, { he: 'סוודרים', en: 'Sweaters' }, { he: 'שליקס', en: 'Shlikes' }, { he: 'ברמודות', en: 'Bermudas' },
+    //     { he: 'קרדיגן', en: 'Cardigans' }, { he: 'קפוצ\'ונים', en: 'Hoddies' }],
+
     const { item, chosenSize, chosenColor, sameCategoryItems } = state
     const { user } = props
 
     if (!item)
         return <ReactLoading className="loading" type={'spokes'} color={'#aaa'} height={50} width={50} />
     return (
-        <section className="item-details flex column ">
+        <section className="item-details rtl flex column ">
             <div className="flex item-container">
-                <ImgCarousel imgs={item.imgUrls}></ImgCarousel>
+                <ImgCarousel className="ltr" imgs={item.imgUrls}></ImgCarousel>
                 <div className="details">
                     <h1 className="details-item-name">
                         {item.name}
                     </h1>
                     <div className="detail price"> ${item.price} </div>
                     <div className="category">
-                        <span>  {item.category}</span>
+                        <span> קטגוריה:  {tranlate(item.category)}</span>
                     </div>
                     <div className="size ">
-                        <div className=" detail pick">pick size: {chosenSize}</div>
+                        <div className=" detail pick">בחר מידה{chosenSize}</div>
                         {item.sizes.map(size => {
                             return <button onClick={() => setSize(size)} key={size} className={"option option-size " + (size === chosenSize)}>{size}</button>
                         })}
                     </div>
                     <div className="color ">
-                        <div className="detail pick">pick color :{chosenColor}</div>
+                        <div className="detail pick"> בחר צבע :{chosenColor}</div>
                         {item.colors.map(color => {
                             return <button onClick={() => setColor(color)} key={color} className={'option option-' + color + (color === chosenColor)}></button>
                         })}
                     </div>
-                    <button onClick={() => addToCart()} className="signin-button">Add To Cart</button>
-                    {user && user.isAdmin && <Link to={`/item/edit/${item._id}`} >Edit </Link>}
+                    <button onClick={() => addToCart()} className="signin-button">  הוסף לעגלת קניות</button>
+                    {user && user.isAdmin && <Link to={`/item/edit/${item._id}`} >ערוך מוצר </Link>}
                 </div>
             </div>
             <div >
-                <h2 className="title-like">You might like</h2>
+                <h2 className="title-like">אתה עשוי לאהוב  </h2>
                 {<List className="flex" items={sameCategoryItems} removeItem={removeItem} toggleLike={toggleLike}   ></List>}
             </div>
         </section>

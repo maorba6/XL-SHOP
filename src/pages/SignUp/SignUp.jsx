@@ -90,15 +90,15 @@ class _SignUp extends Component {
           </div>
           <InputPassword handleChange={this.handleChange} user={user} />
 
-
+{/* 
           <label>
             <input name="elIsAgreeTerms" value={elIsAgreeTerms} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> I agree to the
             <button className="button-link">terms of service</button> and
             <button className="button-link">privacy policy.</button>
-          </label>
+          </label> */}
           <label>
+          <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> Send me deals, discounts and updates!
           </label>
-          <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> Yes, send me deals, discounts and updates!
           <button className="signup-button">Sign Up</button>
         </form>
       </section>

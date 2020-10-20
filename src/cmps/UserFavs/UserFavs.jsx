@@ -13,9 +13,9 @@ export default function UserFavs(props) {
     return (
         <section className="user-favs">
             {!user.favs.length && <div className="no-favs">
-                <h1>  your wishlist still empty</h1>
-                <h3>when you press like on item he will be saved here </h3>
-                <button className="app-btn" onClick={() => goShop()}>go shop</button>
+                <h1> רשימת המועדפים שלך ריקה</h1>
+                {/* <h3>when you press like on item he will be saved here </h3> */}
+                <button className="app-btn" onClick={() => goShop()}>לחנות</button>
             </div>}
             <List items={user.favs} toggleLike={toggleLike}  ></List>
 

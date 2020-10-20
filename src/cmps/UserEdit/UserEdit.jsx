@@ -17,15 +17,15 @@ export default function UserEdit(props) {
     return (
         <div>
             <form className="user-edit flex column" onSubmit={(ev) => props.saveUser(ev, state.editedUser, 'details')}>
-                <div className="fname">
-                    <label > first name:</label>
+                <div className="fname rtl">
+                    <label > שם:</label>
                     <input className="app-input" type="text" name="fname" value={state.editedUser.fname} onChange={(ev) => handleChange(ev)} />
                 </div>
-                <div className="lname">
-                    <label > last name:</label>
+                <div className="lname rtl">
+                    <label > שם משפחה:</label>
                     <input className="app-input" type="text" name="lname" value={state.editedUser.lname} onChange={(ev) => handleChange(ev)} />
                 </div>
-                <button className="app-btn" >Save </button>
+                <button className="app-btn" >שמור </button>
             </form>
 
 

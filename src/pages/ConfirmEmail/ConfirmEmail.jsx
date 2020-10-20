@@ -35,7 +35,7 @@ export function ConfirmEmail(props) {
 
     return (
         <div>
-            <h1>your email confirmed, you can now login </h1>
+            <h1>האימייל שלך אושר </h1>
         </div>
     )
 }

@@ -21,7 +21,7 @@ export default function UserOrders(props) {
         <section className="flex user-orders">
             {!user.orders.length &&
                 <div className="no-orders">
-                    <h1>you don't have orders yet</h1>
+                    <h1>אין כרגע הזמנות ברשימה</h1>
                     <h3> when you buy items the order's deatils will appear here </h3>
                     <button className="app-btn" onClick={() => goShop()}>go shop</button>
                 </div>}
@@ -31,11 +31,11 @@ export default function UserOrders(props) {
                     return <div className="order" key={order.id}>
                         <img src={order.items[0].imgUrls[0]} alt="" />
                         <div className="flex column">
-                            <div className="order-details">
-                                <p>create at: {order.createdAt}</p>
+                            <div className="order-details rtl">
+                                <p>נוצר ב: {order.createdAt}</p>
                                 <p className="text-he">{order.id} <label htmlFor="">:מספר הזמנה</label></p>
-                                <p>Items: {order.items.length}</p>
-                                <p>Total: {order.totalPrice}</p>
+                                <p>כמות מוצרים: {order.items.length}</p>
+                                <p>סכום כולל: ₪{order.totalPrice}</p>
                                 <Link to={`/order/${order.id}`}>פירוט הזמנה</Link>
                             </div>
                         </div>

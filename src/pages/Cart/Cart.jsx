@@ -95,10 +95,10 @@ function _Cart(props) {
         <div className="flex cart-container">
 
             {user && !user.cart.length &&
-                <div className="empty-cart">
-                    <h2>your cart is empty</h2>
-                    <h3> when you add item to your cart he will show up here</h3>
-                    <button className="app-btn" onClick={() => goShop()}>lets start</button>
+                <div className="empty-cart rtl">
+                    <h2>עגלת הקניות שלך ריקה</h2>
+                    <h3> בהוספת מוצר לעגלת הקניות תוכל לראות אותו כאן</h3>
+                    <button className="app-btn rtl" onClick={() => goShop()}>לחנות</button>
                 </div>}
 
             {user &&
@@ -119,7 +119,7 @@ function _Cart(props) {
                                     {item.size}
                                 </p>
                                 <p>
-                                    ${item.price}
+                                ₪{item.price}
                                 </p>
                             </div>
                             <div className="cancel-edit-cart-item">
@@ -132,25 +132,25 @@ function _Cart(props) {
 
             {props.user && <div className="buy-now">
                 <h2>
-                    Summary
+                    סיכום הזמנה
                     </h2>
                 <p>
-                    {user.cart.length} items
+                    {user.cart.length} כמות מוצרים
                     </p>
                 <div className="address">
-                    <label >address</label>
+                    <label >כתובת</label>
                     <input className="app-input" type="text" name="address" value={order.address} onChange={handleChange} />
 
                 </div>
                 <div className="phone">
-                    <label >phone number</label>
+                    <label >מספר פלאפון</label>
                     <input className="app-input" type="number" name="phoneNumber" value={order.phoneNumber} onChange={handleChange} />
 
                 </div>
-                <p>
-                    Total : ${order.totalPrice}
+                <p className="rtl"> 
+                    סכום כולל : ₪{order.totalPrice}
                 </p>
-                <div>
+                <div className="rtl bold">
                 משלוחים לכל הארץ
                 משלוח מסכום של 300 ש"ח חינם
                 דמי משלוח בפחות מ-300 ש"ח יהיו בסך 45 ש"ח  

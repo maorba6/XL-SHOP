@@ -28,7 +28,9 @@
     }
 
     .item-name {
+        display: flex;
         color: rgb(184, 180, 180);
+        flex-direction: row-reverse;
         cursor: pointer;
     }
 
@@ -47,5 +49,6 @@
 
     .img-price {
         align-items: center;
+        flex-direction: row-reverse;
     }
 }

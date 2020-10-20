@@ -159,7 +159,7 @@
     background-color: lightblue;
 
     &:hover {
-        background-color: lighten(lightblue, 15%) !important;
+        background-color: lighten(lightblue, 5%) !important;
     }
 }
 
@@ -195,5 +195,13 @@
 
     &:hover {
         background-color: lighten(gray, 15%) !important;
+    }
+}
+
+.option-lightgreen {
+    background-color: lightgreen;
+
+    &:hover {
+        background-color: lighten(lightgreen, 5%) !important;
     }
 }

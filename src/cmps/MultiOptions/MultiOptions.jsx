@@ -17,16 +17,27 @@ export default function MultiOptions(props) {
         { label: "black ", value: "black" },
         { label: "gray ", value: "gray" },
         { label: "purple ", value: "purple" },
+        { label: "lightblue ", value: "lightblue" },
+        { label: "lightgreen ", value: "lightgreen" },
     ]
 
     const optionsSizes = [
-        { label: "XXL ", value: "XXL" },
-        { label: "XL ", value: "XL" },
-        { label: "L ", value: "L" },
-        { label: "M ", value: "M" },
-        { label: "S ", value: "S" },
         { label: "XS", value: "XS" },
-        { label: "XXS ", value: "XXS" },
+        { label: "S ", value: "S" },
+        { label: "M ", value: "M" },
+        { label: "L ", value: "L" },
+        { label: "XL ", value: "XL" },
+        { label: "XXL ", value: "XXL" },
+        { label: "3XL ", value: "3XL" },
+        { label: "4XL ", value: "4XL" },
+        { label: "5XL ", value: "5XL" },
+        { label: "6XL ", value: "6XL" },
+        { label: "7XL ", value: "7XL" },
+        { label: "8XL ", value: "8XL" },
+        { label: "9XL ", value: "9XL" },
+        { label: "10XL ", value: "10XL" },
+        { label: "11XL ", value: "11XL" },
+        { label: "12XL ", value: "12XL" },
     ]
 
 

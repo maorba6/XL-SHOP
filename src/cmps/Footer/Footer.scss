@@ -23,17 +23,17 @@ footer {
         margin: 0px 5px;
         fill: white;
 
-        &:hover {
-            fill: #f79898;
-        }
+
     }
 
     ul {
         list-style-type: none;
         padding: 0;
-font-size: 18px;
+        font-size: 18px;
+
         li {
             margin-bottom: 3px;
+
             a {
                 &:hover {
                     color: #f79898;
@@ -41,7 +41,13 @@ font-size: 18px;
 
             }
         }
+
+
+    
     }
+
+
+
 
     .copyrights {
         text-align: center;

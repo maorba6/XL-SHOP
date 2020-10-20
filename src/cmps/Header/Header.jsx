@@ -15,7 +15,7 @@ import logo from '../../assets/logo.png'
 
 function _Header(props) {
     const history = useHistory();
-    const [style, setStyle] = useState({ opacity: '0', transform: 'translateX(100%)' })
+    const [style, setStyle] = useState({ opacity: '0', transform: 'translateX(-100%)' })
 
     useEffect(() => {
         props.setUser()
@@ -32,11 +32,10 @@ function _Header(props) {
 
 
     function toggleMenu() {
-        console.log('setstyle');
         if (style.opacity === '0') {
             setStyle(style => ({ ...style, opacity: '1', transform: 'translateX(0%)' }))
         } else {
-            setStyle(style => ({ ...style, opacity: '0', transform: 'translateX(100%)' }))
+            setStyle(style => ({ ...style, opacity: '0', transform: 'translateX(-100%)' }))
 
         }
     }
@@ -47,18 +46,17 @@ function _Header(props) {
             <div onClick={() => toggleMenu()} className={`screen ${style.opacity === '1' ? 'menu-open' : ''}`}></div>
 
             <ul className="flex nav-header">
-                {props.user && props.user.isAdmin && <li><NavLink className="admin" to="/admin" exact >admin</NavLink></li>}
-                {!props.user && <li><NavLink to="/login" className="login" exact >Login</NavLink></li>}
-
-                <li><NavLink to="/shop" exact ><ShopSvg className="svg" title="shop"></ShopSvg></NavLink></li>
-                {props.user && <li><NavLink to="/cart"><CartSvg className="svg" title="cart"></CartSvg></NavLink></li>}
                 {props.user && <li><ProfileSvg className="svg" title="profile" onClick={() => toggleMenu()}></ProfileSvg ></li>}
+                {props.user && <li><NavLink to="/cart"><CartSvg className="svg" title="cart"></CartSvg></NavLink></li>}
+                {!props.user && <li><NavLink to="/login" className="login" exact >Login</NavLink></li>}
+                <li><NavLink to="/shop" exact ><ShopSvg className="svg" title="shop"></ShopSvg></NavLink></li>
+                {props.user && props.user.isAdmin && <li><NavLink className="admin" to="/admin" exact >אדמין</NavLink></li>}
                 <ul style={style} className="menu">
-                    <li> <NavLink onClick={() => toggleMenu()} to="/profile/orders">  My Orders  </NavLink> </li>
-                    <li> <NavLink onClick={() => toggleMenu()} to="/profile/wishlist">Wishlist </NavLink></li>
-                    <li> <NavLink onClick={() => toggleMenu()} to="/profile/account">My Account </NavLink></li>
-                    <li> <NavLink onClick={() => toggleMenu()} to="/profile/edit">Edit Profile </NavLink></li>
-                    <li> <button onClick={() => logout()}>Logout </button></li>
+                    <li> <NavLink onClick={() => toggleMenu()} to="/profile/orders"> ההזמנות שלי  </NavLink> </li>
+                    <li> <NavLink onClick={() => toggleMenu()} to="/profile/wishlist">המועדפים שלי </NavLink></li>
+                    <li> <NavLink onClick={() => toggleMenu()} to="/profile/account"> החשבון שלי </NavLink></li>
+                    <li> <NavLink onClick={() => toggleMenu()} to="/profile/edit"> עריכת פרופיל </NavLink></li>
+                    <li> <button onClick={() => logout()}>התנתק </button></li>
                 </ul>
             </ul>
         </header>

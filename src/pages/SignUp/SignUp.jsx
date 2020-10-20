@@ -26,19 +26,20 @@ class _SignUp extends Component {
     const { password, email, fname, lname } = this.state.user
     const isPasswordValid = this.validatePassword(password)
     if (!isPasswordValid) {
-      utilService.swal('center',2500,'error','Password too weak')
+      utilService.swal('center', 2500, 'error', 'Password too weak')
       return
     }
-    if (!email || !fname || !lname ) {
-      utilService.swal('center',2500,'error','Please fill all the form')
+    if (!email || !fname || !lname) {
+      utilService.swal('center', 2500, 'error', 'Please fill all the form')
       return
     }
     const user = await userService.signup(this.state.user)
+    console.log({ user });
     if (!user) {
-      utilService.swal('center',2500,'error','eMail already exist')
+      utilService.swal('center', 2500, 'error', 'eMail already exist')
       return
     }
-    utilService.swal('center',2500,'success','Please check your eMail to activate your account')
+    utilService.swal('center', 2500, 'success', 'Please check your eMail to activate your account')
     this.props.setUser()
     this.props.history.push('/')
 
@@ -86,14 +87,14 @@ class _SignUp extends Component {
           </div>
           <InputPassword handleChange={this.handleChange} user={user} />
 
-{/* 
+          {/* 
           <label>
             <input name="elIsAgreeTerms" value={elIsAgreeTerms} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> I agree to the
             <button className="button-link">terms of service</button> and
             <button className="button-link">privacy policy.</button>
           </label> */}
           <label>
-          <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> שלחו לי עדכונים למבצעים למייל
+            <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> שלחו לי עדכונים למבצעים למייל
           </label>
           <button className="signup-button">הרשמה</button>
         </form>

@@ -28,34 +28,36 @@ function _OrderDetails(props) {
 
     const { order, date } = state
     return (
-        (props.user && order && <div>
-            <h2>order time :{date}</h2>
+        (props.user && order && <div className=" container-order-details flex" >
+            <div >
+                <h2>תאריך ההזמנה :{date}</h2>
 
-            order id :{order.id}
-            {
-                order.items.map(item =>
-                    <div key={makeId()} className="order-list">
-                        <div className="order-preview-container flex">
-                            <img src={item.imgUrls[0]} />
-                            <div className="order-details">
+            מס' הזמנה :{order.id}
+                {
+                    order.items.map(item =>
+                        <div key={makeId()} className="order-list">
+                            <div className="order-preview-container flex">
+                                <img src={item.imgUrls[0]} />
+                                <div className="order-details">
 
-                                <p>
-                                    {item.name}
-                                </p>
-                                <p>
-                                    Color: {item.color}
-                                </p>
-                                <p>
-                                    Size: {item.size}
-                                </p>
-                                <p>
-                                    Price: ${item.price}
-                                </p>
+                                    <p>
+                                        {item.name}
+                                    </p>
+                                    <p>
+                                        צבע: {item.color}
+                                    </p>
+                                    <p>
+                                        מידה: {item.size}
+                                    </p>
+                                    <p>
+                                        מחיר: ${item.price}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </div>)
-            }
-            <p className="total-price">Total Price: ${order.totalPrice}</p>
+                        </div>)
+                }
+                <p className="total-price"> מחיר כולל: ${order.totalPrice}</p>
+            </div>
         </div>)
     )
 }

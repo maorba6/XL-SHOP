@@ -130,7 +130,7 @@ function _Cart(props) {
                 </div>}
 
 
-            {props.user && <div className="buy-now">
+            {props.user && <div className="buy-now rtl">
                 <h2>
                     סיכום הזמנה
                     </h2>
@@ -156,7 +156,7 @@ function _Cart(props) {
                 דמי משלוח בפחות מ-300 ש"ח יהיו בסך 45 ש"ח  
                 החזרת מוצר וביטול עיסקה עד חודש עם הגעה למקום פיזית עם המוצר        
                 </div>
-                <button onClick={buyCart}>  Buy Now </button>
+                <button onClick={buyCart}>   הזמן עכשיו </button>
             </div>}
 
         </div>

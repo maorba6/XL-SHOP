@@ -148,13 +148,13 @@ function _Details(props) {
                         <span> קטגוריה:  {tranlate(item.category)}</span>
                     </div>
                     <div className="size ">
-                        <div className=" detail pick">בחר מידה{chosenSize}</div>
+                        <div className=" detail pick">בחר מידה: {chosenSize}</div>
                         {item.sizes.map(size => {
                             return <button onClick={() => setSize(size)} key={size} className={"option option-size " + (size === chosenSize)}>{size}</button>
                         })}
                     </div>
                     <div className="color ">
-                        <div className="detail pick"> בחר צבע :{chosenColor}</div>
+                        <div className="detail pick"> בחר צבע : {chosenColor}</div>
                         {item.colors.map(color => {
                             return <button onClick={() => setColor(color)} key={color} className={'option option-' + color + (color === chosenColor)}></button>
                         })}

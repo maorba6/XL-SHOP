@@ -7,7 +7,6 @@ footer {
     padding: 15px 30px;
 
     * {
-
         color: white;
     }
 
@@ -23,8 +22,6 @@ footer {
         height: 25px;
         margin: 0px 5px;
         fill: white;
-
-
     }
 
     ul {
@@ -39,21 +36,19 @@ footer {
                 &:hover {
                     color: #f79898;
                 }
-
             }
         }
-
-
-    
     }
-
-
-
 
     .copyrights {
         text-align: center;
     }
+}
 
-
-
+@media(max-width:500px) {
+    footer {
+        .content {
+            flex-direction: column;
+        }
+    }
 }

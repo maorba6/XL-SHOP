@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   margin: 0;
-
 }
 
 a {
@@ -34,7 +33,6 @@ input {
   padding: 0px 15px;
 }
 
-
 @media (max-width:1200px) {
   .app-container {
     width: 100%;
@@ -60,7 +58,6 @@ button {
 @import './scss/setup/_functions.scss';
 @import './scss/setup/_mixin.scss';
 @import './scss/setup/_typography.scss';
-
 
 // basics
 @import './scss/basics/_helpers.scss';

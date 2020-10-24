@@ -3,12 +3,10 @@ import Axios from 'axios';
 const BASE_URL = process.env.NODE_ENV === 'production' ?
     '/api/' :
     '//localhost:3000/api/'
-
-
+    
 var axios = Axios.create({
     withCredentials: true
 });
-
 
 export default {
     get(endpoint, data) {
@@ -35,7 +33,7 @@ async function ajax(endpoint, method = 'get', data = null) {
         return res.data;
     } catch (err) {
         console.log(err);
-        // if (err.response.status === 401) {
-        // }
+        if (err.response.status === 401) {
+        }
     }
 }

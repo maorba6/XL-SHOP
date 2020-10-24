@@ -148,7 +148,7 @@ function _Cart(props) {
 
                 </div>
                 <p className="rtl"> 
-                    סכום כולל : ₪{order.totalPrice}
+                   ככככ: ₪{order.totalPrice}
                 </p>
                 <div className="rtl bold">
                 משלוחים לכל הארץ

@@ -9,12 +9,6 @@ export const itemService = {
     getItemsByCategory
 }
 
-
-
-// const items = [
-
-// ]
-
 async function getItems(filterBy = null) {
     if (!filterBy) {
         return await httpService.get(`item`)
@@ -22,7 +16,6 @@ async function getItems(filterBy = null) {
         const { category, name, sortByPrice, subcategory, color } = filterBy
         return await httpService.get('item' + `?category=${category}&name=${name}&sortByPrice=${sortByPrice}&subcategory=${subcategory}&color=${color}`)
     }
-
 }
 
 async function getItemsByCategory(category, id) {
@@ -30,7 +23,6 @@ async function getItemsByCategory(category, id) {
     items = items.filter(item => item._id !== id)
     return items
 }
-
 
 async function removeItem(id) {
     return await httpService.delete(`item/${id}`)
@@ -43,7 +35,6 @@ function sort(arr) {
 async function _updateItem(item) {
     return await httpService.put(`item/${item._id}`, item)
 }
-
 
 async function _addItem(item) {
     return await httpService.post(`item/`, item)
@@ -65,7 +56,6 @@ function getEmptyItem() {
         imgUrls: []
     }
 }
-
 
 async function getItemById(id) {
     return await httpService.get(`item/${id}`)

@@ -57,7 +57,7 @@ function _Cart(props) {
     async function buyCart() {
 
         if (!order.address || !order.phoneNumber || !order.items.length) {
-            utilService.swal('center', 2500, 'error', 'Please add Phone number and Address')
+            utilService.swal('center', 2500, 'error', 'נא למלא מספר טלפון,כתובת ולוודא שבחרת פריטים ')
 
             return
         }
@@ -72,8 +72,9 @@ function _Cart(props) {
             title: 'ההזמנה נשלחה',
             // text: '',
             // footer: '<a href>Why do I have this issue?</a>'
-          })
-       
+        })
+        history.push('/')
+
     }
 
 

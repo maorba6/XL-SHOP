@@ -51,7 +51,11 @@ export function Filter(props) {
     }
 
     function setCategory(categoryEn, categoryHe) {
-        console.log('g');
+        console.log(!!categoryEn);
+        if (!categoryEn) {
+            setState(state => ({ ...state, filterBy: { ...state.filterBy, subcategory: '' } }))
+            setState(state => ({ ...state, filterByHe: { ...state.filterByHe, subcategory: '' } }))
+        }
         setState(state => ({ ...state, filterBy: { ...state.filterBy, category: categoryEn } }))
         setState(state => ({ ...state, filterByHe: { ...state.filterByHe, category: categoryHe } }))
     }
@@ -64,9 +68,9 @@ export function Filter(props) {
         setState(state => ({ ...state, filterBy: { ...state.filterBy, subcategory: subcategoryEn } }))
         setState(state => ({ ...state, filterByHe: { ...state.filterByHe, subcategory: subcategoryHe } }))
     }
-    function setPrice(sortByPriceEn,sortByPriceHe) {
+    function setPrice(sortByPriceEn, sortByPriceHe) {
         setState(state => ({ ...state, filterBy: { ...state.filterBy, sortByPrice: sortByPriceEn } }))
-        setState(state => ({ ...state, filterByHe: { ...state.filterByHe,sortByPrice: sortByPriceHe } }))
+        setState(state => ({ ...state, filterByHe: { ...state.filterByHe, sortByPrice: sortByPriceHe } }))
     }
 
     function toggleColors() {
@@ -124,6 +128,7 @@ export function Filter(props) {
                     <label > קטגוריה</label>
                     <button onClick={() => toggleCategory()} className='btn-sort'  >{state.filterByHe.category}</button>
                     <ul style={state.categoryStyle} className=" flex column" >
+                        <li className={state.filterBy.category === '' ? 'active' : ''} onClick={() => setCategory('', '')} >הכל</li>
                         <li className={state.filterBy.category === 'shirts' ? 'active' : ''} onClick={() => setCategory('shirts', 'חולצות')} >חולצות</li>
                         <li className={state.filterBy.category === 'pants' ? 'active' : ''} onClick={() => setCategory('pants', 'מכנסיים')} >מכנסיים</li>
                         <li className={state.filterBy.category === 'accessories' ? 'active' : ''} onClick={() => setCategory('accessories', 'אביזרים')} >אביזרים</li>

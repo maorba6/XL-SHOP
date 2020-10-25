@@ -18,7 +18,6 @@ function _Profile(props) {
 
     useEffect(() => {
         if (!props.user) {
-            history.push('/')
         }
     }, [])
 

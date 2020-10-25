@@ -3,8 +3,6 @@ import { Preview } from '../Preview/Preview'
 import './List.scss'
 export function List({ items, removeItem, toggleLike }) {
 
-
-    console.log({ items });
     return (
         < section >
             {items && < div className="item-list">

@@ -9,12 +9,12 @@ export function Filter(props) {
         subcategoryStyle: { display: 'none' },
         colorsStyle: { display: 'none' },
         priceStyle: { display: 'none' },
-        shirts: [{ he: 'חולצות פולו', en: 'Polo-Shirts' }, { he: 'טי שירט', en: 'T-shirts' }, { he: 'מכופתרות', en: 'Button-Down-Shirts' }],
-        pants: [{ he: 'מכנסי כותנה', en: 'Cotton-Pants' }, { he: 'גינסים', en: 'jeans' }, { he: 'מכנסי אלגנט', en: 'Elegant-pants' }],
+        shirts: [{ he: 'חולצות פולו', en: 'Polo-Shirts' }, { he: 'טי שירט', en: 'T-Shirts' }, { he: 'מכופתרות', en: 'Button-Down-Shirts' }],
+        pants: [{ he: 'מכנסי כותנה', en: 'Cotton-Pants' }, { he: 'גינסים', en: 'Jeans' }, { he: 'מכנסי אלגנט', en: 'Elegant-Pants' }],
         accessories: [
             { he: 'מעילים', en: 'Coats' }, { he: 'חליפות', en: 'Suits' }, { he: 'גרביים', en: 'Socks' }, { he: 'חגורות', en: 'Belts' },
             { he: 'תחתונים', en: 'Underpants' }, { he: 'גופיות', en: 'Tank - Tops' }, { he: 'עניבות', en: 'Ties' }, { he: 'מכנס טריקו', en: 'Tricot' },
-            { he: 'מכנסי פוטר', en: 'Potter - shorts', }, { he: 'סוודרים', en: 'Sweaters' }, { he: 'שליקס', en: 'Shlikes' }, { he: 'ברמודות', en: 'Bermudas' },
+            { he: 'מכנסי פוטר', en: 'Potter - Shorts', }, { he: 'סוודרים', en: 'Sweaters' }, { he: 'שליקס', en: 'Shlikes' }, { he: 'ברמודות', en: 'Bermudas' },
             { he: 'קרדיגן', en: 'Cardigans' }, { he: 'קפוצ\'ונים', en: 'Hoddies' }],
 
         filterBy: {
@@ -51,7 +51,11 @@ export function Filter(props) {
     }
 
     function setCategory(categoryEn, categoryHe) {
-        console.log('g');
+        console.log(!!categoryEn);
+        if (!categoryEn) {
+            setState(state => ({ ...state, filterBy: { ...state.filterBy, subcategory: '' } }))
+            setState(state => ({ ...state, filterByHe: { ...state.filterByHe, subcategory: '' } }))
+        }
         setState(state => ({ ...state, filterBy: { ...state.filterBy, category: categoryEn } }))
         setState(state => ({ ...state, filterByHe: { ...state.filterByHe, category: categoryHe } }))
     }
@@ -64,9 +68,9 @@ export function Filter(props) {
         setState(state => ({ ...state, filterBy: { ...state.filterBy, subcategory: subcategoryEn } }))
         setState(state => ({ ...state, filterByHe: { ...state.filterByHe, subcategory: subcategoryHe } }))
     }
-    function setPrice(sortByPriceEn,sortByPriceHe) {
+    function setPrice(sortByPriceEn, sortByPriceHe) {
         setState(state => ({ ...state, filterBy: { ...state.filterBy, sortByPrice: sortByPriceEn } }))
-        setState(state => ({ ...state, filterByHe: { ...state.filterByHe,sortByPrice: sortByPriceHe } }))
+        setState(state => ({ ...state, filterByHe: { ...state.filterByHe, sortByPrice: sortByPriceHe } }))
     }
 
     function toggleColors() {
@@ -124,6 +128,7 @@ export function Filter(props) {
                     <label > קטגוריה</label>
                     <button onClick={() => toggleCategory()} className='btn-sort'  >{state.filterByHe.category}</button>
                     <ul style={state.categoryStyle} className=" flex column" >
+                        <li className={state.filterBy.category === '' ? 'active' : ''} onClick={() => setCategory('', '')} >הכל</li>
                         <li className={state.filterBy.category === 'shirts' ? 'active' : ''} onClick={() => setCategory('shirts', 'חולצות')} >חולצות</li>
                         <li className={state.filterBy.category === 'pants' ? 'active' : ''} onClick={() => setCategory('pants', 'מכנסיים')} >מכנסיים</li>
                         <li className={state.filterBy.category === 'accessories' ? 'active' : ''} onClick={() => setCategory('accessories', 'אביזרים')} >אביזרים</li>

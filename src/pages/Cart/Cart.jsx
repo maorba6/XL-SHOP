@@ -56,8 +56,8 @@ function _Cart(props) {
 
     async function buyCart() {
 
-        if (!order.address || !order.phoneNumber) {
-            utilService.swal('center', 2500, 'error', 'Please add Phone number and Address')
+        if (!order.address || !order.phoneNumber || !order.items.length) {
+            utilService.swal('center', 2500, 'error', 'נא למלא מספר טלפון,כתובת ולוודא שבחרת פריטים ')
 
             return
         }
@@ -72,8 +72,9 @@ function _Cart(props) {
             title: 'ההזמנה נשלחה',
             // text: '',
             // footer: '<a href>Why do I have this issue?</a>'
-          })
-       
+        })
+        history.push('/')
+
     }
 
 
@@ -147,10 +148,10 @@ function _Cart(props) {
                     סכום: ₪{order.totalPrice}
                 </p>
                 <div className="rtl bold">
-                    ,משלוחים לכל הארץ
+                    משלוחים לכל הארץ
                     ,משלוח מסכום של 300 ש"ח חינם
                     ,דמי משלוח בפחות מ-300 ש"ח יהיו בסך 45 ש"ח
-                    החזרת מוצר וביטול עיסקה עד חודש עם הגעה למקום פיזית עם המוצר
+                    ,החזרת מוצר וביטול עיסקה עד חודש עם הגעה למקום פיזית עם המוצר
                 </div>
                 <button onClick={buyCart}>   הזמן עכשיו </button>
             </div>}

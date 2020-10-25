@@ -26,13 +26,13 @@ export default function UserOrders(props) {
                     <button className="app-btn" onClick={() => goShop()}>לחנות</button>
                 </div>}
             <div className="orders-list">
-                {user.orders.map(order => {
+                {user.orders.length && user.orders.map(order => {
                     return <div className="order" key={order.id}>
                         <img src={order.items[0].imgUrls[0]} alt="" />
                         <div className="flex column">
                             <div className="order-details rtl">
-                                <p>נוצר ב: {order.createdAt}</p>
-                                <p className="text-he">{order.id} <label htmlFor="">:מספר הזמנה</label></p>
+                                <p>נוצר ב: {new Date(order.createdAt).toLocaleDateString('en-GB')}</p>
+                                <p className="order-id">  <label >מספר הזמנה:</label>{order.id}</p>
                                 <p>כמות מוצרים: {order.items.length}</p>
                                 <p>סכום כולל: ₪{order.totalPrice}</p>
                                 <Link to={`/order/${order.id}`}>פירוט הזמנה</Link>

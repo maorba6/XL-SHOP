@@ -7,7 +7,7 @@ import './UserOrders.scss'
 import { List } from '../../cmps/List/List'
 
 export default function UserOrders(props) {
-    const { user, toggleLike, clearOrders } = props
+    const { user } = props
 
     const history = useHistory();
 
@@ -22,12 +22,11 @@ export default function UserOrders(props) {
             {!user.orders.length &&
                 <div className="no-orders">
                     <h1>אין כרגע הזמנות ברשימה</h1>
-                    <h3> when you buy items the order's deatils will appear here </h3>
-                    <button className="app-btn" onClick={() => goShop()}>go shop</button>
+                    <h3>בקניית מוצרים , הם יופיע כאן</h3>
+                    <button className="app-btn" onClick={() => goShop()}>לחנות</button>
                 </div>}
             <div className="orders-list">
                 {user.orders.map(order => {
-                    console.log(order.id);
                     return <div className="order" key={order.id}>
                         <img src={order.items[0].imgUrls[0]} alt="" />
                         <div className="flex column">

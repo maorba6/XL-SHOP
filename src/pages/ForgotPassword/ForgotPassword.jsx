@@ -100,7 +100,7 @@ export function _ForgotPassword(props) {
 
 
     return (
-        <div className="forgot-password">
+        <div className="forgot-password rtl">
             {state.user.id &&
                 <form className="flex column after-confirm">
                     <div className="new-pass flex column">

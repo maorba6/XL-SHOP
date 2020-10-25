@@ -78,6 +78,8 @@ function _Cart(props) {
             icon: 'success',
             title: 'Order has been set, soon we will call you in order to finish the Purchase '
         })
+        history.push('/')
+
     }
 
 
@@ -119,7 +121,7 @@ function _Cart(props) {
                                     {item.size}
                                 </p>
                                 <p>
-                                ₪{item.price}
+                                    ₪{item.price}
                                 </p>
                             </div>
                             <div className="cancel-edit-cart-item">
@@ -147,14 +149,14 @@ function _Cart(props) {
                     <input className="app-input" type="number" name="phoneNumber" value={order.phoneNumber} onChange={handleChange} />
 
                 </div>
-                <p className="rtl"> 
-                   ככככ: ₪{order.totalPrice}
+                <p className="rtl">
+                    סכום: ₪{order.totalPrice}
                 </p>
                 <div className="rtl bold">
-                משלוחים לכל הארץ
-                משלוח מסכום של 300 ש"ח חינם
-                דמי משלוח בפחות מ-300 ש"ח יהיו בסך 45 ש"ח  
-                החזרת מוצר וביטול עיסקה עד חודש עם הגעה למקום פיזית עם המוצר        
+                    ,משלוחים לכל הארץ
+                    ,משלוח מסכום של 300 ש"ח חינם
+                    ,דמי משלוח בפחות מ-300 ש"ח יהיו בסך 45 ש"ח
+                    החזרת מוצר וביטול עיסקה עד חודש עם הגעה למקום פיזית עם המוצר
                 </div>
                 <button onClick={buyCart}>   הזמן עכשיו </button>
             </div>}

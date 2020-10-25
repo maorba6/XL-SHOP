@@ -17,8 +17,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-left: 20px;
-        ;
+        
 
         h1 {
             // font-size: 35px;
@@ -42,7 +41,6 @@
 
 .react-multi-carousel-list   {
     direction: ltr;
-    margin-left: 15px;
 }
 
 
@@ -70,10 +68,17 @@
     .item-container {
         margin-left: 15px;
     }
+    
 
     .details {
+        width: 100%;
         .signin-button {
             margin-top: 30px !important;
+            padding: unset;
+            align-self: center;
+        }
+        div{
+            margin : 10px 0;
         }
     }
 }

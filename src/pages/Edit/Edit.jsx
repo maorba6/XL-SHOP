@@ -14,9 +14,9 @@ class _Edit extends Component {
         isClrsSaved: false,
         isSizesSaved: false,
         shirts: ['Polo-Shirts', 'T-Shirts', 'Button-Down-Shirts'],
-        pants: ['Elegant-Pשnts', 'Jeans', 'Cotton-Pants'],
+        pants: ['Elegant-Pants', 'Jeans', 'Cotton-Pants'],
         accessories: ['Coats', 'Suits', 'Socks', 'Belts', 'Underpants', 'Tank - Tops', 'Ties',
-            'Tricot', 'Potter - shorts', 'Sweaters', 'Shlikes', 'Bermudas', 'Cardigans', 'Hoddies'],
+            'Tricot', 'Potter - Shorts', 'Sweaters', 'Shlikes', 'Bermudas', 'Cardigans', 'Hoddies'],
     }
 
     async componentDidMount() {

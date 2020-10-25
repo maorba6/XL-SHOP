@@ -65,7 +65,7 @@ class _SignUp extends Component {
 
 
   render() {
-    const { user, elIsAgreeTerms, inputType, togglePassword } = this.state
+    const { user } = this.state
     return (
       <section className=" rtl flex signup-section" >
         <form className="flex signup-form" onSubmit={(ev) => this.signup(ev)}>
@@ -86,13 +86,6 @@ class _SignUp extends Component {
             <input className="signup-form-group" name="email" value={user.email} onChange={this.handleChange} type="email" />
           </div>
           <InputPassword handleChange={this.handleChange} user={user} />
-
-          {/* 
-          <label>
-            <input name="elIsAgreeTerms" value={elIsAgreeTerms} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> I agree to the
-            <button className="button-link">terms of service</button> and
-            <button className="button-link">privacy policy.</button>
-          </label> */}
           <label>
             <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> שלחו לי עדכונים למבצעים למייל
           </label>

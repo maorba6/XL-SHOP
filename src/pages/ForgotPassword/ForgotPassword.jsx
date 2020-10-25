@@ -13,8 +13,6 @@ import './ForgotPassword.scss'
 export function _ForgotPassword(props) {
 
     const history = useHistory();
-
-
     const [state, setState] = useState(
         {
             inputType: 'password',
@@ -43,7 +41,6 @@ export function _ForgotPassword(props) {
         utilService.swal('center',2500,'success','Email sent')
     }
 
-
     function savePassword(ev) {
         ev.preventDefault()
         const isPasswordValid = validatePassword(state.user.newPass)
@@ -69,8 +66,6 @@ export function _ForgotPassword(props) {
         return strongRegex.test(password)
     }
 
-
-
     function toggleShowPassword(ev) {
         ev.preventDefault()
         if (state.inputType === 'password') {
@@ -81,11 +76,7 @@ export function _ForgotPassword(props) {
         }
     }
 
-
-
-
     useEffect(() => {
-
         if (props.user) history.push('/')
         const { token } = props.match.params
         if (token) {
@@ -97,7 +88,6 @@ export function _ForgotPassword(props) {
         } else {
         }
     }, [])
-
 
     return (
         <div className="forgot-password rtl">

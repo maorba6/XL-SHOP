@@ -26,7 +26,8 @@ export default function UserOrders(props) {
                     <button className="app-btn" onClick={() => goShop()}>לחנות</button>
                 </div>}
             <div className="orders-list">
-                {user.orders.map(order => {
+                {user.orders.length && user.orders.map(order => {
+                    console.log({ order });
                     return <div className="order" key={order.id}>
                         <img src={order.items[0].imgUrls[0]} alt="" />
                         <div className="flex column">

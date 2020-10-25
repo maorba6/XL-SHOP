@@ -56,7 +56,7 @@ function _Cart(props) {
 
     async function buyCart() {
 
-        if (!order.address || !order.phoneNumber) {
+        if (!order.address || !order.phoneNumber || !order.items.length) {
             utilService.swal('center', 2500, 'error', 'Please add Phone number and Address')
 
             return
@@ -153,10 +153,10 @@ function _Cart(props) {
                     סכום: ₪{order.totalPrice}
                 </p>
                 <div className="rtl bold">
-                    ,משלוחים לכל הארץ
+                    משלוחים לכל הארץ
                     ,משלוח מסכום של 300 ש"ח חינם
                     ,דמי משלוח בפחות מ-300 ש"ח יהיו בסך 45 ש"ח
-                    החזרת מוצר וביטול עיסקה עד חודש עם הגעה למקום פיזית עם המוצר
+                    ,החזרת מוצר וביטול עיסקה עד חודש עם הגעה למקום פיזית עם המוצר
                 </div>
                 <button onClick={buyCart}>   הזמן עכשיו </button>
             </div>}

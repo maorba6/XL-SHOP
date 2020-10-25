@@ -1,4 +1,5 @@
 .filter-container {
+    flex-wrap: wrap;
     padding: 15px;
     border: 1px solid black;
     z-index: 0;
@@ -103,4 +104,19 @@
     width: 25px;
     height: 25px;
     margin: 5px;
+}
+
+
+
+@media(max-width:1000px) {
+    .filter-container {
+        padding: 12px 4px;
+    }
+
+    .select {
+        ul {
+            position: relative;
+            top: 0px;
+        }
+    }
 }

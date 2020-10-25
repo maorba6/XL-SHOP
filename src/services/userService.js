@@ -43,11 +43,9 @@ async function forgotPassword(email) {
     return await httpService.get('user/forgotPassword' + `?email=${email}`)
 }
 
-
 async function sendMails(msg) {
     return await httpService.get('user/sendMails' + `?text=${msg.text}&title=${msg.title}`)
 }
-
 
 async function signup(userCreds) {
     const user = await httpService.post('auth/signup', userCreds)
@@ -65,15 +63,11 @@ async function login(userCred) {
     return _handleLogin(user)
 }
 
-
-
 function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
     loggedinUser = user
     return user;
 }
-
-
 
 async function updateUser(user) {
     const updatedUser = await httpService.put(`user/update/${user._id}`, user)
@@ -81,7 +75,6 @@ async function updateUser(user) {
     return _handleLogin(updatedUser)
 
 }
-
 
 async function addTocart(item) {
     return await httpService.post(`user/cart/`, item)

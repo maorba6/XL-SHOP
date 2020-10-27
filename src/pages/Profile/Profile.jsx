@@ -42,18 +42,18 @@ function _Profile(props) {
         if (editedUser.newPass && editedUser.currPass && editedUser.newPassConfirm) {
             const isPasswordValid = validatePassword(editedUser.newPass)
             if (!isPasswordValid) {
-            utilService.swal('center',2500,'error','Password too weak')
+            utilService.swal('center',2500,'error','סיסמא חלשה')
 
                 return
             }
             if (editedUser.newPass !== editedUser.newPassConfirm) {
-                utilService.swal('center',2500,'error','Password dont match')
+                utilService.swal('center',2500,'error','סיסמאות לא תואמות')
 
                 return
             }
             await props.saveUser(editedUser)
             await props.setUser()
-            utilService.swal('center',2500,'success','Password Changed')
+            utilService.swal('center',2500,'success','סיסמא עודכנה')
 
             //add here msg that password changed 
             history.push('/')

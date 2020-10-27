@@ -25,7 +25,7 @@ function _Main(props) {
     async function toggleLike(ev, liked, item) {
         ev.preventDefault()
         if (!props.user){
-            utilService.swal('center',2500,'error','Please login')
+            utilService.swal('center',2500,'error','נא להתחבר ')
             return
     } 
         if (liked) {

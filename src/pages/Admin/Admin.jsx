@@ -25,7 +25,7 @@ export function _Admin(props) {
 
     function sendMails() {
         userService.sendMails(msg) 
-        utilService.swal('center',2500,'success','Mail sent')
+        utilService.swal('center',2500,'success','מייל נשלח')
         setMsg({ text: '', title: '' })
     }
 

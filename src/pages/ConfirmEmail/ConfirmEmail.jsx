@@ -21,7 +21,7 @@ export function ConfirmEmail(props) {
                 const id = await userService.confirmEmail(token, type)
                 console.log({id});
                 if (id) {
-                    utilService.swal('center', 2500, 'success', 'Email confirmed please log in')
+                    utilService.swal('center', 2500, 'success', 'מייל אושר, נא התחבר')
                 }
                 history.push('/login')
             } else {

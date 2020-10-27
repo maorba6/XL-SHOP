@@ -89,7 +89,7 @@ function _Details(props) {
         }
         const itemToCart = state.itemToBuy
         if (!itemToCart.size || !itemToCart.color) {
-            utilService.swal('center', 2500, 'error', 'Please choose size and color')
+            utilService.swal('center', 2500, 'error', 'נא לבחור צבע ומידה')
             return
         }
         delete itemToCart.colors

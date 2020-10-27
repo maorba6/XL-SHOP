@@ -38,23 +38,23 @@ export function _ForgotPassword(props) {
 
     function forgotPassword() {
         userService.forgotPassword(state.email)
-        utilService.swal('center',2500,'success','Email sent')
+        utilService.swal('center',2500,'success','מייל נשלח')
     }
 
     function savePassword(ev) {
         ev.preventDefault()
         const isPasswordValid = validatePassword(state.user.newPass)
         if (!isPasswordValid) {
-            utilService.swal('center',2500,'error','Password to weak')
+            utilService.swal('center',2500,'error','סיסמא חלשה מידי')
 
             return
         }
         if (state.user.newPass !== state.user.confirmNewPass) {
-            utilService.swal('center',2500,'error','Password dont match')
+            utilService.swal('center',2500,'error','סיסמאות לא תואמות')
             return
         }
         userService.savePassword(state.user)
-        utilService.swal('center',2500,'success','Password Changed')
+        utilService.swal('center',2500,'success','סיסמא עודכנה בהצלחה')
 
         history.push('/login')
 

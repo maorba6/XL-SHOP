@@ -43,7 +43,7 @@ class _Home extends Component {
     toggleLike = async (ev, liked, item) => {
         ev.preventDefault()
         if (!this.props.user) {
-            utilService.swal('center', 2500, 'error', 'Please login')
+            utilService.swal('center', 2500, 'error', 'נא להתחבר ')
             return
         }
         if (liked) {

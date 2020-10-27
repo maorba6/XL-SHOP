@@ -1,14 +1,22 @@
-.user-edit{
+.user-edit {
     height: 200px;
     width: 100%;
     min-width: 200px;
     justify-content: space-between;
-    div{
+
+    div {
         height: 100%;
     }
-    label{
+
+    label {
         text-transform: capitalize;
     }
 
-       
+    .email-sends {
+        label {
+            margin-right: 5px;
+        }
+
+    }
+
 }

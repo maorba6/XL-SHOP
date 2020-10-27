@@ -87,7 +87,8 @@ class _SignUp extends Component {
           </div>
           <InputPassword handleChange={this.handleChange} user={user} />
           <label>
-            <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> שלחו לי עדכונים למבצעים למייל
+            <input name="emailSends" value={user.emailSends} onChange={this.handleChange} className="form-checkbox" type="checkbox" /> 
+            שלחו לי עדכונים למבצעים למייל
           </label>
           <button className="signup-button">הרשמה</button>
         </form>

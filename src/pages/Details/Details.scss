@@ -1,4 +1,4 @@
-.item-container{
+.item-container {
     display: flex;
 }
 
@@ -7,7 +7,7 @@
     margin-top: 30px;
     justify-content: space-around;
 
-    
+
 
     .title-like {
         padding: 15px;
@@ -41,7 +41,7 @@
 
 }
 
-.react-multi-carousel-list   {
+.react-multi-carousel-list {
     direction: ltr;
 }
 
@@ -70,18 +70,20 @@
     .item-container {
         margin-left: 15px;
     }
-    
+
 
     .details {
-        margin: 0px;
+        margin: 0px !important;
         width: 100%;
+
         .signin-button {
             margin-top: 30px !important;
             padding: unset;
             align-self: center;
         }
-        div{
-            margin : 10px 0;
+
+        div {
+            margin: 10px 0;
         }
     }
 }

@@ -44,7 +44,13 @@
 
 
 @media (max-width:500px) {
-    .order-details {
-        padding: 10px !important;
+    .user-orders {
+        img {
+            width: 170px;
+        }
+
+        .order-details {
+            padding: 4px !important;
+        }
     }
 }

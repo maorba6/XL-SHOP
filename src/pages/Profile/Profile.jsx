@@ -17,7 +17,9 @@ function _Profile(props) {
     const history = useHistory()
 
     useEffect(() => {
-        if (!props.user) {
+        window.scrollTo(0, 0)
+        if (user) {
+            history.push('/login')
         }
     }, [])
 
@@ -25,7 +27,7 @@ function _Profile(props) {
         setState(state => ({ ...state, current }))
 
     }
-    
+
     useEffect(() => {
         setCurrent(props.match.params.current)
     }, [props.match.params])
@@ -42,18 +44,18 @@ function _Profile(props) {
         if (editedUser.newPass && editedUser.currPass && editedUser.newPassConfirm) {
             const isPasswordValid = validatePassword(editedUser.newPass)
             if (!isPasswordValid) {
-            utilService.swal('center',2500,'error','סיסמא חלשה')
+                utilService.swal('center', 2500, 'error', 'סיסמא חלשה')
 
                 return
             }
             if (editedUser.newPass !== editedUser.newPassConfirm) {
-                utilService.swal('center',2500,'error','סיסמאות לא תואמות')
+                utilService.swal('center', 2500, 'error', 'סיסמאות לא תואמות')
 
                 return
             }
             await props.saveUser(editedUser)
             await props.setUser()
-            utilService.swal('center',2500,'success','סיסמא עודכנה')
+            utilService.swal('center', 2500, 'success', 'סיסמא עודכנה')
 
             //add here msg that password changed 
             history.push('/')

@@ -21,13 +21,17 @@ function _Main(props) {
     }, [props.match.params])
 
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+
+    }, [])
 
     async function toggleLike(ev, liked, item) {
         ev.preventDefault()
-        if (!props.user){
-            utilService.swal('center',2500,'error','נא להתחבר ')
+        if (!props.user) {
+            utilService.swal('center', 2500, 'error', 'נא להתחבר ')
             return
-    } 
+        }
         if (liked) {
             const index = props.user.favs.findIndex(i => i._id === item._id)
             props.user.favs.splice(index, 1)

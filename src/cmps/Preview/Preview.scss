@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 20px;
+
     p {
         color: black;
         text-transform: capitalize;
@@ -21,7 +22,9 @@
     .delete-item {
         font-weight: bolder;
         font-size: large;
+        cursor: pointer;
     }
+
 
     .item-price {
         font-size: large;

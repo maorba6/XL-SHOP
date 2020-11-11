@@ -1,6 +1,6 @@
 .edit {
     text-transform: capitalize;
-        
+
     button {
         text-transform: capitalize;
     }
@@ -45,42 +45,47 @@
 
     .edit {
         text-transform: capitalize;
-            flex-direction: column;
+        flex-direction: column;
+
         button {
             text-transform: capitalize;
         }
-    
+
         img {
             height: 100px;
             width: 100px;
         }
-    
+
         height: 70vh;
-    
+
         .details {
             display: flex;
             flex-direction: column;
             width: 100%;
-    
+
             div {
                 display: flex;
                 justify-content: space-between;
-    
+
                 select {
                     width: 50%;
                 }
-    
+
                 input {
                     width: 70%;
                 }
-    
+
             }
-    
-    
+
+
         }
-    
-    
-    
-    
+
+
+        .wrap {
+            flex-wrap: wrap;
+        }
+
+
+
     }
 }

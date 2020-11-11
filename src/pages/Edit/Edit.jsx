@@ -13,10 +13,10 @@ class _Edit extends Component {
         item: null,
         isClrsSaved: false,
         isSizesSaved: false,
-        shirts: ['Polo-Shirts', 'T-Shirts', 'Button-Down-Shirts'],
-        pants: ['Elegant-Pants', 'Jeans', 'Cotton-Pants'],
-        accessories: ['Coats', 'Suits', 'Socks', 'Belts', 'Underpants', 'Tank - Tops', 'Ties',
-            'Tricot', 'Potter - Shorts', 'Sweaters', 'Shlikes', 'Bermudas', 'Cardigans', 'Hoddies'],
+        shirts: ['Polo-Shirts', 'T-Shirts', 'Button-Down-Shirts', 'Sweaters',],
+        pants: ['Elegant-Pants', 'Jeans', 'Cotton-Pants', 'Dagmach-Pants', 'Potter-Pants', 'Tricot-Pants', 'Bermudas'],
+        accessories: ['Socks', 'Belts', 'Underpants', 'Nose-Handkerchiefs', 'Ties', 'Shlikes'],
+        jackets: ['Coats', 'Sweatshirt', 'Cardigans', 'Jackets', 'Suits', 'Hoddies']
     }
 
     async componentDidMount() {
@@ -111,31 +111,23 @@ class _Edit extends Component {
         } else return <div>Loading...</div>
 
         return (
-            <form className="edit flex" onSubmit={this.saveItem} >
-                <div>
-                    <UploadImg uploadImg={this.onUploadImg} ></UploadImg>
-                    {item.imgUrls.map(imgUrl => {
-                        return <div key={imgUrl}>
-                            <img src={imgUrl} />
-                            <button onClick={(ev) => this.removeImg(ev, imgUrl)}>X</button>
-                        </div>
-                    })}
-                </div>
+            <form className="edit flex rtl" onSubmit={this.saveItem} >
                 <div className="details">
                     <div className="name">
-                        <span> name:</span>
+                        <span> שם:</span>
                         <input className="app-input" type="text" name="name" value={item.name} onChange={this.handleChange} />
                     </div>
                     <div className="subCategory">
-                        <span >Category: </span>
+                        <span >קטגוריה: </span>
                         <select className="app-input" name="category" value={item.category} onChange={this.handleChange} >
-                            <option value="shirts">Shirts</option>
-                            <option value="pants">Pants</option>
-                            <option value="accessories">Accessories</option>
+                            <option value="shirts">חולצות</option>
+                            <option value="pants">מכנסיים</option>
+                            <option value="accessories">אביזרים</option>
+                            <option value="jackets">ג'קטים</option>
                         </select>
                     </div>
                     <div className="subCategory">
-                        <span >Subcategory: </span>
+                        <span >תת קטגוריה: </span>
                         <select className="app-input" name="subcategory" value={item.subcategory} onChange={this.handleChange} >
                             {this.state[item.category].map(sub => {
                                 return <option key={sub} value={sub}>{sub}</option>
@@ -154,10 +146,20 @@ class _Edit extends Component {
                     />
 
                     <div className="price">
-                        <span >price: </span>
+                        <span >מחיר: </span>
                         <input className="app-input" type="number" name="price" value={item.price} onChange={this.handleChange} />
                     </div>
-                    <button className="app-btn">save item</button>
+                    <UploadImg uploadImg={this.onUploadImg} ></UploadImg>
+
+                    <div className="flex wrap">
+                        {item.imgUrls.map(imgUrl => {
+                            return <div key={imgUrl}>
+                                <img src={imgUrl} />
+                                <button onClick={(ev) => this.removeImg(ev, imgUrl)}>X</button>
+                            </div>
+                        })}
+                    </div>
+                    <button className="app-btn">שמור פריט</button>
                 </div>
 
             </form>

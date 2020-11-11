@@ -22,3 +22,18 @@
 .saved-changes {
     color: green;
 }
+
+
+@media(max-width:500px) {
+    .multi-options {
+        button {
+            width: fit-content;
+        }
+
+        .multi-select {
+            div {
+                max-width: 125px;
+            }
+        }
+    }
+}

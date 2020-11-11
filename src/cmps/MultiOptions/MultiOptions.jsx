@@ -43,10 +43,10 @@ export default function MultiOptions(props) {
 
     return (
 
-        <div>
+        <div className="multi-options">
 
             <div className="colors flex column">
-                colors:
+                צבעים:
                 <div onClick={props.clickedClrs}>
                     <MultiSelect
                         options={optionsColors}
@@ -57,13 +57,13 @@ export default function MultiOptions(props) {
                         hasSelectAll={false}
                     />
                 </div>
-                {!props.isClrsSaved && <div className="unsaved-changes">press save to confirm changes</div>}
-                {props.isClrsSaved && <div className="saved-changes" >changes saved</div>}
+                {!props.isClrsSaved && <div className="unsaved-changes">לחץ שמור לשמירת שינויים</div>}
+                {props.isClrsSaved && <div className="saved-changes" >שינויים נשמרו</div>}
 
-                <button className="app-btn" onClick={(ev) => props.saveColors(ev, selectedClr)}>save colors</button>
+                <button className="app-btn" onClick={(ev) => props.saveColors(ev, selectedClr)}>שמור צבעים</button>
             </div>
             <div className="sizes flex column">
-                sizes:
+                מידות:
             <div onClick={props.clickedSizes}>
                     <MultiSelect
                         options={optionsSizes}
@@ -74,9 +74,9 @@ export default function MultiOptions(props) {
                         hasSelectAll={false}
                     />
                 </div>
-                {!props.isSizesSaved && <div className="unsaved-changes">press save to confirm changes</div>}
-                {props.isSizesSaved && <div className="saved-changes">changes saved</div>}
-                <button className="app-btn" onClick={(ev) => props.saveSizes(ev, selectedSize)}>save sizes</button>
+                {!props.isSizesSaved && <div className="unsaved-changes">לחץ שמור לשמירת שינוים</div>}
+                {props.isSizesSaved && <div className="saved-changes">שינויים נשמרו</div>}
+                <button className="app-btn" onClick={(ev) => props.saveSizes(ev, selectedSize)}>שמור מידות</button>
             </div>
         </div>
     )

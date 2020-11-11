@@ -122,17 +122,8 @@ function _Details(props) {
         return tranlation
     }
 
-    // shirts: [{ he: 'חולצות פולו', en: 'Polo-Shirts' }, { he: 'טי שירט', en: 'T-shirts' }, { he: 'מכופתרות', en: 'Button-Down-Shirts' }],
-    // pants: [{ he: 'מכנסי כותנה', en: 'Cotton-Pants' }, { he: 'גינסים', en: 'jeans' }, { he: 'מכנסי אלגנט', en: 'Elegant-pants' }],
-    // accessories: [
-    //     { he: 'מעילים', en: 'Coats' }, { he: 'חליפות', en: 'Suits' }, { he: 'גרביים', en: 'Socks' }, { he: 'חגורות', en: 'Belts' },
-    //     { he: 'תחתונים', en: 'Underpants' }, { he: 'גופיות', en: 'Tank - Tops' }, { he: 'עניבות', en: 'Ties' }, { he: 'מכנס טריקו', en: 'Tricot' },
-    //     { he: 'מכנסי פוטר', en: 'Potter - shorts', }, { he: 'סוודרים', en: 'Sweaters' }, { he: 'שליקס', en: 'Shlikes' }, { he: 'ברמודות', en: 'Bermudas' },
-    //     { he: 'קרדיגן', en: 'Cardigans' }, { he: 'קפוצ\'ונים', en: 'Hoddies' }],
-
     const { item, chosenSize, chosenColor, sameCategoryItems } = state
     const { user } = props
-
     if (!item)
         return <ReactLoading className="loading" type={'spokes'} color={'#aaa'} height={50} width={50} />
     return (
@@ -165,7 +156,7 @@ function _Details(props) {
             </div>
             <div >
                 <h2 className="title-like">אתה עשוי לאהוב  </h2>
-                {<List className="flex" items={sameCategoryItems} removeItem={removeItem} toggleLike={toggleLike}   ></List>}
+                {<List className="flex" items={sameCategoryItems.slice(0, 4)} removeItem={removeItem} toggleLike={toggleLike}   ></List>}
             </div>
         </section>
     )

@@ -10,20 +10,19 @@ import './Main.scss'
 import utilService from '../../services/utilService'
 function _Main(props) {
 
-    const [state, setState] = useState({ subcategory: '' })
+    const [state, setState] = useState({ category: '' })
 
     useEffect(() => {
-        const { subcategory } = props.match.params
-        setState({ subcategory })
+        const { category } = props.match.params
+        console.log({ category });
+        setState({ category })
         return () => {
             props.setFilter(null)
         }
     }, [props.match.params])
 
-
     useEffect(() => {
         window.scrollTo(0, 0)
-
     }, [])
 
     async function toggleLike(ev, liked, item) {
@@ -56,12 +55,12 @@ function _Main(props) {
 
 
     let { items, user } = props
-    const { subcategory } = state
+    const { category } = state
     return (
         <main>
-            <Filter subcategory={subcategory} setFilter={setFilter}></Filter>
-            { items && <List items={items} toggleLike={toggleLike} removeItem={removeItem} ></List>}
+            <Filter category={category} setFilter={setFilter}></Filter>
             { user && user.isAdmin && < Link className="app-btn" to="/item/edit" replace={true}  >  הוסף מוצר</Link>}
+            { items && <List items={items} toggleLike={toggleLike} removeItem={removeItem} ></List>}
         </main>
 
     )

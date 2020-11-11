@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from "react-router-dom";
-import { loadItems } from '../../actions/itemActions'
+import { loadItems, removeItem } from '../../actions/itemActions'
 //imgs
 import shirt from '../../assets/samples/shirt-test.jpeg';
 //components
@@ -10,35 +10,43 @@ import { setUser, saveUser } from '../../actions/userActions'
 import './Home.scss'
 //services
 import utilService from '../../services/utilService'
+import userService from '../../services/userService';
 class _Home extends Component {
     state = {
         types: [
-
             {
-                str: { he: 'טי שירט', en: "T-Shirts" },
+                str: { he: 'חולצות', en: "shirts" },
                 img: shirt
             },
 
             {
-                str: { he: 'מעילים', en: 'Coats' },
+                str: { he: 'מכנסיים', en: 'pants' },
                 img: shirt
             },
             {
-                str: { he: 'עניבות', en: 'Ties' },
+                str: { he: 'ג\'קטים', en: 'jackets' },
                 img: shirt
             },
             {
-                str: { he: 'גינסים', en: 'Jeans' },
+                str: { he: 'אביזרים', en: 'accessories' },
                 img: shirt
             },
-        ]
+        ],
+        zion: null
     }
 
     componentDidMount() {
         window.scrollTo(0, 0)
         this.props.loadItems()
+        this.getZion()
     }
 
+
+    async getZion() {
+        const zion = await userService.getZion()
+        this.setState(state => ({ ...state, zion }))
+
+    }
 
     toggleLike = async (ev, liked, item) => {
         ev.preventDefault()
@@ -56,28 +64,32 @@ class _Home extends Component {
         await this.props.setUser()
     }
 
+    removeItem = async (id) => {
+        await this.props.removeItem(id)
+    }
+
     render() {
-        const { items } = this.props
-        console.log({ items });
+        const { items, user } = this.props
+        const { zion } = this.state
         return (
             <section className="home rtl">
-                <div className="hero-background"></div>
+                { zion && <div style={{ backgroundImage: `url(${this.state.zion.mainImg})` }} className="hero-background"></div>}
+                {/* {this.state.zion && <img className="hero-background" src={this.state.zion.mainImg} />} */}
                 <h2>קטגוריות</h2>
                 <div className="types flex">
-                    {this.state.types.map(type => {
+                    {this.state.types.map((type, idx) => {
                         return <Link key={type.str.en} to={'shop/' + type.str.en} className="browse-type">
-                            <img src={type.img} />
+                            {zion && <img src={zion.mainCategories[idx]} />}
                             <h3 className="tag">{type.str.he}</h3>
                         </Link>
                     })}
                 </div>
                 <h3>הפרטים הנמכרים ביותר  </h3>
-                { items && <List toggleLike={this.toggleLike} items={items.slice(items.length - 8)} ></List>}
+                { items && <List toggleLike={this.toggleLike} removeItem={this.removeItem} items={items.slice(0 - 4)} ></List>}
             </section >
         );
     }
 }
-
 
 function mapStateProps(state) {
     return {
@@ -87,6 +99,7 @@ function mapStateProps(state) {
 }
 // Takes the action dispatchers from the actions file and puts them inside the component's props
 const mapDispatchToProps = {
+    removeItem,
     loadItems,
     setUser,
     saveUser

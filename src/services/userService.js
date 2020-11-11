@@ -12,7 +12,8 @@ export default {
     sendMails,
     forgotPassword,
     getUserIdByToken,
-    savePassword
+    savePassword,
+    getZion
 }
 
 
@@ -22,6 +23,11 @@ let loggedinUser = null
 async function getUser() {
     return await httpService.get('user/logged')
 }
+
+async function getZion() {
+    return await httpService.get(`user/zion`)
+}
+
 
 async function getUserIdByToken(token) {
     return await httpService.get(`user/token` + `?token=${token}`)
@@ -79,3 +85,6 @@ async function updateUser(user) {
 async function addTocart(item) {
     return await httpService.post(`user/cart/`, item)
 }
+
+
+

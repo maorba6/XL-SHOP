@@ -24,9 +24,17 @@ function _Preview(props) {
         }
     }, [user])
 
+
+    function onRemoveItem(ev, itemId) {
+        if (liked) {
+            toggleLike(ev, liked, item)
+        }
+        removeItem(itemId)
+    }
+
     return (
         <div className="preview flex">
-            {user && user.isAdmin && <p className="delete-item" onClick={() => removeItem(item._id)} >X</p>}
+            {user && user.isAdmin && <p className="delete-item" onClick={(ev) => onRemoveItem(ev, item._id)} >X</p>}
             <Link to={`/item/${item._id}`} >
                 <img className="img-item" src={item.imgUrls[0]} />
                 <div className="flex column">
@@ -35,7 +43,6 @@ function _Preview(props) {
                         <p className="item-price rtl"> מחיר: ₪{item.price}</p>
                         {liked && <HeartColor className="heart-img red" onClick={(ev) => toggleLike(ev, liked, item)} ></HeartColor>}
                         {!liked && <HeartWhite className="heart-img " onClick={(ev) => toggleLike(ev, liked, item)} ></HeartWhite>}
-                        {/* <img onClick={(ev) => toggleLike(ev, liked, item)} className="heart-img" src={liked ? blackHeart : emptyHeart} alt="LOVE" /> */}
                     </div>
                 </div>
             </Link>

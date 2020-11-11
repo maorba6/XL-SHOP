@@ -5,7 +5,7 @@ import { saveUser, setUser } from '../../actions/userActions'
 //cmps
 import UserAccount from '../../cmps/UserAccount/UserAccount'
 import UserOrders from '../../cmps/UserOrders/UserOrders'
-import UserFavs from '../../cmps/UserFavs/UserFavs'
+import { UserFavs } from '../../cmps/UserFavs/UserFavs'
 import UserEdit from '../../cmps/UserEdit/UserEdit'
 //services
 import utilService from '../../services/utilService';
@@ -18,14 +18,13 @@ function _Profile(props) {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        if (user) {
-            history.push('/login')
+        if (!user) {
+            history.push('/')
         }
     }, [])
 
     function setCurrent(current) {
         setState(state => ({ ...state, current }))
-
     }
 
     useEffect(() => {

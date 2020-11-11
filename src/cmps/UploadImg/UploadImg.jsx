@@ -1,5 +1,6 @@
 import React from 'react'
 import { uploadImg } from '../../services/uploadImg.js'
+import './UploadImg.scss'
 export default function UploadImg(props) {
 
     async function showImgUrl(event) {
@@ -9,7 +10,7 @@ export default function UploadImg(props) {
     }
     return (
         <div>
-            <input type="file" onChange={(event) => showImgUrl(event)} />
+            <input className="upload-inp" type="file" onChange={(event) => showImgUrl(event)} />
         </div>
     )
 }

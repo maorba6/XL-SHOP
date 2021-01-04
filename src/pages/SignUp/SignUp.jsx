@@ -24,11 +24,11 @@ class _SignUp extends Component {
   signup = async (ev) => {
     ev.preventDefault()
     const { password, email, fname, lname } = this.state.user
-    const isPasswordValid = this.validatePassword(password)
-    if (!isPasswordValid) {
-      utilService.swal('center', 2500, 'error', 'סיסמא חלשה מידי')
-      return
-    }
+    // const isPasswordValid = this.validatePassword(password)
+    // if (!isPasswordValid) {
+    //   utilService.swal('center', 2500, 'error', 'סיסמא חלשה מידי')
+    //   return
+    // }
     if (!email || !fname || !lname) {
       utilService.swal('center', 2500, 'error', 'מלא את כל הפרטים')
       return

@@ -19,5 +19,4 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-
-// מאור הינני כאן רואה אותי?
+//04/01/2021

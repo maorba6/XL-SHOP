@@ -34,7 +34,8 @@ export default function InputPassword(props) {
             {state.showTerms && <p className="pass-terms">
                 הסיסמא חייבת להכיל לפחות 8 תווים, מספרים, אות אחת קטנה ואות גדולה באנגלית.
                 </p>}
-            <label className="label-password">     סיסמא  <InfoSvg title="info" className="svg" onClick={(ev) => toggleShowPassTerms(ev)}>     </InfoSvg> </label>
+            {/* <InfoSvg title="info" className="svg" onClick={(ev) => toggleShowPassTerms(ev)}>     </InfoSvg>  */}
+            <label className="label-password">     סיסמא  </label>
             <div className="password-container flex">
                 <input className="input-password" name="password" value={props.user.password} onChange={(ev) => props.handleChange(ev)} type={state.inputType} />
                 <img className="img-togglePassword" onClick={() => toggleShowPassword()} src={state.togglePassword} />

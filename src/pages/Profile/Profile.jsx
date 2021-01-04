@@ -41,12 +41,11 @@ function _Profile(props) {
             return
         }
         if (editedUser.newPass && editedUser.currPass && editedUser.newPassConfirm) {
-            const isPasswordValid = validatePassword(editedUser.newPass)
-            if (!isPasswordValid) {
-                utilService.swal('center', 2500, 'error', 'סיסמא חלשה')
-
-                return
-            }
+            // const isPasswordValid = validatePassword(editedUser.newPass)
+            // if (!isPasswordValid) {
+            //     utilService.swal('center', 2500, 'error', 'סיסמא חלשה')
+            //     return
+            // }
             if (editedUser.newPass !== editedUser.newPassConfirm) {
                 utilService.swal('center', 2500, 'error', 'סיסמאות לא תואמות')
 

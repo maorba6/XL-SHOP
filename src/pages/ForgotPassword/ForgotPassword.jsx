@@ -43,12 +43,11 @@ export function _ForgotPassword(props) {
 
     function savePassword(ev) {
         ev.preventDefault()
-        const isPasswordValid = validatePassword(state.user.newPass)
-        if (!isPasswordValid) {
-            utilService.swal('center',2500,'error','סיסמא חלשה מידי')
-
-            return
-        }
+        // const isPasswordValid = validatePassword(state.user.newPass)
+        // if (!isPasswordValid) {
+        //     utilService.swal('center',2500,'error','סיסמא חלשה מידי')
+        //     return
+        // }
         if (state.user.newPass !== state.user.confirmNewPass) {
             utilService.swal('center',2500,'error','סיסמאות לא תואמות')
             return

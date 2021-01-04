@@ -12,8 +12,6 @@ export default function UploadImg(props) {
 
 
     function testImg(base64){
-        console.log('hi');
-        console.log(base64.base64);
         props.uploadImg(base64.base64)
     }
 

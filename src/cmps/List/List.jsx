@@ -8,6 +8,7 @@ export function List({ items, removeItem, toggleLike }) {
             {items && < div className="item-list">
                 {
                     items.map(item =>
+                        //להוסיף קומפוננטת טעינה
                         < Preview key={item._id} item={item} toggleLike={toggleLike} removeItem={removeItem} />
                     )
                 }
